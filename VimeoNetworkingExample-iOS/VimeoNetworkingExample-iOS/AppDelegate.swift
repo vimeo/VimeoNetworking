@@ -21,6 +21,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
         
+        let sessionManager = VimeoSessionManager(sessionConfiguration: NSURLSessionConfiguration.defaultSessionConfiguration(), authToken: "6f80bbebdeb537d0adc8d415526ecf66")
+        
+        let client = VimeoClient(sessionManager: sessionManager)
+        
+        let request = Request<VIMUser>.meRequest()
+        
+        client.request(request) { result in
+            switch result
+            {
+            case .Success(let user):
+                print("successfully retrieved user: \(user)")
+                print("user bio \(user.bio ?? "🤔")")
+            case .Failure(let error):
+                print("request error: \(error)")
+            }
+        }
+        
+        let followingRequest = Request<[VIMUser]>.meFollowingRequest()
+        
+        client.request(followingRequest) { (result) in
+            switch result
+            {
+            case .Success(let users):
+                print("successfully retrieved users: \(users)")
+                print("user bio \(users.first?.bio ?? "🤔")")
+            case .Failure(let error):
+                print("request error: \(error)")
+            }
+        }
+        
         return true
     }
 

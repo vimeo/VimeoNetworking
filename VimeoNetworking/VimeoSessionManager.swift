@@ -25,9 +25,8 @@
 //
 
 import Foundation
-import AFNetworking
 
-typealias AuthTokenBlock = () -> String?
+typealias AuthTokenBlock = Void -> String?
 
 class VimeoSessionManager: AFHTTPSessionManager
 {    

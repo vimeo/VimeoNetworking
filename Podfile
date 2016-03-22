@@ -1,8 +1,8 @@
-use_frameworks!
-
-workspace 'VimeoNetworking'
+# use_frameworks!
 
 xcodeproj 'VimeoNetworkingExample-iOS/VimeoNetworkingExample-iOS.xcodeproj'
+
+workspace 'VimeoNetworking'
 
 def shared_pods
     pod 'VIMObjectMapper', '6.0.0'
@@ -12,6 +12,8 @@ end
 
 target 'VimeoNetworkingExample-iOS' do
 	shared_pods
+
+	xcodeproj 'VimeoNetworkingExample-iOS/VimeoNetworkingExample-iOS.xcodeproj'
 end
 
 target 'VimeoNetworkingExample-iOSTests' do
