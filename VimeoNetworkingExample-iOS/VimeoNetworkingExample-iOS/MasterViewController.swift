@@ -28,7 +28,11 @@ class MasterViewController: UITableViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+        if #available(iOS 8.0, *) {
+            self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
+        } else {
+            // Fallback on earlier versions
+        }
         super.viewWillAppear(animated)
     }
 
@@ -51,7 +55,11 @@ class MasterViewController: UITableViewController {
                 let object = objects[indexPath.row] as! NSDate
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                if #available(iOS 8.0, *) {
+                    controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                } else {
+                    // Fallback on earlier versions
+                }
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }

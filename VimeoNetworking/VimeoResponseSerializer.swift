@@ -26,7 +26,7 @@
 
 import Foundation
 
-class VimeoResponseSerializer: AFJSONResponseSerializer
+final class VimeoResponseSerializer: AFJSONResponseSerializer
 {
     private static let ErrorDomain = "VimeoResponseSerializerErrorDomain"
     
@@ -154,11 +154,18 @@ class VimeoResponseSerializer: AFJSONResponseSerializer
             "text/json",
             "text/html",
             "text/javascript",
-            "application/vnd.vimeo.*+json",
-            "application/vnd.vimeo.user+json",
             "application/vnd.vimeo.video+json",
+            "application/vnd.vimeo.cover+json",
+            "application/vnd.vimeo.service+json",
+            "application/vnd.vimeo.comment+json",
+            "application/vnd.vimeo.user+json",
+            "application/vnd.vimeo.picture+json",
+            "application/vnd.vimeo.activity+json",
+            "application/vnd.vimeo.uploadticket+json",
             "application/vnd.vimeo.error+json",
-            "application/vnd.vimeo.uploadticket+json"]
+            "application/vnd.vimeo.trigger+json",
+            "application/vnd.vimeo.category+json",
+            "application/vnd.vimeo.channel+json"]
         )
     }
 }

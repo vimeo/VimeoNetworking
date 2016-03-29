@@ -8,6 +8,8 @@
 
 import Foundation
 
+private let DefaultModelKeyPath = "data"
+
 protocol Mappable
 {
     static var mappingClass: AnyClass? { get }
@@ -49,7 +51,7 @@ extension Array: Mappable
     {
         if Element.self is VIMModelObject.Type
         {
-            return "data"
+            return DefaultModelKeyPath
         }
         
         return nil

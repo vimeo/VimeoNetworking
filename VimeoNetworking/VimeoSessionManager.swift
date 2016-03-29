@@ -26,56 +26,15 @@
 
 import Foundation
 
-typealias AuthTokenBlock = Void -> String?
-
-class VimeoSessionManager: AFHTTPSessionManager
-{    
-    // MARK: - Default Session Initialization
-    
-    static func defaultSessionManager(authToken authToken: String) -> VimeoSessionManager
-    {
-        let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        
-        return VimeoSessionManager(sessionConfiguration: sessionConfiguration, authToken: authToken)
-    }
-
-    static func defaultSessionManager(authTokenBlock authTokenBlock: AuthTokenBlock) -> VimeoSessionManager
-    {
-        let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        
-        return VimeoSessionManager(sessionConfiguration: sessionConfiguration, authTokenBlock: authTokenBlock)
-    }
-
-    // MARK: - Background Session Initialization
-    
-    static func backgroundSessionManager(identifier identifier: String, authToken: String) -> VimeoSessionManager
-    {
-        let sessionConfiguration = VimeoSessionManager.backgroundSessionConfiguration(identifier: identifier)
-        
-        return VimeoSessionManager(sessionConfiguration: sessionConfiguration, authToken: authToken)
-    }
-
-    static func backgroundSessionManager(identifier identifier: String, authTokenBlock: AuthTokenBlock) -> VimeoSessionManager
-    {
-        let sessionConfiguration = VimeoSessionManager.backgroundSessionConfiguration(identifier: identifier)
-        
-        return VimeoSessionManager(sessionConfiguration: sessionConfiguration, authTokenBlock: authTokenBlock)
-    }
-
+final class VimeoSessionManager: AFHTTPSessionManager
+{
     // MARK: Initialization
     
-    convenience init(sessionConfiguration: NSURLSessionConfiguration, authToken: String)
-    {
-        self.init(sessionConfiguration: sessionConfiguration, authTokenBlock: { () -> String in
-            return authToken
-        })
-    }
-    
-    init(sessionConfiguration: NSURLSessionConfiguration, authTokenBlock: AuthTokenBlock)
+    init(sessionConfiguration: NSURLSessionConfiguration, requestSerializer: VimeoRequestSerializer)
     {        
         super.init(baseURL: VimeoBaseURLString, sessionConfiguration: sessionConfiguration)
         
-        self.requestSerializer = VimeoRequestSerializer(authTokenBlock: authTokenBlock)
+        self.requestSerializer = requestSerializer
         self.responseSerializer = VimeoResponseSerializer()
     }
     
@@ -83,24 +42,34 @@ class VimeoSessionManager: AFHTTPSessionManager
     {
         fatalError("init(coder:) has not been implemented")
     }
-        
-    // MARK: Private API
     
-    // Would prefer that this live in a NSURLSessionConfiguration extension but the method name would conflict [AH] 2/5/2016
+    // MARK: - Authentication
     
-    private static func backgroundSessionConfiguration(identifier identifier: String) -> NSURLSessionConfiguration
+    private var account: VIMAccountNew?
+    
+    var authenticatedUser: VIMUser?
     {
-        let sessionConfiguration: NSURLSessionConfiguration
+        return self.account?.user
+    }
+    var isAuthenticated: Bool
+    {
+        return self.account?.isAuthenticated() ?? false
+    }
+    var isAuthenticatedWithUser: Bool
+    {
+        return self.account?.isAuthenticatedWithUser() ?? false
+    }
+    var isAuthenticatedWithClientCredentials: Bool
+    {
+        return self.account?.isAuthenticatedWithClientCredentials() ?? false
+    }
+    
+    func authenticate(account account: VIMAccountNew)
+    {
+        self.account = account
         
-        if #available(iOS 8.0, OSX 10.10, *)
-        {
-            sessionConfiguration = NSURLSessionConfiguration.backgroundSessionConfigurationWithIdentifier(identifier)
-        }
-        else
-        {
-            sessionConfiguration = NSURLSessionConfiguration.backgroundSessionConfiguration(identifier)
-        }
-
-        return sessionConfiguration
+        self.requestSerializer = VimeoRequestSerializer(accessTokenProvider: { [weak self] in
+            return self?.account?.accessToken
+        })
     }
 }

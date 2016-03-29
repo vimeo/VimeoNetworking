@@ -15,6 +15,11 @@
 		013250D21C9C909600ECB783 /* digicert-sha2.cer in Resources */ = {isa = PBXBuildFile; fileRef = 013250D11C9C909600ECB783 /* digicert-sha2.cer */; };
 		013250DA1CA0724900ECB783 /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013250D91CA0724900ECB783 /* AuthenticationController.swift */; };
 		013250DC1CA07EE800ECB783 /* VimeoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013250DB1CA07EE800ECB783 /* VimeoClient.swift */; };
+		0140F9381CA2F0FD007FF547 /* Request+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140F9371CA2F0FD007FF547 /* Request+Authentication.swift */; };
+		0140F93A1CA2FAD1007FF547 /* Scope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140F9391CA2FAD1007FF547 /* Scope.swift */; };
+		0140F93C1CA30A20007FF547 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0140F93B1CA30A20007FF547 /* Result.swift */; };
+		0141C54E1CA444C600B60639 /* AccountStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141C54D1CA444C600B60639 /* AccountStore.swift */; };
+		0141C5501CA45ECC00B60639 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0141C54F1CA45ECC00B60639 /* KeychainStore.swift */; };
 		018B9F9A1C9B34050054650E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018B9F991C9B34050054650E /* AppDelegate.swift */; };
 		018B9F9C1C9B34050054650E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018B9F9B1C9B34050054650E /* MasterViewController.swift */; };
 		018B9F9E1C9B34050054650E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018B9F9D1C9B34050054650E /* DetailViewController.swift */; };
@@ -25,8 +30,11 @@
 		018B9FBC1C9B34050054650E /* VimeoNetworkingExample_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018B9FBB1C9B34050054650E /* VimeoNetworkingExample_iOSUITests.swift */; };
 		018B9FD51C9B37380054650E /* VimeoNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018B9FD41C9B37380054650E /* VimeoNetworking.swift */; };
 		0197B6B81CA1E0F8000A2901 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0197B6B71CA1E0F8000A2901 /* Request.swift */; };
-		0197B6BA1CA1E10E000A2901 /* Request+Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0197B6B91CA1E10E000A2901 /* Request+Me.swift */; };
+		0197B6BA1CA1E10E000A2901 /* Request+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0197B6B91CA1E10E000A2901 /* Request+User.swift */; };
 		0197B6BF1CA1E329000A2901 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0197B6BE1CA1E329000A2901 /* Mappable.swift */; };
+		01BAE9291CA98507004CB214 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BAE9281CA98507004CB214 /* AppConfiguration.swift */; };
+		01BAE92B1CAADA6F004CB214 /* VimeoSessionManager+Constructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BAE92A1CAADA6F004CB214 /* VimeoSessionManager+Constructors.swift */; };
+		01BAE92D1CAB00CB004CB214 /* String+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BAE92C1CAB00CB004CB214 /* String+Utilities.swift */; };
 		45F242743B87891F1E6BCB7D /* libPods-VimeoNetworkingExample-iOSUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C9864F4173C8CDA21F4D13 /* libPods-VimeoNetworkingExample-iOSUITests.a */; };
 		5AB4C5B219AE98C1BEDDB67D /* libPods-VimeoNetworkingExample-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A14B0BA3B8B7BAC0DF30E3 /* libPods-VimeoNetworkingExample-iOS.a */; };
 		95603D88824C1D08A241E0D3 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
@@ -60,6 +68,11 @@
 		013250D11C9C909600ECB783 /* digicert-sha2.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digicert-sha2.cer"; sourceTree = "<group>"; };
 		013250D91CA0724900ECB783 /* AuthenticationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		013250DB1CA07EE800ECB783 /* VimeoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimeoClient.swift; sourceTree = "<group>"; };
+		0140F9371CA2F0FD007FF547 /* Request+Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Authentication.swift"; sourceTree = "<group>"; };
+		0140F9391CA2FAD1007FF547 /* Scope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scope.swift; sourceTree = "<group>"; };
+		0140F93B1CA30A20007FF547 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		0141C54D1CA444C600B60639 /* AccountStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountStore.swift; sourceTree = "<group>"; };
+		0141C54F1CA45ECC00B60639 /* KeychainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
 		018B9F961C9B34050054650E /* VimeoNetworkingExample-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VimeoNetworkingExample-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		018B9F991C9B34050054650E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		018B9F9B1C9B34050054650E /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -76,8 +89,11 @@
 		018B9FBD1C9B34050054650E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		018B9FD41C9B37380054650E /* VimeoNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimeoNetworking.swift; sourceTree = "<group>"; };
 		0197B6B71CA1E0F8000A2901 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		0197B6B91CA1E10E000A2901 /* Request+Me.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Me.swift"; sourceTree = "<group>"; };
+		0197B6B91CA1E10E000A2901 /* Request+User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+User.swift"; sourceTree = "<group>"; };
 		0197B6BE1CA1E329000A2901 /* Mappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
+		01BAE9281CA98507004CB214 /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		01BAE92A1CAADA6F004CB214 /* VimeoSessionManager+Constructors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VimeoSessionManager+Constructors.swift"; sourceTree = "<group>"; };
+		01BAE92C1CAB00CB004CB214 /* String+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utilities.swift"; sourceTree = "<group>"; };
 		097D1643FEAE7486DB0CB7D6 /* Pods-VimeoNetworkingExample-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworkingExample-iOSTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-VimeoNetworkingExample-iOSTests/Pods-VimeoNetworkingExample-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		128A8B3EE78B0F2F924E5E24 /* Pods-VimeoNetworkingExample-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworkingExample-iOS.release.xcconfig"; path = "../Pods/Target Support Files/Pods-VimeoNetworkingExample-iOS/Pods-VimeoNetworkingExample-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		36C9864F4173C8CDA21F4D13 /* libPods-VimeoNetworkingExample-iOSUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VimeoNetworkingExample-iOSUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,12 +142,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		013250D41C9C917100ECB783 /* Extensions */ = {
+		013250D41C9C917100ECB783 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				01BAE92C1CAB00CB004CB214 /* String+Utilities.swift */,
+				01BAE9281CA98507004CB214 /* AppConfiguration.swift */,
+				0140F93B1CA30A20007FF547 /* Result.swift */,
 				013250CF1C9C8D6A00ECB783 /* NSError+Extensions.swift */,
 			);
-			name = Extensions;
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		013250D51C9C917800ECB783 /* Networking */ = {
@@ -141,6 +160,7 @@
 				013250C91C9C838700ECB783 /* VimeoResponseSerializer.swift */,
 				013250CA1C9C838700ECB783 /* VimeoSessionManager.swift */,
 				013250DB1CA07EE800ECB783 /* VimeoClient.swift */,
+				01BAE92A1CAADA6F004CB214 /* VimeoSessionManager+Constructors.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -149,6 +169,9 @@
 			isa = PBXGroup;
 			children = (
 				013250D91CA0724900ECB783 /* AuthenticationController.swift */,
+				0140F9391CA2FAD1007FF547 /* Scope.swift */,
+				0141C54D1CA444C600B60639 /* AccountStore.swift */,
+				0141C54F1CA45ECC00B60639 /* KeychainStore.swift */,
 			);
 			name = Authentication;
 			sourceTree = "<group>";
@@ -217,9 +240,9 @@
 				013250D31C9C916500ECB783 /* Resources */,
 				013250D51C9C917800ECB783 /* Networking */,
 				0197B6B61CA1E0B6000A2901 /* Requests */,
-				0197B6BD1CA1E317000A2901 /* Protocols */,
 				013250D61CA05FF400ECB783 /* Authentication */,
-				013250D41C9C917100ECB783 /* Extensions */,
+				0197B6BD1CA1E317000A2901 /* Protocols */,
+				013250D41C9C917100ECB783 /* Utilities */,
 			);
 			name = VimeoNetworking;
 			path = ../VimeoNetworking;
@@ -229,7 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				0197B6B71CA1E0F8000A2901 /* Request.swift */,
-				0197B6B91CA1E10E000A2901 /* Request+Me.swift */,
+				0197B6B91CA1E10E000A2901 /* Request+User.swift */,
+				0140F9371CA2F0FD007FF547 /* Request+Authentication.swift */,
 			);
 			name = Requests;
 			sourceTree = "<group>";
@@ -528,18 +552,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0140F93A1CA2FAD1007FF547 /* Scope.swift in Sources */,
+				01BAE92B1CAADA6F004CB214 /* VimeoSessionManager+Constructors.swift in Sources */,
 				013250D01C9C8D6A00ECB783 /* NSError+Extensions.swift in Sources */,
 				0197B6BF1CA1E329000A2901 /* Mappable.swift in Sources */,
 				013250CC1C9C838700ECB783 /* VimeoRequestSerializer.swift in Sources */,
+				01BAE92D1CAB00CB004CB214 /* String+Utilities.swift in Sources */,
 				013250CD1C9C838700ECB783 /* VimeoResponseSerializer.swift in Sources */,
 				013250DC1CA07EE800ECB783 /* VimeoClient.swift in Sources */,
+				01BAE9291CA98507004CB214 /* AppConfiguration.swift in Sources */,
 				013250CB1C9C838700ECB783 /* Constants.swift in Sources */,
+				0140F9381CA2F0FD007FF547 /* Request+Authentication.swift in Sources */,
 				013250CE1C9C838700ECB783 /* VimeoSessionManager.swift in Sources */,
 				018B9FD51C9B37380054650E /* VimeoNetworking.swift in Sources */,
 				018B9F9E1C9B34050054650E /* DetailViewController.swift in Sources */,
 				013250DA1CA0724900ECB783 /* AuthenticationController.swift in Sources */,
 				0197B6B81CA1E0F8000A2901 /* Request.swift in Sources */,
-				0197B6BA1CA1E10E000A2901 /* Request+Me.swift in Sources */,
+				0197B6BA1CA1E10E000A2901 /* Request+User.swift in Sources */,
+				0141C5501CA45ECC00B60639 /* KeychainStore.swift in Sources */,
+				0140F93C1CA30A20007FF547 /* Result.swift in Sources */,
+				0141C54E1CA444C600B60639 /* AccountStore.swift in Sources */,
 				018B9F9C1C9B34050054650E /* MasterViewController.swift in Sources */,
 				018B9F9A1C9B34050054650E /* AppDelegate.swift in Sources */,
 			);
@@ -687,6 +719,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "VimeoNetworkingExample-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vimeo.VimeoNetworkingExample-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -700,6 +733,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "VimeoNetworkingExample-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vimeo.VimeoNetworkingExample-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
