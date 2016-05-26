@@ -141,7 +141,7 @@ NSString *VIMContentRating_Safe = @"safe";
 
 #pragma mark - Model Validation
 
-- (void)validateModel:(NSError *__autoreleasing *)error
+- (void)validateModel:(NSError **)error
 {
     [super validateModel:error];
     

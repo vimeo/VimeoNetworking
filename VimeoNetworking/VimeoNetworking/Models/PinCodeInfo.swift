@@ -6,8 +6,6 @@
 //  Copyright © 2016 Vimeo. All rights reserved.
 //
 
-import Foundation
-
 public class PinCodeInfo: VIMModelObject
 {
     dynamic public var deviceCode: String?
