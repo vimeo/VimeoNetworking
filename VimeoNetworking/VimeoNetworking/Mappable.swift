@@ -21,7 +21,12 @@ public protocol MappableResponse
         /// Optionally returns a nested JSON key to reference for mapping
     static var modelKeyPath: String? { get }
     
-    func validateModel() throws
+//    internal func validateModel() throws
+}
+
+internal extension MappableResponse
+{
+    func validateModel() throws { }
 }
 
 /**
@@ -39,7 +44,7 @@ extension VIMModelObject: MappableResponse
         return nil
     }
     
-    public func validateModel() throws
+    internal func validateModel() throws
     {
         var error: NSError? = nil
         
@@ -82,7 +87,7 @@ extension Array: MappableResponse
         return nil
     }
     
-    public func validateModel() throws
+    internal func validateModel() throws
     {
         for model in self
         {

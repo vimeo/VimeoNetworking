@@ -26,8 +26,6 @@
 
 @import Foundation;
 
-@class VIMObjectMapping;
-
 @interface VIMObjectMapper : NSObject
 
 - (void)addMappingClass:(Class)mappingClass forKeypath:(NSString *)keypath;

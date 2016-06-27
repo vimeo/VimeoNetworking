@@ -6,7 +6,7 @@
 //  Copyright © 2016 Vimeo. All rights reserved.
 //
 
-#import "ObjC_ExceptionCatcher.h"
+#import "Objc_ExceptionCatcher.h"
 
 @implementation ObjC_ExceptionCatcher
 
