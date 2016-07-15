@@ -55,7 +55,7 @@ final public class VimeoRequestSerializer: AFHTTPRequestSerializer
      
      - returns: an initialized `VimeoRequestSerializer`
      */
-    init(accessTokenProvider: AccessTokenProvider, apiVersion: String = VimeoDefaultAPIVersionString)
+    public init(accessTokenProvider: AccessTokenProvider, apiVersion: String = VimeoDefaultAPIVersionString)
     {
         self.accessTokenProvider = accessTokenProvider
         self.appConfiguration = nil
@@ -72,7 +72,7 @@ final public class VimeoRequestSerializer: AFHTTPRequestSerializer
      
      - returns: an initialized `VimeoRequestSerializer`
      */
-    init(appConfiguration: AppConfiguration)
+    public init(appConfiguration: AppConfiguration)
     {
         self.accessTokenProvider = nil
         self.appConfiguration = appConfiguration
