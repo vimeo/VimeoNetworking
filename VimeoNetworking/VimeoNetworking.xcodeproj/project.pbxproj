@@ -95,6 +95,7 @@
 		01FD394C1CC9497900326408 /* VIMUploadQuota.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FD394A1CC9497900326408 /* VIMUploadQuota.m */; };
 		3C87D73C1D2C33C7005D760B /* NSErrorExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87D73B1D2C33C7005D760B /* NSErrorExtensionTests.swift */; };
 		3C89D2711D3947EC00AEDEC9 /* VimeoJSONRequestSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C89D2701D3947EC00AEDEC9 /* VimeoJSONRequestSerializer.swift */; };
+		3C89D2731D39872E00AEDEC9 /* AccessTokenProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C89D2721D39872E00AEDEC9 /* AccessTokenProviderProtocol.swift */; };
 		3C91DA341CCFEBF200DCF8BD /* VIMSoundtrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C91DA321CCFEBF200DCF8BD /* VIMSoundtrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3C91DA351CCFEBF200DCF8BD /* VIMSoundtrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C91DA331CCFEBF200DCF8BD /* VIMSoundtrack.m */; };
 		3C91DA3A1CCFF27900DCF8BD /* Request+Soundtrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C91DA371CCFEFB300DCF8BD /* Request+Soundtrack.swift */; };
@@ -207,6 +208,7 @@
 		0AF246275B609406583D4109 /* Pods_VimeoNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VimeoNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C87D73B1D2C33C7005D760B /* NSErrorExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSErrorExtensionTests.swift; sourceTree = "<group>"; };
 		3C89D2701D3947EC00AEDEC9 /* VimeoJSONRequestSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VimeoJSONRequestSerializer.swift; path = VimeoNetworking/VimeoJSONRequestSerializer.swift; sourceTree = "<group>"; };
+		3C89D2721D39872E00AEDEC9 /* AccessTokenProviderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessTokenProviderProtocol.swift; path = VimeoNetworking/AccessTokenProviderProtocol.swift; sourceTree = "<group>"; };
 		3C91DA321CCFEBF200DCF8BD /* VIMSoundtrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIMSoundtrack.h; path = VimeoNetworking/Models/VIMSoundtrack.h; sourceTree = "<group>"; };
 		3C91DA331CCFEBF200DCF8BD /* VIMSoundtrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIMSoundtrack.m; path = VimeoNetworking/Models/VIMSoundtrack.m; sourceTree = "<group>"; };
 		3C91DA371CCFEFB300DCF8BD /* Request+Soundtrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Request+Soundtrack.swift"; path = "VimeoNetworking/Request+Soundtrack.swift"; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				01FD38D31CC948F200326408 /* VimeoSessionManager+Constructors.swift */,
 				01FD38D01CC948F200326408 /* VimeoRequestSerializer.swift */,
 				01FD38D11CC948F200326408 /* VimeoResponseSerializer.swift */,
+				3C89D2721D39872E00AEDEC9 /* AccessTokenProviderProtocol.swift */,
 			);
 			name = Session;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				016259C11CD017170004D4AF /* Request+Category.swift in Sources */,
 				016259C21CD017170004D4AF /* Request+Channel.swift in Sources */,
 				01FD39081CC948F200326408 /* Result.swift in Sources */,
+				3C89D2731D39872E00AEDEC9 /* AccessTokenProviderProtocol.swift in Sources */,
 				01FD39141CC948F300326408 /* VIMAppeal.m in Sources */,
 				01FD39061CC948F200326408 /* Response.swift in Sources */,
 				01FD392E1CC948F300326408 /* VIMPreference.m in Sources */,

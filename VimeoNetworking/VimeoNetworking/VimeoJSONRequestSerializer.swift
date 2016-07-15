@@ -30,12 +30,10 @@ import AFNetworking
 
 /** `VimeoJSONRequestSerializer` is an `AFJSONRequestSerializer` that primarily handles adding Vimeo-specific authorization headers to outbound requests.  It can be initialized with either a dynamic `AccessTokenProvider` or a static `AppConfiguration`.
  */
-final public class VimeoJSONRequestSerializer: AFJSONRequestSerializer
+final public class VimeoJSONRequestSerializer: AFJSONRequestSerializer, AccessTokenProviderProtocol
 {
     private static let AcceptHeaderKey = "Accept"
     private static let AuthorizationHeaderKey = "Authorization"
-    
-    public typealias AccessTokenProvider = Void -> String?
     
     // MARK: 
     

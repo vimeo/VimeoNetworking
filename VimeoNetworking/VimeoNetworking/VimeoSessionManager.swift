@@ -64,7 +64,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager
      */
     func clientDidAuthenticateWithAccount(account: VIMAccount)
     {
-        guard let requestSerializer = self.requestSerializer as? VimeoRequestSerializer
+        guard var requestSerializer = self.requestSerializer as? AccessTokenProviderProtocol
         else
         {
             return
@@ -81,7 +81,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager
      */
     func clientDidClearAccount()
     {
-        guard let requestSerializer = self.requestSerializer as? VimeoRequestSerializer
+        guard var requestSerializer = self.requestSerializer as? AccessTokenProviderProtocol
             else
         {
             return

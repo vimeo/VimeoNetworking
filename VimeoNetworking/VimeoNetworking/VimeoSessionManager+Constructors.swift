@@ -35,7 +35,7 @@ public extension VimeoSessionManager
      
      - returns: an initialized `VimeoSessionManager`
      */
-    static func defaultSessionManager(accessTokenProvider accessTokenProvider: VimeoRequestSerializer.AccessTokenProvider) -> VimeoSessionManager
+    static func defaultSessionManager(accessTokenProvider accessTokenProvider: AccessTokenProvider) -> VimeoSessionManager
     {
         let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfigurationNoCache()
         let requestSerializer = VimeoRequestSerializer(accessTokenProvider: accessTokenProvider)
@@ -99,7 +99,7 @@ public extension VimeoSessionManager
      
      - returns: an initialized `VimeoSessionManager`
      */
-    static func backgroundSessionManager(identifier identifier: String, accessTokenProvider: VimeoRequestSerializer.AccessTokenProvider) -> VimeoSessionManager
+    static func backgroundSessionManager(identifier identifier: String, accessTokenProvider: AccessTokenProvider) -> VimeoSessionManager
     {
         let sessionConfiguration = self.backgroundSessionConfiguration(identifier: identifier)
         let requestSerializer = VimeoRequestSerializer(accessTokenProvider: accessTokenProvider)
