@@ -42,7 +42,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager
      
      - returns: an initialized `VimeoSessionManager`
      */
-    required public init(sessionConfiguration: NSURLSessionConfiguration, requestSerializer: VimeoRequestSerializer)
+    required public init(sessionConfiguration: NSURLSessionConfiguration, requestSerializer: AFHTTPRequestSerializer)
     {        
         super.init(baseURL: VimeoBaseURLString, sessionConfiguration: sessionConfiguration)
         

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AFNetworking
 
 public extension VimeoSessionManager
 {
@@ -53,6 +54,20 @@ public extension VimeoSessionManager
     {
         let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfigurationNoCache()
         let requestSerializer = VimeoRequestSerializer(appConfiguration: appConfiguration)
+        
+        return VimeoSessionManager(sessionConfiguration: sessionConfiguration, requestSerializer: requestSerializer)
+    }
+
+    /**
+     Creates an unauthenticated session manager with a static application configuration
+     
+     - parameter requestSerializer: an HTTP request serializer
+     
+     - returns: an initialized `VimeoSessionManager`
+     */
+    static func defaultSessionManager(requestSerializer requestSerializer: AFHTTPRequestSerializer) -> VimeoSessionManager
+    {
+        let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfigurationNoCache()
         
         return VimeoSessionManager(sessionConfiguration: sessionConfiguration, requestSerializer: requestSerializer)
     }
