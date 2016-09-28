@@ -166,7 +166,7 @@ final public class AuthenticationController
                           self.dynamicType.ScopeKey: Scope.combine(self.configuration.scopes),
                           self.dynamicType.StateKey: self.dynamicType.state]
         
-        guard let urlString = VimeoBaseURLString?.URLByAppendingPathComponent(self.dynamicType.CodeGrantAuthorizationPath)?.absoluteString
+        guard let urlString = self.configuration.baseUrl.URLByAppendingPathComponent(self.dynamicType.CodeGrantAuthorizationPath)?.absoluteString
         else
         {
             fatalError("Could not make code grant auth URL")
@@ -235,7 +235,7 @@ final public class AuthenticationController
      */
     public func accessToken(token: String, completion: AuthenticationCompletion)
     {
-        let customSessionManager =  VimeoSessionManager.defaultSessionManager(accessTokenProvider: {token})
+        let customSessionManager = VimeoSessionManager.defaultSessionManager(appConfiguration: self.configuration, accessTokenProvider: {token})
         let adhocClient = VimeoClient(appConfiguration: self.configuration, sessionManager: customSessionManager)
         let request = AuthenticationRequest.verifyAccessTokenRequest()
 
