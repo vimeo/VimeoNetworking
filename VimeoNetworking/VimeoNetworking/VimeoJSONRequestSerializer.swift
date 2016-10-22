@@ -1,8 +1,8 @@
 //
-//  VimeoRequestSerializer.swift
+//  VimeoJSONRequestSerializer.swift
 //  VimeoUpload
 //
-//  Created by Hanssen, Alfie on 10/16/15.
+//  Created by Westendorf, Mike on 7/15/16.
 //  Copyright © 2015 Vimeo. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -28,13 +28,12 @@ import Foundation
 
 import AFNetworking
 
-/** `VimeoRequestSerializer` is an `AFHTTPRequestSerializer` that primarily handles adding Vimeo-specific authorization headers to outbound requests.  It can be initialized with either a dynamic `AccessTokenProvider` or a static `AppConfiguration`.
+/** `VimeoJSONRequestSerializer` is an `AFJSONRequestSerializer` that primarily handles adding Vimeo-specific authorization headers to outbound requests.  It can be initialized with either a dynamic `AccessTokenProvider` or a static `AppConfiguration`.
  */
-final public class VimeoRequestSerializer: AFHTTPRequestSerializer, AccessTokenProviderProtocol
+final public class VimeoJSONRequestSerializer: AFJSONRequestSerializer, AccessTokenProviderProtocol
 {
     private static let AcceptHeaderKey = "Accept"
     private static let AuthorizationHeaderKey = "Authorization"
-    
     
     // MARK: 
     
@@ -52,7 +51,7 @@ final public class VimeoRequestSerializer: AFHTTPRequestSerializer, AccessTokenP
      - parameter accessTokenProvider: when called, returns an authenticated access token
      - parameter apiVersion:          version of the API this application's requests should use
      
-     - returns: an initialized `VimeoRequestSerializer`
+     - returns: an initialized `VimeoJSONRequestSerializer`
      */
     public init(accessTokenProvider: AccessTokenProvider, apiVersion: String = VimeoDefaultAPIVersionString)
     {
@@ -127,7 +126,6 @@ final public class VimeoRequestSerializer: AFHTTPRequestSerializer, AccessTokenP
     private func setup(apiVersion apiVersion: String)
     {
         self.setValue("application/vnd.vimeo.*+json; version=\(apiVersion)", forHTTPHeaderField: self.dynamicType.AcceptHeaderKey)
-//        self.writingOptions = .PrettyPrinted
     }
 
     private func setAuthorizationHeader(request request: NSMutableURLRequest) -> NSMutableURLRequest

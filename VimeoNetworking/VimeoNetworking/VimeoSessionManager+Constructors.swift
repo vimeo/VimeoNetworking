@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AFNetworking
 
 public extension VimeoSessionManager
 {
@@ -34,7 +35,7 @@ public extension VimeoSessionManager
      
      - returns: an initialized `VimeoSessionManager`
      */
-    static func defaultSessionManager(accessTokenProvider accessTokenProvider: VimeoRequestSerializer.AccessTokenProvider) -> VimeoSessionManager
+    static func defaultSessionManager(accessTokenProvider accessTokenProvider: AccessTokenProvider) -> VimeoSessionManager
     {
         let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfigurationNoCache()
         let requestSerializer = VimeoRequestSerializer(accessTokenProvider: accessTokenProvider)
@@ -53,6 +54,20 @@ public extension VimeoSessionManager
     {
         let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfigurationNoCache()
         let requestSerializer = VimeoRequestSerializer(appConfiguration: appConfiguration)
+        
+        return VimeoSessionManager(sessionConfiguration: sessionConfiguration, requestSerializer: requestSerializer)
+    }
+
+    /**
+     Creates an unauthenticated session manager with a static application configuration
+     
+     - parameter requestSerializer: an HTTP request serializer
+     
+     - returns: an initialized `VimeoSessionManager`
+     */
+    static func defaultSessionManager(requestSerializer requestSerializer: AFHTTPRequestSerializer) -> VimeoSessionManager
+    {
+        let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfigurationNoCache()
         
         return VimeoSessionManager(sessionConfiguration: sessionConfiguration, requestSerializer: requestSerializer)
     }
@@ -84,7 +99,7 @@ public extension VimeoSessionManager
      
      - returns: an initialized `VimeoSessionManager`
      */
-    static func backgroundSessionManager(identifier identifier: String, accessTokenProvider: VimeoRequestSerializer.AccessTokenProvider) -> VimeoSessionManager
+    static func backgroundSessionManager(identifier identifier: String, accessTokenProvider: AccessTokenProvider) -> VimeoSessionManager
     {
         let sessionConfiguration = self.backgroundSessionConfiguration(identifier: identifier)
         let requestSerializer = VimeoRequestSerializer(accessTokenProvider: accessTokenProvider)
