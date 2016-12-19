@@ -1,0 +1,14 @@
+machine:
+  xcode:
+    version: 8.0
+
+dependencies:
+    override:
+        - bundle install
+    cache_directories:
+        - "Pods"
+        - "vendor/bundle"
+
+test:
+  override:
+    - bundle exec fastlane build_example

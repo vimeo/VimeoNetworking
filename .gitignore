@@ -19,8 +19,16 @@ xcuserdata
 DerivedData
 .idea/
 *.LSOverride
-xcshareddata
 
 # Cocoapods
 
 Pods
+
+# https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Exclude fastlane xcode log
+xcodebuild.log
