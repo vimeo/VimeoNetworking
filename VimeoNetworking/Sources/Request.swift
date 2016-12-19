@@ -167,9 +167,9 @@ public struct Request<ModelType: MappableResponse>
         /// Returns a fully-formed URI comprised of the path plus a query string of any parameters
     public var URI: String
     {
-        var URI = self.path
+        let URI = self.path
         
-        var components = NSURLComponents(string: URI)
+        let components = NSURLComponents(string: URI)
 
         if let parameters = self.parameters as? VimeoClient.RequestParametersDictionary
         {

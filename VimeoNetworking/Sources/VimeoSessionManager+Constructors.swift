@@ -132,17 +132,6 @@ public extension VimeoSessionManager
     
     private static func backgroundSessionConfiguration(identifier identifier: String) -> NSURLSessionConfiguration
     {
-        let sessionConfiguration: NSURLSessionConfiguration
-        
-        if #available(iOS 8.0, OSX 10.10, *)
-        {
-            sessionConfiguration = NSURLSessionConfiguration.backgroundSessionConfigurationWithIdentifier(identifier)
-        }
-        else
-        {
-            sessionConfiguration = NSURLSessionConfiguration.backgroundSessionConfiguration(identifier)
-        }
-        
-        return sessionConfiguration
+        return NSURLSessionConfiguration.backgroundSessionConfigurationWithIdentifier(identifier)
     }
 }

@@ -252,9 +252,9 @@ final public class VimeoClient
         switch request.method
         {
         case .GET:
-            task = self.sessionManager.GET(path, parameters: parameters, success: success, failure: failure)
+            task = self.sessionManager.GET(path, parameters: parameters, progress: nil, success: success, failure: failure)
         case .POST:
-            task = self.sessionManager.POST(path, parameters: parameters, success: success, failure: failure)
+            task = self.sessionManager.POST(path, parameters: parameters, progress: nil, success: success, failure: failure)
         case .PUT:
             task = self.sessionManager.PUT(path, parameters: parameters, success: success, failure: failure)
         case .PATCH:

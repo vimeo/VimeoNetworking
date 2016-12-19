@@ -1,8 +1,8 @@
 //
-//  VimeoNetworkingExample_iOSTests.swift
-//  VimeoNetworkingExample-iOSTests
+//  ExceptionCatcher+Swift.swift
+//  VimeoNetworking
 //
-//  Created by Huebner, Rob on 3/17/16.
+//  Created by Huebner, Rob on 4/26/16.
 //  Copyright © 2016 Vimeo. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,31 +24,22 @@
 //  THE SOFTWARE.
 //
 
-import XCTest
-@testable import VimeoNetworkingExample_iOS
+import Foundation
 
-class VimeoNetworkingExample_iOSTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
+class ExceptionCatcher: ObjC_ExceptionCatcher
+{
+    /**
+     Execute a block of code that could potentially throw Objective-C exceptions
+     
+     - parameter unsafeBlock: The unsafe block of code to execute
+     
+     - throws: an error containing any thrown exception information
+     */
+    @nonobjc internal static func doUnsafe(unsafeBlock: (Void -> Void)) throws
+    {
+        if let error = self._doUnsafe(unsafeBlock)
+        {
+            throw error
         }
     }
-    
 }

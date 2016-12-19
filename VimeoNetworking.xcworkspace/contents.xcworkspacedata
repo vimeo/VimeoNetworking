@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:VimeoNetworking/VimeoNetworking.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:VimeoNetworkingExample-iOS/VimeoNetworkingExample-iOS.xcodeproj">
    </FileRef>
    <FileRef

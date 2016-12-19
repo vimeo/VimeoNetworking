@@ -81,7 +81,7 @@ class MasterViewController: UITableViewController
             }
             
             let request: Request<[VIMVideo]>
-            if VimeoClient.defaultClient.isAuthenticatedWithUser
+            if VimeoClient.defaultClient.currentAccount?.isAuthenticatedWithUser() == true
             {
                 request = Request<[VIMVideo]>(path: "/me/videos")
             }
@@ -141,7 +141,7 @@ class MasterViewController: UITableViewController
     
     private func updateAuthenticationButton()
     {
-        if VimeoClient.defaultClient.isAuthenticatedWithUser
+        if VimeoClient.defaultClient.currentAccount?.isAuthenticatedWithUser() == true
         {
             self.authenticationButton?.title = "Log Out"
         }
@@ -159,7 +159,7 @@ class MasterViewController: UITableViewController
         // If the user is logged out, the button launches the code grant authorization page.
         
         let authenticationController = AuthenticationController(client: VimeoClient.defaultClient)
-        if VimeoClient.defaultClient.isAuthenticatedWithUser
+        if VimeoClient.defaultClient.currentAccount?.isAuthenticatedWithUser() == true
         {
             do
             {

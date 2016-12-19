@@ -68,7 +68,7 @@ final internal class ResponseCache
         
         self.memoryCache.responseDictionary(forKey: key) { (responseDictionary) in
             
-            if let responseJSON = responseDictionary
+            if responseDictionary != nil
             {
                 completion(result: .Success(result: responseDictionary))
             }
@@ -150,7 +150,7 @@ final internal class ResponseCache
                 let fileManager = NSFileManager()
                 
                 let directoryURL = self.cachesDirectoryURL()
-                let fileURL = self.fileURLForKey(key: key)
+                _ = self.fileURLForKey(key: key)
                 
                 guard let directoryPath = directoryURL.path,
                     let filePath = self.fileURLForKey(key: key)?.path

@@ -1,4 +1,4 @@
-# VimeoNetworking
+# VimeoNetworking [![](https://circleci.com/gh/vimeo/VimeoNetworking.png?style=shield&circle-token=0443de366b231f05e3b1b1b3bf64a434b9ec1cfe)](https://circleci.com/gh/vimeo/VimeoNetworking)
 
 **VimeoNetworking** is the authoritative Swift networking library for the Vimeo API.  Fully designed and implemented with Swift in mind, **VimeoNetworking** is type-safe, well `enum`erated, and never, ever, *ever* force-unwrapped. 
 
@@ -7,7 +7,7 @@
 ## Supported Platforms
 
 - iOS (8.0+)
-- tvOS
+- tvOS (9.0+)
 
 ## Installing with CocoaPods
 

@@ -117,7 +117,7 @@ final public class AuthenticationController
             loadedAccount = try self.loadClientCredentialsAccount()
         }
         
-        if let loadedAccount = loadedAccount
+        if loadedAccount != nil
         {
             // TODO: refresh user [RH] (4/25/16)
             
@@ -521,7 +521,7 @@ final public class AuthenticationController
         self.authenticate(self.authenticatorClient, request: request, completion: completion)
     }
     
-    private func authenticate(client: VimeoClient, request request: AuthenticationRequest, completion: AuthenticationCompletion)
+    private func authenticate(client: VimeoClient, request: AuthenticationRequest, completion: AuthenticationCompletion)
     {
         client.request(request) { result in
             

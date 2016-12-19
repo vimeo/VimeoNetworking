@@ -50,8 +50,8 @@ public extension String
             scanner.scanUpToString(ampersand, intoString: &value)
             scanner.scanString(ampersand, intoString: nil)
             
-            if let name = name?.stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding),
-                let value = value?.stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+            if let name = name?.stringByRemovingPercentEncoding,
+                let value = value?.stringByRemovingPercentEncoding
             {
                 parametersDictionary[name] = value
             }
