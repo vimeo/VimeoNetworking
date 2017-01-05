@@ -71,6 +71,11 @@ NSString *const VIMVideoFileQualityMobile = @"mobile";
         self.size = @(0);
     }
 
+    if (![self.fps isKindOfClass:[NSNumber class]])
+    {
+        self.fps = @(0);
+    }
+    
     if ([self.expires isKindOfClass:[NSString class]])
     {
         self.expirationDate = [[VIMModelObject dateFormatter] dateFromString:self.expires];

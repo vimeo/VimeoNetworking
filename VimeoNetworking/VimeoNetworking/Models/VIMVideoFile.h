@@ -39,6 +39,7 @@ extern NSString *const __nonnull VIMVideoFileQualityMobile;
 @property (nonatomic, strong, nullable) NSNumber *width;
 @property (nonatomic, strong, nullable) NSNumber *height;
 @property (nonatomic, strong, nullable) NSNumber *size;
+@property (nonatomic, strong, nullable) NSNumber *fps;
 @property (nonatomic, copy, nullable) NSString *link;
 @property (nonatomic, copy, nullable) NSString *linkSecure;
 @property (nonatomic, copy, nullable) NSString *quality;
