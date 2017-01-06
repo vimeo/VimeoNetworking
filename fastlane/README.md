@@ -11,6 +11,11 @@ sudo gem install fastlane
 fastlane ios build_example
 ```
 buid the example project
+### ios test
+```
+fastlane ios test
+```
+run tests
 
 ----
 

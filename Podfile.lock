@@ -23,12 +23,12 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   VimeoNetworking:
-    :path: ../VimeoNetworking
+    :path: "../VimeoNetworking"
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   VimeoNetworking: 17f8d451e4a168044f619315d0cd821669676e67
 
-PODFILE CHECKSUM: c5204cb6df637f2885e5c7e2713c8f3dbbaf0d3f
+PODFILE CHECKSUM: 9f9867bb3720cc28bbfeab258d411b2ca6ee7bef
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.0.1
