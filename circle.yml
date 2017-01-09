@@ -15,4 +15,4 @@ dependencies:
 
 test:
   override:
-    - bundle exec fastlane build_example
+    - bundle exec fastlane test
