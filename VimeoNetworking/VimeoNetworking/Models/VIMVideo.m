@@ -139,6 +139,11 @@ NSString *VIMContentRating_Safe = @"safe";
     }
     #endif
     
+    if ([key isEqualToString:@"spatial"])
+    {
+        return [Spatial class];
+    }
+    
     return nil;
 }
 
@@ -483,6 +488,11 @@ NSString *VIMContentRating_Safe = @"safe";
     VIMConnection *commentsConnection = [self connectionWithName:VIMConnectionNameComments];
     
     return (self.canViewComments ? commentsConnection.total.intValue : 0);
+}
+
+- (BOOL)is360Video
+{
+    return self.spatial != nil;
 }
 
 @end

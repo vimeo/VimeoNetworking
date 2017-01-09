@@ -36,6 +36,7 @@
 @class VIMVideoLog;
 @class VIMVideoPlayRepresentation;
 @class VIMBadge;
+@class Spatial;
 
 extern NSString * __nonnull VIMContentRating_Language;
 extern NSString * __nonnull VIMContentRating_Drugs;
@@ -84,6 +85,7 @@ typedef NS_ENUM(NSUInteger, VIMVideoProcessingStatus) {
 @property (nonatomic, strong, nullable) NSArray *categories;
 @property (nonatomic, copy, nullable) NSString *password;
 @property (nonatomic, strong, nullable) VIMBadge *badge;
+@property (nonatomic, strong, nullable) Spatial *spatial;
 
 @property (nonatomic, assign) VIMVideoProcessingStatus videoStatus;
 
@@ -108,6 +110,7 @@ typedef NS_ENUM(NSUInteger, VIMVideoProcessingStatus) {
 - (BOOL)isDRMProtected;
 - (NSInteger)likesCount;
 - (NSInteger)commentsCount;
+- (BOOL)is360Video;
 
 - (void)setIsLiked:(BOOL)isLiked;
 - (void)setIsWatchLater:(BOOL)isWatchLater;
