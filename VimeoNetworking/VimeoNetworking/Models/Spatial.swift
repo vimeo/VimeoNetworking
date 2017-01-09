@@ -27,6 +27,7 @@ public class Spatial: VIMModelObject
     
     // MARK: - Properties
     
+    // TODO: - Update to be Projection, Format types
     public dynamic var projection: String?
     public dynamic var stereoFormat: String?
     
