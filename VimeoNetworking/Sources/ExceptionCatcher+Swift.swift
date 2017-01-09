@@ -1,8 +1,8 @@
 //
-//  VimeoClient+SharedInstance.swift
-//  VimeoNetworkingExample-iOS
+//  ExceptionCatcher+Swift.swift
+//  VimeoNetworking
 //
-//  Created by Huebner, Rob on 5/13/16.
+//  Created by Huebner, Rob on 4/26/16.
 //  Copyright © 2016 Vimeo. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,17 +26,20 @@
 
 import Foundation
 
-/// Extend app configuration to provide a default configuration
-private extension AppConfiguration
+class ExceptionCatcher: ObjC_ExceptionCatcher
 {
-    /// The default configuration to use for this application, populate your client key, secret, and scopes.
-    /// Also, don't forget to set up your application to receive the code grant authentication redirect, see the README for details.
-    private static let defaultConfiguration = AppConfiguration(clientIdentifier: "YOUR_CLIENT_KEY_HERE", clientSecret: "YOUR_CLIENT_SECRET_HERE", scopes: [], keychainService: "")
-}
-
-/// Extend vimeo client to provide a default client
-extension VimeoClient
-{
-    /// The default client this application should use for networking, must be authenticated by an `AuthenticationController` before sending requests
-    static let defaultClient = VimeoClient(appConfiguration: AppConfiguration.defaultConfiguration)
+    /**
+     Execute a block of code that could potentially throw Objective-C exceptions
+     
+     - parameter unsafeBlock: The unsafe block of code to execute
+     
+     - throws: an error containing any thrown exception information
+     */
+    @nonobjc internal static func doUnsafe(unsafeBlock: (Void -> Void)) throws
+    {
+        if let error = self._doUnsafe(unsafeBlock)
+        {
+            throw error
+        }
+    }
 }

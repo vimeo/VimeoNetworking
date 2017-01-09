@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let loadedAccount: VIMAccount?
         do
         {
-            loadedAccount = try authenticationController.loadSavedAccount()
+            loadedAccount = try authenticationController.loadUserAccount()
         }
         catch let error
         {
