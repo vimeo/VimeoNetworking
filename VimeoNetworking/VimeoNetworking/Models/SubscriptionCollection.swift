@@ -12,9 +12,9 @@ public class SubscriptionCollection: VIMModelObject
 {
     // MARK: - Properties
     
-    dynamic public var uri: String?
-    dynamic public var modifiedTime: NSDate?
-    dynamic public var subscriptions: Subscription?
+    public var uri: String?
+    public var modifiedTime: NSDate?
+    public var subscriptions: Subscription?
     
     // MARK: - VIMMappable
     
@@ -38,17 +38,17 @@ public class Subscription: VIMModelObject
 {
     // MARK: - Properties
     
-    dynamic public var comment: Bool = false
-    dynamic public var credit: Bool = false
-    dynamic public var like: Bool = false
-    dynamic public var mention: Bool = false
-    dynamic public var reply: Bool = false
-    dynamic public var follow: Bool = false
-    dynamic public var videoAvailable: Bool = false
-    dynamic public var vodPreorderAvailable: Bool = false
-    dynamic public var vodRentalExpirationWarning: Bool = false
-    dynamic public var accountExpirationWarning: Bool = false
-    dynamic public var share: Bool = false
+    public var comment: Bool = false
+    public var credit: Bool = false
+    public var like: Bool = false
+    public var mention: Bool = false
+    public var reply: Bool = false
+    public var follow: Bool = false
+    public var videoAvailable: Bool = false
+    public var vodPreorderAvailable: Bool = false
+    public var vodRentalExpirationWarning: Bool = false
+    public var accountExpirationWarning: Bool = false
+    public var share: Bool = false
     
     // MARK: - VIMMappable
     
