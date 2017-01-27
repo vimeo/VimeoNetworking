@@ -153,6 +153,15 @@
             if([value isKindOfClass:[NSDictionary class]])
             {
                 VIMConnection *connection = [[VIMConnection alloc] initWithKeyValueDictionary:value];
+                
+                // Parse Notification Connection keys
+                if ([key isEqualToString:VIMConnectionNameNotifications])
+                {
+                    [connection setNotifications:value];
+                }
+                
+                if([connection respondsToSelector:@selector(didFinishMapping)])
+                    [connection didFinishMapping];
                 [connections setObject:connection forKey:key];
             }
         }

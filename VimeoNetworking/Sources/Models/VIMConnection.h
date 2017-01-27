@@ -58,6 +58,7 @@ extern NSString *const __nonnull VIMConnectionNameRecommendedChannels;
 extern NSString *const __nonnull VIMConnectionNameRecommendedUsers;
 extern NSString *const __nonnull VIMConnectionNameModeratedChannels;
 extern NSString *const __nonnull VIMConnectionNameContents;
+extern NSString *const __nonnull VIMConnectionNameNotifications;
 
 @interface VIMConnection : VIMModelObject
 
@@ -69,6 +70,11 @@ extern NSString *const __nonnull VIMConnectionNameContents;
 @property (nonatomic, strong, nullable) NSNumber *extraVideosCount;
 @property (nonatomic, strong, nullable) NSNumber *mainVideosCount;
 @property (nonatomic, strong, nullable) NSNumber *viewableVideosCount;
+
+#pragma mark - Notifications related only
+@property (nonatomic, strong, nullable) NSNumber *totalNew;
+@property (nonatomic, strong, nullable) NSNumber *totalUnread;
+- (void)setNotifications:(nonnull NSDictionary *)dic;
 
 - (BOOL)canGet;
 - (BOOL)canPost;
