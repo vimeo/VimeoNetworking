@@ -26,8 +26,6 @@
 
 #import "VIMModelObject.h"
 
-@class VIMVideoLog;
-
 extern NSString *const __nonnull VIMVideoFileQualityHLS;
 extern NSString *const __nonnull VIMVideoFileQualityHD;
 extern NSString *const __nonnull VIMVideoFileQualitySD;
@@ -43,7 +41,6 @@ extern NSString *const __nonnull VIMVideoFileQualityMobile;
 @property (nonatomic, copy, nullable) NSString *linkSecure;
 @property (nonatomic, copy, nullable) NSString *quality;
 @property (nonatomic, copy, nullable) NSString *type;
-@property (nonatomic, strong, nullable) VIMVideoLog *log;
 
 - (BOOL)isSupportedMimeType;
 - (BOOL)isDownloadable;

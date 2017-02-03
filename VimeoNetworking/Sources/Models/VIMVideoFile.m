@@ -26,7 +26,6 @@
 
 #import "VIMVideoFile.h"
 
-#import "VIMVideoLog.h"
 #import <AVFoundation/AVFoundation.h>
 
 NSString *const VIMVideoFileQualityHLS = @"hls";
@@ -43,16 +42,6 @@ NSString *const VIMVideoFileQualityMobile = @"mobile";
 @implementation VIMVideoFile
 
 #pragma mark - VIMMappable
-
-- (Class)getClassForObjectKey:(NSString *)key
-{
-    if ([key isEqualToString:@"log"])
-    {
-        return [VIMVideoLog class];
-    }
-    
-    return nil;
-}
 
 - (void)didFinishMapping
 {

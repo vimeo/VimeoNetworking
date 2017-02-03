@@ -25,7 +25,6 @@
 //
 
 #import "VIMVideoPlayFile.h"
-#import "VIMVideoLog.h"
 
 @interface VIMVideoPlayFile()
 
@@ -43,23 +42,23 @@
     {
         self.expirationDate = [[VIMModelObject dateFormatter] dateFromString:self.expires];
     }
+    
+    // With API version 3.3.1, `log` was converted to a string rather than a dictionary.
+    // We need this migraiton in place to guard against unarchiving cached objects with the old representaiton.
+    // So, when we uncache objects with the dictionary style `log`, we just set `log` to nil and any plays will not be logged.
+    // Next time the obejct is refreshed from network the `log` field will then be populated with the correct string.
+    // This migration can eventially be removed as peoples cached content is overwritten. [ghking] 2/3/17
+    
+    if (![self.log isKindOfClass:[NSString class]])
+    {
+        self.log = nil;
+    }
 }
 
 - (NSDictionary *)getObjectMapping
 {
     return @{@"link_expiration_time": @"expires"};
 }
-
-#if TARGET_OS_IOS
-- (Class)getClassForObjectKey:(NSString *)key
-{
-    if ([key isEqualToString:@"log"])
-    {
-        return [VIMVideoLog class];
-    }
-    return nil;
-}
-#endif
 
 #pragma mark - Instance methods
 

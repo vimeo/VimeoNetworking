@@ -30,7 +30,6 @@
 #import "VIMVideoDASHFile.h"
 #import "VIMVideoDRMFiles.h"
 #import "VIMVideoProgressiveFile.h"
-#import "VIMVideoLog.h"
 
 @interface VIMVideoPlayRepresentation()
 

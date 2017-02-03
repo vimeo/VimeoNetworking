@@ -35,7 +35,6 @@
 #import "VIMPrivacy.h"
 #import "VIMAppeal.h"
 #import "VIMTag.h"
-#import "VIMVideoLog.h"
 #import "VIMCategory.h"
 #import "VIMVideoPlayRepresentation.h"
 #import "VIMVideoDRMFiles.h"
@@ -120,11 +119,6 @@ NSString *VIMContentRating_Safe = @"safe";
     if ([key isEqualToString:@"appeal"])
     {
         return [VIMAppeal class];
-    }
-    
-    if ([key isEqualToString:@"log"])
-    {
-        return [VIMVideoLog class];
     }
     
     if ([key isEqualToString:@"play"])
@@ -490,7 +484,7 @@ NSString *VIMContentRating_Safe = @"safe";
     return (self.canViewComments ? commentsConnection.total.intValue : 0);
 }
 
-- (BOOL)is360Video
+- (BOOL)is360
 {
     return self.spatial != nil;
 }
