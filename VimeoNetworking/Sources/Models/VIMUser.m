@@ -154,14 +154,11 @@
             {
                 VIMConnection *connection = [[VIMConnection alloc] initWithKeyValueDictionary:value];
                 
-                // Parse Notification Connection keys
-                if ([key isEqualToString:VIMConnectionNameNotifications])
+                if([connection respondsToSelector:@selector(didFinishMapping)])
                 {
-                    [connection setNotifications:value];
+                    [connection didFinishMapping];
                 }
                 
-                if([connection respondsToSelector:@selector(didFinishMapping)])
-                    [connection didFinishMapping];
                 [connections setObject:connection forKey:key];
             }
         }

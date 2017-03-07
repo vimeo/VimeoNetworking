@@ -60,10 +60,11 @@ NSString *const VIMConnectionNameModeratedChannels = @"moderated_channels";
 NSString *const VIMConnectionNameContents = @"contents";
 NSString *const VIMConnectionNameNotifications = @"notifications";
 
-@interface VIMConnection()
+@interface VIMConnection ()
 @property (nonatomic, strong, nullable) NSNumber *extra_total;
 @property (nonatomic, strong, nullable) NSNumber *main_total;
 @property (nonatomic, strong, nullable) NSNumber *viewable_total;
+@property (nonatomic, copy, nullable) NSDictionary *type_count;
 @end
 
 @implementation VIMConnection
@@ -79,6 +80,8 @@ NSString *const VIMConnectionNameNotifications = @"notifications";
     self.extraVideosCount = self.extra_total;
     self.mainVideosCount = self.main_total;
     self.viewableVideosCount = self.viewable_total;
+    
+    self.totalNotificationsNew = self.type_count;
 }
 
 - (BOOL)canGet
@@ -91,11 +94,4 @@ NSString *const VIMConnectionNameNotifications = @"notifications";
     return (self.options && [self.options containsObject:@"POST"]);
 }
 
-- (void)setNotifications:(nonnull NSDictionary *)dic
-{
-    // We can't both either just call `didFinishMapping` because one of the property received from the server is prefixed by `new..` and doesn't follow the naming convention.
-    // or use the `getObjectMapping` because it doesn't get called. See `didFinishMapping` comment [JL] 01/27/2017
-    self.totalNew = [dic objectForKey:@"new_total"];
-    self.totalUnread = [dic objectForKey:@"unread_total"];
-}
 @end
