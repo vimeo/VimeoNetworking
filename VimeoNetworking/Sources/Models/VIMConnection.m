@@ -60,10 +60,11 @@ NSString *const VIMConnectionNameModeratedChannels = @"moderated_channels";
 NSString *const VIMConnectionNameContents = @"contents";
 NSString *const VIMConnectionNameNotifications = @"notifications";
 
-@interface VIMConnection()
+@interface VIMConnection ()
 @property (nonatomic, strong, nullable) NSNumber *extra_total;
 @property (nonatomic, strong, nullable) NSNumber *main_total;
 @property (nonatomic, strong, nullable) NSNumber *viewable_total;
+@property (nonatomic, copy, nullable) NSDictionary *type_count;
 @end
 
 @implementation VIMConnection
@@ -79,6 +80,8 @@ NSString *const VIMConnectionNameNotifications = @"notifications";
     self.extraVideosCount = self.extra_total;
     self.mainVideosCount = self.main_total;
     self.viewableVideosCount = self.viewable_total;
+    
+    self.totalNotificationsNew = self.type_count;
 }
 
 - (BOOL)canGet

@@ -153,6 +153,12 @@
             if([value isKindOfClass:[NSDictionary class]])
             {
                 VIMConnection *connection = [[VIMConnection alloc] initWithKeyValueDictionary:value];
+                
+                if([connection respondsToSelector:@selector(didFinishMapping)])
+                {
+                    [connection didFinishMapping];
+                }
+                
                 [connections setObject:connection forKey:key];
             }
         }
