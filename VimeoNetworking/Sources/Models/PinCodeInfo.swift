@@ -26,16 +26,16 @@
 
 import Foundation
 
-public class PinCodeInfo: VIMModelObject
+open class PinCodeInfo: VIMModelObject
 {
-    dynamic public var deviceCode: String?
-    dynamic public var userCode: String?
-    dynamic public var authorizeLink: String?
-    dynamic public var activateLink: String?
+    dynamic open var deviceCode: String?
+    dynamic open var userCode: String?
+    dynamic open var authorizeLink: String?
+    dynamic open var activateLink: String?
     
     // TODO: These are non-optional Ints with -1 invalid sentinel values because
     // an optional Int can't be represented in Objective-C and can't be marked
     // dynamic, which leads to it not getting parsed by VIMObjectMapper [RH]
-    dynamic public var expiresIn: Int = -1
-    dynamic public var interval: Int = -1
+    dynamic open var expiresIn: Int = -1
+    dynamic open var interval: Int = -1
 }

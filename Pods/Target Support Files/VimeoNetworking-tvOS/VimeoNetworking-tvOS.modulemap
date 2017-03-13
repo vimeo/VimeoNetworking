@@ -1,0 +1,6 @@
+framework module VimeoNetworking {
+  umbrella header "VimeoNetworking-tvOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

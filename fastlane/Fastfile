@@ -23,8 +23,6 @@ platform :ios do
   desc "buid the example project"
   lane :build_example do |options|
     
-    cocoapods
-
     # cant use gym: https://github.com/fastlane/fastlane/issues/1816
     xcodebuild(
       workspace: "VimeoNetworking.xcworkspace",
@@ -44,8 +42,6 @@ platform :ios do
 
   desc "run tests"
   lane :test do |options|
-    cocoapods
-
     scan(
       workspace: "VimeoNetworking.xcworkspace",
       scheme: "VimeoNetworkingExample-iOS",

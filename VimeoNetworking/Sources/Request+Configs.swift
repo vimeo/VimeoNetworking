@@ -17,17 +17,17 @@ extension Request
      
      - returns: a new `Request`
      */
-    public static func configsRequest(fromCache fromCache: Bool) -> Request
+    public static func configsRequest(fromCache: Bool) -> Request
     {
         let path = "/configs"
         
         if fromCache
         {
-            return Request(method: .GET, path: path, cacheFetchPolicy: .CacheOnly)
+            return Request(method: .GET, path: path, cacheFetchPolicy: .cacheOnly)
         }
         else
         {
-            return Request(method: .GET, path: path, cacheFetchPolicy: .NetworkOnly, shouldCacheResponse: true)
+            return Request(method: .GET, path: path, cacheFetchPolicy: .networkOnly, shouldCacheResponse: true)
         }
     }
 }

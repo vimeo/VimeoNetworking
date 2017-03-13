@@ -71,12 +71,12 @@ extension Request where ModelType: VIMAccount
      
      - returns: a new `Request`
      */
-    static func clientCredentialsGrantRequest(scopes scopes: [Scope]) -> Request
+    static func clientCredentialsGrantRequest(scopes: [Scope]) -> Request
     {
         let parameters = [GrantTypeKey: GrantTypeClientCredentials,
                           ScopeKey: Scope.combine(scopes)]
         
-        return Request(method: .POST, path: AuthenticationPathClientCredentials, parameters: parameters, cacheFetchPolicy: .NetworkOnly, shouldCacheResponse: false)
+        return Request(method: .POST, path: AuthenticationPathClientCredentials, parameters: parameters as AnyObject?, cacheFetchPolicy: .networkOnly, shouldCacheResponse: false)
     }
     
     /**
@@ -87,13 +87,13 @@ extension Request where ModelType: VIMAccount
      
      - returns: a new `Request`
      */
-    static func codeGrantRequest(code code: String, redirectURI: String) -> Request
+    static func codeGrantRequest(code: String, redirectURI: String) -> Request
     {
         let parameters = [GrantTypeKey: GrantTypeAuthorizationCode,
                           CodeKey: code,
                           RedirectURIKey: redirectURI]
         
-        return Request(method: .POST, path: AuthenticationPathCodeGrant, parameters: parameters, cacheFetchPolicy: .NetworkOnly, shouldCacheResponse: false)
+        return Request(method: .POST, path: AuthenticationPathCodeGrant, parameters: parameters as AnyObject?, cacheFetchPolicy: .networkOnly, shouldCacheResponse: false)
     }
     
     /**
@@ -105,14 +105,14 @@ extension Request where ModelType: VIMAccount
      
      - returns: a new `Request`
      */
-    static func logInRequest(email email: String, password: String, scopes: [Scope]) -> Request
+    static func logInRequest(email: String, password: String, scopes: [Scope]) -> Request
     {
         let parameters = [GrantTypeKey: GrantTypePassword,
                           ScopeKey: Scope.combine(scopes),
                           UsernameKey: email,
                           PasswordKey: password]
         
-        return Request(method: .POST, path: AuthenticationPathAccessToken, parameters: parameters, cacheFetchPolicy: .NetworkOnly, shouldCacheResponse: false)
+        return Request(method: .POST, path: AuthenticationPathAccessToken, parameters: parameters as AnyObject?, cacheFetchPolicy: .networkOnly, shouldCacheResponse: false)
     }
     
     /**
@@ -122,7 +122,7 @@ extension Request where ModelType: VIMAccount
      */
     static func verifyAccessTokenRequest() -> Request
     {
-        return Request(method: .GET, path: AuthenticationPathAccessTokenVerify, cacheFetchPolicy: .NetworkOnly, shouldCacheResponse: false)
+        return Request(method: .GET, path: AuthenticationPathAccessTokenVerify, cacheFetchPolicy: .networkOnly, shouldCacheResponse: false)
     }
     
     /**
@@ -135,14 +135,14 @@ extension Request where ModelType: VIMAccount
      
      - returns: a new `Request`
      */
-    static func joinRequest(name name: String, email: String, password: String, scopes: [Scope]) -> Request
+    static func joinRequest(name: String, email: String, password: String, scopes: [Scope]) -> Request
     {
         let parameters = [ScopeKey: Scope.combine(scopes),
                           DisplayNameKey: name,
                           EmailKey: email,
                           PasswordKey: password]
         
-        return Request(method: .POST, path: AuthenticationPathUsers, parameters: parameters, cacheFetchPolicy: .NetworkOnly, shouldCacheResponse: false)
+        return Request(method: .POST, path: AuthenticationPathUsers, parameters: parameters as AnyObject?, cacheFetchPolicy: .networkOnly, shouldCacheResponse: false)
     }
     
     /**
@@ -153,13 +153,13 @@ extension Request where ModelType: VIMAccount
      
      - returns: a new `Request`
      */
-    static func logInFacebookRequest(facebookToken facebookToken: String, scopes: [Scope]) -> Request
+    static func logInFacebookRequest(facebookToken: String, scopes: [Scope]) -> Request
     {
         let parameters = [GrantTypeKey: GrantTypeFacebook,
                           ScopeKey: Scope.combine(scopes),
                           TokenKey: facebookToken]
         
-        return Request(method: .POST, path: AuthenticationPathFacebookToken, parameters: parameters, cacheFetchPolicy: .NetworkOnly, shouldCacheResponse: false)
+        return Request(method: .POST, path: AuthenticationPathFacebookToken, parameters: parameters as AnyObject?, cacheFetchPolicy: .networkOnly, shouldCacheResponse: false)
     }
     
     /**
@@ -170,12 +170,12 @@ extension Request where ModelType: VIMAccount
      
      - returns: a new `Request`
      */
-    static func joinFacebookRequest(facebookToken facebookToken: String, scopes: [Scope]) -> Request
+    static func joinFacebookRequest(facebookToken: String, scopes: [Scope]) -> Request
     {
         let parameters = [ScopeKey: Scope.combine(scopes),
                           TokenKey: facebookToken]
         
-        return Request(method: .POST, path: AuthenticationPathUsers, parameters: parameters, cacheFetchPolicy: .NetworkOnly, shouldCacheResponse: false)
+        return Request(method: .POST, path: AuthenticationPathUsers, parameters: parameters as AnyObject?, cacheFetchPolicy: .networkOnly, shouldCacheResponse: false)
     }
     
     /**
@@ -186,12 +186,12 @@ extension Request where ModelType: VIMAccount
      
      - returns: a new `Request`
      */
-    static func authorizePinCodeRequest(userCode userCode: String, deviceCode: String) -> Request
+    static func authorizePinCodeRequest(userCode: String, deviceCode: String) -> Request
     {
         let parameters = [PinCodeKey: userCode,
                           DeviceCodeKey: deviceCode]
         
-        return Request(method: .POST, path: AuthenticationPathPinCodeAuthorize, parameters: parameters, cacheFetchPolicy: .NetworkOnly, shouldCacheResponse: false)
+        return Request(method: .POST, path: AuthenticationPathPinCodeAuthorize, parameters: parameters as AnyObject?, cacheFetchPolicy: .networkOnly, shouldCacheResponse: false)
     }
     
     /**
@@ -201,11 +201,11 @@ extension Request where ModelType: VIMAccount
      
      - returns: a new `Request`
      */
-    static func appTokenExchangeRequest(accessToken accessToken: String) -> Request
+    static func appTokenExchangeRequest(accessToken: String) -> Request
     {
         let parameters = [AccessTokenKey: accessToken]
         
-        return Request(method: .POST, path: AuthenticationPathAppTokenExchange, parameters: parameters, cacheFetchPolicy: .NetworkOnly, shouldCacheResponse: false)
+        return Request(method: .POST, path: AuthenticationPathAppTokenExchange, parameters: parameters as AnyObject?, cacheFetchPolicy: .networkOnly, shouldCacheResponse: false)
     }
 }
 
@@ -249,11 +249,11 @@ extension Request where ModelType: PinCodeInfo
      
      - returns: a new `Request`
      */
-    static func getPinCodeRequest(scopes scopes: [Scope]) -> Request
+    static func getPinCodeRequest(scopes: [Scope]) -> Request
     {
         let parameters = [GrantTypeKey: GrantTypePinCode,
                           ScopeKey: Scope.combine(scopes)]
         
-        return Request(method: .POST, path: AuthenticationPathPinCode, parameters: parameters, cacheFetchPolicy: .NetworkOnly, shouldCacheResponse: false)
+        return Request(method: .POST, path: AuthenticationPathPinCode, parameters: parameters as AnyObject?, cacheFetchPolicy: .networkOnly, shouldCacheResponse: false)
     }
 }

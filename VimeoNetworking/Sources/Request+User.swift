@@ -34,12 +34,12 @@ public typealias UserListRequest = Request<[VIMUser]>
 
 public extension Request
 {
-    private static var MeUserURI: String { return "/me" }
-    private static var FollowingPathFormat: String { return "%@/following" }
-    private static var FollowersPathFormat: String { return "%@/followers" }
-    private static var UsersPath: String { return "/users" }
+    fileprivate static var MeUserURI: String { return "/me" }
+    fileprivate static var FollowingPathFormat: String { return "%@/following" }
+    fileprivate static var FollowersPathFormat: String { return "%@/followers" }
+    fileprivate static var UsersPath: String { return "/users" }
 
-    private static var QueryKey: String { return "query" }
+    fileprivate static var QueryKey: String { return "query" }
     
     /**
      Create a request to get the current user
@@ -78,7 +78,7 @@ public extension Request
      
      - returns: a new `Request`
      */
-    public static func getUserRequest(userURI userURI: String) -> Request
+    public static func getUserRequest(userURI: String) -> Request
     {
         return Request(path: userURI)
     }
@@ -90,7 +90,7 @@ public extension Request
      
      - returns: a new `Request`
      */
-    public static func getUserFollowingRequest(userURI userURI: String) -> Request
+    public static func getUserFollowingRequest(userURI: String) -> Request
     {
         return Request(path: String(format: self.FollowingPathFormat, userURI))
     }
@@ -102,7 +102,7 @@ public extension Request
      
      - returns: a new `Request`
      */
-    public static func getUserFollowersRequest(userURI userURI: String) -> Request
+    public static func getUserFollowersRequest(userURI: String) -> Request
     {
         return Request(path: String(format: self.FollowersPathFormat, userURI))
     }
@@ -117,13 +117,13 @@ public extension Request
      
      - returns: a new `Request`
      */
-    public static func queryUsers(query query: String, refinements: VimeoClient.RequestParametersDictionary? = nil) -> Request
+    public static func queryUsers(query: String, refinements: VimeoClient.RequestParametersDictionary? = nil) -> Request
     {
         var parameters = refinements ?? [:]
         
-        parameters[self.QueryKey] = query
+        parameters[self.QueryKey] = query as AnyObject?
         
-        return Request(path: self.UsersPath, parameters: parameters)
+        return Request(path: self.UsersPath, parameters: parameters as AnyObject?)
     }
     
     // MARK: - Edit User
@@ -136,8 +136,8 @@ public extension Request
      
      - returns: the new `Request`
      */
-    public static func patchUser(userURI userURI: String, parameters: VimeoClient.RequestParametersDictionary) -> Request
+    public static func patchUser(userURI: String, parameters: VimeoClient.RequestParametersDictionary) -> Request
     {
-        return Request(method: .PATCH, path: userURI, parameters: parameters)
+        return Request(method: .PATCH, path: userURI, parameters: parameters as AnyObject?)
     }
 }

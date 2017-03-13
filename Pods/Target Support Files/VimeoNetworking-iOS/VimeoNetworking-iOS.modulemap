@@ -1,0 +1,6 @@
+framework module VimeoNetworking {
+  umbrella header "VimeoNetworking-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

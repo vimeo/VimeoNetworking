@@ -61,7 +61,7 @@ final public class VimeoClient
         /// The path of the request
         public let path: String?
         
-        private let task: NSURLSessionDataTask?
+        fileprivate let task: URLSessionDataTask?
         
         /**
          Cancel the request
@@ -86,27 +86,25 @@ final public class VimeoClient
     
     // MARK: -
     
-    internal static let PagingKey = "paging"
-    internal static let TotalKey = "total"
-    internal static let PageKey = "page"
-    internal static let PerPageKey = "per_page"
-    internal static let NextKey = "next"
-    internal static let PreviousKey = "previous"
-    internal static let FirstKey = "first"
-    internal static let LastKey = "last"
-    
-    // MARK: -
-    
         /// Session manager handles the http session data tasks and request/response serialization
-    private let sessionManager: VimeoSessionManager
+    fileprivate let sessionManager: VimeoSessionManager
     
         /// response cache handles all memory and disk caching of response dictionaries
-    private let responseCache = ResponseCache()
+    fileprivate let responseCache = ResponseCache()
     
-    private struct Constants
+    internal struct Constants
     {
-        static let BearerQuery = "Bearer "
-        static let AuthorizationHeader = "Authorization"
+        fileprivate static let BearerQuery = "Bearer "
+        fileprivate static let AuthorizationHeader = "Authorization"
+        
+        static let PagingKey = "paging"
+        static let TotalKey = "total"
+        static let PageKey = "page"
+        static let PerPageKey = "per_page"
+        static let NextKey = "next"
+        static let PreviousKey = "previous"
+        static let FirstKey = "first"
+        static let LastKey = "last"
     }
     
     /**
@@ -154,10 +152,10 @@ final public class VimeoClient
         }
     }
     
-    public func notifyObserversAccountChanged(account: VIMAccount?, previousAccount: VIMAccount?)
+    public func notifyObserversAccountChanged(_ account: VIMAccount?, previousAccount: VIMAccount?)
     {
         Notification.AuthenticatedAccountDidChange.post(object: account,
-                                                        userInfo: [UserInfoKey.PreviousAccount.rawValue : previousAccount ?? NSNull()])
+                                                        userInfo: [UserInfoKey.previousAccount.rawValue : previousAccount ?? NSNull()])
     }
     
     // MARK: - Request
@@ -171,13 +169,13 @@ final public class VimeoClient
      
      - returns: a `RequestToken` for the in-flight request
      */
-    public func request<ModelType: MappableResponse>(request: Request<ModelType>, completionQueue: dispatch_queue_t = dispatch_get_main_queue(), completion: ResultCompletion<Response<ModelType>>.T) -> RequestToken
+    public func request<ModelType: MappableResponse>(_ request: Request<ModelType>, completionQueue: DispatchQueue = DispatchQueue.main, completion: @escaping ResultCompletion<Response<ModelType>>.T) -> RequestToken
     {
         var networkRequestCompleted = false
         
         switch request.cacheFetchPolicy
         {
-        case .CacheOnly, .CacheThenNetwork:
+        case .cacheOnly, .cacheThenNetwork:
             
             self.responseCache.responseForRequest(request) { result in
                 
@@ -190,22 +188,22 @@ final public class VimeoClient
                 
                 switch result
                 {
-                case .Success(let responseDictionary):
+                case .success(let responseDictionary):
                     
                     if let responseDictionary = responseDictionary
                     {
-                        self.handleTaskSuccess(request: request, task: nil, responseObject: responseDictionary, isCachedResponse: true, isFinalResponse: request.cacheFetchPolicy == .CacheOnly, completionQueue: completionQueue, completion: completion)
+                        self.handleTaskSuccess(request: request, task: nil, responseObject: responseDictionary as AnyObject?, isCachedResponse: true, isFinalResponse: request.cacheFetchPolicy == .cacheOnly, completionQueue: completionQueue, completion: completion)
                     }
-                    else if request.cacheFetchPolicy == .CacheOnly
+                    else if request.cacheFetchPolicy == .cacheOnly
                     {
                         let description = "Cached response not found"
-                        let error = NSError(domain: self.dynamicType.ErrorDomain, code: LocalErrorCode.CachedResponseNotFound.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
+                        let error = NSError(domain: type(of: self).ErrorDomain, code: LocalErrorCode.cachedResponseNotFound.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
                         
                         self.handleError(error, request: request)
                         
-                        dispatch_async(completionQueue)
+                        completionQueue.async
                         {
-                            completion(result: .Failure(error: error))
+                            completion(.failure(error: error))
                         }
                     }
                     else
@@ -213,17 +211,17 @@ final public class VimeoClient
                         // no action required for a cache miss with a network request pending [RH]
                     }
                     
-                case .Failure(let error):
+                case .failure(let error):
                     
                     print("cache failure: \(error)")
                     
                     self.handleError(error, request: request)
                     
-                    if request.cacheFetchPolicy == .CacheOnly
+                    if request.cacheFetchPolicy == .cacheOnly
                     {
-                        dispatch_async(completionQueue)
+                        completionQueue.async
                         {
-                            completion(result: .Failure(error: error))
+                            completion(.failure(error: error))
                         }
                     }
                     else
@@ -233,56 +231,55 @@ final public class VimeoClient
                 }
             }
             
-            if request.cacheFetchPolicy == .CacheOnly
+            if request.cacheFetchPolicy == .cacheOnly
             {
                 return RequestToken(path: request.path, task: nil)
             }
             
-        case .NetworkOnly, .TryNetworkThenCache:
+        case .networkOnly, .tryNetworkThenCache:
             break
         }
         
-        let success: (NSURLSessionDataTask, AnyObject?) -> Void = { (task, responseObject) in
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+        let success: (URLSessionDataTask, Any?) -> Void = { (task, responseObject) in
+            DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async {
                 networkRequestCompleted = true
                 self.handleTaskSuccess(request: request, task: task, responseObject: responseObject, completionQueue: completionQueue, completion: completion)
             }
         }
         
-        let failure: (NSURLSessionDataTask?, NSError) -> Void = { (task, error) in
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
+        let failure: (URLSessionDataTask?, Error) -> Void = { (task, error) in
+            DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async {
                 networkRequestCompleted = true
-                self.handleTaskFailure(request: request, task: task, error: error, completionQueue: completionQueue, completion: completion)
+                self.handleTaskFailure(request: request, task: task, error: error as NSError, completionQueue: completionQueue, completion: completion)
             }
         }
 
         let path = request.path
         let parameters = request.parameters
         
-        let task: NSURLSessionDataTask?
+        let task: URLSessionDataTask?
         
         switch request.method
         {
         case .GET:
-            task = self.sessionManager.GET(path, parameters: parameters, progress: nil, success: success, failure: failure)
+            task = self.sessionManager.get(path, parameters: parameters, progress: nil, success: success, failure: failure)
         case .POST:
-            task = self.sessionManager.POST(path, parameters: parameters, progress: nil, success: success, failure: failure)
+            task = self.sessionManager.post(path, parameters: parameters, progress: nil, success: success, failure: failure)
         case .PUT:
-            task = self.sessionManager.PUT(path, parameters: parameters, success: success, failure: failure)
+            task = self.sessionManager.put(path, parameters: parameters, success: success, failure: failure)
         case .PATCH:
-            task = self.sessionManager.PATCH(path, parameters: parameters, success: success, failure: failure)
+            task = self.sessionManager.patch(path, parameters: parameters, success: success, failure: failure)
         case .DELETE:
-            task = self.sessionManager.DELETE(path, parameters: parameters, success: success, failure: failure)
+            task = self.sessionManager.delete(path, parameters: parameters, success: success, failure: failure)
         }
         
-        guard let requestTask = task
-        else
+        guard let requestTask = task else
         {
             let description = "Session manager did not return a task"
             
             assertionFailure(description)
             
-            let error = NSError(domain: self.dynamicType.ErrorDomain, code: LocalErrorCode.RequestMalformed.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
+            let error = NSError(domain: type(of: self).ErrorDomain, code: LocalErrorCode.requestMalformed.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
             
             networkRequestCompleted = true
             
@@ -314,7 +311,7 @@ final public class VimeoClient
     
     // MARK: - Private task completion handlers
     
-    private func handleTaskSuccess<ModelType: MappableResponse>(request request: Request<ModelType>, task: NSURLSessionDataTask?, responseObject: AnyObject?, isCachedResponse: Bool = false, isFinalResponse: Bool = true, completionQueue: dispatch_queue_t, completion: ResultCompletion<Response<ModelType>>.T)
+    fileprivate func handleTaskSuccess<ModelType: MappableResponse>(request: Request<ModelType>, task: URLSessionDataTask?, responseObject: Any?, isCachedResponse: Bool = false, isFinalResponse: Bool = true, completionQueue: DispatchQueue, completion: @escaping ResultCompletion<Response<ModelType>>.T)
     {
         guard let responseDictionary = responseObject as? ResponseDictionary
         else
@@ -327,9 +324,9 @@ final public class VimeoClient
                 // It's also worth noting that (as of writing) there's no way to direct the compiler to ignore specific instances of warnings in Swift :S [RH] (4/13/16)
                 let response = Response(model: nullResponseObject, json: [:]) as! Response<ModelType>
 
-                dispatch_async(completionQueue)
+                completionQueue.async
                 {
-                    completion(result: .Success(result: response as Response<ModelType>))
+                    completion(.success(result: response as Response<ModelType>))
                 }
             }
             else
@@ -338,7 +335,7 @@ final public class VimeoClient
                 
                 assertionFailure(description)
                 
-                let error = NSError(domain: self.dynamicType.ErrorDomain, code: LocalErrorCode.InvalidResponseDictionary.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
+                let error = NSError(domain: type(of: self).ErrorDomain, code: LocalErrorCode.invalidResponseDictionary.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
                 
                 self.handleTaskFailure(request: request, task: task, error: error, completionQueue: completionQueue, completion: completion)
             }
@@ -352,33 +349,38 @@ final public class VimeoClient
             
             var response: Response<ModelType>
             
-            if let pagingDictionary = responseDictionary[self.dynamicType.PagingKey] as? ResponseDictionary
+            if let pagingDictionary = responseDictionary[Constants.PagingKey] as? ResponseDictionary
             {
-                let totalCount = responseDictionary[self.dynamicType.TotalKey]?.longValue
-                let currentPage = responseDictionary[self.dynamicType.PageKey]?.longValue
-                let itemsPerPage = responseDictionary[self.dynamicType.PerPageKey]?.longValue
+                
+                guard let totalCount = responseDictionary[Constants.TotalKey] as? NSNumber,
+                    let currentPage = responseDictionary[Constants.PagingKey] as? NSNumber,
+                    let itemsPerPage = responseDictionary[Constants.PerPageKey] as? NSNumber else
+                {
+                    assertionFailure("Total count, current page, or items per page did not exist as expected.")
+                    return
+                }
                 
                 var nextPageRequest: Request<ModelType>? = nil
                 var previousPageRequest: Request<ModelType>? = nil
                 var firstPageRequest: Request<ModelType>? = nil
                 var lastPageRequest: Request<ModelType>? = nil
                 
-                if let nextPageLink = pagingDictionary[self.dynamicType.NextKey] as? String
+                if let nextPageLink = pagingDictionary[Constants.NextKey] as? String
                 {
                     nextPageRequest = request.associatedPageRequest(newPath: nextPageLink)
                 }
                 
-                if let previousPageLink = pagingDictionary[self.dynamicType.PreviousKey] as? String
+                if let previousPageLink = pagingDictionary[Constants.PreviousKey] as? String
                 {
                     previousPageRequest = request.associatedPageRequest(newPath: previousPageLink)
                 }
                 
-                if let firstPageLink = pagingDictionary[self.dynamicType.FirstKey] as? String
+                if let firstPageLink = pagingDictionary[Constants.FirstKey] as? String
                 {
                     firstPageRequest = request.associatedPageRequest(newPath: firstPageLink)
                 }
                 
-                if let lastPageLink = pagingDictionary[self.dynamicType.LastKey] as? String
+                if let lastPageLink = pagingDictionary[Constants.LastKey] as? String
                 {
                     lastPageRequest = request.associatedPageRequest(newPath: lastPageLink)
                 }
@@ -387,9 +389,9 @@ final public class VimeoClient
                                                json: responseDictionary,
                                                isCachedResponse: isCachedResponse,
                                                isFinalResponse: isFinalResponse,
-                                               totalCount: totalCount,
-                                               page: currentPage,
-                                               itemsPerPage: itemsPerPage,
+                                               totalCount: totalCount.intValue,
+                                               page: currentPage.intValue,
+                                               itemsPerPage: itemsPerPage.intValue,
                                                nextPageRequest: nextPageRequest,
                                                previousPageRequest: previousPageRequest,
                                                firstPageRequest: firstPageRequest,
@@ -406,9 +408,9 @@ final public class VimeoClient
                 self.responseCache.setResponse(responseDictionary, forRequest: request)
             }
             
-            dispatch_async(completionQueue)
+            completionQueue.async
             {
-                completion(result: .Success(result: response))
+                completion(.success(result: response))
             }
         }
         catch let error
@@ -419,9 +421,9 @@ final public class VimeoClient
         }
     }
     
-    private func handleTaskFailure<ModelType: MappableResponse>(request request: Request<ModelType>, task: NSURLSessionDataTask?, error: NSError?, completionQueue: dispatch_queue_t, completion: ResultCompletion<Response<ModelType>>.T)
+    fileprivate func handleTaskFailure<ModelType: MappableResponse>(request: Request<ModelType>, task: URLSessionDataTask?, error: NSError?, completionQueue: DispatchQueue, completion: @escaping ResultCompletion<Response<ModelType>>.T)
     {
-        let error = error ?? NSError(domain: self.dynamicType.ErrorDomain, code: LocalErrorCode.Undefined.rawValue, userInfo: [NSLocalizedDescriptionKey: "Undefined error"])
+        let error = error ?? NSError(domain: type(of: self).ErrorDomain, code: LocalErrorCode.undefined.rawValue, userInfo: [NSLocalizedDescriptionKey: "Undefined error"])
         
         if error.code == NSURLErrorCancelled
         {
@@ -430,37 +432,36 @@ final public class VimeoClient
         
         self.handleError(error, request: request, task: task)
         
-        if case .MultipleAttempts(let attemptCount, let initialDelay) = request.retryPolicy
-            where attemptCount > 1
+        if case .multipleAttempts(let attemptCount, let initialDelay) = request.retryPolicy, attemptCount > 1
         {
             var retryRequest = request
-            retryRequest.retryPolicy = .MultipleAttempts(attemptCount: attemptCount - 1, initialDelay: initialDelay * 2)
+            retryRequest.retryPolicy = .multipleAttempts(attemptCount: attemptCount - 1, initialDelay: initialDelay * 2)
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(initialDelay * Double(NSEC_PER_SEC))), dispatch_get_main_queue())
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(initialDelay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC))
             {
                 self.request(retryRequest, completionQueue: completionQueue, completion: completion)
             }
         }
         
-        else if request.cacheFetchPolicy == .TryNetworkThenCache
+        else if request.cacheFetchPolicy == .tryNetworkThenCache
         {
             var cacheRequest = request
-            cacheRequest.cacheFetchPolicy = .CacheOnly
+            cacheRequest.cacheFetchPolicy = .cacheOnly
             
             self.request(cacheRequest, completionQueue: completionQueue, completion: completion)
             
             return
         }
         
-        dispatch_async(completionQueue)
+        completionQueue.async
         {
-            completion(result: .Failure(error: error))
+            completion(.failure(error: error))
         }
     }
     
     // MARK: - Private error handling
     
-    private func handleError<ModelType: MappableResponse>(error: NSError, request: Request<ModelType>, task: NSURLSessionDataTask? = nil)
+    fileprivate func handleError<ModelType: MappableResponse>(_ error: NSError, request: Request<ModelType>, task: URLSessionDataTask? = nil)
     {
         if error.isServiceUnavailableError
         {
@@ -468,19 +469,19 @@ final public class VimeoClient
         }
         else if error.isInvalidTokenError
         {
-            Notification.ClientDidReceiveInvalidTokenError.post(object: self.token(fromTask: task))
+            Notification.ClientDidReceiveInvalidTokenError.post(object: self.token(fromTask: task) as AnyObject?)
         }
     }
     
-    private func token(fromTask task: NSURLSessionDataTask?) -> String?
+    fileprivate func token(fromTask task: URLSessionDataTask?) -> String?
     {
         guard let bearerHeader = task?.originalRequest?.allHTTPHeaderFields?[Constants.AuthorizationHeader],
-            let range = bearerHeader.rangeOfString(Constants.BearerQuery) else
+            let range = bearerHeader.range(of: Constants.BearerQuery) else
         {
             return nil
         }
         var str = bearerHeader
-        str.removeRange(range)
+        str.removeSubrange(range)
         return str
     }
 }

@@ -39,7 +39,7 @@ public extension Request
             cacheKey = cacheKey + "." + String(parameters.description.hashValue)
         }
         
-        cacheKey = cacheKey.stringByReplacingOccurrencesOfString("/", withString: ".")
+        cacheKey = cacheKey.replacingOccurrences(of: "/", with: ".")
         
         return cacheKey
     }

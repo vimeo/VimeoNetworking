@@ -31,7 +31,7 @@ public typealias SoundtrackListRequest = Request<[VIMSoundtrack]>
 
 public extension Request
 {
-    private static var SoundtracksURI: String { return "/songs" }
+    fileprivate static var SoundtracksURI: String { return "/songs" }
     
     /**
      GET request to retrieve the root list of soundtracks
@@ -50,7 +50,7 @@ public extension Request
      
      - returns: a constructed `Request`
      */
-    public static func getSoundtrackListRequest(soundtracksURI soundtracksURI: String) -> Request
+    public static func getSoundtrackListRequest(soundtracksURI: String) -> Request
     {
         return Request(path: soundtracksURI)
     }

@@ -30,74 +30,74 @@ import Foundation
 public enum VimeoErrorCode: Int
 {
     // Upload
-    case UploadStorageQuotaExceeded = 4101
-    case UploadDailyQuotaExceeded = 4102
+    case uploadStorageQuotaExceeded = 4101
+    case uploadDailyQuotaExceeded = 4102
     
-    case InvalidRequestInput = 2204 // root error code for all invalid parameters errors below
+    case invalidRequestInput = 2204 // root error code for all invalid parameters errors below
     
     // Password-protected video playback
-    case VideoPasswordIncorrect = 2222
-    case NoVideoPasswordProvided = 2223
+    case videoPasswordIncorrect = 2222
+    case noVideoPasswordProvided = 2223
     
     // Authentication
-    case EmailTooLong = 2216
-    case PasswordTooShort = 2210
-    case PasswordTooSimple = 2211
-    case NameInPassword = 2212
-    case EmailNotRecognized = 2217
-    case PasswordEmailMismatch = 2218
-    case NoPasswordProvided = 2209
-    case NoEmailProvided = 2214
-    case InvalidEmail = 2215
-    case NoNameProvided = 2213
-    case NameTooLong = 2208
-    case FacebookJoinInvalidToken = 2303
-    case FacebookJoinNoToken = 2306
-    case FacebookJoinMissingProperty = 2304
-    case FacebookJoinMalformedToken = 2305
-    case FacebookJoinDecryptFail = 2307
-    case FacebookJoinTokenTooLong = 2308
-    case FacebookLoginNoToken = 2312
-    case FacebookLoginMissingProperty = 2310
-    case FacebookLoginMalformedToken = 2311
-    case FacebookLoginDecryptFail = 2313
-    case FacebookLoginTokenTooLong = 2314
-    case FacebookInvalidInputGrantType = 2221
-    case FacebookJoinValidateTokenFail = 2315
-    case FacebookInvalidNoInput = 2207
-    case FacebookInvalidToken = 2300
-    case FacebookMissingProperty = 2301
-    case FacebookMalformedToken = 2302
-    case EmailAlreadyRegistered = 2400
-    case EmailBlocked = 2401
-    case EmailSpammer = 2402
-    case EmailPurgatory = 2403
-    case URLUnavailable = 2404
-    case Timeout = 5000
-    case TokenNotGenerated = 5001
-    case DRMStreamLimitHit = 3420
-    case DRMDeviceLimitHit = 3421
-    case UnverifiedUser = 3411
+    case emailTooLong = 2216
+    case passwordTooShort = 2210
+    case passwordTooSimple = 2211
+    case nameInPassword = 2212
+    case emailNotRecognized = 2217
+    case passwordEmailMismatch = 2218
+    case noPasswordProvided = 2209
+    case noEmailProvided = 2214
+    case invalidEmail = 2215
+    case noNameProvided = 2213
+    case nameTooLong = 2208
+    case facebookJoinInvalidToken = 2303
+    case facebookJoinNoToken = 2306
+    case facebookJoinMissingProperty = 2304
+    case facebookJoinMalformedToken = 2305
+    case facebookJoinDecryptFail = 2307
+    case facebookJoinTokenTooLong = 2308
+    case facebookLoginNoToken = 2312
+    case facebookLoginMissingProperty = 2310
+    case facebookLoginMalformedToken = 2311
+    case facebookLoginDecryptFail = 2313
+    case facebookLoginTokenTooLong = 2314
+    case facebookInvalidInputGrantType = 2221
+    case facebookJoinValidateTokenFail = 2315
+    case facebookInvalidNoInput = 2207
+    case facebookInvalidToken = 2300
+    case facebookMissingProperty = 2301
+    case facebookMalformedToken = 2302
+    case emailAlreadyRegistered = 2400
+    case emailBlocked = 2401
+    case emailSpammer = 2402
+    case emailPurgatory = 2403
+    case urlUnavailable = 2404
+    case timeout = 5000
+    case tokenNotGenerated = 5001
+    case drmStreamLimitHit = 3420
+    case drmDeviceLimitHit = 3421
+    case unverifiedUser = 3411
 
     // Batch follow
-    case BatchUserDoesNotExist = 2900
-    case BatchFollowUserRequestExceeded = 2901
-    case BatchSubscribeChannelRequestExceeded = 2902
-    case BatchChannelDoesNotExist = 2903
-    case UserNotAllowedToFollowUsers = 3417
-    case UserNotAllowedToFollowChannels = 3418
-    case BatchFollowUserRequestFailed = 4005
-    case BatchSubscribeChannelRequestFailed = 4006
+    case batchUserDoesNotExist = 2900
+    case batchFollowUserRequestExceeded = 2901
+    case batchSubscribeChannelRequestExceeded = 2902
+    case batchChannelDoesNotExist = 2903
+    case userNotAllowedToFollowUsers = 3417
+    case userNotAllowedToFollowChannels = 3418
+    case batchFollowUserRequestFailed = 4005
+    case batchSubscribeChannelRequestFailed = 4006
 }
 
 /// `HTTPStatusCode` contains HTTP status code constants used to inspect response status
 public enum HTTPStatusCode: Int
 {
-    case ServiceUnavailable = 503
-    case BadRequest = 400
-    case Unauthorized = 401
-    case Forbidden = 403
-    case NotFound = 404
+    case serviceUnavailable = 503
+    case badRequest = 400
+    case unauthorized = 401
+    case forbidden = 403
+    case notFound = 404
 }
 
 /// `LocalErrorCode` contains codes for all error conditions that can be generated from within the library
@@ -106,47 +106,47 @@ public enum LocalErrorCode: Int
     // MARK: VimeoClient
     
     /// A response failed but returned no error object
-    case Undefined = 9000
+    case undefined = 9000
     
     /// A response returned successfully, but the response dictionary was not valid
-    case InvalidResponseDictionary = 9001
+    case invalidResponseDictionary = 9001
     
     /// A request was not able to be initiated with the specified values
-    case RequestMalformed = 9002
+    case requestMalformed = 9002
     
     /// A cache-only request found no cached response
-    case CachedResponseNotFound = 9003
+    case cachedResponseNotFound = 9003
     
     // MARK: VIMObjectMapper
     
     /// No model object class was specified for deserialization
-    case NoMappingClass = 9010
+    case noMappingClass = 9010
     
     /// Model object mapping was not successful
-    case MappingFailed = 9011
+    case mappingFailed = 9011
     
     // MARK: AuthenticationController
     
     /// No access token was returned with a successful authentication response
-    case AuthToken = 9004
+    case authToken = 9004
     
     /// Could not retrieve parameters from code grant response
-    case CodeGrant = 9005
+    case codeGrant = 9005
     
     /// Code grant returned state did not match existing state
-    case CodeGrantState = 9006
+    case codeGrantState = 9006
     
     /// No response was returned for an authenticationo request
-    case NoResponse = 9007
+    case noResponse = 9007
     
     /// Pin code authentication did not return an activate link or pin code
-    case PinCodeInfo = 9008
+    case pinCodeInfo = 9008
     
     /// The currently active pin code has expired
-    case PinCodeExpired = 9009
+    case pinCodeExpired = 9009
     
     // MARK: AccountStore
     
     /// An account object could not be decoded from keychain data
-    case AccountCorrupted = 9012
+    case accountCorrupted = 9012
 }

@@ -33,20 +33,20 @@ final class AccountStore
     enum AccountType
     {
         /// Client credentials accounts can access only public resources
-        case ClientCredentials
+        case clientCredentials
         
         /// User accounts have an authenticated user and can act on the user's behalf
-        case User
+        case user
         
         func keychainKey() -> String
         {
             switch self
             {
-            case .ClientCredentials:
+            case .clientCredentials:
                 
                 return "ClientCredentialsAccountKey"
                 
-            case .User:
+            case .user:
                 
                 return "UserAccountKey"
             }
@@ -55,11 +55,11 @@ final class AccountStore
     
     // MARK: - 
     
-    private static let ErrorDomain = "AccountStoreErrorDomain"
+    fileprivate static let ErrorDomain = "AccountStoreErrorDomain"
     
     // MARK: - 
     
-    private let keychainStore: KeychainStore
+    fileprivate let keychainStore: KeychainStore
     
     // MARK: -
     
@@ -85,11 +85,11 @@ final class AccountStore
      
      - throws: an error if the data could not be saved
      */
-    func saveAccount(account: VIMAccount, type: AccountType) throws
+    func saveAccount(_ account: VIMAccount, type: AccountType) throws
     {
         let data = NSMutableData()
-        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
-        archiver.encodeObject(account)
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        archiver.encode(account)
         archiver.finishEncoding()
         
         try self.keychainStore.setData(data, forKey: type.keychainKey())
@@ -104,7 +104,7 @@ final class AccountStore
      
      - returns: an account of the specified type, if one was found
      */
-    func loadAccount(type: AccountType) throws -> VIMAccount?
+    func loadAccount(_ type: AccountType) throws -> VIMAccount?
     {
         do
         {
@@ -114,7 +114,7 @@ final class AccountStore
                 return nil
             }
             
-            let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
             var decodedAccount: VIMAccount? = nil
             try ExceptionCatcher.doUnsafe
             {
@@ -125,7 +125,7 @@ final class AccountStore
             else
             {
                 let description = "Received corrupted VIMAccount data from keychain"
-                let error = NSError(domain: self.dynamicType.ErrorDomain, code: LocalErrorCode.AccountCorrupted.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
+                let error = NSError(domain: type(of: self).ErrorDomain, code: LocalErrorCode.accountCorrupted.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
                 
                 throw error
             }
@@ -152,7 +152,7 @@ final class AccountStore
      
      - throws: an error if the data exists but could not be removed
      */
-    func removeAccount(type: AccountType) throws
+    func removeAccount(_ type: AccountType) throws
     {
         try self.keychainStore.deleteDataForKey(type.keychainKey())
     }

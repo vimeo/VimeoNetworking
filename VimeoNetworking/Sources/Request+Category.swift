@@ -34,7 +34,7 @@ public typealias CategoryListRequest = Request<[VIMCategory]>
 
 public extension Request
 {
-    private static var CategoriesPath: String { return "/categories" }
+    fileprivate static var CategoriesPath: String { return "/categories" }
     
     /**
      Create a request that gets a specific category
@@ -43,7 +43,7 @@ public extension Request
      
      - returns: a new `Request`
      */
-    public static func getCategoryRequest(categoryURI categoryURI: String) -> Request
+    public static func getCategoryRequest(categoryURI: String) -> Request
     {
         return Request(path: categoryURI)
     }

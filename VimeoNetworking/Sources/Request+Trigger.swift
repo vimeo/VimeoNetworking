@@ -8,7 +8,7 @@
 
 extension Request
 {
-    private static var TriggersURI: String { return "/triggers" }
+    fileprivate static var TriggersURI: String { return "/triggers" }
 
     /// `Request` that returns a single `VIMTrigger`
     public typealias TriggerRequest = Request<VIMTrigger>
@@ -26,7 +26,7 @@ extension Request
     {
         let uri = self.uri(withDeviceToken: deviceToken)
         
-        return Request(method: .PUT, path: uri, parameters: parameters)
+        return Request(method: .PUT, path: uri, parameters: parameters as AnyObject?)
     }
     
     /**
@@ -42,7 +42,7 @@ extension Request
     {
         let uri = self.uri(withDeviceToken: deviceToken)
 
-        return Request(method: .DELETE, path: uri, parameters: parameters)
+        return Request(method: .DELETE, path: uri, parameters: parameters as AnyObject?)
     }
     
     /**
@@ -55,7 +55,7 @@ extension Request
      */
     public static func addPushNotificationTrigger(withParameters parameters: VimeoClient.RequestParametersDictionary) -> Request
     {
-        return Request(method: .POST, path: self.TriggersURI, parameters: parameters)
+        return Request(method: .POST, path: self.TriggersURI, parameters: parameters as AnyObject?)
     }
     
     /**
@@ -83,14 +83,14 @@ extension Request
     {
         let uri = self.uri(withDeviceToken: deviceToken) + self.TriggersURI
 
-        return Request(method: .PUT, path: uri, parameters: parameters, modelKeyPath: "data")
+        return Request(method: .PUT, path: uri, parameters: parameters as AnyObject?, modelKeyPath: "data")
     }
     
     // MARK: Helpers
     
-    private static func uri(withDeviceToken deviceToken: String) -> String
+    fileprivate static func uri(withDeviceToken deviceToken: String) -> String
     {
-        let deviceTypeIdentifier = UIDevice.currentDevice().userInterfaceIdiom == .Phone ? "iphone" : "ipad"
+        let deviceTypeIdentifier = UIDevice.current.userInterfaceIdiom == .phone ? "iphone" : "ipad"
         
         return "me/devices/" + deviceTypeIdentifier + "/" + deviceToken
     }

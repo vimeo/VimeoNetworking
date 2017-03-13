@@ -26,17 +26,17 @@
 
 import Foundation
 
-public class VIMProgrammedContent: VIMModelObject
+open class VIMProgrammedContent: VIMModelObject
 {
-    dynamic public var uri: String?
-    dynamic public var name: String?
-    dynamic public var type: String?
-    dynamic public var content: NSArray?
+    dynamic open var uri: String?
+    dynamic open var name: String?
+    dynamic open var type: String?
+    dynamic open var content: NSArray?
  
-    dynamic private var metadata: [NSObject: AnyObject]?
-    dynamic private var connections: [NSObject: AnyObject]?
+    dynamic fileprivate var metadata: [AnyHashable: Any]?
+    dynamic fileprivate var connections: [AnyHashable: Any]?
     
-    private struct Constants
+    fileprivate struct Constants
     {
         static let ConnectionsKey = "connections"
         static let ContentKey = "content"
@@ -45,13 +45,13 @@ public class VIMProgrammedContent: VIMModelObject
     
     // MARK: Public API
     
-    public func connectionWithName(connectionName: String) -> VIMConnection?
+    open func connectionWithName(_ connectionName: String) -> VIMConnection?
     {
         return self.connections?[connectionName] as? VIMConnection
     }
     
     //Note: No super call in this method, see explanation in didFinishMapping() [MW] 10/19/16
-    override public func getClassForCollectionKey(key: String!) -> AnyClass!
+    override open func getClassForCollectionKey(_ key: String!) -> AnyClass!
     {
         if key == Constants.ContentKey
         {
@@ -62,7 +62,7 @@ public class VIMProgrammedContent: VIMModelObject
     }
     
     //Note: No super call in this method, see explanation in didFinishMapping() [MW] 10/19/16
-    override public func getClassForObjectKey(key: String!) -> AnyClass!
+    override open func getClassForObjectKey(_ key: String!) -> AnyClass!
     {
         if key == Constants.MetadataKey
         {
@@ -76,7 +76,7 @@ public class VIMProgrammedContent: VIMModelObject
         return nil
     }
     
-    public override func didFinishMapping()
+    open override func didFinishMapping()
     {
         //Note: the super implementation of this method is not being called here because this method does not actually exist in the base class (VIMModelObject).  This method is declared optional in the VIMMappable protocol
         //that VIMModelObject implements.  There seems to be a bug in swift where the compiler is seeing the optional method as a part of the base class, so it won't compile unless we include the override keyword.
@@ -88,17 +88,17 @@ public class VIMProgrammedContent: VIMModelObject
     
     // MARK: Parsing Helpers
     
-    private func parseConnections()
+    fileprivate func parseConnections()
     {
-        guard let dict = self.metadata?[Constants.ConnectionsKey] as? [NSObject: AnyObject] else
+        guard let dict = self.metadata?[Constants.ConnectionsKey] as? [AnyHashable: Any] else
         {
             return
         }
      
-        self.connections = [NSObject: AnyObject]()
+        self.connections = [AnyHashable: Any]()
         for (key, value) in dict
         {
-            if let valueDict = value as? [NSObject: AnyObject]
+            if let valueDict = value as? [AnyHashable: Any]
             {
                 self.connections?[key] = VIMConnection(keyValueDictionary: valueDict)
             }

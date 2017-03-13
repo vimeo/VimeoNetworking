@@ -27,11 +27,11 @@
 import Foundation
 
 /// `ObservationToken` manages the lifecycle of a block observer.  Note: on deinit, the token cancels its own observation, so it must be stored strongly if the associated block observation is to continue.
-public class ObservationToken
+open class ObservationToken
 {
-    private let observer: NSObjectProtocol
+    fileprivate let observer: NSObjectProtocol
     
-    private init(observer: NSObjectProtocol)
+    fileprivate init(observer: NSObjectProtocol)
     {
         self.observer = observer
     }
@@ -39,7 +39,7 @@ public class ObservationToken
     /**
      Ends the block observation associated with this token
      */
-    public func stopObserving()
+    open func stopObserving()
     {
         Notification.removeObserver(self.observer)
     }
@@ -52,7 +52,7 @@ public class ObservationToken
 
 public enum UserInfoKey: NSString
 {
-    case PreviousAccount
+    case previousAccount
 }
 
 /// `Notification` declares a number of global events that can be broadcast by the networking library and observed by clients.
@@ -78,7 +78,7 @@ public enum Notification: String
     
     // MARK: -
     
-    private static let NotificationCenter = NSNotificationCenter.defaultCenter()
+    fileprivate static let NotificationCenter = Foundation.NotificationCenter.default
     
     // MARK: -
     
@@ -87,11 +87,11 @@ public enum Notification: String
      
      - parameter object: an optional object to pass to observers of this `Notification`
      */
-    public func post(object object: AnyObject?, userInfo: [NSObject: AnyObject]? = nil)
+    public func post(object: AnyObject?, userInfo: [AnyHashable: Any]? = nil)
     {
-        dispatch_async(dispatch_get_main_queue())
+        DispatchQueue.main.async
         {
-            self.dynamicType.NotificationCenter.postNotificationName(self.rawValue, object: object, userInfo: userInfo)
+            type(of: self).NotificationCenter.post(name: Foundation.Notification.Name(rawValue: self.rawValue), object: object, userInfo: userInfo)
         }
     }
     
@@ -101,9 +101,9 @@ public enum Notification: String
      - parameter target:   the object on which to call the `selector` method
      - parameter selector: method to call when the notification is broadcast
      */
-    public func observe(target: AnyObject, selector: Selector)
+    public func observe(_ target: AnyObject, selector: Selector)
     {
-        self.dynamicType.NotificationCenter.addObserver(target, selector: selector, name: self.rawValue, object: nil)
+        type(of: self).NotificationCenter.addObserver(target, selector: selector, name: NSNotification.Name(rawValue: self.rawValue), object: nil)
     }
     
     /**
@@ -111,10 +111,10 @@ public enum Notification: String
      
      - returns: an ObservationToken, which must be strongly stored in an appropriate context for as long as observation is relevant.
      */
-    @warn_unused_result(message = "Token must be strongly stored, observation ceases on token deallocation")
-    public func observe(observationHandler: (NSNotification) -> Void) -> ObservationToken
+    
+    public func observe(_ observationHandler: @escaping (Foundation.Notification) -> Void) -> ObservationToken
     {
-        let observer = self.dynamicType.NotificationCenter.addObserverForName(self.rawValue, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: observationHandler)
+        let observer = type(of: self).NotificationCenter.addObserver(forName: NSNotification.Name(rawValue: self.rawValue), object: nil, queue: OperationQueue.main, using: observationHandler)
         
         return ObservationToken(observer: observer)
     }
@@ -124,9 +124,9 @@ public enum Notification: String
      
      - parameter target: the target to remove
      */
-    public func removeObserver(target: AnyObject)
+    public func removeObserver(_ target: AnyObject)
     {
-        self.dynamicType.NotificationCenter.removeObserver(target, name: self.rawValue, object: nil)
+        type(of: self).NotificationCenter.removeObserver(target, name: NSNotification.Name(rawValue: self.rawValue), object: nil)
     }
     
     
@@ -135,7 +135,7 @@ public enum Notification: String
      
      - parameter target: the target to remove
      */
-    public static func removeObserver(target: AnyObject)
+    public static func removeObserver(_ target: AnyObject)
     {
         self.NotificationCenter.removeObserver(target)
     }

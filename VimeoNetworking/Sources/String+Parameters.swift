@@ -37,21 +37,21 @@ public extension String
     {
         var parametersDictionary: [String: String] = [:]
         
-        let scanner = NSScanner(string: self)
-        while !scanner.atEnd
+        let scanner = Scanner(string: self)
+        while !scanner.isAtEnd
         {
             var name: NSString?
             let equals = "="
-            scanner.scanUpToString(equals, intoString: &name)
-            scanner.scanString(equals, intoString: nil)
+            scanner.scanUpTo(equals, into: &name)
+            scanner.scanString(equals, into: nil)
             
             var value: NSString?
             let ampersand = "&"
-            scanner.scanUpToString(ampersand, intoString: &value)
-            scanner.scanString(ampersand, intoString: nil)
+            scanner.scanUpTo(ampersand, into: &value)
+            scanner.scanString(ampersand, into: nil)
             
-            if let name = name?.stringByRemovingPercentEncoding,
-                let value = value?.stringByRemovingPercentEncoding
+            if let name = name?.removingPercentEncoding,
+                let value = value?.removingPercentEncoding
             {
                 parametersDictionary[name] = value
             }
@@ -67,7 +67,7 @@ public extension String
      */
     func splitLinkString() -> (path: String, query: String?)
     {
-        let components = self.componentsSeparatedByString("?")
+        let components = self.components(separatedBy: "?")
         
         if components.count == 2
         {

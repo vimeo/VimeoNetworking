@@ -31,16 +31,16 @@ import AFNetworking
 public enum CacheFetchPolicy
 {
         /// Only request cached responses.  No network request is made.
-    case CacheOnly
+    case cacheOnly
     
         /// Try to load from both cache and network, note that two results may be returned when using this method (cached, then network)
-    case CacheThenNetwork
+    case cacheThenNetwork
     
         /// Only try to load the request from network.  The cache is not queried
-    case NetworkOnly
+    case networkOnly
     
         /// First try the network request, then fallback to cache if it fails
-    case TryNetworkThenCache
+    case tryNetworkThenCache
     
     /**
      Construct the default cache fetch policy for a given `Method`
@@ -49,9 +49,9 @@ public enum CacheFetchPolicy
      
      - returns: the default cache policy for the provided `Method`
      */
-    static func defaultPolicyForMethod(method: VimeoClient.Method) -> CacheFetchPolicy
+    static func defaultPolicyForMethod(_ method: VimeoClient.Method) -> CacheFetchPolicy
     {
-        return .NetworkOnly
+        return .networkOnly
     }
 }
 
@@ -59,7 +59,7 @@ public enum CacheFetchPolicy
 public enum RetryPolicy
 {
         /// Only one attempt is made, no retry behavior
-    case SingleAttempt
+    case singleAttempt
     
     /**
       Retry a request a specified number of times, starting with a specified delay
@@ -67,7 +67,7 @@ public enum RetryPolicy
      - parameter attemptCount: maximum number of times this request should be retried
      - parameter initialDelay: the delay (in seconds) until first retry. The next delay is doubled with each retry to provide `back-off` behavior, which tends to lead to a greater probability of recovery
      */
-    case MultipleAttempts(attemptCount: Int, initialDelay: NSTimeInterval)
+    case multipleAttempts(attemptCount: Int, initialDelay: TimeInterval)
     
     /**
      Construct the default retry policy for a given `Method`
@@ -76,12 +76,12 @@ public enum RetryPolicy
      
      - returns: the default retry policy for the given `Method`
      */
-    static func defaultPolicyForMethod(method: VimeoClient.Method) -> RetryPolicy
+    static func defaultPolicyForMethod(_ method: VimeoClient.Method) -> RetryPolicy
     {
         switch method
         {
         case .GET, .DELETE, .PATCH, .POST, .PUT:
-            return .SingleAttempt
+            return .singleAttempt
         }
     }
 }
@@ -89,7 +89,7 @@ public enum RetryPolicy
 extension RetryPolicy
 {
     /// Convenience `RetryPolicy` constructor that provides a standard multiple attempt policy
-    static let TryThreeTimes: RetryPolicy = .MultipleAttempts(attemptCount: 3, initialDelay: 2.0)
+    static let TryThreeTimes: RetryPolicy = .multipleAttempts(attemptCount: 3, initialDelay: 2.0)
 }
 
 /**
@@ -100,8 +100,8 @@ extension RetryPolicy
 public struct Request<ModelType: MappableResponse>
 {
     // TODO: Make these static when Swift supports it [RH] (5/24/16)
-    private let PageKey = "page"
-    private let PerPageKey = "per_page"
+    fileprivate let PageKey = "page"
+    fileprivate let PerPageKey = "per_page"
     
     // MARK: -
     
@@ -163,7 +163,7 @@ public struct Request<ModelType: MappableResponse>
     {
         let URI = self.path
         
-        let components = NSURLComponents(string: URI)
+        var components = URLComponents(string: URI)
 
         if let parameters = self.parameters as? VimeoClient.RequestParametersDictionary
         {
@@ -174,13 +174,13 @@ public struct Request<ModelType: MappableResponse>
                 components?.query = queryString
             }
         }
-
-        return components?.string?.stringByRemovingPercentEncoding ?? ""
+        
+        return components?.string?.removingPercentEncoding ?? ""
     }
     
     // MARK: Copying requests
     
-    internal func associatedPageRequest(newPath newPath: String) -> Request<ModelType>
+    internal func associatedPageRequest(newPath: String) -> Request<ModelType>
     {
         // Since page response paging paths bake the paging parameters into the path,
         // strip them out and upsert them back into the body parameters.
@@ -193,13 +193,13 @@ public struct Request<ModelType: MappableResponse>
         {
             queryParametersDictionary.forEach { (key, value) in
                 
-                updatedParameters[key] = value
+                updatedParameters[key] = value as AnyObject?
             }
         }
         
         return Request(method: self.method,
                        path: updatedPath,
-                       parameters: updatedParameters,
+                       parameters: updatedParameters as AnyObject?,
                        modelKeyPath: self.modelKeyPath,
                        cacheFetchPolicy: self.cacheFetchPolicy,
                        shouldCacheResponse: self.shouldCacheResponse,

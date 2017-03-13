@@ -7,7 +7,7 @@
 //
 
 /// Represents all the notifications that the user is Subscribed to.
-public class Subscription: VIMModelObject
+open class Subscription: VIMModelObject
 {
     // MARK: - Properties
     
@@ -45,7 +45,7 @@ public class Subscription: VIMModelObject
     var share: NSNumber?
     
     /// Represents the Subscription object as a Dictionary
-    public var toDictionary: [NSObject: AnyObject]
+    open var toDictionary: [AnyHashable: Any]
     {
         let dictionary = ["comment": self.comment ?? false,
                           "credit": self.credit ?? false,
@@ -62,7 +62,7 @@ public class Subscription: VIMModelObject
     
     // MARK: - VIMMappable
     
-    override public func getObjectMapping() -> AnyObject!
+    @objc override open func getObjectMapping() -> Any
     {
         return [
             "video_available": "videoAvailable",

@@ -31,7 +31,7 @@ public typealias CinemaContentRequest = Request<[VIMProgrammedContent]>
 
 public extension Request
 {
-    private static var CinemaPath: String { return "/programmed/cinema" }
+    fileprivate static var CinemaPath: String { return "/programmed/cinema" }
     
     // MARK: -
     

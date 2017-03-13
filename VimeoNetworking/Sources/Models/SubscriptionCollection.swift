@@ -7,28 +7,28 @@
 //
 
 /// Represents all the subscriptions with extra informations
-public class SubscriptionCollection: VIMModelObject
+open class SubscriptionCollection: VIMModelObject
 {
     // MARK: - Properties
 
     /// Represents the uri
-    public var uri: String?
+    open var uri: String?
     
     /// Represents the modified time
-    public var modifiedTime: NSDate?
+    open var modifiedTime: Date?
     
     /// Represents the subscription
-    public var subscription: Subscription?
+    open var subscription: Subscription?
     
     // MARK: - VIMMappable
     
-    public override func getObjectMapping() -> AnyObject!
+    open override func getObjectMapping() -> Any
     {
         return ["modified_time": "modifiedTime",
                 "subscriptions": "subscription"]
     }
     
-    public override func getClassForObjectKey(key: String!) -> AnyClass!
+    open override func getClassForObjectKey(_ key: String!) -> AnyClass!
     {
         if key == "subscriptions"
         {

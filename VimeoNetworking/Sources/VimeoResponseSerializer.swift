@@ -32,14 +32,14 @@ import AFNetworking
  */
 final public class VimeoResponseSerializer: AFJSONResponseSerializer
 {
-    private static let ErrorDomain = "VimeoResponseSerializerErrorDomain"
+    fileprivate static let ErrorDomain = "VimeoResponseSerializerErrorDomain"
     
     override init()
     {
         super.init()
 
         self.acceptableContentTypes = VimeoResponseSerializer.acceptableContentTypes()
-        self.readingOptions = .AllowFragments
+        self.readingOptions = .allowFragments
     }
 
     required public init?(coder aDecoder: NSCoder)
@@ -60,7 +60,7 @@ final public class VimeoResponseSerializer: AFJSONResponseSerializer
      
      - returns: the serialized JSON dictionary
      */
-    public func responseObjectFromDownloadTaskResponse(response response: NSURLResponse?, url: NSURL?, error: NSError?) throws -> [String: AnyObject]?
+    public func responseObjectFromDownloadTaskResponse(response: URLResponse?, url: URL?, error: NSError?) throws -> [String: AnyObject]?
     {
         var responseObject: [String: AnyObject]? = nil
         var serializationError: NSError? = nil
@@ -73,7 +73,7 @@ final public class VimeoResponseSerializer: AFJSONResponseSerializer
             serializationError = error
         }
         
-        try checkDataResponseForError(response: response, responseObject: responseObject, error: error)
+        try checkDataResponseForError(response: response, responseObject: responseObject as AnyObject?, error: error)
         
         if let serializationError = serializationError
         {
@@ -92,7 +92,7 @@ final public class VimeoResponseSerializer: AFJSONResponseSerializer
      
      - throws: an error if the data response contains an error
      */
-    public func checkDataResponseForError(response response: NSURLResponse?, responseObject: AnyObject?, error: NSError?) throws
+    public func checkDataResponseForError(response: URLResponse?, responseObject: AnyObject?, error: NSError?) throws
     {
         // TODO: If error is nil and errorInfo is non-nil, we should throw an error [AH] 2/5/2016
         
@@ -113,12 +113,12 @@ final public class VimeoResponseSerializer: AFJSONResponseSerializer
      
      - throws: an error if the status code is invalid
      */
-    public func checkStatusCodeValidity(response response: NSURLResponse?) throws
+    public func checkStatusCodeValidity(response: URLResponse?) throws
     {
-        if let httpResponse = response as? NSHTTPURLResponse where httpResponse.statusCode < 200 || httpResponse.statusCode > 299
+        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode < 200 || httpResponse.statusCode > 299
         {
             let userInfo = [NSLocalizedDescriptionKey: "Invalid http status code for download task."]
-            throw NSError(domain: self.dynamicType.ErrorDomain, code: 0, userInfo: userInfo)
+            throw NSError(domain: type(of: self).ErrorDomain, code: 0, userInfo: userInfo)
         }
     }
     
@@ -131,30 +131,30 @@ final public class VimeoResponseSerializer: AFJSONResponseSerializer
      
      - returns: downloaded data serialized into JSON dictionary
      */
-    public func dictionaryFromDownloadTaskResponse(url url: NSURL?) throws -> [String: AnyObject]
+    public func dictionaryFromDownloadTaskResponse(url: URL?) throws -> [String: AnyObject]
     {
         guard let url = url else
         {
             let userInfo = [NSLocalizedDescriptionKey: "Url for completed download task is nil."]
-            throw NSError(domain: self.dynamicType.ErrorDomain, code: 0, userInfo: userInfo)
+            throw NSError(domain: type(of: self).ErrorDomain, code: 0, userInfo: userInfo)
         }
         
-        guard let data = NSData(contentsOfURL: url) else
+        guard let data = try? Data(contentsOf: url) else
         {
             let userInfo = [NSLocalizedDescriptionKey: "Data at url for completed download task is nil."]
-            throw NSError(domain: self.dynamicType.ErrorDomain, code: 0, userInfo: userInfo)
+            throw NSError(domain: type(of: self).ErrorDomain, code: 0, userInfo: userInfo)
         }
         
         var dictionary: [String: AnyObject]? = [:]
-        if data.length > 0
+        if data.count > 0
         {
-            dictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as? [String: AnyObject]
+            dictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: AnyObject]
         }
         
         if dictionary == nil
         {
             let userInfo = [NSLocalizedDescriptionKey: "Download task response dictionary is nil."]
-            throw NSError(domain: self.dynamicType.ErrorDomain, code: 0, userInfo: userInfo)
+            throw NSError(domain: type(of: self).ErrorDomain, code: 0, userInfo: userInfo)
         }
         
         return dictionary!
@@ -162,7 +162,7 @@ final public class VimeoResponseSerializer: AFJSONResponseSerializer
     
     // MARK: Private API
 
-    private func errorInfoFromResponse(response: NSURLResponse?, responseObject: AnyObject?) -> [String: AnyObject]?
+    fileprivate func errorInfoFromResponse(_ response: URLResponse?, responseObject: AnyObject?) -> [String: AnyObject]?
     {
         var errorInfo: [String: AnyObject] = [:]
         
@@ -179,15 +179,15 @@ final public class VimeoResponseSerializer: AFJSONResponseSerializer
             }
         }
         
-        if let headerErrorCode = (response as? NSHTTPURLResponse)?.allHeaderFields["Vimeo-Error-Code"]
+        if let headerErrorCode = (response as? HTTPURLResponse)?.allHeaderFields["Vimeo-Error-Code"]
         {
-            errorInfo["error_code"] = headerErrorCode
+            errorInfo["error_code"] = headerErrorCode as AnyObject?
         }
         
         return errorInfo.count == 0 ? nil : errorInfo
     }
 
-    private static func acceptableContentTypes() -> Set<String>
+    fileprivate static func acceptableContentTypes() -> Set<String>
     {
         return Set(
             ["application/json",

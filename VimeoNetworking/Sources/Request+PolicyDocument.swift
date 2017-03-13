@@ -31,8 +31,8 @@ public typealias PolicyDocumentRequest = Request<VIMPolicyDocument>
 
 public extension Request
 {
-    private static var TermsOfServiceURI: String { return "/documents/termsofservice" }
-    private static var PrivacyURI: String { return "/documents/privacy" }
+    fileprivate static var TermsOfServiceURI: String { return "/documents/termsofservice" }
+    fileprivate static var PrivacyURI: String { return "/documents/privacy" }
     
     /**
      Create a request to get the Terms of Service document

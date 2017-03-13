@@ -35,14 +35,14 @@ import Foundation
 public enum Result<ResultType>
 {
         /// action successful, returns a result of type `ResultType`
-    case Success(result: ResultType)
+    case success(result: ResultType)
     
         /// action failed, returns an `NSError`
-    case Failure(error: NSError)
+    case failure(error: NSError)
 }
 
 /// `ResultCompletion` creates a generic typealias to generally define completion blocks that return a `Result` 
 public enum ResultCompletion<ResultType>
 {
-    public typealias T = (result: Result<ResultType>) -> Void
+    public typealias T = (_ result: Result<ResultType>) -> Void
 }

@@ -9,30 +9,30 @@
 import UIKit
 import AFNetworking
 
-public class VimeoReachability
+open class VimeoReachability
 {
     internal static func beginPostingReachabilityChangeNotifications()
     {
-        AFNetworkReachabilityManager.sharedManager().setReachabilityStatusChangeBlock { (status) in
+        AFNetworkReachabilityManager.shared().setReachabilityStatusChange { (status) in
             
             Notification.ReachabilityDidChange.post(object: nil)
         }
         
-        AFNetworkReachabilityManager.sharedManager().startMonitoring()
+        AFNetworkReachabilityManager.shared().startMonitoring()
     }
     
-    public static func reachable() -> Bool
+    open static func reachable() -> Bool
     {
-        return AFNetworkReachabilityManager.sharedManager().reachable
+        return AFNetworkReachabilityManager.shared().isReachable
     }
     
-    public static func reachableViaCellular() -> Bool
+    open static func reachableViaCellular() -> Bool
     {
-        return AFNetworkReachabilityManager.sharedManager().reachableViaWWAN
+        return AFNetworkReachabilityManager.shared().isReachableViaWWAN
     }
     
-    public static func reachableViaWiFi() -> Bool
+    open static func reachableViaWiFi() -> Bool
     {
-        return AFNetworkReachabilityManager.sharedManager().reachableViaWiFi
+        return AFNetworkReachabilityManager.shared().isReachableViaWiFi
     }
 }

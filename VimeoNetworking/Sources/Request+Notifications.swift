@@ -8,7 +8,7 @@
 
 public extension Request
 {
-    private static var Path: String { return "/me/notifications/subscriptions" }
+    fileprivate static var Path: String { return "/me/notifications/subscriptions" }
     
     /// Retrieve the notification subscriptions.
     ///
@@ -22,8 +22,8 @@ public extension Request
     ///
     /// - Parameter subscription: The subscription dictionary contains the boolean values for each of those: comment, credit, like, reply, follow, video_available that defines what the user is subscripted to.
     /// - Returns: The result of the .PATCH is a SubscriptionCollection
-    public static func updateNotificationSubscriptions(subscription: VimeoClient.RequestParametersDictionary) -> Request
+    public static func updateNotificationSubscriptions(_ subscription: VimeoClient.RequestParametersDictionary) -> Request
     {
-        return Request(method: .PATCH, path: Path, parameters: subscription)
+        return Request(method: .PATCH, path: Path, parameters: subscription as AnyObject?)
     }
 }

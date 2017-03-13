@@ -17,10 +17,10 @@ public extension Request
      
      - returns: a new `Request`
      */
-    public static func postCommentRequest(uri uri: String, text: String) -> Request
+    public static func postCommentRequest(uri: String, text: String) -> Request
     {
         let parameters = ["text": text]
         
-        return Request(method: .POST, path: uri, parameters: parameters)
+        return Request(method: .POST, path: uri, parameters: parameters as AnyObject?)
     }
 }

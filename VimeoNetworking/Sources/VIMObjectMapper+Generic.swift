@@ -41,7 +41,7 @@ extension VIMObjectMapper
      
      - returns: A deserialized object of type `ModelType`
      */
-    static func mapObject<ModelType: MappableResponse>(responseDictionary: VimeoClient.ResponseDictionary, modelKeyPath: String? = nil) throws -> ModelType
+    static func mapObject<ModelType: MappableResponse>(_ responseDictionary: VimeoClient.ResponseDictionary, modelKeyPath: String? = nil) throws -> ModelType
     {
         guard let mappingClass = ModelType.mappingClass
         else
@@ -50,7 +50,7 @@ extension VIMObjectMapper
             
             assertionFailure(description)
             
-            let error = NSError(domain: self.ErrorDomain, code: LocalErrorCode.NoMappingClass.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
+            let error = NSError(domain: self.ErrorDomain, code: LocalErrorCode.noMappingClass.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
             
             throw error
         }
@@ -58,7 +58,7 @@ extension VIMObjectMapper
         let objectMapper = VIMObjectMapper()
         let modelKeyPath = modelKeyPath ?? ModelType.modelKeyPath
         objectMapper.addMappingClass(mappingClass, forKeypath: modelKeyPath ?? "")
-        var mappedObject = objectMapper.applyMappingToJSON(responseDictionary)
+        var mappedObject = objectMapper.applyMapping(toJSON: responseDictionary)
         
         if let modelKeyPath = modelKeyPath
         {
@@ -72,7 +72,7 @@ extension VIMObjectMapper
             
             assertionFailure(description)
             
-            let error = NSError(domain: self.ErrorDomain, code: LocalErrorCode.MappingFailed.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
+            let error = NSError(domain: self.ErrorDomain, code: LocalErrorCode.mappingFailed.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
             
             throw error
         }
