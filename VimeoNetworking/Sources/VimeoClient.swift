@@ -352,14 +352,9 @@ final public class VimeoClient
             
             if let pagingDictionary = responseDictionary[Constants.PagingKey] as? ResponseDictionary
             {
-                
-                guard let totalCount = responseDictionary[Constants.TotalKey] as? Int,
-                    let currentPage = responseDictionary[Constants.PageKey] as? Int,
-                    let itemsPerPage = responseDictionary[Constants.PerPageKey] as? Int else
-                {
-                    assertionFailure("Total count, current page, or items per page did not exist as expected.")
-                    return
-                }
+                let totalCount = responseDictionary[Constants.TotalKey] as? Int ?? 0
+                let currentPage = responseDictionary[Constants.PageKey] as? Int ?? 0
+                let itemsPerPage = responseDictionary[Constants.PerPageKey] as? Int ?? 0
                 
                 var nextPageRequest: Request<ModelType>? = nil
                 var previousPageRequest: Request<ModelType>? = nil
