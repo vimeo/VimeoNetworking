@@ -32,12 +32,10 @@ public extension Request
     /// Generates a unique cache key for a request, taking into account endpoint and parameters
     var cacheKey: String
     {
-        var cacheKey = "cached" + self.path
+        let url = NSURL(string: self.path)
+        let urlPath = url?.path ?? ""
         
-        if let description = (self.parameters as? CustomStringConvertible)?.description
-        {
-            cacheKey = cacheKey + "." + String(description.hashValue)
-        }
+        var cacheKey = "cached" + urlPath + "." + String(self.path.hashValue)
         
         cacheKey = cacheKey.replacingOccurrences(of: "/", with: ".")
         
