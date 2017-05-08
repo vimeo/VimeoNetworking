@@ -34,4 +34,17 @@ extension Dictionary
             self[key] = value
         }
     }
+
+    // `toQueryString` transforms a dictionary to a queryString
+    public var toQueryString: String {
+        
+        var output: String = ""
+        
+        for (_, dictionary) in self.enumerated()
+        {
+            output += "&\(dictionary.key)=\(dictionary.value)"
+        }
+
+        return output
+    }
 }
