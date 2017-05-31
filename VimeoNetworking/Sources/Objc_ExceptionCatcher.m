@@ -24,7 +24,7 @@
 //  THE SOFTWARE.
 //
 
-#import "ObjC_ExceptionCatcher.h"
+#import "Objc_ExceptionCatcher.h"
 
 @implementation ObjC_ExceptionCatcher
 
