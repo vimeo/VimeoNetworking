@@ -1,0 +1,3 @@
+# Change the default branch in the codecov.io dashboard to develop instead of master
+codecov:
+  branch: develop

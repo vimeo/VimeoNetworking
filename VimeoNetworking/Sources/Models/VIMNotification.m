@@ -42,7 +42,8 @@
                      @"follow" : @(VIMNotificationTypeFollow),
                      @"like" : @(VIMNotificationTypeLike),
                      @"reply" : @(VIMNotificationTypeReply),
-                     @"video_available" : @(VIMNotificationTypeVideoAvailable)};
+                     @"video_available" : @(VIMNotificationTypeVideoAvailable),
+                     @"followed_user_video_available" : @(VIMNotificationTypeFollowedUserVideoAvailable)};
     });
     
     return _typeMap;
