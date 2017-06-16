@@ -24,7 +24,6 @@
 //  THE SOFTWARE.
 //
 
-
 import XCTest
 @testable import VimeoNetworking
 
