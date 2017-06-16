@@ -44,6 +44,9 @@ public class Subscription: VIMModelObject
     /// Represents wether the user is subscribed to the `share` notification.
     var share: NSNumber?
     
+    /// Represents wether the is subscribed to the `New video available from followed user` notification.
+    var followedUserVideoAvailable: NSNumber?
+    
     /// Represents the Subscription object as a Dictionary
     public var toDictionary: [AnyHashable: Any]
     {
@@ -55,7 +58,8 @@ public class Subscription: VIMModelObject
                           "follow": self.follow ?? false,
                           "vod_preorder_available": self.vodPreorderAvailable ?? false,
                           "video_available": self.videoAvailable ?? false,
-                          "share": self.share ?? false]
+                          "share": self.share ?? false,
+                          "followed_user_video_available": self.followedUserVideoAvailable ?? false]
         
         return dictionary
     }
@@ -68,7 +72,8 @@ public class Subscription: VIMModelObject
             "video_available": "videoAvailable",
             "vod_preorder_available": "vodPreorderAvailable",
             "vod_rental_expiration_warning": "vodRentalExpirationWarning",
-            "account_expiration_warning": "accountExpirationWarning"]
+            "account_expiration_warning": "accountExpirationWarning",
+            "followed_user_video_available": "followedUserVideoAvailable"]
     }
     
     // MARK: - Helpers
@@ -86,6 +91,7 @@ public class Subscription: VIMModelObject
                 self.follow == false &&
                 self.vodPreorderAvailable == false &&
                 self.videoAvailable == false &&
-                self.share == false)
+                self.share == false &&
+                self.followedUserVideoAvailable == false)
     }
 }
