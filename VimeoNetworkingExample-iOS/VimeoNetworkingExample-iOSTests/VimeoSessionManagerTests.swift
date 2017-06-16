@@ -115,4 +115,55 @@ class VimeoSessionManagerTests: XCTestCase
         task = sessionManager.delete(testPath, parameters: nil, success: nil, failure: nil)
         XCTAssertEqual(task?.currentRequest?.url, testUrl)
     }
+    
+    func test_VimeoSessionManager_handleClientDidAuthenticate_setsCorrectTokenOnRequestSerializer()
+    {
+        let configuration = AppConfiguration(clientIdentifier: "{TEST CLIENT ID}",
+                                             clientSecret: "{TEST CLIENT SECRET}",
+                                             scopes: [.Public, .Private, .Purchased, .Create, .Edit, .Delete, .Interact, .Upload],
+                                             keychainService: "com.vimeo.keychain_service",
+                                             apiVersion: "3.3")
+        
+        let sessionManager = VimeoSessionManager.defaultSessionManager(appConfiguration: configuration)
+        
+        let testAccount = VIMAccount()
+        testAccount.accessToken = "TestAccessToken"
+        
+        sessionManager.clientDidAuthenticate(with: testAccount)
+        
+        guard let requestSerializer = sessionManager.requestSerializer as? VimeoRequestSerializer else
+        {
+            XCTFail("Incorrect request serializer")
+            return
+        }
+        
+        XCTAssertEqual(requestSerializer.accessTokenProvider?(), testAccount.accessToken)
+        
+    }
+    
+    func test_VimeoSessionManager_handleClientDidClearAccount_clearsTokenOnRequestSerializer()
+    {
+        let configuration = AppConfiguration(clientIdentifier: "{TEST CLIENT ID}",
+                                             clientSecret: "{TEST CLIENT SECRET}",
+                                             scopes: [.Public, .Private, .Purchased, .Create, .Edit, .Delete, .Interact, .Upload],
+                                             keychainService: "com.vimeo.keychain_service",
+                                             apiVersion: "3.3")
+        
+        let sessionManager = VimeoSessionManager.defaultSessionManager(appConfiguration: configuration)
+        
+        let testAccount = VIMAccount()
+        testAccount.accessToken = "TestAccessToken"
+        
+        guard let requestSerializer = sessionManager.requestSerializer as? VimeoRequestSerializer else
+        {
+            XCTFail("Incorrect request serializer")
+            return
+        }
+        
+        sessionManager.clientDidAuthenticate(with: testAccount)
+        XCTAssertNotNil(requestSerializer.accessTokenProvider)
+        
+        sessionManager.clientDidClearAccount()
+        XCTAssertNil(requestSerializer.accessTokenProvider)
+    }
 }
