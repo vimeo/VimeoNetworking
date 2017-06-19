@@ -72,7 +72,7 @@ public extension Request
     public static func markNotificationsAsSeenRequest(forNotifications notifications: [VIMNotification], notificationsURI: String) -> Request
     {
         var parameters: [ParameterDictionary] = []
-        let _ = notifications.map { (notification: VIMNotification) -> Void in
+        _ = notifications.map { (notification: VIMNotification) -> Void in
             if let uri = notification.uri
             {
                 parameters.append([

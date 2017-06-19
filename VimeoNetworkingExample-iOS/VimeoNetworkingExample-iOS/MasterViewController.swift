@@ -89,7 +89,7 @@ class MasterViewController: UITableViewController
                 request = Request<[VIMVideo]>(path: "/channels/staffpicks/videos")
             }
             
-            let _ = VimeoClient.defaultClient.request(request) { [weak self] result in
+            _ = VimeoClient.defaultClient.request(request) { [weak self] result in
                 
                 guard let strongSelf = self else
                 {
@@ -106,7 +106,7 @@ class MasterViewController: UITableViewController
                     {
                         print("starting next page request")
                         
-                        let _ = VimeoClient.defaultClient.request(nextPageRequest) { [weak self] result in
+                        _ = VimeoClient.defaultClient.request(nextPageRequest) { [weak self] result in
                             
                             guard let strongSelf = self else
                             {

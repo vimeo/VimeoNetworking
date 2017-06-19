@@ -439,7 +439,7 @@ final public class VimeoClient
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(initialDelay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC))
             {
-                let _ = self.request(retryRequest, completionQueue: completionQueue, completion: completion)
+                _ = self.request(retryRequest, completionQueue: completionQueue, completion: completion)
             }
         }
         
@@ -448,7 +448,7 @@ final public class VimeoClient
             var cacheRequest = request
             cacheRequest.cacheFetchPolicy = .cacheOnly
             
-            let _ = self.request(cacheRequest, completionQueue: completionQueue, completion: completion)
+            _ = self.request(cacheRequest, completionQueue: completionQueue, completion: completion)
             
             return
         }
