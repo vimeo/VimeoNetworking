@@ -83,7 +83,12 @@ class Request_ProgrammedContent: XCTestCase
             expectation.fulfill()
         }
         
-        self.wait(for: [expectation], timeout: 1.0)
+        self.waitForExpectations(timeout: 1.0) { error in
+            if let unWrappedError = error
+            {
+                XCTFail("\(unWrappedError)")
+            }
+        }
     }
     
     func test_CinemaRequest_onFailure_returnsError()
@@ -125,6 +130,11 @@ class Request_ProgrammedContent: XCTestCase
             expectation.fulfill()
         }
         
-        self.wait(for: [expectation], timeout: 1.0)
+        self.waitForExpectations(timeout: 1.0) { error in
+            if let unWrappedError = error
+            {
+                XCTFail("\(unWrappedError)")
+            }
+        }
     }
 }
