@@ -137,7 +137,6 @@ class VimeoSessionManagerTests: XCTestCase
         }
         
         XCTAssertEqual(requestSerializer.accessTokenProvider?(), testAccount.accessToken)
-        
     }
     
     func test_VimeoSessionManager_handleClientDidClearAccount_clearsTokenOnRequestSerializer()
