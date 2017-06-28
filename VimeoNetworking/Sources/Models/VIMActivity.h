@@ -51,7 +51,6 @@ extern NSString * __nonnull VIMActivityType_Share;
 @property (nonatomic, strong, nullable) VIMTag *tag;
 @property (nonatomic, strong, nullable) VIMCategory *category;
 
-@property (nonatomic, copy, nullable) NSString *uri;
 @property (nonatomic, copy, nullable) NSString *type;
 @property (nonatomic, strong, nullable) NSDate *time;
 
