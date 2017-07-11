@@ -1,6 +1,6 @@
 # VimeoNetworking [![](https://circleci.com/gh/vimeo/VimeoNetworking.png?style=shield&circle-token=0443de366b231f05e3b1b1b3bf64a434b9ec1cfe)](https://circleci.com/gh/vimeo/VimeoNetworking)
 
-**VimeoNetworking** is the authoritative Swift networking library for the Vimeo API.  Fully designed and implemented with Swift in mind, **VimeoNetworking** is type-safe, well `enum`erated, and never, ever, *ever* force-unwrapped. 
+**VimeoNetworking** is the authoritative Swift networking library for the Vimeo API.  Fully designed and implemented with Swift in mind, **VimeoNetworking** is type-safe, well `enum`erated, and never, ever, *ever* force-unwrapped.
 
 ##### Hey Creator, if you're primarily interested in uploading videos to Vimeo, you should also check out [VimeoUpload](https://github.com/vimeo/VimeoUpload).
 
@@ -9,7 +9,8 @@
 - iOS (8.0+)
 - tvOS (9.0+)
 
-## Installing with CocoaPods
+## Installing
+At this stage of development VimeoNetworking is not yet available as a CocoaPod via the public Podspecs repo. For now we recommend including it in your project as a submodule. If you'd still like to work with VimeoNetworking as a development pod, simply configure your Podfile as shown below.
 
 To get started integrating `VimeoNetworking`, add the following lines to your `Podfile` and run `pod install`:
 
@@ -17,7 +18,7 @@ To get started integrating `VimeoNetworking`, add the following lines to your `P
 use_frameworks! # required for Swift frameworks
 
 target 'YourAppTargetName' do
-	pod 'VimeoNetworking', '1.0'
+	pod 'VimeoNetworking', './Submodules/VimeoNetworking'
 end
 ```
 
@@ -52,15 +53,15 @@ Before we can actually start getting meaningful data from the API, there's one l
 
 Client credentials allow you to see everything that's publicly available on Vimeo.  This is essentially equivalent to visiting Vimeo.com without signing up for an account or logging in.  This is the simplest authentication method to implement, just one function completes the grant.
 
-```Swift 
+```Swift
 let authenticationController = AuthenticationController(client: vimeoClient)
 
-authenticationController.clientCredentialsGrant { result in 
+authenticationController.clientCredentialsGrant { result in
 	switch result {
 	case .Success(let account):
 		print("Successfully authenticated with account: \(account)")
 	case .Failure(let error):
-		print("error authenticating: \(error)")	
+		print("error authenticating: \(error)")
 	}
 }
 ```
@@ -88,7 +89,7 @@ The user will be prompted to log in and grant permissions to your application.  
 func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool
     {
         authenticationController.codeGrant(responseURL: url) { result in
-            switch result 
+            switch result
             {
             case .Success(let account):
                 print("authenticated successfully: \(account)")
@@ -96,7 +97,7 @@ func application(app: UIApplication, openURL url: NSURL, options: [String : AnyO
                 print("failure authenticating: \(error)")
             }
         }
-        
+
         return true
     }
 ```
@@ -123,18 +124,18 @@ authenticationController.accessToken("your_access_tocken") { result in
 `AuthenticationController` saves the accounts it successfully authenticates in the Keychain.  The next time your application launches, you should first attempt to load a previously authenticated account before prompting the user to authenticate.
 
 ```Swift
-do 
+do
 {
-	if let account = try authenticationController.loadSavedAccount() 
+	if let account = try authenticationController.loadSavedAccount()
 	{
 		print("account loaded successfully: \(account)"
-	} 
-	else 
+	}
+	else
 	{
 		print("no saved account found, authenticate...")
 	}
 }
-catch let error 
+catch let error
 {
 	print("error loading account: \(error)")
 }
@@ -163,7 +164,7 @@ By declaring the expected model object type, we can ensure that both the request
 After we send that request, we'll get a `Result` enum back.  This could be either a `.Success` or a `.Failure` value.  `.Success` will contain a `Response` object, while `.Failure` will contain an `NSError`.  Switch between these two cases to handle whichever is encountered:
 
 ```Swift
-vimeoClient.request(videoRequest) { result in 
+vimeoClient.request(videoRequest) { result in
 	switch result {
 	case .Success(let response: Response):
 		let video: VIMVideo = response.model
@@ -182,12 +183,12 @@ One neat **ProTip**: Your `Request` model type doesn't just have to be a single 
 ```Swift
 let staffPickedVideosRequest = Request<[VIMVideo]>(path: "/channels/staffpicks/videos")
 
-vimeoClient.request(staffPickedVideosRequest) { result in 
-	switch result 
+vimeoClient.request(staffPickedVideosRequest) { result in
+	switch result
 	{
 	case .Success(let response: Response):
 		let videos: [VIMVideo] = response.model
-		for video in videos 
+		for video in videos
 		{
 			print("retrieved video: \(video)")
 		}

@@ -196,8 +196,14 @@ final public class VimeoRequestSerializer: AFJSONRequestSerializer
         
         guard let existingUserAgent = request.value(forHTTPHeaderField: Constants.UserAgentKey) else
         {
-            assertionFailure("No existing user agent")
-
+            // DISCUSSION: AFNetworking doesn't set a User Agent for tvOS (look at the init method in AFHTTPRequestSerializer.m).
+            // So, on tvOS the User Agent will only specify the framework. System information might be something we want to add 
+            // in the future if AFNetworking isn't providing it. [ghking] 6/19/17
+            
+            #if !os(tvOS)
+                assertionFailure("An existing user agent was not found")
+            #endif
+            
             request.setValue(frameworkString, forHTTPHeaderField: Constants.UserAgentKey)
 
             return request
