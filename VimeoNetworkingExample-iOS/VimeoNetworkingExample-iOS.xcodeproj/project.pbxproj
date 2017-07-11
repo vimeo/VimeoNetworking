@@ -30,6 +30,8 @@
 		3C0DCFC91ECB22EC00960774 /* ObjectMappingTestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0DCFC71ECB22EC00960774 /* ObjectMappingTestUtilities.swift */; };
 		3C0DCFCC1ECB25FC00960774 /* categories-animation-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C0DCFCB1ECB25FC00960774 /* categories-animation-response.json */; };
 		3C0DCFCD1ECB25FC00960774 /* categories-animation-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C0DCFCB1ECB25FC00960774 /* categories-animation-response.json */; };
+		3C1F8E051F14397A00A062D3 /* VIMQuantityQuota+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1F8E041F14397A00A062D3 /* VIMQuantityQuota+Tests.swift */; };
+		3C1F8E061F14397A00A062D3 /* VIMQuantityQuota+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1F8E041F14397A00A062D3 /* VIMQuantityQuota+Tests.swift */; };
 		3C6F88841D999878006A24F4 /* programmed_cinema.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C6F88821D999878006A24F4 /* programmed_cinema.json */; };
 		3C6F88851D999878006A24F4 /* FakeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6F88831D999878006A24F4 /* FakeDataSource.swift */; };
 		3CAE6FC61EC671540016EF6C /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAE6FC51EC671540016EF6C /* RequestTests.swift */; };
@@ -96,6 +98,7 @@
 		3C0DCFC41ECA825600960774 /* VIMCategory+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "VIMCategory+Tests.swift"; path = "VimeoNetworkingCommonTests/VIMCategory+Tests.swift"; sourceTree = "<group>"; };
 		3C0DCFC71ECB22EC00960774 /* ObjectMappingTestUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObjectMappingTestUtilities.swift; path = VimeoNetworkingCommonTests/ObjectMappingTestUtilities.swift; sourceTree = "<group>"; };
 		3C0DCFCB1ECB25FC00960774 /* categories-animation-response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "categories-animation-response.json"; path = "VimeoNetworkingCommonTests/Response Data/categories-animation-response.json"; sourceTree = "<group>"; };
+		3C1F8E041F14397A00A062D3 /* VIMQuantityQuota+Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "VIMQuantityQuota+Tests.swift"; path = "VimeoNetworkingCommonTests/VIMQuantityQuota+Tests.swift"; sourceTree = "<group>"; };
 		3C6F88821D999878006A24F4 /* programmed_cinema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = programmed_cinema.json; sourceTree = "<group>"; };
 		3C6F88831D999878006A24F4 /* FakeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeDataSource.swift; sourceTree = "<group>"; };
 		3CAE6FC51EC671540016EF6C /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestTests.swift; path = VimeoNetworkingCommonTests/RequestTests.swift; sourceTree = "<group>"; };
@@ -250,6 +253,7 @@
 			children = (
 				3C0DCFCA1ECB25C500960774 /* Response JSON */,
 				3C0DCFC41ECA825600960774 /* VIMCategory+Tests.swift */,
+				3C1F8E041F14397A00A062D3 /* VIMQuantityQuota+Tests.swift */,
 				3C0DCFC71ECB22EC00960774 /* ObjectMappingTestUtilities.swift */,
 			);
 			name = "Object Mapping";
@@ -729,6 +733,7 @@
 				3CE06FA01ED3AE5F007A1AFE /* ResponseCacheTests.swift in Sources */,
 				3C0DCFC11ECA7F5D00960774 /* ScopeTests.swift in Sources */,
 				3CAE6FC61EC671540016EF6C /* RequestTests.swift in Sources */,
+				3C1F8E051F14397A00A062D3 /* VIMQuantityQuota+Tests.swift in Sources */,
 				3C0DCFBE1ECA790200960774 /* RequestTestUtilities.swift in Sources */,
 				3C0DCFBB1ECA775700960774 /* Request+CategoryTests.swift in Sources */,
 				3CE06FA31ED5B49A007A1AFE /* VimeoSessionManagerTests.swift in Sources */,
@@ -763,6 +768,7 @@
 				3C0DCFBF1ECA790200960774 /* RequestTestUtilities.swift in Sources */,
 				3CAE6FC71EC671540016EF6C /* RequestTests.swift in Sources */,
 				3C0DCFC91ECB22EC00960774 /* ObjectMappingTestUtilities.swift in Sources */,
+				3C1F8E061F14397A00A062D3 /* VIMQuantityQuota+Tests.swift in Sources */,
 				3CE06FA41ED5B49A007A1AFE /* VimeoSessionManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
