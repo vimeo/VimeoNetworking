@@ -368,10 +368,10 @@
 				13C1F651C572424FF37A05C8 /* [CP] Check Pods Manifest.lock */,
 				018B9F921C9B34050054650E /* Sources */,
 				018B9F931C9B34050054650E /* Frameworks */,
+				0C3671AC1F26410000063A9D /* ShellScript */,
 				018B9F941C9B34050054650E /* Resources */,
 				CA6E2119DFC5EFCAF0C431FA /* [CP] Embed Pods Frameworks */,
 				C3C638DB439B296F24C0C11D /* [CP] Copy Pods Resources */,
-				0C3671AC1F26410000063A9D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -579,7 +579,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+			shellScript = "WORKSPACE_ROOT=$( cd \"$(dirname \"${SRCROOT[0]}\")\" ; pwd -P )\n\n\"$PODS_ROOT\"/SwiftLint/swiftlint --config \"$WORKSPACE_ROOT\"/.swiftlint.yml\n";
 		};
 		13C1F651C572424FF37A05C8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
