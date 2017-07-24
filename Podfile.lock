@@ -27,23 +27,26 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (6.0.0)
   - OHHTTPStubs/Swift (6.0.0):
     - OHHTTPStubs/Default
+  - SwiftLint (0.20.1)
   - VimeoNetworking (0.0.1):
     - AFNetworking (= 3.1.0)
 
 DEPENDENCIES:
   - AFNetworking (= 3.1.0)
   - OHHTTPStubs/Swift (= 6.0.0)
+  - SwiftLint (= 0.20.1)
   - VimeoNetworking (from `../VimeoNetworking`)
 
 EXTERNAL SOURCES:
   VimeoNetworking:
-    :path: "../VimeoNetworking"
+    :path: ../VimeoNetworking
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   OHHTTPStubs: 752f9b11fd810a15162d50f11c06ff94f8e012eb
+  SwiftLint: f60095dc173a3f3ec505bb34f5229c3dfd779a54
   VimeoNetworking: 17f8d451e4a168044f619315d0cd821669676e67
 
-PODFILE CHECKSUM: 8bc00af8cb642e1f83b3344d3caef185d1921606
+PODFILE CHECKSUM: 3656f377df9b8395d40bc5d5ca305f834cd824e9
 
 COCOAPODS: 1.1.1
