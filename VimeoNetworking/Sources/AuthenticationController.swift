@@ -385,7 +385,7 @@ final public class AuthenticationController
     {
         let infoRequest = PinCodeRequest.getPinCodeRequest(forScopes: self.configuration.scopes)
         
-        let _ = self.authenticatorClient.request(infoRequest) { result in
+        _ = self.authenticatorClient.request(infoRequest) { result in
             switch result
             {
             case .success(let result):
@@ -496,7 +496,7 @@ final public class AuthenticationController
         }
         
         let deleteTokensRequest = Request<VIMNullResponse>.deleteTokensRequest()
-        let _ = self.client.request(deleteTokensRequest) { (result) in
+        _ = self.client.request(deleteTokensRequest) { (result) in
             switch result
             {
             case .success:
@@ -528,7 +528,7 @@ final public class AuthenticationController
     
     private func authenticate(with client: VimeoClient, request: AuthenticationRequest, completion: @escaping AuthenticationCompletion)
     {
-        let _ = client.request(request) { result in
+        _ = client.request(request) { result in
             
             let handledResult = self.handleAuthenticationResult(result)
             
