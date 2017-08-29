@@ -49,5 +49,11 @@ class VIMLiveTests: XCTestCase
     {
         let video = TestingUtility.videoObjectFromFile(named: "clip_live.json")
         XCTAssertNotNil(video.live)
+        XCTAssertEqual(video.live?.link, "rtmp://rtmp.cloud.vimeo.com/live?token=b23a326b-eb96-432d-97d5-122afa3a4e47")
+        XCTAssertEqual(video.live?.key, "42f9947e-6bb6-4119-bc37-8ee9d49c8567")
+        XCTAssertEqual(video.live?.activeTime?.description, "2017-08-01T18:18:44+00:00")
+        XCTAssertNil(video.live?.endedTime)
+        XCTAssertNil(video.live?.archivedTime)
+        XCTAssertEqual(video.live?.status, .streaming)
     }
 }
