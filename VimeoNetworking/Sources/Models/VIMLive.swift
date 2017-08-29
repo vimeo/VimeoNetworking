@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum LiveStreamingStatus: String
+public enum LiveStreamingStatus: String
 {
     case unavailable = "unavailable"
     case pending = "pending"
@@ -19,12 +19,12 @@ enum LiveStreamingStatus: String
     case done = "done"
 }
 
-class VIMLive: VIMModelObject
+public class VIMLive: VIMModelObject
 {
-    var link: String?
-    var key: String?
-    var activeTime: Date?
-    var endedTime: Date?
-    var archivedTime: Date?
-    var status: LiveStreamingStatus?
+    public var link: String?
+    public var key: String?
+    public var activeTime: Date?
+    public var endedTime: Date?
+    public var archivedTime: Date?
+    public var status: LiveStreamingStatus?
 }
