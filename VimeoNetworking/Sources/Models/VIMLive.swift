@@ -26,5 +26,19 @@ public class VIMLive: VIMModelObject
     public var activeTime: NSDate?
     public var endedTime: NSDate?
     public var archivedTime: NSDate?
-    public var status: LiveStreamingStatus?
+    
+    public var status: String?
+    {
+        didSet
+        {
+            guard let status = self.status else
+            {
+                return
+            }
+            
+            self.liveStreamingStatus = LiveStreamingStatus(rawValue: status)
+        }
+    }
+    
+    public var liveStreamingStatus: LiveStreamingStatus?
 }

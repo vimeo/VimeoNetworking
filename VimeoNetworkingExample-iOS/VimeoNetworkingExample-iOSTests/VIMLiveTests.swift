@@ -54,6 +54,6 @@ class VIMLiveTests: XCTestCase
         XCTAssertEqual(video.live?.activeTime?.description, "2017-08-01T18:18:44+00:00")
         XCTAssertNil(video.live?.endedTime)
         XCTAssertNil(video.live?.archivedTime)
-        XCTAssertEqual(video.live?.status, .streaming)
+        XCTAssertEqual(video.live?.liveStreamingStatus, .streaming)
     }
 }
