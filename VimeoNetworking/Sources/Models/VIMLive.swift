@@ -21,13 +21,13 @@ public enum LiveStreamingStatus: String
 
 public class VIMLive: VIMModelObject
 {
-    public var link: String?
-    public var key: String?
-    public var activeTime: NSDate?
-    public var endedTime: NSDate?
-    public var archivedTime: NSDate?
+    public private(set) var link: String?
+    public private(set) var key: String?
+    public private(set) var activeTime: NSDate?
+    public private(set) var endedTime: NSDate?
+    public private(set) var archivedTime: NSDate?
     
-    public var status: String?
+    public private(set) var status: String?
     {
         didSet
         {
@@ -40,5 +40,5 @@ public class VIMLive: VIMModelObject
         }
     }
     
-    public var liveStreamingStatus: LiveStreamingStatus?
+    public private(set) var liveStreamingStatus: LiveStreamingStatus?
 }
