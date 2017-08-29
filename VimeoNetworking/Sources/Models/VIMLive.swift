@@ -26,6 +26,15 @@
 
 import Foundation
 
+/// The streaming status of a live video.
+///
+/// - unavailable: the RTMP link is visible but not yet able to receive the stream.
+/// - pending: Vimeo is working on setting up the connection.
+/// - ready: the RTMP's URL is ready to receive video content.
+/// - streamingPreview: the stream is in a "preview" state. It will be accessible to the public when you transition to "streaming".
+/// - streaming: The stream is open and receiving content.
+/// - streamingError: The stream has been terminated by Vimeo.
+/// - done: The stream has been ended intentionally by the end-user.
 public enum LiveStreamingStatus: String
 {
     case unavailable = "unavailable"
@@ -37,14 +46,34 @@ public enum LiveStreamingStatus: String
     case done = "done"
 }
 
+/// An object that represents the `live` field in
+/// a `clip` response.
 public class VIMLive: VIMModelObject
 {
+    /// An RTMP link used to host a live stream.
     public private(set) var link: String?
+    
+    /// A token for streaming.
     public private(set) var key: String?
+    
+    /// The timestamp that the stream is active.
     public private(set) var activeTime: NSDate?
+    
+    /// The timestamp that the stream is over.
     public private(set) var endedTime: NSDate?
+    
+    /// The timestamp that the live video is
+    /// archived.
     public private(set) var archivedTime: NSDate?
     
+    /**
+        The status of the live video in string.
+     
+        - Note:
+        Technically, this property should not be used to
+        check the status of a live video. Use
+        `liveStreamingStatus` instead for easy checking.
+     */
     public private(set) var status: String?
     {
         didSet
@@ -58,5 +87,6 @@ public class VIMLive: VIMModelObject
         }
     }
     
+    /// The status of the live video in `LiveStreamingStatus` enum.
     public private(set) var liveStreamingStatus: LiveStreamingStatus?
 }
