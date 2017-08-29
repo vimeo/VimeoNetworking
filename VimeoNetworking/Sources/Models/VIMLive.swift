@@ -23,8 +23,8 @@ public class VIMLive: VIMModelObject
 {
     public var link: String?
     public var key: String?
-    public var activeTime: Date?
-    public var endedTime: Date?
-    public var archivedTime: Date?
+    public var activeTime: NSDate?
+    public var endedTime: NSDate?
+    public var archivedTime: NSDate?
     public var status: LiveStreamingStatus?
 }
