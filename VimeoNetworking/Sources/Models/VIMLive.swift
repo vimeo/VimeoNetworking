@@ -75,18 +75,15 @@ public class VIMLive: VIMModelObject
         `liveStreamingStatus` instead for easy checking.
      */
     public private(set) var status: String?
-    {
-        didSet
-        {
-            guard let status = self.status else
-            {
-                return
-            }
-            
-            self.liveStreamingStatus = LiveStreamingStatus(rawValue: status)
-        }
-    }
     
     /// The status of the live video in `LiveStreamingStatus` enum.
-    public private(set) var liveStreamingStatus: LiveStreamingStatus?
+    public var liveStreamingStatus: LiveStreamingStatus?
+    {
+        guard let status = self.status else
+        {
+            return nil
+        }
+        
+        return LiveStreamingStatus(rawValue: status)
+    }
 }
