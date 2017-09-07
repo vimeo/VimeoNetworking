@@ -61,7 +61,7 @@ final public class VimeoClient
         /// The path of the request
         public let path: String?
         
-        fileprivate let task: URLSessionDataTask?
+        public let task: URLSessionDataTask?
         
         /**
          Cancel the request
