@@ -66,6 +66,10 @@ public class VIMLive: VIMModelObject
     /// archived.
     public private(set) var archivedTime: NSDate?
     
+    /// The timestamp that the live video is
+    /// scheduled to be online.
+    public private(set) var scheduledStartTime: NSDate?
+    
     /**
         The status of the live video in string.
      
