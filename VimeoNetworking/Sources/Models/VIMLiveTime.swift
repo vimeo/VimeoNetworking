@@ -28,7 +28,7 @@ import Foundation
 
 /// An object that represents the `time` field in
 /// a `live_quota` response.
-class VIMLiveTime: VIMModelObject
+public class VIMLiveTime: VIMModelObject
 {
     /// The maximum time (in seconds) per event a user can stream.
     public private(set) var maxTimePerEvent: Int?

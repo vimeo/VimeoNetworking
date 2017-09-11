@@ -28,7 +28,7 @@ import Foundation
 
 /// An object that represents the `streams` field
 /// in a `live_quota` response.
-class VIMLiveStreams: VIMModelObject
+public class VIMLiveStreams: VIMModelObject
 {
     /// The maximum streams a user can make.
     public private(set) var maxStreams: Int?
