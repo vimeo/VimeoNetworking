@@ -31,7 +31,7 @@ class VIMLiveTests: XCTestCase
 {
     func testParsingLiveObject()
     {
-        let video = TestingUtility.videoObjectFromFile(named: "clip_live.json")
+        let video = TestingUtility<VIMVideo>.objectFromFile(named: "clip_live.json")
         XCTAssertNotNil(video.live)
         XCTAssertEqual(video.live?.link, "rtmp://rtmp.cloud.vimeo.com/live?token=b23a326b-eb96-432d-97d5-122afa3a4e47")
         XCTAssertEqual(video.live?.key, "42f9947e-6bb6-4119-bc37-8ee9d49c8567")

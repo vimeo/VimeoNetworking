@@ -27,36 +27,33 @@
 import Foundation
 import VimeoNetworking
 
-class TestingUtility
+class TestingUtility<T: AnyObject>
 {
-    static func videoObjectFromFile(named fileName: String) -> VIMVideo
+    static func objectFromFile(named fileName: String) -> T
     {
         do
         {
-            guard let fileURL = Bundle(for: TestingUtility.self).url(forResource: fileName, withExtension: nil) else
+            guard let fileURL = Bundle(for: VIMLiveTests.self).url(forResource: fileName, withExtension: nil) else
             {
-                assertionFailure("Error: Cannot locate test file!")
-                return VIMVideo()
+                fatalError("Error: Cannot locate test file!")
             }
             
             let data = try Data(contentsOf: fileURL)
             let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
             
             let mapper = VIMObjectMapper()
-            mapper.addMappingClass(VIMVideo.self, forKeypath: "")
+            mapper.addMappingClass(T.self, forKeypath: "")
             
-            guard let video = mapper.applyMapping(toJSON: json) as? VIMVideo else
+            guard let object = mapper.applyMapping(toJSON: json) as? T else
             {
-                assertionFailure("Error: Cannot map JSON data to VIMVideo!")
-                return VIMVideo()
+                fatalError("Error: Cannot map JSON data to VIMVideo!")
             }
             
-            return video
+            return object
         }
         catch let error
         {
-            assertionFailure("Error: \(error.localizedDescription)")
-            return VIMVideo()
+            fatalError("Error: \(error.localizedDescription)")
         }
     }
 }
