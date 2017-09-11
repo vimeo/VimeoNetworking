@@ -33,6 +33,7 @@
 #import "VIMPreference.h"
 #import "VIMUploadQuota.h"
 #import "VIMUserBadge.h"
+#import <VimeoNetworking/VimeoNetworking-Swift.h>
 
 @interface VIMUser ()
 
@@ -91,6 +92,11 @@
     if ([key isEqualToString:@"upload_quota"])
     {
         return [VIMUploadQuota class];
+    }
+    
+    if ([key isEqualToString:@"live_quota"])
+    {
+        return [VIMLiveQuota class];
     }
 
     return nil;
