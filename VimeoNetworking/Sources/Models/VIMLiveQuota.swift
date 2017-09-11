@@ -8,3 +8,8 @@
 
 import Foundation
 
+public class VIMLiveQuota: VIMModelObject
+{
+    public private(set) var streams: VIMLiveStreams?
+    public private(set) var time: VIMLiveTime?
+}
