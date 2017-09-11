@@ -101,6 +101,11 @@ public enum VimeoErrorCode: Int
     case userNotAllowedToFollowChannels = 3418
     case batchFollowUserRequestFailed = 4005
     case batchSubscribeChannelRequestFailed = 4006
+    
+    // Live Streaming
+    case userNotAllowedToLiveStream = 3422
+    case userHitSimultaneousLiveStreamingLimit = 3423
+    case userHitMonthlyLiveStreamingMinutesQuota = 3424
 }
 
 /// `HTTPStatusCode` contains HTTP status code constants used to inspect response status
