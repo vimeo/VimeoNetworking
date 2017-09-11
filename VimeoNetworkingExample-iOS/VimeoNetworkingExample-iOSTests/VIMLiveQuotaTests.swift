@@ -25,8 +25,20 @@
 //
 
 import XCTest
+import VimeoNetworking
 
 class VIMLiveQuotaTests: XCTestCase
 {
-    
+    func testParsingLiveQuotaObject()
+    {
+        let user = TestingUtility<VIMUser>.objectFromFile(named: "user_live.json")
+        XCTAssertNotNil(user.liveQuota)
+        XCTAssertNotNil(user.liveQuota?.streams)
+        XCTAssertNotNil(user.liveQuota?.time)
+        XCTAssertEqual(user.liveQuota?.streams?.maxStreams, 1)
+        XCTAssertEqual(user.liveQuota?.streams?.remainingStreams, 1)
+        XCTAssertEqual(user.liveQuota?.time?.maxTimePerEvent, 300)
+        XCTAssertEqual(user.liveQuota?.time?.maxTimePerMonth, 300)
+        XCTAssertEqual(user.liveQuota?.time?.remainingTimeThisMonth, 17259)
+    }
 }
