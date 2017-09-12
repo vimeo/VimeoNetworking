@@ -31,11 +31,16 @@ import Foundation
 public class VIMLiveTime: VIMModelObject
 {
     /// The maximum time (in seconds) per event a user can stream.
-    public private(set) var maxTimePerEvent: Int?
+    public private(set) var maxTimePerEvent: NSNumber?
     
     /// The maximum time (in seconds) per month a user can stream.
-    public private(set) var maxTimePerMonth: Int?
+    public private(set) var maxTimePerMonth: NSNumber?
     
     /// The remaining time (in seconds) this month a user can stream.
-    public private(set) var remainingTimeThisMonth: Int?
+    public private(set) var remainingTimeThisMonth: NSNumber?
+    
+    override public func getObjectMapping() -> Any!
+    {
+        return ["monthly_remaining": "remainingTimeThisMonth", "monthly_maximum": "maxTimePerMonth", "event_maximum": "maxTimePerEvent"]
+    }
 }

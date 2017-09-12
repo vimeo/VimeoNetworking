@@ -31,8 +31,13 @@ import Foundation
 public class VIMLiveStreams: VIMModelObject
 {
     /// The maximum streams a user can make.
-    public private(set) var maxStreams: Int?
+    public private(set) var maxStreams: NSNumber?
 
     /// The remaining streams a user can make.
-    public private(set) var remainingStreams: Int?
+    public private(set) var remainingStreams: NSNumber?
+    
+    override public func getObjectMapping() -> Any!
+    {
+        return ["remaining": "remainingStreams", "maximum": "maxStreams"]
+    }
 }
