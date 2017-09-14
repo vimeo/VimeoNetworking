@@ -25,19 +25,66 @@
 //
 
 import XCTest
+import OHHTTPStubs
 import VimeoNetworking
 
 class VIMLiveTests: XCTestCase
 {
+    override func setUp()
+    {
+        super.setUp()
+        
+        VimeoClient.configureSharedClient(withAppConfiguration: AppConfiguration(clientIdentifier: "{CLIENT_ID}",
+                                                                                 clientSecret: "{CLIENT_SECRET}",
+                                                                                 scopes: [.Public, .Private, .Purchased, .Create, .Edit, .Delete, .Interact, .Upload],
+                                                                                 keychainService: "com.vimeo.keychain_service",
+                                                                                 apiVersion: "3.3.10"))
+    }
+    
+    override func tearDown()
+    {
+        super.tearDown()
+        
+        OHHTTPStubs.removeAllStubs()
+    }
+    
     func testParsingLiveObject()
     {
-        let video = TestingUtility<VIMVideo>.objectFromFile(named: "clip_live.json")
-        XCTAssertNotNil(video.live)
-        XCTAssertEqual(video.live?.link, "rtmp://rtmp.cloud.vimeo.com/live?token=b23a326b-eb96-432d-97d5-122afa3a4e47")
-        XCTAssertEqual(video.live?.key, "42f9947e-6bb6-4119-bc37-8ee9d49c8567")
-        XCTAssertEqual(video.live?.activeTime?.description, "2017-08-01T18:18:44+00:00")
-        XCTAssertNil(video.live?.endedTime)
-        XCTAssertNil(video.live?.archivedTime)
-        XCTAssertEqual(video.live?.liveStreamingStatus, .streaming)
+        let request = Request<VIMVideo>(path: "/videos/224357160")
+        
+        stub(condition: isPath("/videos/224357160")) { _ in
+            let stubPath = OHPathForFile("clip_live.json", type(of: self))
+            return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
+        }
+        
+        let expectation = self.expectation(description: "Network call expectation")
+        
+        _ = VimeoClient.sharedClient.request(request) { response in
+            switch response
+            {
+            case .success(let result):
+                let video = result.model
+                
+                XCTAssertNotNil(video.live)
+                XCTAssertEqual(video.live?.link, "rtmp://rtmp.cloud.vimeo.com/live?token=b23a326b-eb96-432d-97d5-122afa3a4e47")
+                XCTAssertEqual(video.live?.key, "42f9947e-6bb6-4119-bc37-8ee9d49c8567")
+                XCTAssertEqual(video.live?.activeTime?.description, "2017-08-01T18:18:44+00:00")
+                XCTAssertNil(video.live?.endedTime)
+                XCTAssertNil(video.live?.archivedTime)
+                XCTAssertEqual(video.live?.liveStreamingStatus, .streaming)
+                
+            case .failure(let error):
+                XCTFail("\(error)")
+            }
+            
+            expectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 1.0) { error in
+            if let unWrappedError = error
+            {
+                XCTFail("\(unWrappedError)")
+            }
+        }
     }
 }
