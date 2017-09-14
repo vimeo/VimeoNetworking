@@ -61,6 +61,7 @@ final public class VimeoClient
         /// The path of the request
         public let path: String?
         
+        /// The data task of the request
         public let task: URLSessionDataTask?
         
         /**
