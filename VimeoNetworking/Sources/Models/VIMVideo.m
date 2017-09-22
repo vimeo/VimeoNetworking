@@ -314,6 +314,7 @@ NSString *VIMContentRating_Safe = @"safe";
 - (void)setVideoStatus
 {
     NSDictionary *statusDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      [NSNumber numberWithInt:VIMVideoProcessingStatusUnavailable], @"unavailable",
                                       [NSNumber numberWithInt:VIMVideoProcessingStatusAvailable], @"available",
                                       [NSNumber numberWithInt:VIMVideoProcessingStatusUploading], @"uploading",
                                       [NSNumber numberWithInt:VIMVideoProcessingStatusTranscoding], @"transcoding",
