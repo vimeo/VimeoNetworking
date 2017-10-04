@@ -26,6 +26,7 @@
 
 import Foundation
 
+/// An object representing the `live` object in either an `hls` or a `dash` response.
 public class VIMLiveHeartbeat: VIMModelObject
 {
     private struct Constants
@@ -33,6 +34,7 @@ public class VIMLiveHeartbeat: VIMModelObject
         static let HeartbeatUrlKey = "heartbeat"
     }
     
+    /// The heartbeat URL that the client should send requests to.
     public private(set) var heartbeatUrl: String?
     
     override public func getObjectMapping() -> Any?
