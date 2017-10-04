@@ -248,8 +248,8 @@
 		8CC2C51E63A0F4EFF95B8C0D1FFCF1BF /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF1EEF4D368BD5CFC8174DD3FA603C /* AFImageDownloader.m */; };
 		8D1C112E94044C595A43CE0F5BF32CE6 /* OHHTTPStubs.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4628139C29E288D16EF0D23CAA8927 /* OHHTTPStubs.m */; };
 		8D5252EE0BDD0EE7E198A72906EC432F /* VIMPicture.h in Headers */ = {isa = PBXBuildFile; fileRef = 040D7996D4530B1121F0B656A6DF8A95 /* VIMPicture.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8E02F2331F851CA5004F23CB /* VIMLiveHeartBeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E02F2321F851CA5004F23CB /* VIMLiveHeartBeat.swift */; };
-		8E02F2341F851CA5004F23CB /* VIMLiveHeartBeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E02F2321F851CA5004F23CB /* VIMLiveHeartBeat.swift */; };
+		8E02F2331F851CA5004F23CB /* VIMLiveHeartbeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E02F2321F851CA5004F23CB /* VIMLiveHeartbeat.swift */; };
+		8E02F2341F851CA5004F23CB /* VIMLiveHeartbeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E02F2321F851CA5004F23CB /* VIMLiveHeartbeat.swift */; };
 		8FFA7923EAFB15E44CE6F79BCC5C4C29 /* VimeoNetworking-tvOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD0B00BEFE4EC4A6D4169CB2D857FAFE /* VimeoNetworking-tvOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9083719EB79EADB8366E3C853BDB8190 /* VIMSeason.h in Headers */ = {isa = PBXBuildFile; fileRef = BDFA96B37BDD0CAD2C3EC965F75D11B6 /* VIMSeason.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		918D379FEF108BC8F54FBD3AD68EB39C /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D8E449F544235A66DD3ADFC61E90BD /* KeychainStore.swift */; };
@@ -656,7 +656,7 @@
 		88116D6274467ADE32615EE57DB646B1 /* VIMVideoHLSFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VIMVideoHLSFile.h; sourceTree = "<group>"; };
 		88E0874BD3102581721B9541B8530405 /* VIMVideoDASHFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VIMVideoDASHFile.h; sourceTree = "<group>"; };
 		8CFF61E7AB00108CD6C0518F7642418C /* VIMUserBadge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = VIMUserBadge.h; sourceTree = "<group>"; };
-		8E02F2321F851CA5004F23CB /* VIMLiveHeartBeat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIMLiveHeartBeat.swift; sourceTree = "<group>"; };
+		8E02F2321F851CA5004F23CB /* VIMLiveHeartbeat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIMLiveHeartbeat.swift; sourceTree = "<group>"; };
 		8E0C2D0BD32AB407DEC37B20F7D4296E /* Pods-VimeoNetworkingExample-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VimeoNetworkingExample-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		91A47939ED006E547772AA4CF7050F0D /* Request+ProgrammedContent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Request+ProgrammedContent.swift"; sourceTree = "<group>"; };
 		9202B7B57DF1B9FB435ABDC8A5694D14 /* VIMCredit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = VIMCredit.m; sourceTree = "<group>"; };
@@ -1179,7 +1179,7 @@
 				1AE63B46A71BAA8A06F04C1A1C5D962B /* VIMVODConnection.m */,
 				4A15107C817367C6CA8428789B2F4888 /* VIMVODItem.h */,
 				7150400F6EDB2CE72EA6E1E0EEF72B26 /* VIMVODItem.m */,
-				8E02F2321F851CA5004F23CB /* VIMLiveHeartBeat.swift */,
+				8E02F2321F851CA5004F23CB /* VIMLiveHeartbeat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2061,7 +2061,7 @@
 				E00C5F413C5E1EB218212AF35B4D5018 /* VIMObjectMapper.m in Sources */,
 				9B92665555A0FEEE662D1A144BC6241E /* VIMPicture.m in Sources */,
 				66A57D8061F28687AE7B4623C1987CC3 /* VIMPictureCollection.m in Sources */,
-				8E02F2331F851CA5004F23CB /* VIMLiveHeartBeat.swift in Sources */,
+				8E02F2331F851CA5004F23CB /* VIMLiveHeartbeat.swift in Sources */,
 				013C3FBB3C79AC5D55C7BF27B410224A /* VIMPolicyDocument.m in Sources */,
 				71E36D5B281E76248227E8FCCF0CAB95 /* VIMPreference.m in Sources */,
 				1DD8ABF51491362B19CB15E41CC3BF38 /* VIMPrivacy.m in Sources */,
@@ -2206,7 +2206,7 @@
 				771FA41F3DC2308299A6BBD9C16C76E4 /* VIMObjectMapper.m in Sources */,
 				0DD18B9634DFA7D98558AA954E133CCC /* VIMPicture.m in Sources */,
 				1E525171B9A85F51BFE2A2E8C4537F6B /* VIMPictureCollection.m in Sources */,
-				8E02F2341F851CA5004F23CB /* VIMLiveHeartBeat.swift in Sources */,
+				8E02F2341F851CA5004F23CB /* VIMLiveHeartbeat.swift in Sources */,
 				950FE16FA984F502184131C67004F533 /* VIMPolicyDocument.m in Sources */,
 				714F2F0DB51468BA10F6723E83CB1E37 /* VIMPreference.m in Sources */,
 				6E43EB96FBE6A26F597DD421F9F53259 /* VIMPrivacy.m in Sources */,
