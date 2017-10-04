@@ -85,6 +85,9 @@
             "link": "https://live.vimeocdn.com/stream/42f9947e-6bb6-4119-bc37-8ee9d49c8567/player/hls.m3u8",
             "log": "https://api.vimeo.dev/videos/224357160/log/hls/1501704030/4d87cac825f4922931e1f7bbf89f908a22d368fe",
             "link_expiration_time": "2017-08-03T01:00:30+00:00"
+            "live": {
+                "heartbeat": "https://api.vimeo.com/videos/236661678/heartbeat/hls/1507067883/3082903e82078a78bd146ca542899a124e1c47fe"
+            }
         }
     },
     "app": {
