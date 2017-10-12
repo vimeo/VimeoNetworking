@@ -35,7 +35,7 @@
 @property (nonatomic, copy, nullable) NSString *link;
 @property (nonatomic, strong, nullable) NSDate *expirationDate;
 @property (nonatomic, copy, nullable) NSString *log;
-@property (nonatomic, strong, nullable) VIMLiveHeartbeat *live;
+@property (nonatomic, strong, nullable) VIMLiveHeartbeat *heartbeat;
 
 - (BOOL)isExpired;
 

@@ -65,7 +65,7 @@ class VIMLiveHeartbeatTests: XCTestCase
             case .success(let result):
                 let video = result.model
                 
-                let liveHeartbeat = video.playRepresentation?.hlsFile?.live
+                let liveHeartbeat = video.playRepresentation?.hlsFile?.heartbeat
                 
                 XCTAssertNotNil(liveHeartbeat)
                 XCTAssertEqual(liveHeartbeat?.heartbeatUrl, "https://api.vimeo.com/videos/236661678/heartbeat/hls/1507067883/3082903e82078a78bd146ca542899a124e1c47fe")

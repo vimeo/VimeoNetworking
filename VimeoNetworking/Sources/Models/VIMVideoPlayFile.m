@@ -68,7 +68,7 @@
 
 - (NSDictionary *)getObjectMapping
 {
-    return @{@"link_expiration_time": @"expires"};
+    return @{@"link_expiration_time": @"expires", @"live": @"heartbeat"};
 }
 
 #pragma mark - Instance methods
