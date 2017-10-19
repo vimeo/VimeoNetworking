@@ -60,6 +60,7 @@ NSString *const VIMConnectionNameModeratedChannels = @"moderated_channels";
 NSString *const VIMConnectionNameContents = @"contents";
 NSString *const VIMConnectionNameNotifications = @"notifications";
 NSString *const VIMConnectionNameBlockUser = @"block";
+NSString *const VIMConnectionNameLiveStats = @"live_stats";
 
 
 @implementation VIMConnection
