@@ -53,6 +53,8 @@ public enum Scope: String
         /// Upload a video
     case Upload = "upload"
     
+    case Stats = "stats"
+    
     /**
      Combines an array of scopes into a scope string as expected by the api
      
