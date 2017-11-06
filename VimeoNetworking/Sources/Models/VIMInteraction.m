@@ -49,11 +49,6 @@ NSString * const VIMInteractionNamePurchase = @"purchase";
 
 #pragma mark - VIMMappable
 
-- (id)getObjectMapping
-{
-    return @{@"status": @"streamStatus"};
-}
-
 - (void)didFinishMapping
 {
     if ([self.added_time isKindOfClass:[NSString class]])
