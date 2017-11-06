@@ -34,6 +34,7 @@ extern NSString * const __nonnull VIMInteractionNameLike;
 extern NSString * const __nonnull VIMInteractionNameBuy;
 extern NSString * const __nonnull VIMInteractionNameRent;
 extern NSString * const __nonnull VIMInteractionNameSubscribe;
+extern NSString * const __nonnull VIMInteractionNamePurchase;
 
 typedef NS_ENUM(NSInteger, VIMInteractionStreamStatus) {
     VIMInteractionStreamStatusUnavailable = 0,      // user cannot purchase
@@ -48,12 +49,15 @@ typedef NS_ENUM(NSInteger, VIMInteractionStreamStatus) {
 @property (nonatomic, strong, nullable) NSNumber *added;
 @property (nonatomic, strong, nullable) NSDate *addedTime;
 
+@property (nonatomic, strong, nullable) NSString *status;
+
 # pragma mark - VOD related only
 @property (nonatomic, copy, nullable) NSString *link;
 @property (nonatomic, copy, nullable) NSString *download;
 @property (nonatomic, strong, nullable) NSDate *expirationDate;
 @property (nonatomic, strong, nullable) NSDate *purchaseDate;
 @property (nonatomic, assign) VIMInteractionStreamStatus streamStatus;
+
 
 # pragma mark - DRM
 
