@@ -28,7 +28,7 @@ The first step towards using the Vimeo API is registering a new application on t
 
 ### App Configuration
 
-Once you have a new app set up, click into its authentication settings and make note of the "Client Identifier" and "Client Secret" fields.  Next, determine which `Scope` permissions your application requires from the available options listed here: [Supported Scopes](https://developer.vimeo.com/api/authentication#scopes).  Use this information to instantiate a new `AppConfiguration` value:
+Once you have a new app set up, click into its authentication settings and make note of the "Client Identifier" and "Client Secret" fields.  Next, determine which `Scope` permissions your application requires from the available options listed here: [Supported Scopes](https://developer.vimeo.com/api/authentication#supported-scopes).  Use this information to instantiate a new `AppConfiguration` value:
 
 ```Swift
 let appConfiguration = AppConfiguration(
