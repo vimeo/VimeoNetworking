@@ -26,6 +26,8 @@
 
 import Foundation
 
+public typealias AuthenticationRequest = Request<VIMAccount>
+
 private let GrantTypeKey = "grant_type"
 private let ScopeKey = "scope"
 private let CodeKey = "code"
@@ -55,12 +57,9 @@ private let AuthenticationPathPinCode = "oauth/device"
 private let AuthenticationPathPinCodeAuthorize = "oauth/device/authorize"
 private let AuthenticationPathAppTokenExchange = "oauth/appexchange"
 
-
 // MARK: -
 
 private let AuthenticationPathTokens = "/tokens"
-
-typealias AuthenticationRequest = Request<VIMAccount>
 
 extension Request where ModelType: VIMAccount
 {

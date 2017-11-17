@@ -1,0 +1,203 @@
+{
+    "uri": "/users/99999999",
+    "name": "Some Random Dude",
+    "link": "https://vimeo.com/somerandomdude",
+    "location": "New York",
+    "bio": "\"Some meaningless quote.\" -- Some famous dude",
+    "created_time": "2016-11-11T12:41:17+00:00",
+    "account": "basic",
+    "pictures": {
+        "uri": "/users/99999999/pictures/99999999",
+        "active": true,
+        "type": "custom",
+        "sizes": [{
+                  "width": 30,
+                  "height": 30,
+                  "link": "https://i.vimeocdn.com/portrait/99999999_30x30"
+                  }, {
+                  "width": 75,
+                  "height": 75,
+                  "link": "https://i.vimeocdn.com/portrait/99999999_75x75"
+                  }, {
+                  "width": 100,
+                  "height": 100,
+                  "link": "https://i.vimeocdn.com/portrait/99999999_100x100"
+                  }, {
+                  "width": 300,
+                  "height": 300,
+                  "link": "https://i.vimeocdn.com/portrait/99999999_300x300"
+                  }],
+        "resource_key": "0b2345e12eb6c7c2a7fa925f025c86b6b1d6eb3d"
+    },
+    "websites": [],
+    "metadata": {
+        "connections": {
+            "albums": {
+                "uri": "/users/99999999/albums",
+                "options": ["GET"],
+                "total": 0
+            },
+            "appearances": {
+                "uri": "/users/99999999/appearances",
+                "options": ["GET"],
+                "total": 0
+            },
+            "categories": {
+                "uri": "/users/99999999/categories",
+                "options": ["GET"],
+                "total": 6
+            },
+            "channels": {
+                "uri": "/users/99999999/channels",
+                "options": ["GET"],
+                "total": 49
+            },
+            "feed": {
+                "uri": "/users/99999999/feed",
+                "options": ["GET"]
+            },
+            "followers": {
+                "uri": "/users/99999999/followers",
+                "options": ["GET"],
+                "total": 17
+            },
+            "following": {
+                "uri": "/users/99999999/following",
+                "options": ["GET"],
+                "total": 106
+            },
+            "groups": {
+                "uri": "/users/99999999/groups",
+                "options": ["GET"],
+                "total": 0
+            },
+            "likes": {
+                "uri": "/users/99999999/likes",
+                "options": ["GET"],
+                "total": 5
+            },
+            "moderated_channels": {
+                "uri": "/users/99999999/channels?filter=moderated",
+                "options": ["GET"],
+                "total": 0
+            },
+            "portfolios": {
+                "uri": "/users/99999999/portfolios",
+                "options": ["GET"],
+                "total": 0
+            },
+            "videos": {
+                "uri": "/users/99999999/videos",
+                "options": ["GET"],
+                "total": 2
+            },
+            "watchlater": {
+                "uri": "/users/99999999/watchlater",
+                "options": ["GET"],
+                "total": 24
+            },
+            "shared": {
+                "uri": "/users/99999999/shared/videos",
+                "options": ["GET"],
+                "total": 0
+            },
+            "pictures": {
+                "uri": "/users/99999999/pictures",
+                "options": ["GET", "POST"],
+                "total": 2
+            },
+            "violations": {
+                "uri": "/users/99999999/violations",
+                "options": ["GET"],
+                "total": 0
+            },
+            "recommended_users": {
+                "uri": "/me/recommendations/users",
+                "options": ["GET"],
+                "total": 55
+            },
+            "recommended_channels": {
+                "uri": "/me/recommendations/channels",
+                "options": ["GET"],
+                "total": 53
+            },
+            "watched_videos": {
+                "uri": "/me/watched/videos",
+                "options": ["GET"],
+                "total": 422
+            },
+            "notifications": {
+                "uri": "/me/notifications",
+                "total_new": 0,
+                "new_total": 0,
+                "unread_total": 0,
+                "total": 6,
+                "type_count": {
+                    "comment": 0,
+                    "credit": 0,
+                    "like": 0,
+                    "followed_user_video_available": 0,
+                    "share": 0,
+                    "video_available": 0,
+                    "mention": 0,
+                    "reply": 0,
+                    "storage_warning": 0,
+                    "follow": 0,
+                    "account_expiration_warning": 0,
+                    "vod_purchase": 0,
+                    "vod_preorder_available": 0,
+                    "vod_rental_expiration_warning": 0
+                }
+            },
+            "block": {
+                "uri": "/me/block",
+                "options": ["GET"],
+                "total": 0
+            }
+        }
+    },
+    "badge": {
+        "type": "staff",
+        "text": "Staff",
+        "alt_text": "Learn more about Vimeo",
+        "url": "/about"
+    },
+    "preferences": {
+        "videos": {
+            "privacy": {
+                "view": "anybody",
+                "comments": "anybody",
+                "embed": "public",
+                "download": true,
+                "add": true
+            }
+        }
+    },
+    "content_filter": ["language", "drugs", "violence", "nudity", "safe", "unrated"],
+    "upload_quota": {
+        "space": {
+            "free": 524288000,
+            "max": 524288000,
+            "used": 0
+        },
+        "quota": {
+            "hd": true,
+            "sd": true
+        }
+    },
+    "emails": [{
+               "email": "yo.whats.up.dude@apple.com"
+               }],
+    "live_quota": {
+        "time": {
+            "monthly_remaining": 17259,
+            "monthly_maximum": 300,
+            "event_maximum": 300
+        },
+        "streams": {
+            "remaining": 1,
+            "maximum": 1
+        }
+    },
+    "resource_key": "cc8882b961b0d01e7a0be7c6b59d9ffe9e98e562"
+}

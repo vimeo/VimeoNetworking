@@ -33,6 +33,7 @@
 @class VIMPreference;
 @class VIMUploadQuota;
 @class VIMUserBadge;
+@class VIMLiveQuota;
 
 typedef NS_ENUM(NSInteger, VIMUserAccountType)
 {
@@ -61,6 +62,7 @@ typedef NS_ENUM(NSInteger, VIMUserAccountType)
 @property (nonatomic, strong, nullable) VIMPreference *preferences;
 @property (nonatomic, strong, nullable) VIMUploadQuota *uploadQuota;
 @property (nonatomic, copy, nullable) NSString *account;
+@property (nonatomic, strong, nullable) VIMLiveQuota *liveQuota;
 
 - (nullable VIMConnection *)connectionWithName:(nonnull NSString *)connectionName;
 - (nullable VIMNotificationsConnection *)notificationsConnection;

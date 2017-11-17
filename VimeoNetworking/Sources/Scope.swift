@@ -26,32 +26,35 @@
 
 import Foundation
 
-    /// `Scope` describes a permission that your application requests from the API
+/// `Scope` describes a permission that your application requests from the API
 public enum Scope: String
 {
-        /// View public videos
+    /// View public videos
     case Public = "public"
     
-        /// View private videos
+    /// View private videos
     case Private = "private"
     
-        /// View Vimeo On Demand purchase history
+    /// View Vimeo On Demand purchase history
     case Purchased = "purchased"
     
-        /// Create new videos, groups, albums, etc.
+    /// Create new videos, groups, albums, etc.
     case Create = "create"
     
-        /// Edit videos, groups, albums, etc.
+    /// Edit videos, groups, albums, etc.
     case Edit = "edit"
     
-        /// Delete videos, groups, albums, etc.
+    /// Delete videos, groups, albums, etc.
     case Delete = "delete"
     
-        /// Interact with a video on behalf of a user, such as liking a video or adding it to your watch later queue
+    /// Interact with a video on behalf of a user, such as liking a video or adding it to your watch later queue
     case Interact = "interact"
     
-        /// Upload a video
+    /// Upload a video
     case Upload = "upload"
+    
+    /// Receive live-related statistics.
+    case Stats = "stats"
     
     /**
      Combines an array of scopes into a scope string as expected by the api

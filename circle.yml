@@ -4,7 +4,7 @@ general:
     - "build/Logs"
 machine:
   xcode:
-    version: 8.2.1
+    version: 9.0.1
 
 dependencies:
     override:

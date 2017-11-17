@@ -12,13 +12,13 @@ public class SubscriptionCollection: VIMModelObject
     // MARK: - Properties
 
     /// Represents the uri
-    public var uri: String?
+    @objc dynamic public private(set) var uri: String?
     
     /// Represents the subscription
-    public var subscription: Subscription?
+    @objc dynamic public private(set) var subscription: Subscription?
     
     /// Represents the migration that indicates whether the user has migrated from the old system `VIMTrigger` to new new system `Localytics`.
-    public var migrated: NSNumber?
+    @objc dynamic public private(set) var migrated: NSNumber?
     
     // MARK: - VIMMappable
     

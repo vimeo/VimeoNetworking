@@ -36,6 +36,7 @@
 @class VIMVideoPlayRepresentation;
 @class VIMBadge;
 @class Spatial;
+@class VIMLive;
 
 extern NSString * __nonnull VIMContentRating_Language;
 extern NSString * __nonnull VIMContentRating_Drugs;
@@ -45,6 +46,7 @@ extern NSString * __nonnull VIMContentRating_Unrated;
 extern NSString * __nonnull VIMContentRating_Safe;
 
 typedef NS_ENUM(NSUInteger, VIMVideoProcessingStatus) {
+    VIMVideoProcessingStatusUnavailable,
     VIMVideoProcessingStatusAvailable,
     VIMVideoProcessingStatusUploading,
     VIMVideoProcessingStatusTranscodeStarting, // New state added to API 11/18/2015 with in-app support added 2/11/2016 [AH]
@@ -84,6 +86,7 @@ typedef NS_ENUM(NSUInteger, VIMVideoProcessingStatus) {
 @property (nonatomic, copy, nullable) NSString *password;
 @property (nonatomic, strong, nullable) VIMBadge *badge;
 @property (nonatomic, strong, nullable) Spatial *spatial;
+@property (nonatomic, strong, nullable) VIMLive *live;
 
 @property (nonatomic, assign) VIMVideoProcessingStatus videoStatus;
 
@@ -108,7 +111,55 @@ typedef NS_ENUM(NSUInteger, VIMVideoProcessingStatus) {
 - (BOOL)isDRMProtected;
 - (NSInteger)likesCount;
 - (NSInteger)commentsCount;
+
+/**
+ Checks for the existence of a Spatial object on this VIMVideo and returns @p true if one exists.
+ 
+ @return Returns @p true if a Spatial object exists for this VIMVideo.
+ */
 - (BOOL)is360;
+
+/**
+ Checks for the existence of a VIMLive object on this VIMVideo and returns @p true if one exists, but does not check the state of the live event.
+
+ @return Returns @p true if a VIMLive object exists for this VIMVideo.
+ */
+- (BOOL)isLive;
+
+/**
+ Determines whether the current video represents a live event and if the event is in the pre, mid, or archiving state indicating that a live event is currently underway.
+
+ @return Returns @p true if the live video's broadcast is about to begin, is underway, or is being archived. Returns @p false if the live video's broadcast has already been archived.
+ */
+- (BOOL)isLiveEventInProgress;
+
+/**
+ Determines whether the current video represents a live event and whether or not the broadcast has started.
+
+ @return Returns @p true if the live video's broadcast has not begun.
+ */
+- (BOOL)isPreBroadcast;
+
+/**
+ Determines whether the current video represents a live event and if the broadcast is underway.
+
+ @return Returns @p true when the live video's broadcast is underway.
+ */
+- (BOOL)isMidBroadcast;
+
+/**
+ Determines whether the current video represents a live event that is in the process of being archived.
+
+ @return Returns @p true when the live video's broadcast has ended and is being archived.
+ */
+- (BOOL)isArchivingBroadcast;
+
+/**
+ Determines whether the current video represents a live event, whether it has ended, and if an archive of the broadcast is ready for playback.
+
+ @return Returns @p true when the live video event has ended and an archive of the broadcast is available.
+ */
+- (BOOL)isPostBroadcast;
 
 - (void)setIsLiked:(BOOL)isLiked;
 - (void)setIsWatchLater:(BOOL)isWatchLater;
