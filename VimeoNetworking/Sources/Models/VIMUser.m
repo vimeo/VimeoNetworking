@@ -230,11 +230,11 @@ static NSString *const LiveBusiness = @"live_business";
     }
     else if ([self.account isEqualToString:LivePro])
     {
-        self.accountType = VIMUserAccountTypeProLive;
+        self.accountType = VIMUserAccountTypeLivePro;
     }
     else if ([self.account isEqualToString:LiveBusiness])
     {
-        self.accountType = VIMUserAccountTypeBusinessLive;
+        self.accountType = VIMUserAccountTypeLiveBusiness;
     }
 }
 
@@ -298,9 +298,9 @@ static NSString *const LiveBusiness = @"live_business";
             return Pro;
         case VIMUserAccountTypeBusiness:
             return Business;
-        case VIMUserAccountTypeProLive:
+        case VIMUserAccountTypeLivePro:
             return LivePro;
-        case VIMUserAccountTypeBusinessLive:
+        case VIMUserAccountTypeLiveBusiness:
             return LiveBusiness;
     }
 }

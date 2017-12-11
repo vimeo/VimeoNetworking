@@ -35,8 +35,8 @@ static NSString *const Staff = @"staff";
 static NSString *const Curation = @"curation";
 static NSString *const Support = @"support";
 static NSString *const Alum = @"alum";
-static NSString *const ProLive = @"live_pro";
-static NSString *const BusinessLive = @"live_business";
+static NSString *const LivePro = @"live_pro";
+static NSString *const LiveBusiness = @"live_business";
 
 - (void)didFinishMapping
 {
@@ -73,13 +73,13 @@ static NSString *const BusinessLive = @"live_business";
     {
         self.badgeType = VIMUserBadgeTypeAlum;
     }
-    else if ([self.type isEqualToString:ProLive])
+    else if ([self.type isEqualToString:LivePro])
     {
-        self.badgeType = VIMUserBadgeTypeProLive;
+        self.badgeType = VIMUserBadgeTypeLivePro;
     }
-    else if ([self.type isEqualToString:BusinessLive])
+    else if ([self.type isEqualToString:LiveBusiness])
     {
-        self.badgeType = VIMUserBadgeTypeBusinessLive;
+        self.badgeType = VIMUserBadgeTypeLiveBusiness;
     }
     else
     {
