@@ -221,6 +221,14 @@
     {
         self.accountType = VIMUserAccountTypeBusiness;
     }
+    else if ([self.account isEqualToString:@"live_pro"])
+    {
+        self.accountType = VIMUserAccountTypeProLive;
+    }
+    else if ([self.account isEqualToString:@"live_business"])
+    {
+        self.accountType = VIMUserAccountTypeBusinessLive;
+    }
 }
 
 - (void)parseEmails
@@ -283,6 +291,10 @@
             return @"pro";
         case VIMUserAccountTypeBusiness:
             return @"business";
+        case VIMUserAccountTypeProLive:
+            return @"live_pro";
+        case VIMUserAccountTypeBusinessLive:
+            return @"live_business";
     }
 }
 
