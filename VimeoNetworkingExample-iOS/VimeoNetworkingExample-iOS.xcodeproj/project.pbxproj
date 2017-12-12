@@ -62,6 +62,11 @@
 		8EDE2D7A1FE020B400143E95 /* user_plus.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE2D791FE020B400143E95 /* user_plus.json */; };
 		8EDE2D7C1FE0210E00143E95 /* user_pro.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE2D7B1FE0210E00143E95 /* user_pro.json */; };
 		8EDE2D7E1FE0214E00143E95 /* user_business.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE2D7D1FE0214E00143E95 /* user_business.json */; };
+		8EDE2D801FE0559600143E95 /* VIMUserBadgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE2D7F1FE0559600143E95 /* VIMUserBadgeTests.swift */; };
+		8EDE2D821FE05A2500143E95 /* user_staff.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE2D811FE05A2500143E95 /* user_staff.json */; };
+		8EDE2D841FE05AA900143E95 /* user_curation.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE2D831FE05AA900143E95 /* user_curation.json */; };
+		8EDE2D861FE05B3600143E95 /* user_support.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE2D851FE05B3600143E95 /* user_support.json */; };
+		8EDE2D881FE05B7500143E95 /* user_alum.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE2D871FE05B7500143E95 /* user_alum.json */; };
 		8EDE8E201F55C44900C4D969 /* VIMLiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE8E1F1F55C44900C4D969 /* VIMLiveTests.swift */; };
 		8EDE8E221F55C4CF00C4D969 /* clip_live.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE8E211F55C4CF00C4D969 /* clip_live.json */; };
 		966F0F0E1E09D5740066DCF0 /* VimeoNetworkingExample_tvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F0F0D1E09D5740066DCF0 /* VimeoNetworkingExample_tvOSTests.swift */; };
@@ -153,6 +158,11 @@
 		8EDE2D791FE020B400143E95 /* user_plus.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user_plus.json; sourceTree = "<group>"; };
 		8EDE2D7B1FE0210E00143E95 /* user_pro.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user_pro.json; sourceTree = "<group>"; };
 		8EDE2D7D1FE0214E00143E95 /* user_business.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user_business.json; sourceTree = "<group>"; };
+		8EDE2D7F1FE0559600143E95 /* VIMUserBadgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIMUserBadgeTests.swift; sourceTree = "<group>"; };
+		8EDE2D811FE05A2500143E95 /* user_staff.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user_staff.json; sourceTree = "<group>"; };
+		8EDE2D831FE05AA900143E95 /* user_curation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user_curation.json; sourceTree = "<group>"; };
+		8EDE2D851FE05B3600143E95 /* user_support.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user_support.json; sourceTree = "<group>"; };
+		8EDE2D871FE05B7500143E95 /* user_alum.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user_alum.json; sourceTree = "<group>"; };
 		8EDE8E1F1F55C44900C4D969 /* VIMLiveTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIMLiveTests.swift; sourceTree = "<group>"; };
 		8EDE8E211F55C4CF00C4D969 /* clip_live.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = clip_live.json; sourceTree = "<group>"; };
 		90E3A1F0166091A070203C67 /* Pods-VimeoNetworkingExample-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworkingExample-tvOSTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-VimeoNetworkingExample-tvOSTests/Pods-VimeoNetworkingExample-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -332,13 +342,18 @@
 		8EDE2D711FDF3FE000143E95 /* VIMUser */ = {
 			isa = PBXGroup;
 			children = (
-				8EDE2D6F1FDF3F4200143E95 /* VIMUserTests.swift */,
-				8EDE2D721FDF413A00143E95 /* user_live_pro.json */,
-				8EDE2D751FDF474B00143E95 /* user_live_business.json */,
+				8EDE2D871FE05B7500143E95 /* user_alum.json */,
 				8EDE2D771FE0203300143E95 /* user_basic.json */,
+				8EDE2D7D1FE0214E00143E95 /* user_business.json */,
+				8EDE2D831FE05AA900143E95 /* user_curation.json */,
+				8EDE2D751FDF474B00143E95 /* user_live_business.json */,
+				8EDE2D721FDF413A00143E95 /* user_live_pro.json */,
 				8EDE2D791FE020B400143E95 /* user_plus.json */,
 				8EDE2D7B1FE0210E00143E95 /* user_pro.json */,
-				8EDE2D7D1FE0214E00143E95 /* user_business.json */,
+				8EDE2D811FE05A2500143E95 /* user_staff.json */,
+				8EDE2D851FE05B3600143E95 /* user_support.json */,
+				8EDE2D7F1FE0559600143E95 /* VIMUserBadgeTests.swift */,
+				8EDE2D6F1FDF3F4200143E95 /* VIMUserTests.swift */,
 			);
 			path = VIMUser;
 			sourceTree = "<group>";
@@ -574,11 +589,15 @@
 				8EDE2D761FDF474B00143E95 /* user_live_business.json in Resources */,
 				8EDE8E221F55C4CF00C4D969 /* clip_live.json in Resources */,
 				8EDE2D741FDF43CD00143E95 /* user_live_pro.json in Resources */,
+				8EDE2D861FE05B3600143E95 /* user_support.json in Resources */,
 				3C1F8DFF1EFC304000A062D3 /* cinema-success-response.json in Resources */,
 				8E3402401F673821001544C4 /* user_live.json in Resources */,
 				8EDE2D7C1FE0210E00143E95 /* user_pro.json in Resources */,
 				8EDE2D7E1FE0214E00143E95 /* user_business.json in Resources */,
 				3C0DCFCC1ECB25FC00960774 /* categories-animation-response.json in Resources */,
+				8EDE2D821FE05A2500143E95 /* user_staff.json in Resources */,
+				8EDE2D841FE05AA900143E95 /* user_curation.json in Resources */,
+				8EDE2D881FE05B7500143E95 /* user_alum.json in Resources */,
 				8EDE2D7A1FE020B400143E95 /* user_plus.json in Resources */,
 				8EDE2D781FE0203300143E95 /* user_basic.json in Resources */,
 			);
@@ -820,6 +839,7 @@
 				8EDE8E201F55C44900C4D969 /* VIMLiveTests.swift in Sources */,
 				0C7364351DFF4871000C3585 /* NSErrorExtensionTests.swift in Sources */,
 				8EDAF23D1F8523B1006072EF /* VIMLiveHeartbeatTests.swift in Sources */,
+				8EDE2D801FE0559600143E95 /* VIMUserBadgeTests.swift in Sources */,
 				3C6F88851D999878006A24F4 /* FakeDataSource.swift in Sources */,
 				3C0DCFC81ECB22EC00960774 /* ObjectMappingTestUtilities.swift in Sources */,
 				3C1F8E081F151B8E00A062D3 /* VIMUploadQuota+Tests.swift in Sources */,

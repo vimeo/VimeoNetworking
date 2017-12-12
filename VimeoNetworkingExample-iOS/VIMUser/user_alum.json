@@ -1,9 +1,9 @@
 {
     "uri": "mock_uri",
-    "account": "live_pro",
+    "account": "basic",
     "badge": {
-        "type": "live_pro",
-        "text": "Live Pro",
+        "type": "alum",
+        "text": "Alum",
         "alt_text": "mock_alt_text",
         "url": "mock_url"
     }

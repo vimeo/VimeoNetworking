@@ -1,4 +1,10 @@
 {
     "uri": "mock_uri",
-    "account": "basic"
+    "account": "basic",
+    "badge": {
+        "type": "basic",
+        "text": "Basic",
+        "alt_text": "mock_alt_text",
+        "url": "mock_url"
+    }
 }
