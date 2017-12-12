@@ -48,6 +48,23 @@ class VIMUserTests: XCTestCase
             case .success(let result):
                 XCTAssertEqual(result.model.accountType, expectedType)
                 
+                let analyticsIdentifier = result.model.accountTypeAnalyticsIdentifier()
+                switch expectedType
+                {
+                case .basic:
+                    XCTAssertEqual(analyticsIdentifier, "basic")
+                case .plus:
+                    XCTAssertEqual(analyticsIdentifier, "plus")
+                case .pro:
+                    XCTAssertEqual(analyticsIdentifier, "pro")
+                case .business:
+                    XCTAssertEqual(analyticsIdentifier, "business")
+                case .livePro:
+                    XCTAssertEqual(analyticsIdentifier, "live_pro")
+                case .liveBusiness:
+                    XCTAssertEqual(analyticsIdentifier, "live_business")
+                }
+                
             case .failure(let error):
                 XCTFail("\(error)")
             }
