@@ -71,4 +71,32 @@ class VIMUserTests: XCTestCase
         let expectation = self.expectation(description: "Expectation for Live Business User Object")
         self.checkReturnedAccountType(withExpectedType: .liveBusiness, andExpectation: expectation)
     }
+    
+    func testUserObjectReturningBasicForAccountType()
+    {
+        self.stubResponse(withFile: "user_basic.json")
+        let expectation = self.expectation(description: "Expectation for Basic User Object")
+        self.checkReturnedAccountType(withExpectedType: .basic, andExpectation: expectation)
+    }
+    
+    func testUserObjectReturningPlusForAccountType()
+    {
+        self.stubResponse(withFile: "user_plus.json")
+        let expectation = self.expectation(description: "Expectation for Plus User Object")
+        self.checkReturnedAccountType(withExpectedType: .plus, andExpectation: expectation)
+    }
+    
+    func testUserObjectReturningProForAccountType()
+    {
+        self.stubResponse(withFile: "user_pro.json")
+        let expectation = self.expectation(description: "Expectation for Pro User Object")
+        self.checkReturnedAccountType(withExpectedType: .pro, andExpectation: expectation)
+    }
+    
+    func testUserObjectReturningBusinessForAccountType()
+    {
+        self.stubResponse(withFile: "user_business.json")
+        let expectation = self.expectation(description: "Expectation for Business User Object")
+        self.checkReturnedAccountType(withExpectedType: .business, andExpectation: expectation)
+    }
 }
