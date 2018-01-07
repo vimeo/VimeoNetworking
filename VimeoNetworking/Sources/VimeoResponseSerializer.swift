@@ -198,6 +198,7 @@ final public class VimeoResponseSerializer: AFJSONResponseSerializer
             "text/html",
             "text/javascript",
             "application/vnd.vimeo.video+json",
+            "application/vnd.vimeo.album+json",
             "application/vnd.vimeo.cover+json",
             "application/vnd.vimeo.service+json",
             "application/vnd.vimeo.comment+json",
