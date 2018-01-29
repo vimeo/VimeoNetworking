@@ -58,7 +58,6 @@ typedef NS_ENUM(NSInteger, VIMInteractionStreamStatus) {
 @property (nonatomic, strong, nullable) NSDate *purchaseDate;
 @property (nonatomic, assign) VIMInteractionStreamStatus streamStatus;
 
-
 # pragma mark - DRM
 
 /**
