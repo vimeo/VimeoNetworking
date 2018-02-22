@@ -17,6 +17,17 @@
 
 @implementation VIMNotificationsConnection
 
+- (void)didFinishMapping
+{
+    // This is a migration for the outage on 2/20/18 where these counts were being returned as empty arrays for some users.
+    // https://vimean.atlassian.net/browse/VIM-5996 [ghking] 2/22/18
+    
+    if ([self.type_count isKindOfClass:[NSArray class]])
+    {
+        self.type_count = [NSDictionary new];
+    }
+}
+
 - (NSInteger)supportedNotificationNewTotal
 {
     NSArray<NSString *> *supportedNotificationKeys = [[VIMNotification supportedTypeMap] allKeys];
