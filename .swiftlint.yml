@@ -2,7 +2,6 @@
 
 # Only the rules specified here will be enabled.
 whitelist_rules:
-  - trailing_newline
   - trailing_whitespace
 
 # Paths to include during linting.
