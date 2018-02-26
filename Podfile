@@ -6,7 +6,7 @@ project 'VimeoNetworkingExample-iOS/VimeoNetworkingExample-iOS.xcodeproj'
 def shared_pods
     pod 'AFNetworking', '3.1.0'
     pod 'VimeoNetworking', :path => '../VimeoNetworking'
-    pod 'SwiftLint', '0.20.1'
+    pod 'SwiftLint', '0.25.0'
 end
 
 target 'VimeoNetworkingExample-iOS' do
