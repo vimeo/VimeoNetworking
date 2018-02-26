@@ -483,6 +483,7 @@
 				9B613935A5A18428B6721060 /* [CP] Check Pods Manifest.lock */,
 				966F0EF51E09D5740066DCF0 /* Sources */,
 				966F0EF61E09D5740066DCF0 /* Frameworks */,
+				0C333E782044B30F00134B69 /* ShellScript */,
 				966F0EF71E09D5740066DCF0 /* Resources */,
 				44371D5D7841C6F904AAED4C /* [CP] Embed Pods Frameworks */,
 				02B6DC3AEB0AFF35D28D8CE5 /* [CP] Copy Pods Resources */,
@@ -652,6 +653,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-VimeoNetworkingExample-iOSTests/Pods-VimeoNetworkingExample-iOSTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		0C333E782044B30F00134B69 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "WORKSPACE_ROOT=$( cd \"$(dirname \"${SRCROOT[0]}\")\" ; pwd -P )\n\n\"$PODS_ROOT\"/SwiftLint/swiftlint autocorrect --config \"$WORKSPACE_ROOT\"/.swiftlint.yml\n";
 		};
 		0C3671AC1F26410000063A9D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
