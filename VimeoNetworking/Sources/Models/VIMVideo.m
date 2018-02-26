@@ -133,7 +133,12 @@ NSString *VIMContentRating_Safe = @"safe";
     
     if ([key isEqualToString:@"spatial"])
     {
-            return [Spatial class];
+        return [Spatial class];
+    }
+    
+    if ([key isEqualToString:@"live"])
+    {
+        return [VIMLive class];
     }
     
     return nil;
@@ -309,6 +314,7 @@ NSString *VIMContentRating_Safe = @"safe";
 - (void)setVideoStatus
 {
     NSDictionary *statusDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      [NSNumber numberWithInt:VIMVideoProcessingStatusUnavailable], @"unavailable",
                                       [NSNumber numberWithInt:VIMVideoProcessingStatusAvailable], @"available",
                                       [NSNumber numberWithInt:VIMVideoProcessingStatusUploading], @"uploading",
                                       [NSNumber numberWithInt:VIMVideoProcessingStatusTranscoding], @"transcoding",
@@ -494,6 +500,36 @@ NSString *VIMContentRating_Safe = @"safe";
 - (BOOL)is360
 {
     return self.spatial != nil;
+}
+
+- (BOOL)isLive
+{
+    return self.live != nil;
+}
+
+- (BOOL)isLiveEventInProgress
+{
+    return self.live != nil && (self.isPreBroadcast || self.isMidBroadcast || self.isArchivingBroadcast);
+}
+
+- (BOOL)isPreBroadcast
+{
+    return self.isLive && ([self.live.status isEqual: VIMLive.LiveStreamStatusUnavailable] || [self.live.status isEqual: VIMLive.LiveStreamStatusReady] || [self.live.status isEqual: VIMLive.LiveStreamStatusPending]);
+}
+
+- (BOOL)isMidBroadcast
+{
+    return self.isLive && [self.live.status isEqual: VIMLive.LiveStreamStatusStreaming];
+}
+
+- (BOOL)isArchivingBroadcast
+{
+    return self.isLive && [self.live.status isEqualToString:VIMLive.LiveStreamStatusArchiving];
+}
+
+- (BOOL)isPostBroadcast
+{
+    return self.isLive && ([self.live.status isEqual: VIMLive.LiveStreamStatusDone]);
 }
 
 @end

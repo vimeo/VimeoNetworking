@@ -1,0 +1,10 @@
+{
+    "uri": "mock_uri",
+    "account": "pro",
+    "badge": {
+        "type": "pro",
+        "text": "Pro",
+        "alt_text": "mock_alt_text",
+        "url": "mock_url"
+    }
+}

@@ -18,7 +18,7 @@ To get started integrating `VimeoNetworking`, add the following lines to your `P
 use_frameworks! # required for Swift frameworks
 
 target 'YourAppTargetName' do
-	pod 'VimeoNetworking', './Submodules/VimeoNetworking'
+	pod 'VimeoNetworking', :path => './Submodules/VimeoNetworking'
 end
 ```
 

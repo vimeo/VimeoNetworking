@@ -1,0 +1,10 @@
+{
+    "uri": "mock_uri",
+    "account": "live_business",
+    "badge": {
+        "type": "live_business",
+        "text": "Live Business",
+        "alt_text": "mock_alt_text",
+        "url": "mock_url"
+    }
+}

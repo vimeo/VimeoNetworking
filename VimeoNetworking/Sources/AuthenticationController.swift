@@ -519,12 +519,18 @@ final public class AuthenticationController
         try self.accountStore.removeAccount(ofType: .user)
     }
     
-    // MARK: - Private
-    
-    private func authenticate(with request: AuthenticationRequest, completion: @escaping AuthenticationCompletion)
+    /**
+     Executes the specified authentication request, then the specified completion.
+     
+        - request: A request to fetch a VIMAccount.
+        - completion: A closure to handle the VIMAccount or error received.
+     */
+    public func authenticate(with request: AuthenticationRequest, completion: @escaping AuthenticationCompletion)
     {
         self.authenticate(with: self.authenticatorClient, request: request, completion: completion)
     }
+    
+    // MARK: - Private
     
     private func authenticate(with client: VimeoClient, request: AuthenticationRequest, completion: @escaping AuthenticationCompletion)
     {

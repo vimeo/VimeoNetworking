@@ -1,0 +1,11 @@
+{
+    "uri": "mock_uri",
+    "account": "basic",
+    "badge": {
+        "type": "support",
+        "text": "Support",
+        "alt_text": "mock_alt_text",
+        "url": "mock_url"
+    }
+}
+

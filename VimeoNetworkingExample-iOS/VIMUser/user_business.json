@@ -1,0 +1,10 @@
+{
+    "uri": "mock_uri",
+    "account": "business",
+    "badge": {
+        "type": "business",
+        "text": "Business",
+        "alt_text": "mock_alt_text",
+        "url": "mock_url"
+    }
+}

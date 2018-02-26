@@ -12,5 +12,5 @@ import Foundation
 public class PlayProgress: VIMModelObject
 {
     /// The time, in seconds, that the video has been viewed.
-    public var seconds: NSNumber?
+    @objc dynamic public var seconds: NSNumber?
 }

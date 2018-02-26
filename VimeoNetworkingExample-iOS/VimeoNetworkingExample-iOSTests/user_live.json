@@ -1,0 +1,203 @@
+{
+    "uri": "mock_uri",
+    "name": "mock_name",
+    "link": "mock_link",
+    "location": "New York",
+    "bio": "mock_bio",
+    "created_time": "mock_created_time",
+    "account": "basic",
+    "pictures": {
+        "uri": "mock_uri",
+        "active": true,
+        "type": "custom",
+        "sizes": [{
+                  "width": 30,
+                  "height": 30,
+                  "link": "mock_link"
+                  }, {
+                  "width": 75,
+                  "height": 75,
+                  "link": "mock_link"
+                  }, {
+                  "width": 100,
+                  "height": 100,
+                  "link": "mock_link"
+                  }, {
+                  "width": 300,
+                  "height": 300,
+                  "link": "mock_link"
+                  }],
+        "resource_key": "mock_resource_key"
+    },
+    "websites": [],
+    "metadata": {
+        "connections": {
+            "albums": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 0
+            },
+            "appearances": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 0
+            },
+            "categories": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 6
+            },
+            "channels": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 49
+            },
+            "feed": {
+                "uri": "mock_uri",
+                "options": ["GET"]
+            },
+            "followers": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 17
+            },
+            "following": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 106
+            },
+            "groups": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 0
+            },
+            "likes": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 5
+            },
+            "moderated_channels": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 0
+            },
+            "portfolios": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 0
+            },
+            "videos": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 2
+            },
+            "watchlater": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 24
+            },
+            "shared": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 0
+            },
+            "pictures": {
+                "uri": "mock_uri",
+                "options": ["GET", "POST"],
+                "total": 2
+            },
+            "violations": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 0
+            },
+            "recommended_users": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 55
+            },
+            "recommended_channels": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 53
+            },
+            "watched_videos": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 422
+            },
+            "notifications": {
+                "uri": "mock_uri",
+                "total_new": 0,
+                "new_total": 0,
+                "unread_total": 0,
+                "total": 6,
+                "type_count": {
+                    "comment": 0,
+                    "credit": 0,
+                    "like": 0,
+                    "followed_user_video_available": 0,
+                    "share": 0,
+                    "video_available": 0,
+                    "mention": 0,
+                    "reply": 0,
+                    "storage_warning": 0,
+                    "follow": 0,
+                    "account_expiration_warning": 0,
+                    "vod_purchase": 0,
+                    "vod_preorder_available": 0,
+                    "vod_rental_expiration_warning": 0
+                }
+            },
+            "block": {
+                "uri": "mock_uri",
+                "options": ["GET"],
+                "total": 0
+            }
+        }
+    },
+    "badge": {
+        "type": "staff",
+        "text": "Staff",
+        "alt_text": "mock_alt_text",
+        "url": "mock_url"
+    },
+    "preferences": {
+        "videos": {
+            "privacy": {
+                "view": "anybody",
+                "comments": "anybody",
+                "embed": "public",
+                "download": true,
+                "add": true
+            }
+        }
+    },
+    "content_filter": ["language", "drugs", "violence", "nudity", "safe", "unrated"],
+    "upload_quota": {
+        "space": {
+            "free": 524288000,
+            "max": 524288000,
+            "used": 0
+        },
+        "quota": {
+            "hd": true,
+            "sd": true
+        }
+    },
+    "emails": [{
+               "email": "mock_email"
+               }],
+    "live_quota": {
+        "time": {
+            "monthly_remaining": 17259,
+            "monthly_maximum": 300,
+            "event_maximum": 300
+        },
+        "streams": {
+            "remaining": 1,
+            "maximum": 1
+        }
+    },
+    "resource_key": "mock_resource_key"
+}

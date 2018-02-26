@@ -1,0 +1,164 @@
+{
+    "uri": "mock_video_uri",
+    "name": "mock_video_name",
+    "description": null,
+    "link": "mock_video_link",
+    "duration": 2479,
+    "width": 1024,
+    "language": null,
+    "height": 640,
+    "embed": {
+        "html": "mock_embed_html"
+    },
+    "created_time": null,
+    "modified_time": "mock_video_modified_time",
+    "release_time": null,
+    "content_rating": [
+                       "safe"
+                       ],
+    "license": null,
+    "privacy": {
+        "view": "anybody",
+        "embed": "public",
+        "download": false,
+        "add": true,
+        "comments": "anybody"
+    },
+    "pictures": {
+        "uri": null,
+        "active": false,
+        "type": "default",
+        "sizes": [
+                  {
+                  "width": 100,
+                  "height": 75,
+                  "link": "mock_width_100_link",
+                  "link_with_play_button": "mock_width_100_with_play_button"
+                  },
+                  {
+                  "width": 200,
+                  "height": 150,
+                  "link": "mock_width_200_link",
+                  "link_with_play_button": "mock_width_200_with_play_button"
+                  },
+                  {
+                  "width": 295,
+                  "height": 166,
+                  "link": "mock_width_295_link",
+                  "link_with_play_button": "mock_width_295_with_play_button"
+                  },
+                  {
+                  "width": 640,
+                  "height": 480,
+                  "link": "mock_width_640_link",
+                  "link_with_play_button": "mock_width_640_with_play_button"
+                  },
+                  {
+                  "width": 960,
+                  "height": 720,
+                  "link": "mock_width_960_link",
+                  "link_with_play_button": "mock_width_960_with_play_button"
+                  }
+                  ],
+        "resource_key": "mock_pictures_resource_key"
+    },
+    "tags": [],
+    "stats": {
+        "plays": 0
+    },
+    "categories": [],
+    "log": {
+        "play": "mock_log_play",
+        "like_press": "mock_log_like_press",
+        "watchlater_press": "mock_log_watchlater_press",
+        "load": "mock_log_load",
+        "exit": "mock_log_exit"
+    },
+    "play": {
+        "status": "playable",
+        "dash": {
+            "link": "mock_dash_link",
+            "log": "mock_dash_log",
+            "link_expiration_time": "mock_dash_link_expiration_time"
+        },
+        "hls": {
+            "link": "mock_hls_link",
+            "log": "mock_hls_log",
+            "link_expiration_time": "mock_hls_link_expiration_time",
+            "live": {
+                "heartbeat": "mock_live_heartbeat"
+            }
+        }
+    },
+    "app": {
+        "name": "mock_app_name",
+        "uri": "mock_app_uri"
+    },
+    "status": "available",
+    "resource_key": "mock_video_resource_key",
+    "live": {
+        "link": "mock_live_link",
+        "key": "mock_live_key",
+        "active_time": "mock_live_active_time",
+        "ended_time": null,
+        "archived_time": null,
+        "status": "streaming",
+        "scheduled_start_time": null,
+        "chat": {
+            "room_id": -1,
+            "token": "mock_chat_token",
+            "user": {
+                "uri": "mock_user_uri",
+                "id": -2,
+                "name": "mock_user_name",
+                "account": "live_business",
+                "is_staff": true,
+                "is_creator": true,
+                "pictures": {
+                    "uri": "mock_uri",
+                    "active": true,
+                    "type": "custom",
+                    "sizes": [{
+                                  "width": 30,
+                                  "height": 30,
+                                  "link": "mock_width_30_link"
+                              }, {
+                                  "width": 75,
+                                  "height": 75,
+                                  "link": "mock_width_75_link"
+                              }, {
+                                  "width": 100,
+                                  "height": 100,
+                                  "link": "mock_width_100_link"
+                              }, {
+                                  "width": 300,
+                                  "height": 300,
+                                  "link": "mock_width_300_link"
+                              }, {
+                                  "width": 72,
+                                  "height": 72,
+                                  "link": "mock_width_72_link"
+                              }, {
+                                  "width": 144,
+                                  "height": 144,
+                                  "link": "mock_width_144_link"
+                              }, {
+                                  "width": 216,
+                                  "height": 216,
+                                  "link": "mock_width_216_link"
+                              }, {
+                                  "width": 288,
+                                  "height": 288,
+                                  "link": "mock_width_288_link"
+                              }, {
+                                  "width": 360,
+                                  "height": 360,
+                                  "link": "mock_width_360_link"
+                              }],
+                    "resource_key": "mock_pictures_resource_key"
+                },
+                "link": "mock_user_link"
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "uri": "mock_uri",
+    "account": "basic",
+    "badge": {
+        "type": "curation",
+        "text": "Curation",
+        "alt_text": "mock_alt_text",
+        "url": "mock_url"
+    }
+}

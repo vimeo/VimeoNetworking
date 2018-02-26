@@ -1,0 +1,11 @@
+{
+    "uri": "mock_uri",
+    "account": "plus",
+    "badge": {
+        "type": "plus",
+        "text": "Plus",
+        "alt_text": "mock_alt_text",
+        "url": "mock_url"
+    }
+}
+

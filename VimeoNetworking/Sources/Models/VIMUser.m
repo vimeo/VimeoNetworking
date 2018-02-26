@@ -33,6 +33,14 @@
 #import "VIMPreference.h"
 #import "VIMUploadQuota.h"
 #import "VIMUserBadge.h"
+#import <VimeoNetworking/VimeoNetworking-Swift.h>
+
+static NSString *const Basic = @"basic";
+static NSString *const Plus = @"plus";
+static NSString *const Pro = @"pro";
+static NSString *const Business = @"business";
+static NSString *const LivePro = @"live_pro";
+static NSString *const LiveBusiness = @"live_business";
 
 @interface VIMUser ()
 
@@ -91,6 +99,11 @@
     if ([key isEqualToString:@"upload_quota"])
     {
         return [VIMUploadQuota class];
+    }
+    
+    if ([key isEqualToString:@"live_quota"])
+    {
+        return [VIMLiveQuota class];
     }
 
     return nil;
@@ -199,21 +212,29 @@
 
 - (void)parseAccountType
 {
-    if ([self.account isEqualToString:@"plus"])
+    if ([self.account isEqualToString:Plus])
     {
         self.accountType = VIMUserAccountTypePlus;
     }
-    else if ([self.account isEqualToString:@"pro"])
+    else if ([self.account isEqualToString:Pro])
     {
         self.accountType = VIMUserAccountTypePro;
     }
-    else if ([self.account isEqualToString:@"basic"])
+    else if ([self.account isEqualToString:Basic])
     {
         self.accountType = VIMUserAccountTypeBasic;
     }
-    else if ([self.account isEqualToString:@"business"])
+    else if ([self.account isEqualToString:Business])
     {
         self.accountType = VIMUserAccountTypeBusiness;
+    }
+    else if ([self.account isEqualToString:LivePro])
+    {
+        self.accountType = VIMUserAccountTypeLivePro;
+    }
+    else if ([self.account isEqualToString:LiveBusiness])
+    {
+        self.accountType = VIMUserAccountTypeLiveBusiness;
     }
 }
 
@@ -270,13 +291,17 @@
     {
         default:
         case VIMUserAccountTypeBasic:
-            return @"basic";
+            return Basic;
         case VIMUserAccountTypePlus:
-            return @"plus";
+            return Plus;
         case VIMUserAccountTypePro:
-            return @"pro";
+            return Pro;
         case VIMUserAccountTypeBusiness:
-            return @"business";
+            return Business;
+        case VIMUserAccountTypeLivePro:
+            return LivePro;
+        case VIMUserAccountTypeLiveBusiness:
+            return LiveBusiness;
     }
 }
 

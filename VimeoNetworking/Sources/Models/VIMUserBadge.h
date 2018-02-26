@@ -32,6 +32,8 @@ typedef NS_ENUM(NSInteger, VIMUserBadgeType)
     VIMUserBadgeTypePlus,
     VIMUserBadgeTypePro,
     VIMUserBadgeTypeBusiness,
+    VIMUserBadgeTypeLiveBusiness,
+    VIMUserBadgeTypeLivePro,
     VIMUserBadgeTypeAlum,
     VIMUserBadgeTypeStaff,
     VIMUserBadgeTypeSupport,

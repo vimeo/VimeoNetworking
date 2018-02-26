@@ -25,6 +25,7 @@
 //
 
 #import "VIMVideoPlayFile.h"
+#import <VimeoNetworking/VimeoNetworking-Swift.h>
 
 @interface VIMVideoPlayFile()
 
@@ -35,6 +36,16 @@
 @implementation VIMVideoPlayFile
 
 #pragma mark - VIMMappable
+
+- (Class)getClassForObjectKey:(NSString *)key
+{
+    if ([key isEqualToString:@"live"])
+    {
+        return [VIMLiveHeartbeat class];
+    }
+    
+    return nil;
+}
 
 - (void)didFinishMapping
 {
@@ -57,7 +68,7 @@
 
 - (NSDictionary *)getObjectMapping
 {
-    return @{@"link_expiration_time": @"expires"};
+    return @{@"link_expiration_time": @"expires", @"live": @"heartbeat"};
 }
 
 #pragma mark - Instance methods

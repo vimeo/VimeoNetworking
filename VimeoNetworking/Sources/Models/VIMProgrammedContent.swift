@@ -28,13 +28,13 @@ import Foundation
 
 public class VIMProgrammedContent: VIMModelObject
 {
-    dynamic public var uri: String?
-    dynamic public var name: String?
-    dynamic public var type: String?
-    dynamic public var content: NSArray?
+    @objc dynamic public private(set) var uri: String?
+    @objc dynamic public private(set) var name: String?
+    @objc dynamic public private(set) var type: String?
+    @objc dynamic public private(set) var content: NSArray?
  
-    dynamic private var metadata: [AnyHashable: Any]?
-    dynamic private var connections: [AnyHashable: Any]?
+    @objc dynamic private var metadata: [AnyHashable: Any]?
+    @objc dynamic private var connections: [AnyHashable: Any]?
     
     private struct Constants
     {

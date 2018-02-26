@@ -39,8 +39,8 @@
 
 - (void)didFinishMapping
 {
-    self.canUploadHd = [self.hd boolValue];
-    self.canUploadSd = [self.sd boolValue];
+    self.canUploadHd = [self.hd respondsToSelector:@selector(boolValue)] ? [self.hd boolValue] : NO;
+    self.canUploadSd = [self.sd respondsToSelector:@selector(boolValue)] ? [self.sd boolValue] : NO;
 }
 
 @end

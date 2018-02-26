@@ -58,4 +58,6 @@ typedef NS_ENUM(NSUInteger, VIMNotificationType) {
 
 + (nonnull NSDictionary<NSString *, NSNumber *> *)supportedTypeMap;
 
+@property (nonatomic, strong, nullable) NSNumber *typeUnseenCount;
+
 @end

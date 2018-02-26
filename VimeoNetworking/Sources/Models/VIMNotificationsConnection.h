@@ -16,5 +16,6 @@
  @return An NSInteger specifying the total of new notifications currently supported
  */
 - (NSInteger)supportedNotificationNewTotal;
+- (NSInteger)supportedNotificationUnseenTotal;
 
 @end
