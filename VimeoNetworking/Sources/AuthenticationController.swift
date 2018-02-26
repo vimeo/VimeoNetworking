@@ -27,9 +27,9 @@
 import Foundation
 
 /**
- `AuthenticationController` is used to authenticate a `VimeoClient` instance, either by loading an account stored in the system keychain, or by interacting with the Vimeo API to authenticate a new account.  The two publicly accessible authentication methods are client credentials grant and code grant.  
+ `AuthenticationController` is used to authenticate a `VimeoClient` instance, either by loading an account stored in the system keychain, or by interacting with the Vimeo API to authenticate a new account.  The two publicly accessible authentication methods are client credentials grant and code grant.
  
- Client credentials grant is a public authentication method with no logged in user, which allows your application to access anything a logged out user could see on Vimeo (public content).  
+ Client credentials grant is a public authentication method with no logged in user, which allows your application to access anything a logged out user could see on Vimeo (public content).
  
  Code grant is a way of logging in with a user account, which can give your application access to that user's private content and permission to interact with Vimeo on their behalf.  This is achieved by first opening a generated URL in Safari which presents a user log in page.  When the user authenticates successfully, control is returned to your app through a redirect link, and you then make a final request to retrieve the authenticated account.
  
@@ -358,7 +358,7 @@ final public class AuthenticationController
     
     /**
      **(PRIVATE: Vimeo Use Only, will not work for third-party applications)**
-     Exchange a saved access token granted to another application for a new token granted to the calling application.  This method will allow an application to re-use credentials from another Vimeo application.  Client credentials must be granted before using this method. 
+     Exchange a saved access token granted to another application for a new token granted to the calling application.  This method will allow an application to re-use credentials from another Vimeo application.  Client credentials must be granted before using this method.
      
      - parameter accessToken: access token granted to the other application
      - parameter completion:  handler for authentication success or failure

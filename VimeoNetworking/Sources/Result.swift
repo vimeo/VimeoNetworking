@@ -41,7 +41,7 @@ public enum Result<ResultType>
     case failure(error: NSError)
 }
 
-/// `ResultCompletion` creates a generic typealias to generally define completion blocks that return a `Result` 
+/// `ResultCompletion` creates a generic typealias to generally define completion blocks that return a `Result`
 public enum ResultCompletion<ResultType>
 {
     public typealias T = (Result<ResultType>) -> Void

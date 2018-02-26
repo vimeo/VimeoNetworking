@@ -68,6 +68,10 @@ GEM
       terminal-table (~> 1)
     danger-plugin-api (1.0.0)
       danger (> 2.0)
+    danger-swiftlint (0.7.0)
+      danger
+      rake (> 10)
+      thor (~> 0.19)
     danger-xcode_summary (0.1.0)
       danger-plugin-api (~> 1.0)
     declarative (0.0.9)
@@ -176,6 +180,7 @@ GEM
     os (0.9.6)
     plist (3.3.0)
     public_suffix (2.0.5)
+    rake (12.0.0)
     representable (3.0.4)
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
@@ -197,6 +202,7 @@ GEM
     terminal-notifier (1.8.0)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
+    thor (0.19.4)
     thread_safe (0.3.6)
     tty-screen (0.5.0)
     tzinfo (1.2.3)
@@ -228,6 +234,7 @@ PLATFORMS
 DEPENDENCIES
   cocoapods (= 1.2.0)
   danger (= 4.0.4)
+  danger-swiftlint (= 0.7.0)
   danger-xcode_summary (= 0.1.0)
   fastlane (= 2.42.0)
   fastlane-plugin-pretty_junit
@@ -236,4 +243,4 @@ DEPENDENCIES
   xcpretty-json-formatter (= 0.1.0)
 
 BUNDLED WITH
-   1.15.1
+   1.15.3

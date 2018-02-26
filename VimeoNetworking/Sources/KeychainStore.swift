@@ -119,7 +119,7 @@ final class KeychainStore
         }
     }
     
-    // MARK: - 
+    // MARK: -
     
     private func query(for key: String) -> [AnyHashable: Any]
     {

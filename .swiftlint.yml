@@ -1,0 +1,15 @@
+# Run `swiftlint rules` for a list of available rules.
+
+# Only the rules specified here will be enabled.
+whitelist_rules:
+  - trailing_newline
+  - trailing_whitespace
+
+# Paths to include during linting.
+included:
+  - ../VimeoNetworking/Sources
+
+# Configurable rules can be customized from this configuration file,
+# binary rules can set their severity level.
+trailing_whitespace:
+  ignores_empty_lines: true
