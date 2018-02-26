@@ -53,14 +53,14 @@ final class AccountStore
         }
     }
     
-    // MARK: - 
+    // MARK: -
     
     private struct Constants
     {
         static let ErrorDomain = "AccountStoreErrorDomain"
     }
     
-    // MARK: - 
+    // MARK: -
     
     private let keychainStore: KeychainStore
     

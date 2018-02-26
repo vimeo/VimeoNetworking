@@ -64,7 +64,7 @@ import Foundation
         /// The request for the last page associated with this collection response, if one exists
     public let lastPageRequest: Request<ModelType>?
     
-    // MARK: - 
+    // MARK: -
     
     /**
      Creates a new `Response`

@@ -38,7 +38,7 @@ public extension Request
     
     private static var VideosPath: String { return "/videos" }
     
-    // MARK: - 
+    // MARK: -
     
     /**
      Create a `Request` to get a specific video

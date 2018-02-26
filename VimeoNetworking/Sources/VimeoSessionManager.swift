@@ -31,7 +31,7 @@ import AFNetworking
 /** `VimeoSessionManager` handles networking and serialization for raw HTTP requests.  It is a direct subclass of `AFHTTPSessionManager` and it's designed to be used internally by `VimeoClient`.  For the majority of purposes, it would be better to use `VimeoClient` and a `Request` object to better encapsulate this logic, since the latter provides richer functionality overall.
  */
 final public class VimeoSessionManager: AFHTTPSessionManager
-{    
+{
     // MARK: Initialization
     
     /**
@@ -44,7 +44,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager
      - returns: an initialized `VimeoSessionManager`
      */
     required public init(baseUrl: URL, sessionConfiguration: URLSessionConfiguration, requestSerializer: VimeoRequestSerializer)
-    {        
+    {
         super.init(baseURL: baseUrl, sessionConfiguration: sessionConfiguration)
         
         self.requestSerializer = requestSerializer
