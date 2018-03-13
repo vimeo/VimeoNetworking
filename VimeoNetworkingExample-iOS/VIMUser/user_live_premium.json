@@ -1,0 +1,10 @@
+{
+    "uri": "mock_uri",
+    "account": "live_premium",
+    "badge": {
+        "type": "live_premium",
+        "text": "Live Premium",
+        "alt_text": "mock_alt_text",
+        "url": "mock_url"
+    }
+}

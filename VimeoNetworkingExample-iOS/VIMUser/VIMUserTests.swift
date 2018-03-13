@@ -81,6 +81,8 @@ class VIMUserTests: XCTestCase
                     XCTAssertEqual(analyticsIdentifier, "live_pro")
                 case .liveBusiness:
                     XCTAssertEqual(analyticsIdentifier, "live_business")
+                case .livePremium:
+                    XCTAssertEqual(analyticsIdentifier, "live_premium")
                 }
                 
             case .failure(let error):
@@ -105,6 +107,13 @@ class VIMUserTests: XCTestCase
         self.stubResponse(withFile: "user_live_business.json")
         let expectation = self.expectation(description: "Expectation for Live Business User Object")
         self.checkReturnedAccountType(withExpectedType: .liveBusiness, andExpectation: expectation)
+    }
+    
+    func testUserObjectReturningLivePremiumForAccountType()
+    {
+        self.stubResponse(withFile: "user_live_premium.json")
+        let expectation = self.expectation(description: "Expectation for Live Premium User Object")
+        self.checkReturnedAccountType(withExpectedType: .livePremium, andExpectation: expectation)
     }
     
     func testUserObjectReturningBasicForAccountType()

@@ -54,6 +54,8 @@
 		8E34023E1F67365A001544C4 /* VIMLiveQuotaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34023D1F67365A001544C4 /* VIMLiveQuotaTests.swift */; };
 		8E3402401F673821001544C4 /* user_live.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E34023F1F673821001544C4 /* user_live.json */; };
 		8E49138D1FA786DA0061723A /* MockConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49138C1FA786DA0061723A /* MockConstants.swift */; };
+		8E5997032058280900A4A83C /* user_live_premium.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E5997022058280900A4A83C /* user_live_premium.json */; };
+		8E5997042058280900A4A83C /* user_live_premium.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E5997022058280900A4A83C /* user_live_premium.json */; };
 		8EDAF23D1F8523B1006072EF /* VIMLiveHeartbeatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDAF23C1F8523B1006072EF /* VIMLiveHeartbeatTests.swift */; };
 		8EDE2D701FDF3F4200143E95 /* VIMUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE2D6F1FDF3F4200143E95 /* VIMUserTests.swift */; };
 		8EDE2D741FDF43CD00143E95 /* user_live_pro.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE2D721FDF413A00143E95 /* user_live_pro.json */; };
@@ -150,6 +152,7 @@
 		8E34023D1F67365A001544C4 /* VIMLiveQuotaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIMLiveQuotaTests.swift; sourceTree = "<group>"; };
 		8E34023F1F673821001544C4 /* user_live.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_live.json; sourceTree = "<group>"; };
 		8E49138C1FA786DA0061723A /* MockConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConstants.swift; sourceTree = "<group>"; };
+		8E5997022058280900A4A83C /* user_live_premium.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user_live_premium.json; sourceTree = "<group>"; };
 		8EDAF23C1F8523B1006072EF /* VIMLiveHeartbeatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIMLiveHeartbeatTests.swift; sourceTree = "<group>"; };
 		8EDE2D6F1FDF3F4200143E95 /* VIMUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIMUserTests.swift; sourceTree = "<group>"; };
 		8EDE2D721FDF413A00143E95 /* user_live_pro.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user_live_pro.json; sourceTree = "<group>"; };
@@ -352,6 +355,7 @@
 				8EDE2D7B1FE0210E00143E95 /* user_pro.json */,
 				8EDE2D811FE05A2500143E95 /* user_staff.json */,
 				8EDE2D851FE05B3600143E95 /* user_support.json */,
+				8E5997022058280900A4A83C /* user_live_premium.json */,
 				8EDE2D7F1FE0559600143E95 /* VIMUserBadgeTests.swift */,
 				8EDE2D6F1FDF3F4200143E95 /* VIMUserTests.swift */,
 			);
@@ -595,6 +599,7 @@
 				8EDE2D7C1FE0210E00143E95 /* user_pro.json in Resources */,
 				8EDE2D7E1FE0214E00143E95 /* user_business.json in Resources */,
 				3C0DCFCC1ECB25FC00960774 /* categories-animation-response.json in Resources */,
+				8E5997032058280900A4A83C /* user_live_premium.json in Resources */,
 				8EDE2D821FE05A2500143E95 /* user_staff.json in Resources */,
 				8EDE2D841FE05AA900143E95 /* user_curation.json in Resources */,
 				8EDE2D881FE05B7500143E95 /* user_alum.json in Resources */,
@@ -614,6 +619,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E5997042058280900A4A83C /* user_live_premium.json in Resources */,
 				3C0DCFCD1ECB25FC00960774 /* categories-animation-response.json in Resources */,
 				3C1F8E001EFC304000A062D3 /* cinema-success-response.json in Resources */,
 			);
