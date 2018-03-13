@@ -42,7 +42,8 @@ typedef NS_ENUM(NSInteger, VIMUserAccountType)
     VIMUserAccountTypePlus,
     VIMUserAccountTypeBusiness,
     VIMUserAccountTypeLivePro,
-    VIMUserAccountTypeLiveBusiness
+    VIMUserAccountTypeLiveBusiness,
+    VIMUserAccountTypeLivePremium
 };
 
 @interface VIMUser : VIMModelObject
