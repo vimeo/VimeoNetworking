@@ -5,7 +5,7 @@
 //  Created by Lehrer, Nicole on 4/5/18.
 //
 
-extension VIMVideo
+public extension VIMVideo
 {
     struct Constants
     {
@@ -17,7 +17,7 @@ extension VIMVideo
     ///
     /// - Returns: A boolean describing if the video can be downloaded
     /// - Throws: An error if the type of object does not respond to boolValue
-    func canDownloadOnDesktop() throws -> Bool
+    public func canDownloadOnDesktop() throws -> Bool
     {
         guard let canDownload = self.privacy?.canDownload, canDownload.responds(to: #selector(getter: NSNumber.boolValue)) else
         {
