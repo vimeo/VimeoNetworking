@@ -176,7 +176,7 @@ class VIMVideoTests: XCTestCase
         let videoDictionary: [String: Any] = ["privacy": privacy as Any]
         let testVideoObject = VIMVideo(keyValueDictionary: videoDictionary)!
         let canDownload = try? testVideoObject.canDownloadOnDesktop()
-        XCTAssertTrue(canDownload!, "canDownloadFromDesktop unexpectedly returns false")
+        XCTAssertTrue(canDownload!, "canDownloadOnDesktop unexpectedly returns false")
     }
     
     func test_canDownloadOnDesktop_returnsFalse_whenCanDownloadIsZero()
@@ -186,7 +186,7 @@ class VIMVideoTests: XCTestCase
         let videoDictionary: [String: Any] = ["privacy": privacy as Any]
         let testVideoObject = VIMVideo(keyValueDictionary: videoDictionary)!
         let canDownload = try? testVideoObject.canDownloadOnDesktop()
-        XCTAssertFalse(canDownload!, "canDownloadFromDesktop unexpectedly returns true")
+        XCTAssertFalse(canDownload!, "canDownloadOnDesktop unexpectedly returns true")
     }
     
     func test_canDownloadOnDesktop_returnsError_whenCanDownloadIsInvalid()
@@ -196,6 +196,6 @@ class VIMVideoTests: XCTestCase
         let videoDictionary: [String: Any] = ["privacy": privacy as Any]
         let testVideoObject = VIMVideo(keyValueDictionary: videoDictionary)!
         let canDownload = try? testVideoObject.canDownloadOnDesktop()
-        XCTAssertNil(canDownload, "canDownloadFromDesktop unexpectedly returns true")
+        XCTAssertNil(canDownload, "canDownloadOnDesktop unexpectedly returns true")
     }
 }
