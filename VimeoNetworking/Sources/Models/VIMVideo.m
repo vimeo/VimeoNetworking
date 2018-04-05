@@ -468,11 +468,6 @@ NSString *VIMContentRating_Safe = @"safe";
     return isBuyDRMProtected || isRentDRMProtected || isSubscribeDRMProtected;
 }
 
-- (BOOL)canDownloadFromDesktop
-{
-    return [self.privacy.canDownload boolValue];
-}
-
 - (NSString *)singleContentRatingIfAvailable
 {
     NSString *contentRating = nil;

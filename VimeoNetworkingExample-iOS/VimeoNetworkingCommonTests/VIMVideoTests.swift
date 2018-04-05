@@ -166,4 +166,36 @@ class VIMVideoTests: XCTestCase
         
         XCTAssertEqual(testVideoObject.hasReviewPage(), false)
     }
+    
+    // MARK: - Privacy
+    
+    func test_canDownloadOnDesktop_returnsTrue_whenCanDownloadIsOne()
+    {
+        let privacyDictionary: [String: Any] = ["canDownload": 1]
+        let privacy = VIMPrivacy(keyValueDictionary: privacyDictionary)!
+        let videoDictionary: [String: Any] = ["privacy": privacy as Any]
+        let testVideoObject = VIMVideo(keyValueDictionary: videoDictionary)!
+        let canDownload = try? testVideoObject.canDownloadOnDesktop()
+        XCTAssertTrue(canDownload!, "canDownloadFromDesktop unexpectedly returns false")
+    }
+    
+    func test_canDownloadOnDesktop_returnsFalse_whenCanDownloadIsZero()
+    {
+        let privacyDictionary: [String: Any] = ["canDownload": 0]
+        let privacy = VIMPrivacy(keyValueDictionary: privacyDictionary)!
+        let videoDictionary: [String: Any] = ["privacy": privacy as Any]
+        let testVideoObject = VIMVideo(keyValueDictionary: videoDictionary)!
+        let canDownload = try? testVideoObject.canDownloadOnDesktop()
+        XCTAssertFalse(canDownload!, "canDownloadFromDesktop unexpectedly returns true")
+    }
+    
+    func test_canDownloadOnDesktop_returnsError_whenCanDownloadIsInvalid()
+    {
+        let privacyDictionary: [String: Any] = ["canDownload": []]
+        let privacy = VIMPrivacy(keyValueDictionary: privacyDictionary)!
+        let videoDictionary: [String: Any] = ["privacy": privacy as Any]
+        let testVideoObject = VIMVideo(keyValueDictionary: videoDictionary)!
+        let canDownload = try? testVideoObject.canDownloadOnDesktop()
+        XCTAssertNil(canDownload, "canDownloadFromDesktop unexpectedly returns true")
+    }
 }
