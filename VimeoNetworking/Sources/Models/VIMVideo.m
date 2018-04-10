@@ -549,4 +549,15 @@ NSString *VIMContentRating_Safe = @"safe";
             trimmedReviewLink.length > 0;
 }
 
+- (BOOL)canDownloadFromDesktop
+{
+    if ([self.privacy.canDownload respondsToSelector: @selector(boolValue)])
+    {
+        return [self.privacy.canDownload boolValue];
+    }
+    
+    NSAssert(false, @"`video.privacy.canDownload` is an unexpected type.");
+    return false;
+}
+
 @end

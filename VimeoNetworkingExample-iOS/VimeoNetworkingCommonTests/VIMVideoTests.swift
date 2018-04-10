@@ -168,34 +168,25 @@ class VIMVideoTests: XCTestCase
     }
     
     // MARK: - Privacy
+    // Note: Invalid values of `canDownload` will trigger an assertion failure.
     
-    func test_canDownloadOnDesktop_returnsTrue_whenCanDownloadIsOne()
+    func test_canDownloadFromDesktop_returnsTrue_whenCanDownloadIsOne()
     {
         let privacyDictionary: [String: Any] = ["canDownload": 1]
         let privacy = VIMPrivacy(keyValueDictionary: privacyDictionary)!
         let videoDictionary: [String: Any] = ["privacy": privacy as Any]
         let testVideoObject = VIMVideo(keyValueDictionary: videoDictionary)!
-        let canDownload = try? testVideoObject.canDownloadOnDesktop()
-        XCTAssertTrue(canDownload!, "canDownloadOnDesktop unexpectedly returns false")
+        let canDownload = testVideoObject.canDownloadFromDesktop()
+        XCTAssertTrue(canDownload, "canDownloadFromDesktop unexpectedly returns false")
     }
     
-    func test_canDownloadOnDesktop_returnsFalse_whenCanDownloadIsZero()
+    func test_canDownloadFromDesktop_returnsFalse_whenCanDownloadIsZero()
     {
         let privacyDictionary: [String: Any] = ["canDownload": 0]
         let privacy = VIMPrivacy(keyValueDictionary: privacyDictionary)!
         let videoDictionary: [String: Any] = ["privacy": privacy as Any]
         let testVideoObject = VIMVideo(keyValueDictionary: videoDictionary)!
-        let canDownload = try? testVideoObject.canDownloadOnDesktop()
-        XCTAssertFalse(canDownload!, "canDownloadOnDesktop unexpectedly returns true")
-    }
-    
-    func test_canDownloadOnDesktop_returnsError_whenCanDownloadIsInvalid()
-    {
-        let privacyDictionary: [String: Any] = ["canDownload": []]
-        let privacy = VIMPrivacy(keyValueDictionary: privacyDictionary)!
-        let videoDictionary: [String: Any] = ["privacy": privacy as Any]
-        let testVideoObject = VIMVideo(keyValueDictionary: videoDictionary)!
-        let canDownload = try? testVideoObject.canDownloadOnDesktop()
-        XCTAssertNil(canDownload, "canDownloadOnDesktop unexpectedly returns true")
+        let canDownload = testVideoObject.canDownloadFromDesktop()
+        XCTAssertFalse(canDownload, "canDownloadFromDesktop unexpectedly returns true")
     }
 }
