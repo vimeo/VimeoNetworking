@@ -117,8 +117,8 @@ public extension VimeoSessionManager
     /// use.
     ///
     /// - Parameters:
-    ///   - identifier: T background session identifier.
-    ///   - baseUrl: T base URL for the HTTP client. This value should
+    ///   - identifier: The background session identifier.
+    ///   - baseUrl: The base URL for the HTTP client. This value should
     /// usually be set to `VimeoBaseURL`.
     ///   - sharedContainerIdentifier: The name of the shared container
     /// between the main app and the share extension.
