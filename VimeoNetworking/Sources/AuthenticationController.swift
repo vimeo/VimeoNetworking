@@ -590,8 +590,7 @@ final public class AuthenticationController
     private func setClientAccount(with account: VIMAccount?, shouldClearCache: Bool = false) throws
     {
         // Account can be nil (to log out) but if it's non-nil, it needs an access token or it's malformed [RH]
-        guard account == nil || account?.accessToken != nil
-        else
+        guard account == nil || account?.accessToken != nil else
         {
             let errorDescription = "AuthenticationController tried to set a client account with no access token"
             
@@ -600,11 +599,6 @@ final public class AuthenticationController
             let error = NSError(domain: Constants.ErrorDomain, code: LocalErrorCode.authToken.rawValue, userInfo: [NSLocalizedDescriptionKey: errorDescription])
             
             throw error
-        }
-        
-        if shouldClearCache
-        {
-            self.client.removeAllCachedResponses()
         }
         
         self.client.currentAccount = account
