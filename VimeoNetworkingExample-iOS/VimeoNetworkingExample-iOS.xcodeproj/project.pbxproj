@@ -47,8 +47,6 @@
 		3CE06F9B1ED30D80007A1AFE /* Dictionary+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE06F991ED30D80007A1AFE /* Dictionary+ExtensionTests.swift */; };
 		3CE06F9D1ED31200007A1AFE /* ExceptionCatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE06F9C1ED31200007A1AFE /* ExceptionCatcherTests.swift */; };
 		3CE06F9E1ED31200007A1AFE /* ExceptionCatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE06F9C1ED31200007A1AFE /* ExceptionCatcherTests.swift */; };
-		3CE06FA01ED3AE5F007A1AFE /* ResponseCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE06F9F1ED3AE5F007A1AFE /* ResponseCacheTests.swift */; };
-		3CE06FA11ED3AE5F007A1AFE /* ResponseCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE06F9F1ED3AE5F007A1AFE /* ResponseCacheTests.swift */; };
 		3CE06FA31ED5B49A007A1AFE /* VimeoSessionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE06FA21ED5B49A007A1AFE /* VimeoSessionManagerTests.swift */; };
 		3CE06FA41ED5B49A007A1AFE /* VimeoSessionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE06FA21ED5B49A007A1AFE /* VimeoSessionManagerTests.swift */; };
 		3EA4C85D2098FFE7009F3D9B /* VIMUploadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4C85C2098FFE7009F3D9B /* VIMUploadTests.swift */; };
@@ -136,7 +134,6 @@
 		3CAE6FC51EC671540016EF6C /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestTests.swift; path = VimeoNetworkingCommonTests/RequestTests.swift; sourceTree = "<group>"; };
 		3CE06F991ED30D80007A1AFE /* Dictionary+ExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+ExtensionTests.swift"; path = "VimeoNetworkingCommonTests/Dictionary+ExtensionTests.swift"; sourceTree = "<group>"; };
 		3CE06F9C1ED31200007A1AFE /* ExceptionCatcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExceptionCatcherTests.swift; path = VimeoNetworkingCommonTests/ExceptionCatcherTests.swift; sourceTree = "<group>"; };
-		3CE06F9F1ED3AE5F007A1AFE /* ResponseCacheTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResponseCacheTests.swift; path = VimeoNetworkingCommonTests/ResponseCacheTests.swift; sourceTree = "<group>"; };
 		3CE06FA21ED5B49A007A1AFE /* VimeoSessionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VimeoSessionManagerTests.swift; path = "VimeoNetworkingExample-iOSTests/VimeoSessionManagerTests.swift"; sourceTree = SOURCE_ROOT; };
 		3D1A821E9248D03C2D131632 /* Pods-VimeoNetworkingExample-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworkingExample-tvOSTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-VimeoNetworkingExample-tvOSTests/Pods-VimeoNetworkingExample-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		3EA4C85C2098FFE7009F3D9B /* VIMUploadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIMUploadTests.swift; sourceTree = "<group>"; };
@@ -335,7 +332,6 @@
 				3C0DCFB91ECA771300960774 /* Requests */,
 				3CE06F991ED30D80007A1AFE /* Dictionary+ExtensionTests.swift */,
 				3CE06F9C1ED31200007A1AFE /* ExceptionCatcherTests.swift */,
-				3CE06F9F1ED3AE5F007A1AFE /* ResponseCacheTests.swift */,
 				3C0DCFC01ECA7F5D00960774 /* ScopeTests.swift */,
 				3CE06FA21ED5B49A007A1AFE /* VimeoSessionManagerTests.swift */,
 				0CF362E11F62E90400B22589 /* VIMVideoTests.swift */,
@@ -793,7 +789,6 @@
 			files = (
 				3C0DCFC51ECA825600960774 /* VIMCategory+Tests.swift in Sources */,
 				3C1F8E021EFC311D00A062D3 /* Request+ProgrammedContent.swift in Sources */,
-				3CE06FA01ED3AE5F007A1AFE /* ResponseCacheTests.swift in Sources */,
 				3EA4C85D2098FFE7009F3D9B /* VIMUploadTests.swift in Sources */,
 				3C0DCFC11ECA7F5D00960774 /* ScopeTests.swift in Sources */,
 				3CAE6FC61EC671540016EF6C /* RequestTests.swift in Sources */,
@@ -834,7 +829,6 @@
 				3C0DCFC21ECA7F5D00960774 /* ScopeTests.swift in Sources */,
 				3CE06F9E1ED31200007A1AFE /* ExceptionCatcherTests.swift in Sources */,
 				3CE06F9B1ED30D80007A1AFE /* Dictionary+ExtensionTests.swift in Sources */,
-				3CE06FA11ED3AE5F007A1AFE /* ResponseCacheTests.swift in Sources */,
 				3C0DCFBC1ECA775700960774 /* Request+CategoryTests.swift in Sources */,
 				3C1F8E031EFC311D00A062D3 /* Request+ProgrammedContent.swift in Sources */,
 				3C0DCFBF1ECA790200960774 /* RequestTestUtilities.swift in Sources */,
