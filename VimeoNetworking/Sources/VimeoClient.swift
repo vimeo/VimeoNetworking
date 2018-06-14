@@ -317,7 +317,7 @@ final public class VimeoClient
             }
         }
         catch let error
-        {            
+        {
             self.handleTaskFailure(forRequest: request, task: task, error: error as NSError, completionQueue: completionQueue, completion: completion)
         }
     }
