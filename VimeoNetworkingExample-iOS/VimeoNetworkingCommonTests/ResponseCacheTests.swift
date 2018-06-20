@@ -29,21 +29,50 @@ import XCTest
 
 class ResponseCacheTests: XCTestCase
 {
-    private let responseCache = ResponseCache(cacheDirectory: "com.vimeo.tests.Caches")
-    
-    override func setUp()
-    {
-        super.setUp()
-        
-        responseCache.clear()
-    }
+    private static let cacheDirectory = "com.vimeo.test.cache"
+    private static let testFileName = "testDictionary"
+    private let responseCache = ResponseCache(cacheDirectory: ResponseCacheTests.cacheDirectory)
  
-    func test_clear_removesAllEntries()
-    {        
-        // Try adding some data to disk.
-        // Verify that data exists on disk.
-        // Run self.responseCache.clear().
+    func test_clear_removesAllEntries_fromDisk()
+    {
+        let testDictionary: [String: String] = ["Hello": "There"]
+        let data = NSKeyedArchiver.archivedData(withRootObject: testDictionary)
+        let fileManager = FileManager()
+        let directory = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first!
+        let url = URL(fileURLWithPath: directory).appendingPathComponent(ResponseCacheTests.cacheDirectory, isDirectory: true)
+        let directoryPath = url.path
+        let fileURL = url.appendingPathComponent(ResponseCacheTests.testFileName)
+        
+        do
+        {
+            if fileManager.fileExists(atPath: directoryPath) == false
+            {
+                try fileManager.createDirectory(atPath: directoryPath, withIntermediateDirectories: true, attributes: nil)
+            }
+            else
+            {
+                XCTFail("Aborting test, test dirctory already exists.")
+            }
+            
+            if fileManager.createFile(atPath: fileURL.path, contents: data, attributes: nil) == false
+            {
+                XCTFail("Could not store test object.")
+            }
+        }
+        catch let error
+        {
+            XCTFail("Failed to archive test data with error: \(error)")
+        }
+        
+        XCTAssertTrue(fileManager.fileExists(atPath: directoryPath))
         self.responseCache.clear()
-        // Verify that data no longer exists on disk.
+        
+        let expectation = self.expectation(description: "Test cache was successfully removed.")
+        DispatchQueue.main.async {
+            XCTAssertFalse(fileManager.fileExists(atPath: directoryPath) == false)
+            expectation.fulfill()
+        }
+        
+        self.waitForExpectations(timeout: 2.0, handler: nil)
     }
 }
