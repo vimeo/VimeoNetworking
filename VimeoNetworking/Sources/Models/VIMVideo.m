@@ -566,4 +566,9 @@ NSString *VIMContentRating_Safe = @"safe";
     return false;
 }
 
+- (BOOL)hasTextTracks
+{
+    return [self connectionWithName:VIMConnectionNameTextTracks].total.intValue > 0;
+}
+
 @end
