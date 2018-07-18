@@ -170,5 +170,6 @@ typedef NS_ENUM(NSUInteger, VIMVideoProcessingStatus) {
 - (void)setIsWatchLater:(BOOL)isWatchLater;
 - (BOOL)hasReviewPage;
 - (BOOL)canDownloadFromDesktop;
+- (BOOL)hasTextTracks;
 
 @end
