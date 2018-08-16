@@ -113,6 +113,28 @@ public extension VimeoSessionManager
         return VimeoSessionManager(baseUrl: baseUrl, sessionConfiguration: sessionConfiguration, requestSerializer: requestSerializer)
     }
     
+    /// Creates a background session manager suitable for share extension to
+    /// use.
+    ///
+    /// - Parameters:
+    ///   - identifier: The background session identifier.
+    ///   - baseUrl: The base URL for the HTTP client. This value should
+    /// usually be set to `VimeoBaseURL`.
+    ///   - sharedContainerIdentifier: The name of the shared container
+    /// between the main app and the share extension.
+    ///   - accessTokenProvider: A block that provides an access token
+    /// dynamically, called on each request serialization.
+    ///   - apiVersion: The API version to use.
+    /// - Returns: an initialized `VimeoSessionManager`.
+    static func backgroundSessionManager(identifier: String, baseUrl: URL, sharedContainerIdentifier: String, accessTokenProvider: @escaping VimeoRequestSerializer.AccessTokenProvider, apiVersion: String) -> VimeoSessionManager
+    {
+        let sessionConfiguration = self.backgroundSessionConfiguration(identifier: identifier)
+        sessionConfiguration.sharedContainerIdentifier = sharedContainerIdentifier
+        let requestSerializer = VimeoRequestSerializer(accessTokenProvider: accessTokenProvider, apiVersion: apiVersion)
+        
+        return VimeoSessionManager(baseUrl: baseUrl, sessionConfiguration: sessionConfiguration, requestSerializer: requestSerializer)
+    }
+    
     /**
      Creates an unauthenticated background session manager with a static application configuration
      
