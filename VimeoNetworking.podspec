@@ -23,5 +23,5 @@ Pod::Spec.new do |s|
   s.source_files  = "VimeoNetworking/Sources/**/*.{h,m,swift}"
   s.resources = "VimeoNetworking/Resources/**/*.*"
 
-  s.dependency 'AFNetworking', '3.1.0'
+  s.dependency 'AFNetworking'
 end
