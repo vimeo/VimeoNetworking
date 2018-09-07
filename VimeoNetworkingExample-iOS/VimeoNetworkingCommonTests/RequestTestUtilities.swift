@@ -56,8 +56,8 @@ class RequestComparisons
         return request.method == .GET
             && request.parameters == nil
             && request.modelKeyPath == nil
-            && request.shouldCacheResponse == true
-            && request.cacheFetchPolicy == .networkOnly
+            && request.cacheResponse == false
+            && request.useCache == false
             && RequestComparisons.CompareRetryPolicies(request.retryPolicy, .singleAttempt)
     }
 }

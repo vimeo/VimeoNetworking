@@ -38,6 +38,7 @@
 @class Spatial;
 @class VIMLive;
 @class VIMReviewPage;
+@class VIMUpload;
 
 extern NSString * __nonnull VIMContentRating_Language;
 extern NSString * __nonnull VIMContentRating_Drugs;
@@ -54,7 +55,8 @@ typedef NS_ENUM(NSUInteger, VIMVideoProcessingStatus) {
     VIMVideoProcessingStatusTranscoding,
     VIMVideoProcessingStatusUploadingError,
     VIMVideoProcessingStatusTranscodingError,
-    VIMVideoProcessingStatusQuotaExceeded
+    VIMVideoProcessingStatusQuotaExceeded,
+    VIMVideoProcessingStatusTotalCapExceeded
 };
 
 @interface VIMVideo : VIMModelObject
@@ -89,6 +91,7 @@ typedef NS_ENUM(NSUInteger, VIMVideoProcessingStatus) {
 @property (nonatomic, strong, nullable) Spatial *spatial;
 @property (nonatomic, strong, nullable) VIMLive *live;
 @property (nonatomic, strong, nullable) VIMReviewPage *reviewPage;
+@property (nonatomic, strong, nullable) VIMUpload *upload;
 
 @property (nonatomic, assign) VIMVideoProcessingStatus videoStatus;
 

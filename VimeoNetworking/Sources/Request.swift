@@ -27,34 +27,6 @@
 import Foundation
 import AFNetworking
 
-/// Describes how a request should query the cache
-public enum CacheFetchPolicy
-{
-        /// Only request cached responses.  No network request is made.
-    case cacheOnly
-    
-        /// Try to load from both cache and network, note that two results may be returned when using this method (cached, then network)
-    case cacheThenNetwork
-    
-        /// Only try to load the request from network.  The cache is not queried
-    case networkOnly
-    
-        /// First try the network request, then fallback to cache if it fails
-    case tryNetworkThenCache
-    
-    /**
-     Construct the default cache fetch policy for a given `Method`
-     
-     - parameter method: the request `Method`
-     
-     - returns: the default cache policy for the provided `Method`
-     */
-    static func defaultPolicyForMethod(method: VimeoClient.Method) -> CacheFetchPolicy
-    {
-        return .networkOnly
-    }
-}
-
 /// Describes how a request should handle retrying after failure
 public enum RetryPolicy
 {
@@ -118,10 +90,10 @@ public struct Request<ModelType: MappableResponse>
     public let modelKeyPath: String?
     
         /// describes how this request should query for cached responses
-    internal(set) public var cacheFetchPolicy: CacheFetchPolicy
+    public let useCache: Bool
     
         /// whether a successful response to this request should be stored in cache
-    public let shouldCacheResponse: Bool
+    public let cacheResponse: Bool
     
         /// describes how the request should handle retrying after failure
     internal(set) public var retryPolicy: RetryPolicy
@@ -145,16 +117,16 @@ public struct Request<ModelType: MappableResponse>
                 path: String,
                 parameters: Any? = nil,
                 modelKeyPath: String? = nil,
-                cacheFetchPolicy: CacheFetchPolicy? = nil,
-                shouldCacheResponse: Bool? = nil,
+                useCache: Bool = false,
+                cacheResponse: Bool = false,
                 retryPolicy: RetryPolicy? = nil)
     {
         self.method = method
         self.path = path
         self.parameters = parameters
         self.modelKeyPath = modelKeyPath
-        self.cacheFetchPolicy = cacheFetchPolicy ?? CacheFetchPolicy.defaultPolicyForMethod(method: method)
-        self.shouldCacheResponse = shouldCacheResponse ?? (method == .GET)
+        self.useCache = useCache
+        self.cacheResponse = cacheResponse
         self.retryPolicy = retryPolicy ?? RetryPolicy.defaultPolicyForMethod(for: method)
     }
     
@@ -201,8 +173,8 @@ public struct Request<ModelType: MappableResponse>
                        path: updatedPath,
                        parameters: updatedParameters,
                        modelKeyPath: self.modelKeyPath,
-                       cacheFetchPolicy: self.cacheFetchPolicy,
-                       shouldCacheResponse: self.shouldCacheResponse,
+                       useCache: self.useCache,
+                       cacheResponse: self.cacheResponse,
                        retryPolicy: self.retryPolicy)
     }
 }

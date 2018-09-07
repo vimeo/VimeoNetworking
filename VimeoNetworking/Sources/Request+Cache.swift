@@ -35,7 +35,7 @@ public extension Request
         let url = NSURL(string: self.path)
         let urlPath = url?.path ?? ""
         
-        var cacheKey = "cached" + urlPath + "." + String(self.path.hashValue)
+        var cacheKey = "cached\(urlPath).\(self.path.hashValue)"
         cacheKey = cacheKey.replacingOccurrences(of: "/", with: ".")
         
         return cacheKey

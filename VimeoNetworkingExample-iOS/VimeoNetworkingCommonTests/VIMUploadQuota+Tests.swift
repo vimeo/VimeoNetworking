@@ -13,63 +13,41 @@ class VIMUploadQuota_Tests: XCTestCase
 {
     func test_UploadQuota_ValidData_ParsesCorrectly()
     {
-        let json = ["space" : ["free" : 100, "max" : 500, "used" : 400], "quota" : ["hd" : true, "sd" : false]]
+        let json = ["space" : ["free" : 100, "max" : 500, "used" : 400]]
         let quota = try! VIMObjectMapper.mapObject(responseDictionary: json) as VIMUploadQuota
         
-        XCTAssertEqual(quota.sizeQuota?.free, 100)
-        XCTAssertEqual(quota.sizeQuota?.max, 500)
-        XCTAssertEqual(quota.sizeQuota?.used, 400)
-        
-        XCTAssertEqual(quota.quantityQuota?.canUploadHd, true)
-        XCTAssertEqual(quota.quantityQuota?.canUploadSd, false)
+        XCTAssertEqual(quota.space?.free, 100)
+        XCTAssertEqual(quota.space?.max, 500)
+        XCTAssertEqual(quota.space?.used, 400)
     }
     
     func test_UploadQuota_BadQuotaData_ParsesCorrectly()
     {
-        let json = ["space" : ["free" : 100, "max" : 500, "used" : 400], "quota" : ["hd" : [:], "sd" : NSNull()]]
+        let json = ["space" : ["free" : 100, "max" : 500, "used" : 400]]
         let quota = try! VIMObjectMapper.mapObject(responseDictionary: json) as VIMUploadQuota
         
-        XCTAssertEqual(quota.sizeQuota?.free, 100)
-        XCTAssertEqual(quota.sizeQuota?.max, 500)
-        XCTAssertEqual(quota.sizeQuota?.used, 400)
-        
-        XCTAssertEqual(quota.quantityQuota?.canUploadHd, false)
-        XCTAssertEqual(quota.quantityQuota?.canUploadSd, false)
+        XCTAssertEqual(quota.space?.free, 100)
+        XCTAssertEqual(quota.space?.max, 500)
+        XCTAssertEqual(quota.space?.used, 400)
     }
     
-    func test_UploadQuota_MissingSizeData_ParsesCorrectly()
-    {
-        let json = ["quota" : ["hd" : true, "sd" : true]]
-        let quota = try! VIMObjectMapper.mapObject(responseDictionary: json) as VIMUploadQuota
-        
-        XCTAssertNil(quota.sizeQuota)
-        
-        XCTAssertEqual(quota.quantityQuota?.canUploadHd, true)
-        XCTAssertEqual(quota.quantityQuota?.canUploadSd, true)
-    }
-
     func test_UploadQuota_MissingQuotaData_ParsesCorrectly()
     {
         let json = ["space" : ["free" : 100, "max" : 500, "used" : 400]]
         let quota = try! VIMObjectMapper.mapObject(responseDictionary: json) as VIMUploadQuota
         
-        XCTAssertEqual(quota.sizeQuota?.free, 100)
-        XCTAssertEqual(quota.sizeQuota?.max, 500)
-        XCTAssertEqual(quota.sizeQuota?.used, 400)
-        
-        XCTAssertNil(quota.quantityQuota)
+        XCTAssertEqual(quota.space?.free, 100)
+        XCTAssertEqual(quota.space?.max, 500)
+        XCTAssertEqual(quota.space?.used, 400)
     }
-    
+
     func test_UploadQuota_EmptyQuotaData_ParsesCorrectly()
     {
-        let json = ["space" : ["free" : 100, "max" : 500, "used" : 400], "quota" : [:]]
+        let json = ["space" : ["free" : 100, "max" : 500, "used" : 400]]
         let quota = try! VIMObjectMapper.mapObject(responseDictionary: json) as VIMUploadQuota
         
-        XCTAssertEqual(quota.sizeQuota?.free, 100)
-        XCTAssertEqual(quota.sizeQuota?.max, 500)
-        XCTAssertEqual(quota.sizeQuota?.used, 400)
-        
-        XCTAssertEqual(quota.quantityQuota?.canUploadHd, false)
-        XCTAssertEqual(quota.quantityQuota?.canUploadSd, false)
+        XCTAssertEqual(quota.space?.free, 100)
+        XCTAssertEqual(quota.space?.max, 500)
+        XCTAssertEqual(quota.space?.used, 400)
     }
 }

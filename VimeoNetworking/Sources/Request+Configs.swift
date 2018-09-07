@@ -23,11 +23,11 @@ extension Request
         
         if cache
         {
-            return Request(method: .GET, path: path, cacheFetchPolicy: .cacheOnly)
+            return Request(method: .GET, path: path, useCache: true)
         }
         else
         {
-            return Request(method: .GET, path: path, cacheFetchPolicy: .networkOnly, shouldCacheResponse: true)
+            return Request(method: .GET, path: path, cacheResponse: true)
         }
     }
 }

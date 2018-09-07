@@ -51,6 +51,8 @@
 		3CE06FA11ED3AE5F007A1AFE /* ResponseCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE06F9F1ED3AE5F007A1AFE /* ResponseCacheTests.swift */; };
 		3CE06FA31ED5B49A007A1AFE /* VimeoSessionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE06FA21ED5B49A007A1AFE /* VimeoSessionManagerTests.swift */; };
 		3CE06FA41ED5B49A007A1AFE /* VimeoSessionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE06FA21ED5B49A007A1AFE /* VimeoSessionManagerTests.swift */; };
+		3EA4C85D2098FFE7009F3D9B /* VIMUploadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4C85C2098FFE7009F3D9B /* VIMUploadTests.swift */; };
+		3EA4C85E2098FFE7009F3D9B /* VIMUploadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4C85C2098FFE7009F3D9B /* VIMUploadTests.swift */; };
 		8E34023E1F67365A001544C4 /* VIMLiveQuotaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34023D1F67365A001544C4 /* VIMLiveQuotaTests.swift */; };
 		8E3402401F673821001544C4 /* user_live.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E34023F1F673821001544C4 /* user_live.json */; };
 		8E49138D1FA786DA0061723A /* MockConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49138C1FA786DA0061723A /* MockConstants.swift */; };
@@ -71,9 +73,12 @@
 		8EDE2D881FE05B7500143E95 /* user_alum.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE2D871FE05B7500143E95 /* user_alum.json */; };
 		8EDE8E201F55C44900C4D969 /* VIMLiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE8E1F1F55C44900C4D969 /* VIMLiveTests.swift */; };
 		8EDE8E221F55C4CF00C4D969 /* clip_live.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE8E211F55C4CF00C4D969 /* clip_live.json */; };
-		966F0F0E1E09D5740066DCF0 /* VimeoNetworkingExample_tvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F0F0D1E09D5740066DCF0 /* VimeoNetworkingExample_tvOSTests.swift */; };
 		A7D414481E2E6FC500B68B14 /* VimeoClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D414471E2E6FC500B68B14 /* VimeoClientTests.swift */; };
 		B6315CBCEC56CC56CDD852C3 /* Pods_VimeoNetworkingExample_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFB88210DDF0B7DB12C7F1D /* Pods_VimeoNetworkingExample_tvOS.framework */; };
+		BE2D774420FE2FF700B27C24 /* user_producer.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2D774020FE2E1800B27C24 /* user_producer.json */; };
+		BE2D774520FE2FF800B27C24 /* user_producer.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2D774020FE2E1800B27C24 /* user_producer.json */; };
+		BE2D774620FE2FFC00B27C24 /* user_pro_unlimited.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2D774220FE2E2200B27C24 /* user_pro_unlimited.json */; };
+		BE2D774720FE2FFC00B27C24 /* user_pro_unlimited.json in Resources */ = {isa = PBXBuildFile; fileRef = BE2D774220FE2E2200B27C24 /* user_pro_unlimited.json */; };
 		CC22A6749CADF4DA91D73F04 /* Pods_VimeoNetworkingExample_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D22A36411CC71C284010480 /* Pods_VimeoNetworkingExample_iOSTests.framework */; };
 		DEB396A3F44BBFBE9A602F1A /* Pods_VimeoNetworkingExample_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46114AFA04898F979611854A /* Pods_VimeoNetworkingExample_iOS.framework */; };
 /* End PBXBuildFile section */
@@ -138,6 +143,7 @@
 		3CE06F9F1ED3AE5F007A1AFE /* ResponseCacheTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResponseCacheTests.swift; path = VimeoNetworkingCommonTests/ResponseCacheTests.swift; sourceTree = "<group>"; };
 		3CE06FA21ED5B49A007A1AFE /* VimeoSessionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VimeoSessionManagerTests.swift; path = "VimeoNetworkingExample-iOSTests/VimeoSessionManagerTests.swift"; sourceTree = SOURCE_ROOT; };
 		3D1A821E9248D03C2D131632 /* Pods-VimeoNetworkingExample-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworkingExample-tvOSTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-VimeoNetworkingExample-tvOSTests/Pods-VimeoNetworkingExample-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		3EA4C85C2098FFE7009F3D9B /* VIMUploadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIMUploadTests.swift; sourceTree = "<group>"; };
 		46114AFA04898F979611854A /* Pods_VimeoNetworkingExample_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VimeoNetworkingExample_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		504639537019D6A4E5030DA6 /* Pods_VimeoNetworkingiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VimeoNetworkingiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		531F93C5CC3781A743B13E0A /* Pods-VimeoNetworking tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworking tvOSTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-VimeoNetworking tvOSTests/Pods-VimeoNetworking tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,7 +185,6 @@
 		966F0EF11E09D55E0066DCF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		966F0EF91E09D5740066DCF0 /* VimeoNetworkingExample-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VimeoNetworkingExample-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		966F0F091E09D5740066DCF0 /* VimeoNetworkingExample-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VimeoNetworkingExample-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		966F0F0D1E09D5740066DCF0 /* VimeoNetworkingExample_tvOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimeoNetworkingExample_tvOSTests.swift; sourceTree = "<group>"; };
 		966F0F0F1E09D5740066DCF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D22A36411CC71C284010480 /* Pods_VimeoNetworkingExample_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VimeoNetworkingExample_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28A01D89F7D023CF49B4F1F /* Pods_VimeoNetworkingExample_iOS_VimeoNetworking_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VimeoNetworkingExample_iOS_VimeoNetworking_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +193,8 @@
 		A7D414471E2E6FC500B68B14 /* VimeoClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimeoClientTests.swift; sourceTree = "<group>"; };
 		AAA8BDDF1F5FAC07D5EBE694 /* Pods-VimeoNetworkingExample-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworkingExample-tvOS.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-VimeoNetworkingExample-tvOS/Pods-VimeoNetworkingExample-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B922437EFB7C0E4240397B12 /* Pods-VimeoNetworking tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworking tvOS.release.xcconfig"; path = "../Pods/Target Support Files/Pods-VimeoNetworking tvOS/Pods-VimeoNetworking tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		BE2D774020FE2E1800B27C24 /* user_producer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user_producer.json; sourceTree = "<group>"; };
+		BE2D774220FE2E2200B27C24 /* user_pro_unlimited.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user_pro_unlimited.json; sourceTree = "<group>"; };
 		C91C8608AAEE4CC821051413 /* Pods_VimeoNetworking_tvOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VimeoNetworking_tvOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFB88210DDF0B7DB12C7F1D /* Pods_VimeoNetworkingExample_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VimeoNetworkingExample_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF211DD5EBB6830618D3328B /* Pods-VimeoNetworkingExample-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworkingExample-tvOS.release.xcconfig"; path = "../Pods/Target Support Files/Pods-VimeoNetworkingExample-tvOS/Pods-VimeoNetworkingExample-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -338,6 +345,7 @@
 				3C0DCFC01ECA7F5D00960774 /* ScopeTests.swift */,
 				3CE06FA21ED5B49A007A1AFE /* VimeoSessionManagerTests.swift */,
 				0CF362E11F62E90400B22589 /* VIMVideoTests.swift */,
+				3EA4C85C2098FFE7009F3D9B /* VIMUploadTests.swift */,
 			);
 			name = VimeoNetworkingCommonTests;
 			sourceTree = "<group>";
@@ -356,6 +364,8 @@
 				8EDE2D811FE05A2500143E95 /* user_staff.json */,
 				8EDE2D851FE05B3600143E95 /* user_support.json */,
 				8E5997022058280900A4A83C /* user_live_premium.json */,
+				BE2D774020FE2E1800B27C24 /* user_producer.json */,
+				BE2D774220FE2E2200B27C24 /* user_pro_unlimited.json */,
 				8EDE2D7F1FE0559600143E95 /* VIMUserBadgeTests.swift */,
 				8EDE2D6F1FDF3F4200143E95 /* VIMUserTests.swift */,
 			);
@@ -398,7 +408,6 @@
 		966F0F0C1E09D5740066DCF0 /* VimeoNetworkingExample-tvOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				966F0F0D1E09D5740066DCF0 /* VimeoNetworkingExample_tvOSTests.swift */,
 				966F0F0F1E09D5740066DCF0 /* Info.plist */,
 			);
 			path = "VimeoNetworkingExample-tvOSTests";
@@ -445,9 +454,9 @@
 				13C1F651C572424FF37A05C8 /* [CP] Check Pods Manifest.lock */,
 				018B9F921C9B34050054650E /* Sources */,
 				018B9F931C9B34050054650E /* Frameworks */,
+				0C2A0F8520C5E0E000B29725 /* ShellScript */,
 				018B9F941C9B34050054650E /* Resources */,
 				CA6E2119DFC5EFCAF0C431FA /* [CP] Embed Pods Frameworks */,
-				C3C638DB439B296F24C0C11D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -467,7 +476,6 @@
 				018B9FA91C9B34050054650E /* Frameworks */,
 				018B9FAA1C9B34050054650E /* Resources */,
 				173AE94535CA59D7E231FAF0 /* [CP] Embed Pods Frameworks */,
-				08221E46F165CE439ED37F5E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -486,9 +494,9 @@
 				9B613935A5A18428B6721060 /* [CP] Check Pods Manifest.lock */,
 				966F0EF51E09D5740066DCF0 /* Sources */,
 				966F0EF61E09D5740066DCF0 /* Frameworks */,
+				0C2A0F8620C5E0F700B29725 /* ShellScript */,
 				966F0EF71E09D5740066DCF0 /* Resources */,
 				44371D5D7841C6F904AAED4C /* [CP] Embed Pods Frameworks */,
-				02B6DC3AEB0AFF35D28D8CE5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -508,7 +516,6 @@
 				966F0F061E09D5740066DCF0 /* Frameworks */,
 				966F0F071E09D5740066DCF0 /* Resources */,
 				DA9FDEF5E8D6A624479C76F6 /* [CP] Embed Pods Frameworks */,
-				51DD1773D176AC3592F47F8B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -527,17 +534,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Vimeo;
 				TargetAttributes = {
 					018B9F951C9B34050054650E = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 35R365FS4Q;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 					};
 					018B9FAB1C9B34050054650E = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0920;
 						TestTargetID = 018B9F951C9B34050054650E;
 					};
 					966F0EF81E09D5740066DCF0 = {
@@ -548,8 +555,8 @@
 					966F0F081E09D5740066DCF0 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 35R365FS4Q;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 966F0EF81E09D5740066DCF0;
 					};
 				};
 			};
@@ -597,6 +604,7 @@
 				3C1F8DFF1EFC304000A062D3 /* cinema-success-response.json in Resources */,
 				8E3402401F673821001544C4 /* user_live.json in Resources */,
 				8EDE2D7C1FE0210E00143E95 /* user_pro.json in Resources */,
+				BE2D774420FE2FF700B27C24 /* user_producer.json in Resources */,
 				8EDE2D7E1FE0214E00143E95 /* user_business.json in Resources */,
 				3C0DCFCC1ECB25FC00960774 /* categories-animation-response.json in Resources */,
 				8E5997032058280900A4A83C /* user_live_premium.json in Resources */,
@@ -604,6 +612,7 @@
 				8EDE2D841FE05AA900143E95 /* user_curation.json in Resources */,
 				8EDE2D881FE05B7500143E95 /* user_alum.json in Resources */,
 				8EDE2D7A1FE020B400143E95 /* user_plus.json in Resources */,
+				BE2D774620FE2FFC00B27C24 /* user_pro_unlimited.json in Resources */,
 				8EDE2D781FE0203300143E95 /* user_basic.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,7 +628,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE2D774520FE2FF800B27C24 /* user_producer.json in Resources */,
 				8E5997042058280900A4A83C /* user_live_premium.json in Resources */,
+				BE2D774720FE2FFC00B27C24 /* user_pro_unlimited.json in Resources */,
 				3C0DCFCD1ECB25FC00960774 /* categories-animation-response.json in Resources */,
 				3C1F8E001EFC304000A062D3 /* cinema-success-response.json in Resources */,
 			);
@@ -628,35 +639,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02B6DC3AEB0AFF35D28D8CE5 /* [CP] Copy Pods Resources */ = {
+		0C2A0F8520C5E0E000B29725 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-VimeoNetworkingExample-tvOS/Pods-VimeoNetworkingExample-tvOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "WORKSPACE_ROOT=$( cd \"$(dirname \"${SRCROOT[0]}\")\" ; pwd -P )\n\nif which swiftlint >/dev/null; then\n    \"$PODS_ROOT\"/SwiftLint/swiftlint autocorrect --config \"$WORKSPACE_ROOT\"/.swiftlint.yml\nelse\n    echo \"Warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
-		08221E46F165CE439ED37F5E /* [CP] Copy Pods Resources */ = {
+		0C2A0F8620C5E0F700B29725 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-VimeoNetworkingExample-iOSTests/Pods-VimeoNetworkingExample-iOSTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "WORKSPACE_ROOT=$( cd \"$(dirname \"${SRCROOT[0]}\")\" ; pwd -P )\n\nif which swiftlint >/dev/null; then\n    \"$PODS_ROOT\"/SwiftLint/swiftlint autocorrect --config \"$WORKSPACE_ROOT\"/.swiftlint.yml\nelse\n    echo \"Warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		13C1F651C572424FF37A05C8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -673,7 +680,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		173AE94535CA59D7E231FAF0 /* [CP] Embed Pods Frameworks */ = {
@@ -714,21 +721,6 @@
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-VimeoNetworkingExample-tvOS/Pods-VimeoNetworkingExample-tvOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		51DD1773D176AC3592F47F8B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-VimeoNetworkingExample-tvOSTests/Pods-VimeoNetworkingExample-tvOSTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9B613935A5A18428B6721060 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -744,7 +736,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A6FE6BD20258845A82DA36E1 /* [CP] Check Pods Manifest.lock */ = {
@@ -762,22 +754,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C3C638DB439B296F24C0C11D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-VimeoNetworkingExample-iOS/Pods-VimeoNetworkingExample-iOS-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CA6E2119DFC5EFCAF0C431FA /* [CP] Embed Pods Frameworks */ = {
@@ -833,7 +810,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -857,6 +834,7 @@
 				3C0DCFC51ECA825600960774 /* VIMCategory+Tests.swift in Sources */,
 				3C1F8E021EFC311D00A062D3 /* Request+ProgrammedContent.swift in Sources */,
 				3CE06FA01ED3AE5F007A1AFE /* ResponseCacheTests.swift in Sources */,
+				3EA4C85D2098FFE7009F3D9B /* VIMUploadTests.swift in Sources */,
 				3C0DCFC11ECA7F5D00960774 /* ScopeTests.swift in Sources */,
 				3CAE6FC61EC671540016EF6C /* RequestTests.swift in Sources */,
 				8E34023E1F67365A001544C4 /* VIMLiveQuotaTests.swift in Sources */,
@@ -893,7 +871,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C0DCFC61ECA825600960774 /* VIMCategory+Tests.swift in Sources */,
-				966F0F0E1E09D5740066DCF0 /* VimeoNetworkingExample_tvOSTests.swift in Sources */,
 				3C0DCFC21ECA7F5D00960774 /* ScopeTests.swift in Sources */,
 				3CE06F9E1ED31200007A1AFE /* ExceptionCatcherTests.swift in Sources */,
 				3CE06F9B1ED30D80007A1AFE /* Dictionary+ExtensionTests.swift in Sources */,
@@ -905,6 +882,7 @@
 				3C0DCFC91ECB22EC00960774 /* ObjectMappingTestUtilities.swift in Sources */,
 				3C1F8E061F14397A00A062D3 /* VIMQuantityQuota+Tests.swift in Sources */,
 				3C1F8E091F151B8E00A062D3 /* VIMUploadQuota+Tests.swift in Sources */,
+				3EA4C85E2098FFE7009F3D9B /* VIMUploadTests.swift in Sources */,
 				3CE06FA41ED5B49A007A1AFE /* VimeoSessionManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -961,14 +939,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -995,8 +981,10 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "VimeoNetworking-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1010,14 +998,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1037,8 +1033,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "VimeoNetworking-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1058,8 +1056,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vimeo.VimeoNetworkingExample-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "VimeoNetworking-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1077,8 +1074,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vimeo.VimeoNetworkingExample-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "VimeoNetworking-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1088,11 +1084,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "VimeoNetworkingExample-iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vimeo.VimeoNetworkingExample-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VimeoNetworkingExample-iOS.app/VimeoNetworkingExample-iOS";
 			};
 			name = Debug;
@@ -1103,11 +1102,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "VimeoNetworkingExample-iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.vimeo.VimeoNetworkingExample-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VimeoNetworkingExample-iOS.app/VimeoNetworkingExample-iOS";
 			};
 			name = Release;
@@ -1127,6 +1128,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -1146,6 +1148,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "vimeo.VimeoNetworkingExample-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -1155,7 +1158,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 90E3A1F0166091A070203C67 /* Pods-VimeoNetworkingExample-tvOSTests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = 35R365FS4Q;
 				INFOPLIST_FILE = "VimeoNetworkingExample-tvOSTests/Info.plist";
@@ -1164,8 +1167,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VimeoNetworkingExample-tvOS.app/VimeoNetworkingExample-tvOS";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
@@ -1174,7 +1177,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D1A821E9248D03C2D131632 /* Pods-VimeoNetworkingExample-tvOSTests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = 35R365FS4Q;
 				INFOPLIST_FILE = "VimeoNetworkingExample-tvOSTests/Info.plist";
@@ -1182,8 +1185,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "vimeo.VimeoNetworkingExample-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VimeoNetworkingExample-tvOS.app/VimeoNetworkingExample-tvOS";
+				SWIFT_VERSION = 4.0;
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;

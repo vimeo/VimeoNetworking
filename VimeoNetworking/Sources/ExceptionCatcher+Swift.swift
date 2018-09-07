@@ -26,7 +26,7 @@
 
 import Foundation
 
-class ExceptionCatcher: ObjC_ExceptionCatcher
+public class ExceptionCatcher: ObjC_ExceptionCatcher
 {
     /**
      Execute a block of code that could potentially throw Objective-C exceptions
@@ -35,7 +35,7 @@ class ExceptionCatcher: ObjC_ExceptionCatcher
      
      - throws: an error containing any thrown exception information
      */
-    @nonobjc internal static func doUnsafe(unsafeBlock: @escaping ((Void) -> Void)) throws
+    @nonobjc public static func doUnsafe(unsafeBlock: @escaping (() -> Void)) throws
     {
         if let error = self._doUnsafe(unsafeBlock)
         {

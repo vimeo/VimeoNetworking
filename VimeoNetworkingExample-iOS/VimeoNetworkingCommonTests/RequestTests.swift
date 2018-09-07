@@ -51,15 +51,6 @@ class RequestTests: XCTestCase
         }
     }
     
-    func test_CacheFetchPolicy_DefaultPolicyReturnsNetworkOnly()
-    {
-        XCTAssertTrue(CacheFetchPolicy.defaultPolicyForMethod(method: .GET) == .networkOnly, "defaultPolicyForMethod always returns .networkOnly")
-        XCTAssertTrue(CacheFetchPolicy.defaultPolicyForMethod(method: .POST) == .networkOnly, "defaultPolicyForMethod always returns .networkOnly")
-        XCTAssertTrue(CacheFetchPolicy.defaultPolicyForMethod(method: .PUT) == .networkOnly, "defaultPolicyForMethod always returns .networkOnly")
-        XCTAssertTrue(CacheFetchPolicy.defaultPolicyForMethod(method: .PATCH) == .networkOnly, "defaultPolicyForMethod always returns .networkOnly")
-        XCTAssertTrue(CacheFetchPolicy.defaultPolicyForMethod(method: .DELETE) == .networkOnly, "defaultPolicyForMethod always returns .networkOnly")
-    }
-    
     func test_RetryPolicy_DefaultPolicyForMethodShouldReturnSingleAttempt()
     {
         var defaultPolicy = RetryPolicy.defaultPolicyForMethod(for: .GET)
@@ -101,15 +92,15 @@ class RequestTests: XCTestCase
                                                path: testPath,
                                                parameters: ["param" : "test field"],
                                                modelKeyPath: "data",
-                                               cacheFetchPolicy: .cacheOnly,
-                                               shouldCacheResponse: true,
+                                               useCache: true,
+                                               cacheResponse: true,
                                                retryPolicy: RetryPolicy.TryThreeTimes)
         
         XCTAssertEqual(request.path, testPath)
         XCTAssertEqual(request.URI, "/test?param=test%20field")
-        XCTAssertTrue(request.shouldCacheResponse)
+        XCTAssertTrue(request.cacheResponse)
         XCTAssertEqual(request.method, .POST)
-        XCTAssertEqual(request.cacheFetchPolicy, .cacheOnly)
+        XCTAssertEqual(request.useCache, true)
         XCTAssertTrue(RequestComparisons.CompareRetryPolicies(request.retryPolicy, .multipleAttempts(attemptCount: 3, initialDelay: 2.0)))
     }
     
@@ -121,8 +112,8 @@ class RequestTests: XCTestCase
         XCTAssertEqual(request.path, associatedRequest.path)
         XCTAssertEqual(request.method, associatedRequest.method)
         XCTAssertEqual(request.modelKeyPath, associatedRequest.modelKeyPath)
-        XCTAssertEqual(request.shouldCacheResponse, associatedRequest.shouldCacheResponse)
-        XCTAssertEqual(request.cacheFetchPolicy, associatedRequest.cacheFetchPolicy)
+        XCTAssertEqual(request.cacheResponse, associatedRequest.cacheResponse)
+        XCTAssertEqual(request.useCache, associatedRequest.useCache)
         XCTAssertTrue(RequestComparisons.CompareRetryPolicies(request.retryPolicy, associatedRequest.retryPolicy), "")
         
         let params = associatedRequest.parameters as! VimeoClient.RequestParametersDictionary

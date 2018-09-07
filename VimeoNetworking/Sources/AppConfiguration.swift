@@ -24,50 +24,41 @@
 //  THE SOFTWARE.
 //
 
-import Foundation
-
-/**
- *  Stores all static information relevant to a client application
- */
+/// Stores all static information relevant to a client application
 public struct AppConfiguration
 {
     public let clientIdentifier: String
     public let clientSecret: String
     public let scopes: [Scope]
-    
+    public let apiVersion: String
+    public let baseUrl: URL
     let keychainService: String
     let keychainAccessGroup: String?
     
-    public let apiVersion: String
-    public let baseUrl: URL
-    
-    /**
-     Create a new `AppConfiguration`
-     
-     - parameter clientIdentifier:           The client key designated by the api for your application
-     - parameter clientSecret:        The client secret designated by the api for your application
-     - parameter scopes:              An array of `Scope`s that your application requests
-     - parameter keychainService:     Identifes your application to the system keychain, defaults to `KeychainServiceVimeo`
-     - parameter keychainAccessGroup: Access group your application should use for the system keychain, defaults to nil
-     - parameter apiVersion:          API version your requests should use, defaults to `VimeoDefaultAPIVersionString`
-     - parameter baseUrl:             The baseUrl for HTTP requests made using this configuration, defaults to `VimeoBaseURL`
-     
-     - returns: an initialized AppConfiguration
-     */
+    /// Create a new `AppConfiguration`
+    ///
+    /// - Parameters:
+    ///   - clientIdentifier: The client key designated by the api for your application
+    ///   - clientSecret: The client secret designated by the api for your application
+    ///   - scopes: An array of `Scope`s that your application requests
+    ///   - keychainService: Identifes your application to the system keychain, defaults to `KeychainServiceVimeo`
+    ///   - keychainAccessGroup: Access group your application should use for the system keychain, defaults to nil
+    ///   - apiVersion: API version your requests should use, defaults to `VimeoDefaultAPIVersionString`
+    ///   - baseUrl: The baseUrl for HTTP requests made using this configuration, defaults to `VimeoBaseURL`
     public init(clientIdentifier: String,
                 clientSecret: String,
                 scopes: [Scope],
                 keychainService: String,
                 keychainAccessGroup: String? = nil,
-                apiVersion: String = VimeoDefaultAPIVersionString,
-                baseUrl: URL = VimeoBaseURL)
+                apiVersion: String? = nil,
+                baseUrl: URL? = nil)
     {
         self.clientIdentifier = clientIdentifier
         self.clientSecret = clientSecret
         self.scopes = scopes
         self.keychainService = keychainService
         self.keychainAccessGroup = keychainAccessGroup
-        self.apiVersion = apiVersion
-        self.baseUrl = baseUrl
+        self.apiVersion = apiVersion ?? VimeoDefaultAPIVersionString
+        self.baseUrl = baseUrl ?? VimeoBaseURL
     }
 }

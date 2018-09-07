@@ -83,6 +83,10 @@ class VIMUserTests: XCTestCase
                     XCTAssertEqual(analyticsIdentifier, "live_business")
                 case .livePremium:
                     XCTAssertEqual(analyticsIdentifier, "live_premium")
+                case .proUnlimited:
+                    XCTAssertEqual(analyticsIdentifier, "pro_unlimited")
+                case .producer:
+                    XCTAssertEqual(analyticsIdentifier, "producer")
                 }
                 
             case .failure(let error):
@@ -142,5 +146,19 @@ class VIMUserTests: XCTestCase
         self.stubResponse(withFile: "user_business.json")
         let expectation = self.expectation(description: "Expectation for Business User Object")
         self.checkReturnedAccountType(withExpectedType: .business, andExpectation: expectation)
+    }
+
+    func testUserObjectReturningProUnlimitedForAccountType()
+    {
+        self.stubResponse(withFile: "user_pro_unlimited.json")
+        let expectation = self.expectation(description: "Expectation for Pro Unlimited User Object")
+        self.checkReturnedAccountType(withExpectedType: .proUnlimited, andExpectation: expectation)
+    }
+
+    func testUserObjectReturningProducerForAccountType()
+    {
+        self.stubResponse(withFile: "user_producer.json")
+        let expectation = self.expectation(description: "Expectation for Pro Unlimited User Object")
+        self.checkReturnedAccountType(withExpectedType: .producer, andExpectation: expectation)
     }
 }

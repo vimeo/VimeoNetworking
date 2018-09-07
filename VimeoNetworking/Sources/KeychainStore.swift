@@ -119,11 +119,11 @@ final class KeychainStore
         }
     }
     
-    // MARK: - 
+    // MARK: -
     
-    private func query(for key: String) -> [AnyHashable: Any]
+    private func query(for key: String) -> [String: Any]
     {
-        var query: [AnyHashable: Any] = [:]
+        var query: [String: Any] = [:]
         
         query[kSecClass as String] = kSecClassGenericPassword as String
         query[kSecAttrService as String] = self.service

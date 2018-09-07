@@ -34,15 +34,15 @@ public class VIMLiveChat: VIMModelObject
     }
     
     /// The ID of the live event chat room.
-    public private(set) var roomId: NSNumber?
+    @objc public private(set) var roomId: NSNumber?
     
     /// JWT for the user to access the live event chat room.
-    public private(set) var token: String?
+    @objc public private(set) var token: String?
     
     /// The current user.
-    public private(set) var user: VIMLiveChatUser?
+    @objc public private(set) var user: VIMLiveChatUser?
     
-    public override func getClassForObjectKey(_ key: String!) -> AnyClass?
+    @objc public override func getClassForObjectKey(_ key: String!) -> AnyClass?
     {
         if key == Constants.UserKey
         {

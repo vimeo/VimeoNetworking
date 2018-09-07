@@ -29,11 +29,11 @@ import Foundation
 /// VIMBadge contains the text and/or icons used to display a badge on a video item
 public class VIMBadge: VIMModelObject
 {
-    dynamic public var type: String?
-    dynamic public var festival: String?
-    dynamic public var link: String?
-    dynamic public var text: String?
-    dynamic public var pictures: VIMPictureCollection?
+    @objc dynamic public var type: String?
+    @objc dynamic public var festival: String?
+    @objc dynamic public var link: String?
+    @objc dynamic public var text: String?
+    @objc dynamic public var pictures: VIMPictureCollection?
     
     public override func getClassForObjectKey(_ key: String) -> AnyClass?
     {

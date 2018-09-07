@@ -10,9 +10,9 @@
 /// Spatial stores all information related to threesixty video
 public class Spatial: VIMModelObject
 {
-    public static let StereoFormatMono = "mono"
-    public static let StereoFormatLeftRight = "left-right"
-    public static let StereoFormatTopBottom = "top-bottom"
+    @objc public static let StereoFormatMono = "mono"
+    @objc public static let StereoFormatLeftRight = "left-right"
+    @objc public static let StereoFormatTopBottom = "top-bottom"
     
     /// Represents the projection. Value returned by the server can be: "equirectangular", "cylindrical", "cubical", "pyramid", "dome".
     @objc dynamic public private(set) var projection: String?

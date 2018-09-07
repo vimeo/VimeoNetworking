@@ -20,7 +20,7 @@ public extension Request
      */
     public static func createPictureRequest(forUserURI userURI: String) -> Request
     {
-        let uri = userURI + "/pictures"
+        let uri = "\(userURI)/pictures"
         
         return Request(method: .POST, path: uri)
     }

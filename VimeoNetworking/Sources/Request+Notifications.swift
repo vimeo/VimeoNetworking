@@ -10,7 +10,7 @@ public extension Request
 {
     private static var Path: String { return "/me/notifications/subscriptions" }
 
-    private typealias ParameterDictionary = [AnyHashable: Any]
+    private typealias ParameterDictionary = [String: Any]
 
     private static var SubscriptionsPathComponent: String { return "/subscriptions" }
 
@@ -51,7 +51,7 @@ public extension Request
 
     private static func subscriptionsURI(forNotificationsURI notificationsURI: String, deviceToken: String) -> String
     {
-        return notificationsURI + "/\(deviceToken)" + SubscriptionsPathComponent
+        return "\(notificationsURI)/\(deviceToken)\(SubscriptionsPathComponent)"
     }
     
     public static func markNotificationAsNotNewRequest(forNotification notification: VIMNotification, notificationsURI: String) -> Request

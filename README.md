@@ -10,17 +10,17 @@
 - tvOS (9.0+)
 
 ## Installing
-At this stage of development VimeoNetworking is not yet available as a CocoaPod via the public Podspecs repo. For now we recommend including it in your project as a submodule. If you'd still like to work with VimeoNetworking as a development pod, simply configure your Podfile as shown below.
-
-To get started integrating `VimeoNetworking`, add the following lines to your `Podfile` and run `pod install`:
+To get started add the following to your Podfile:
 
 ```Ruby
-use_frameworks! # required for Swift frameworks
+use_frameworks!
 
-target 'YourAppTargetName' do
-	pod 'VimeoNetworking', :path => './Submodules/VimeoNetworking'
+target 'YourTarget' do
+    pod 'VimeoNetworking'
 end
 ```
+
+You can optionally specify a version number, or point directly to our `develop` branch. Note that breaking changes may be introduced into `develop` at any time, but those changes will always be behind a major or minor release version number.
 
 ## Initialization
 

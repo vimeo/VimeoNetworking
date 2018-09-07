@@ -83,7 +83,7 @@ public enum NetworkingNotification: String
      
      - parameter object: an optional object to pass to observers of this `NetworkingNotification`
      */
-    public func post(object: Any?, userInfo: [AnyHashable: Any]? = nil)
+    public func post(object: Any?, userInfo: [String: Any]? = nil)
     {
         DispatchQueue.main.async
         {

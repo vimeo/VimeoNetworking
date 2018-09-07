@@ -40,7 +40,7 @@ private protocol Cache
 }
 
 /// Response cache handles the storage of JSON response dictionaries indexed by their associated `Request`.  It contains both memory and disk caching functionality
-final internal class ResponseCache
+final public class ResponseCache
 {
     private struct Constant
     {
@@ -171,7 +171,7 @@ final internal class ResponseCache
                 let fileManager = FileManager()
                 let directoryPath = self.cachesDirectoryURL().path
                 
-                guard let filePath = self.fileURL(forKey: key)?.path else 
+                guard let filePath = self.fileURL(forKey: key)?.path else
                 {
                     assertionFailure("No cache path found.")
                     return
@@ -195,7 +195,7 @@ final internal class ResponseCache
                 {
                     print("ResponseDiskCache error: \(error)")
                 }
-            }) 
+            })
         }
         
         func responseDictionary(forKey key: String, completion: @escaping (VimeoClient.ResponseDictionary?) -> Void)
@@ -270,7 +270,7 @@ final internal class ResponseCache
                 {
                     print("Removal of disk cache for \(key) failed with error \(error)")
                 }
-            }) 
+            })
         }
         
         func removeAllResponseDictionaries()
@@ -294,7 +294,7 @@ final internal class ResponseCache
                 {
                     print("Could not clear disk cache.")
                 }
-            }) 
+            })
         }
         
         // MARK: - directories

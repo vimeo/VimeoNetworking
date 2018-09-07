@@ -92,6 +92,6 @@ extension Request
     {
         let deviceTypeIdentifier = UIDevice.current.userInterfaceIdiom == .phone ? "iphone" : "ipad"
         
-        return "me/devices/" + deviceTypeIdentifier + "/" + deviceToken
+        return "me/devices/\(deviceTypeIdentifier)/\(deviceToken)"
     }
 }

@@ -40,7 +40,7 @@ public extension Request
     
     private static var SelectedUsersPrivacyPath: String { return "/privacy/users" }
     
-    // MARK: - 
+    // MARK: -
     
     /**
      Create a `Request` to get a specific video

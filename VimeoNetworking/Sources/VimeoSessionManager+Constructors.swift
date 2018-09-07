@@ -38,10 +38,10 @@ public extension VimeoSessionManager
      
      - returns: an initialized `VimeoSessionManager`
      */
-    static func defaultSessionManager(baseUrl: URL, accessToken: String) -> VimeoSessionManager
+    static func defaultSessionManager(baseUrl: URL, accessToken: String, apiVersion: String) -> VimeoSessionManager
     {
         let sessionConfiguration = URLSessionConfiguration.defaultSessionConfigurationNoCache()
-        let requestSerializer = VimeoRequestSerializer(accessTokenProvider: { accessToken })
+        let requestSerializer = VimeoRequestSerializer(accessTokenProvider: { accessToken }, apiVersion: apiVersion)
         
         return VimeoSessionManager(baseUrl: baseUrl, sessionConfiguration: sessionConfiguration, requestSerializer: requestSerializer)
     }
@@ -54,10 +54,10 @@ public extension VimeoSessionManager
      
      - returns: an initialized `VimeoSessionManager`
      */
-    static func defaultSessionManager(baseUrl: URL, accessTokenProvider: @escaping VimeoRequestSerializer.AccessTokenProvider) -> VimeoSessionManager
+    static func defaultSessionManager(baseUrl: URL, accessTokenProvider: @escaping VimeoRequestSerializer.AccessTokenProvider, apiVersion: String) -> VimeoSessionManager
     {
         let sessionConfiguration = URLSessionConfiguration.defaultSessionConfigurationNoCache()
-        let requestSerializer = VimeoRequestSerializer(accessTokenProvider: accessTokenProvider)
+        let requestSerializer = VimeoRequestSerializer(accessTokenProvider: accessTokenProvider, apiVersion: apiVersion)
         
         return VimeoSessionManager(baseUrl: baseUrl, sessionConfiguration: sessionConfiguration, requestSerializer: requestSerializer)
     }
@@ -88,10 +88,10 @@ public extension VimeoSessionManager
      
      - returns: an initialized `VimeoSessionManager`
      */
-    static func backgroundSessionManager(identifier: String, baseUrl: URL, accessToken: String) -> VimeoSessionManager
+    static func backgroundSessionManager(identifier: String, baseUrl: URL, accessToken: String, apiVersion: String) -> VimeoSessionManager
     {
         let sessionConfiguration = self.backgroundSessionConfiguration(identifier: identifier)
-        let requestSerializer = VimeoRequestSerializer(accessTokenProvider: { accessToken })
+        let requestSerializer = VimeoRequestSerializer(accessTokenProvider: { accessToken }, apiVersion: apiVersion)
         
         return VimeoSessionManager(baseUrl: baseUrl, sessionConfiguration: sessionConfiguration, requestSerializer: requestSerializer)
     }
@@ -105,10 +105,32 @@ public extension VimeoSessionManager
      
      - returns: an initialized `VimeoSessionManager`
      */
-    static func backgroundSessionManager(identifier: String, baseUrl: URL, accessTokenProvider: @escaping VimeoRequestSerializer.AccessTokenProvider) -> VimeoSessionManager
+    static func backgroundSessionManager(identifier: String, baseUrl: URL, accessTokenProvider: @escaping VimeoRequestSerializer.AccessTokenProvider, apiVersion: String) -> VimeoSessionManager
     {
         let sessionConfiguration = self.backgroundSessionConfiguration(identifier: identifier)
-        let requestSerializer = VimeoRequestSerializer(accessTokenProvider: accessTokenProvider)
+        let requestSerializer = VimeoRequestSerializer(accessTokenProvider: accessTokenProvider, apiVersion: apiVersion)
+        
+        return VimeoSessionManager(baseUrl: baseUrl, sessionConfiguration: sessionConfiguration, requestSerializer: requestSerializer)
+    }
+    
+    /// Creates a background session manager suitable for share extension to
+    /// use.
+    ///
+    /// - Parameters:
+    ///   - identifier: The background session identifier.
+    ///   - baseUrl: The base URL for the HTTP client. This value should
+    /// usually be set to `VimeoBaseURL`.
+    ///   - sharedContainerIdentifier: The name of the shared container
+    /// between the main app and the share extension.
+    ///   - accessTokenProvider: A block that provides an access token
+    /// dynamically, called on each request serialization.
+    ///   - apiVersion: The API version to use.
+    /// - Returns: an initialized `VimeoSessionManager`.
+    static func backgroundSessionManager(identifier: String, baseUrl: URL, sharedContainerIdentifier: String, accessTokenProvider: @escaping VimeoRequestSerializer.AccessTokenProvider, apiVersion: String) -> VimeoSessionManager
+    {
+        let sessionConfiguration = self.backgroundSessionConfiguration(identifier: identifier)
+        sessionConfiguration.sharedContainerIdentifier = sharedContainerIdentifier
+        let requestSerializer = VimeoRequestSerializer(accessTokenProvider: accessTokenProvider, apiVersion: apiVersion)
         
         return VimeoSessionManager(baseUrl: baseUrl, sessionConfiguration: sessionConfiguration, requestSerializer: requestSerializer)
     }

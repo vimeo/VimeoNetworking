@@ -27,6 +27,8 @@
 import XCTest
 @testable import VimeoNetworking
 
+let TestVimeoBaseURL = URL(string: "https://api.vimeo.com")!
+
 class VimeoSessionManagerTests: XCTestCase
 {
     func test_VimeoSessionManager_defaultBaseUrl()
@@ -38,7 +40,7 @@ class VimeoSessionManagerTests: XCTestCase
                                              apiVersion: "3.3")
         
         let sessionManager = VimeoSessionManager.defaultSessionManager(appConfiguration: configuration)
-        XCTAssertEqual(sessionManager.baseURL, VimeoBaseURL)
+        XCTAssertEqual(sessionManager.baseURL, TestVimeoBaseURL)
     }
     
     func test_VimeoSessionManager_canSetBaseUrl()
@@ -97,7 +99,7 @@ class VimeoSessionManagerTests: XCTestCase
         let sessionManager = VimeoSessionManager.defaultSessionManager(appConfiguration: configuration)
         
         let testPath = "/test/api/endpoint"
-        let testUrl = VimeoBaseURL.appendingPathComponent(testPath)
+        let testUrl = TestVimeoBaseURL.appendingPathComponent(testPath)
         
         var task = sessionManager.get(testPath, parameters: nil, progress: nil, success: nil, failure: nil)
         XCTAssertEqual(task?.currentRequest?.url, testUrl)

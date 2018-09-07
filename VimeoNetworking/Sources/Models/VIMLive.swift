@@ -60,31 +60,31 @@ public class VIMLive: VIMModelObject
     }
     
     /// The RTMP link is visible but not yet able to receive the stream.
-    public static let LiveStreamStatusUnavailable = "unavailable"
+    @objc public static let LiveStreamStatusUnavailable = "unavailable"
     
     /// Vimeo is working on setting up the connection.
-    public static let LiveStreamStatusPending = "pending"
+    @objc public static let LiveStreamStatusPending = "pending"
     
     /// The RTMP's URL is ready to receive video content.
-    public static let LiveStreamStatusReady = "ready"
+    @objc public static let LiveStreamStatusReady = "ready"
     
     /// The stream is in a "preview" state. It will be accessible to the public when you transition to "streaming".
-    public static let LiveStreamStatusStreamingPreview = "streaming_preview"
+    @objc public static let LiveStreamStatusStreamingPreview = "streaming_preview"
     
     /// The stream is open and receiving content.
-    public static let LiveStreamStatusStreaming = "streaming"
+    @objc public static let LiveStreamStatusStreaming = "streaming"
     
     /// The stream has failed due to an error relating to the broadcaster; They may have reached their monthly broadcast limit, for example.
-    public static let LiveStreamStatusStreamingError = "streaming_error"
+    @objc public static let LiveStreamStatusStreamingError = "streaming_error"
     
     /// The stream has finished, and the video is in the process of being archived, but is not ready to play yet.
-    public static let LiveStreamStatusArchiving = "archiving"
+    @objc public static let LiveStreamStatusArchiving = "archiving"
     
     /// There was a problem archiving the stream.
-    public static let LiveStreamStatusArchiveError = "archive_error"
+    @objc public static let LiveStreamStatusArchiveError = "archive_error"
     
     /// The stream has been ended intentionally by the end-user.
-    public static let LiveStreamStatusDone = "done"
+    @objc public static let LiveStreamStatusDone = "done"
     
     /// An RTMP link used to host a live stream.
     @objc dynamic public private(set) var link: String?
@@ -128,7 +128,7 @@ public class VIMLive: VIMModelObject
     }
     
     /// The live event's chat.
-    public private(set) var chat: VIMLiveChat?
+    @objc public private(set) var chat: VIMLiveChat?
     
     public override func getClassForObjectKey(_ key: String!) -> AnyClass?
     {
