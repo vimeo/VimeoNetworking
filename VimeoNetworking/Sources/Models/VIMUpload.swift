@@ -45,10 +45,10 @@ public class VIMUpload: VIMModelObject
         
         public var rawValue: String
         
-        public static let Streaming = UploadApproach(rawValue: "streaming")
-        public static let Post = UploadApproach(rawValue: "post")
-        public static let Pull = UploadApproach(rawValue: "pull")
-        public static let Tus = UploadApproach(rawValue: "tus")
+        public static let Streaming = UploadApproach(rawValue: "streaming")!
+        public static let Post = UploadApproach(rawValue: "post")!
+        public static let Pull = UploadApproach(rawValue: "pull")!
+        public static let Tus = UploadApproach(rawValue: "tus")!
     }
     
     /// The status code for the availability of the uploaded video, expressed as a Swift-only enum
