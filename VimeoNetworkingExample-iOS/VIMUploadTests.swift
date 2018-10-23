@@ -34,22 +34,22 @@ class VIMUploadTests: XCTestCase
         var uploadDictionary: [String: Any] = ["approach": "streaming"]
         var uploadObject = VIMUpload(keyValueDictionary: uploadDictionary)!
         uploadObject.didFinishMapping()
-        XCTAssertTrue(uploadObject.uploadApproach == .streaming, "VIMUpload did not correctly map raw value to Swift enum UploadApproach.")
+        XCTAssertTrue(uploadObject.uploadApproach == VIMUpload.UploadApproach.Streaming, "VIMUpload did not correctly map raw value to Swift enum UploadApproach.")
        
         uploadDictionary = ["approach": "post"]
         uploadObject = VIMUpload(keyValueDictionary: uploadDictionary)!
         uploadObject.didFinishMapping()
-        XCTAssertTrue(uploadObject.uploadApproach == .post, "VIMUpload did not correctly map raw value to Swift enum UploadApproach.")
+        XCTAssertTrue(uploadObject.uploadApproach == VIMUpload.UploadApproach.Post, "VIMUpload did not correctly map raw value to Swift enum UploadApproach.")
 
         uploadDictionary = ["approach": "pull"]
         uploadObject = VIMUpload(keyValueDictionary: uploadDictionary)!
         uploadObject.didFinishMapping()
-        XCTAssertTrue(uploadObject.uploadApproach == .pull, "VIMUpload did not correctly map raw value to Swift enum UploadApproach.")
+        XCTAssertTrue(uploadObject.uploadApproach == VIMUpload.UploadApproach.Pull, "VIMUpload did not correctly map raw value to Swift enum UploadApproach.")
 
         uploadDictionary = ["approach": "tus"]
         uploadObject = VIMUpload(keyValueDictionary: uploadDictionary)!
         uploadObject.didFinishMapping()
-        XCTAssertTrue(uploadObject.uploadApproach == .tus, "VIMUpload did not correctly map raw value to Swift enum UploadApproach.")
+        XCTAssertTrue(uploadObject.uploadApproach == VIMUpload.UploadApproach.Tus, "VIMUpload did not correctly map raw value to Swift enum UploadApproach.")
     }
     
     func test_didFinishMapping_createsUploadStatus()
