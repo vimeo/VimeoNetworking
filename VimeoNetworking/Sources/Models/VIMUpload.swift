@@ -34,7 +34,7 @@ public class VIMUpload: VIMModelObject
     /// - post: Upload with an HTML form or POST
     /// - pull: Upload from a video file that already exists on the internet
     /// - tus: Upload using the open-source tus protocol
-    public struct UploadApproach: RawRepresentable
+    public struct UploadApproach: RawRepresentable, Equatable
     {
         public typealias RawValue = String
         
@@ -45,10 +45,10 @@ public class VIMUpload: VIMModelObject
         
         public var rawValue: String
         
-        static let Streaming = UploadApproach(rawValue: "streaming")
-        static let Post = UploadApproach(rawValue: "post")
-        static let Pull = UploadApproach(rawValue: "pull")
-        static let Tus = UploadApproach(rawValue: "tus")
+        public static let Streaming = UploadApproach(rawValue: "streaming")
+        public static let Post = UploadApproach(rawValue: "post")
+        public static let Pull = UploadApproach(rawValue: "pull")
+        public static let Tus = UploadApproach(rawValue: "tus")
     }
     
     /// The status code for the availability of the uploaded video, expressed as a Swift-only enum
