@@ -97,6 +97,7 @@
                                       [NSNumber numberWithInt:VIMVideoPlayabilityStatusPlayable], @"playable",
                                       [NSNumber numberWithInt:VIMVideoPlayabilityStatusPurchaseRequired], @"purchase_required",
                                       [NSNumber numberWithInt:VIMVideoPlayabilityStatusRestricted], @"restricted",
+                                      [NSNumber numberWithInt:VIMVideoPlayabilityStatusPassword], @"password",
                                       nil];
     
     NSNumber *number = [statusDictionary objectForKey:self.status];
