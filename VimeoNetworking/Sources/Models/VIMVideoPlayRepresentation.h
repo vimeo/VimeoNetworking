@@ -37,7 +37,7 @@ typedef NS_ENUM(NSUInteger, VIMVideoPlayabilityStatus) {
     VIMVideoPlayabilityStatusPlayable,              // Can be played
     VIMVideoPlayabilityStatusPurchaseRequired,      // On demand video that is not purchased
     VIMVideoPlayabilityStatusRestricted,            // User's region cannot play or purchase
-    VIMVideoPlayabilityStatusPassword
+    VIMVideoPlayabilityStatusPassword               // The video is protected by a password
 };
 
 @interface VIMVideoPlayRepresentation : VIMModelObject
