@@ -317,7 +317,15 @@
 				
 				for (id jsonArrayItem in jsonArray)
                 {
-                    [resultArray addObject:[self _createObjectsFromJSON:jsonArrayItem keypath:keypath mappingClass:jsonClass]];
+                    id object = [self _createObjectsFromJSON:jsonArrayItem keypath:keypath mappingClass:jsonClass];
+                    if (object != nil)
+                    {
+                        [resultArray addObject:object];
+                    }
+                    else
+                    {
+                        NSLog(@"Error: The object resulting from `_createObjectsFromJSON:` is nil.");
+                    }
                 }
 				
 				result = resultArray;
