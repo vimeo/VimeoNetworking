@@ -7,8 +7,8 @@
 
 public class GCS: VIMModelObject
 {
-    public private(set) var startByte: NSNumber?
-    public private(set) var endByte: NSNumber?
-    public private(set) var uploadLink: String?
-    public private(set) var metadata: [String: Any]?
+    @objc public private(set) var startByte: NSNumber?
+    @objc public private(set) var endByte: NSNumber?
+    @objc public private(set) var uploadLink: String?
+    @objc public private(set) var metadata: [String: Any]?
 }
