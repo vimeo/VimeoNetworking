@@ -40,14 +40,14 @@ class GCSTests: XCTestCase
             case .success(let result):
                 let gcs = result.model
                 
-                XCTAssertEqual(gcs.uploadLink, "https://www.google.com")
-                XCTAssertEqual(gcs.startByte?.int64Value, 0)
-                XCTAssertEqual(gcs.endByte?.int64Value, 377296827)
+                XCTAssertEqual(gcs.uploadLink, "https://www.google.com", "The upload link should have been `https://www.google.com`.")
+                XCTAssertEqual(gcs.startByte?.int64Value, 0, "The start byte should have been `0`.")
+                XCTAssertEqual(gcs.endByte?.int64Value, 377296827, "The end byte should have been `377296827`.")
                 
                 let uploadAttemptConnection = gcs.connections[.uploadAttempt]
                 
-                XCTAssertEqual(uploadAttemptConnection?.uri, "/fake/upload/attempt")
-                XCTAssertEqual(uploadAttemptConnection?.options as? [String], ["GET"])
+                XCTAssertEqual(uploadAttemptConnection?.uri, "/fake/upload/attempt", "The connection's uri should have been `/fake/upload/attempt`.")
+                XCTAssertEqual(uploadAttemptConnection?.options as? [String], ["GET"], "The connection's options should have been `[GET]`.")
                 
             case .failure(let error):
                 XCTFail("\(error)")

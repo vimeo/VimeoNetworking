@@ -40,12 +40,19 @@ class UploadGCSTests: XCTestCase
             case .success(let result):
                 let upload = result.model
                 
-                XCTAssertEqual(upload.uploadApproach, VIMUpload.UploadApproach(rawValue: "gcs"))
-                XCTAssertNotNil(upload.gcs?.first)
-                XCTAssertEqual(upload.gcs?.first?.startByte?.int64Value, 0)
-                XCTAssertEqual(upload.gcs?.first?.endByte?.int64Value, 377296827)
-                XCTAssertEqual(upload.gcs?.first?.uploadLink, "https://www.google.com")
-                XCTAssertNotNil(upload.gcs?.first?.connections[.uploadAttempt])
+                XCTAssertEqual(upload.uploadApproach, VIMUpload.UploadApproach(rawValue: "gcs"), "The upload approach should have been `gcs`.")
+                
+                guard let gcs = upload.gcs?.first else
+                {
+                    XCTFail("Failure: The GCS array must not be empty.")
+                    
+                    return
+                }
+                
+                XCTAssertEqual(gcs.startByte?.int64Value, 0, "The start byte should have been `0`.")
+                XCTAssertEqual(gcs.endByte?.int64Value, 377296827, "The end byte should have been `377296827`.")
+                XCTAssertEqual(gcs.uploadLink, "https://www.google.com", "The upload link should have been `https://www.google.com`.")
+                XCTAssertNotNil(gcs.connections[.uploadAttempt], "The upload attempt connection should have existed.")
                 
             case .failure(let error):
                 XCTFail("\(error)")
