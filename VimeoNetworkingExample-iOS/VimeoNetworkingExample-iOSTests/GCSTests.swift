@@ -46,7 +46,7 @@ class GCSTests: XCTestCase
                 
                 let uploadAttemptConnection = gcs.connections[.uploadAttempt]
                 
-                XCTAssertEqual(uploadAttemptConnection?.uri, "/upload/attempt/asdf")
+                XCTAssertEqual(uploadAttemptConnection?.uri, "/fake/upload/attempt")
                 XCTAssertEqual(uploadAttemptConnection?.options as? [String], ["GET"])
                 
             case .failure(let error):

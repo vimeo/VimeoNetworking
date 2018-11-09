@@ -95,6 +95,8 @@ public class VIMUpload: VIMModelObject
     
     public private(set) var gcs: [GCS]?
     
+    @objc internal private(set) var gcsArray: NSArray?
+    
     // MARK: - VIMMappable Protocol Conformance
     
     /// Called when automatic object mapping completes
@@ -109,6 +111,17 @@ public class VIMUpload: VIMModelObject
         {
             self.uploadStatus = UploadStatus(rawValue: statusString)
         }
+        
+        self.gcs = [GCS]()
+        
+        self.gcsArray?.forEach({ (object) in
+            guard let dictionary = object as? [String: Any], let gcsObject = try? VIMObjectMapper.mapObject(responseDictionary: dictionary) as GCS else
+            {
+                return
+            }
+            
+            self.gcs?.append(gcsObject)
+        })
     }
     
     /// Maps the property name that mirrors the literal JSON response to another property name.
@@ -117,6 +130,6 @@ public class VIMUpload: VIMModelObject
     /// - Returns: A dictionary where the keys are the JSON response names and the values are the new property names.
     public override func getObjectMapping() -> Any
     {
-        return ["complete_uri": "completeURI", "redirect_url": "redirectURL"]
+        return ["complete_uri": "completeURI", "redirect_url": "redirectURL", "gcs": "gcsArray"]
     }
 }

@@ -8,7 +8,7 @@
         "metadata": {
             "connections": {
                 "upload_attempt": {
-                    "uri": "/upload/attempt/asdf",
+                    "uri": "/fake/upload/attempt",
                     "options": ["GET"]
                 }
             }
