@@ -93,6 +93,8 @@ public class VIMUpload: VIMModelObject
     /// The status code for the availability of the uploaded video, mapped to a Swift-only enum
     public private(set) var uploadStatus: UploadStatus?
     
+    public private(set) var gcs: [GCS]?
+    
     // MARK: - VIMMappable Protocol Conformance
     
     /// Called when automatic object mapping completes

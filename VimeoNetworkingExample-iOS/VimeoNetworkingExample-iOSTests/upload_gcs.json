@@ -1,0 +1,17 @@
+{
+    "approach": "gcs",
+    "size": 355856561,
+    "gcs": [{
+        "upload_link": "https://www.google.com",
+        "start_byte": 0,
+        "end_byte": 377296827,
+        "metadata": {
+            "connections": {
+                "upload_attempt": {
+                    "uri": "/upload/attempt/asdf",
+                    "options": ["GET"]
+                }
+            }
+        }
+    }]
+}
