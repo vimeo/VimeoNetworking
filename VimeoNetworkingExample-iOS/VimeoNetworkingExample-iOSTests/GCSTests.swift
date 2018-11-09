@@ -44,6 +44,11 @@ class GCSTests: XCTestCase
                 XCTAssertEqual(gcs.startByte?.int64Value, 0)
                 XCTAssertEqual(gcs.endByte?.int64Value, 377296827)
                 
+                let uploadAttemptConnection = gcs.connections[.uploadAttempt]
+                
+                XCTAssertEqual(uploadAttemptConnection?.uri, "/upload/attempt/asdf")
+                XCTAssertEqual(uploadAttemptConnection?.options as? [String], ["GET"])
+                
             case .failure(let error):
                 XCTFail("\(error)")
             }
