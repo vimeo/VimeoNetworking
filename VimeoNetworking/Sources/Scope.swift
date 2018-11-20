@@ -55,6 +55,9 @@ public enum Scope: String {
     /// Receive live-related statistics.
     case Stats = "stats"
     
+    /// Receive live-related statistics.
+    case Files = "video_files"
+    
     /**
      Combines an array of scopes into a scope string as expected by the api
      
