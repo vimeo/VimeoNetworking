@@ -1,10 +1,18 @@
 {
     "uri": "mock_uri",
-    "account": "basic",
-    "badge": {
+    "membership": {
         "type": "basic",
-        "text": "Basic",
-        "alt_text": "mock_alt_text",
-        "url": "mock_url"
+        "display": "Basic",
+        "badge": {
+            "type": "basic",
+            "text": "Basic",
+            "alt_text": "mock_alt_text",
+            "url": "mock_url"
+        },
+        "subscription": {
+            "trial": {
+                "has_been_in_free_trial": false
+            }
+        }
     }
 }

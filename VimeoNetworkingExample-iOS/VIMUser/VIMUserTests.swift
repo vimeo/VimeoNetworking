@@ -30,6 +30,11 @@ import OHHTTPStubs
 
 class VIMUserTests: XCTestCase
 {
+    private struct TestConstants {
+        static let UserUri = "/users/" + Constants.CensoredId
+        static let MeUri = "/me"
+    }
+    
     override func setUp()
     {
         super.setUp()
@@ -48,47 +53,53 @@ class VIMUserTests: XCTestCase
         OHHTTPStubs.removeAllStubs()
     }
     
-    private func stubResponse(withFile fileName: String)
+    private func stubResponse(for uri: String = TestConstants.UserUri, withFile fileName: String)
     {
-        stub(condition: isPath("/users/" + Constants.CensoredId)) { _ in
+        stub(condition: isPath(uri)) { _ in
             let stubPath = OHPathForFile(fileName, type(of: self))
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
         }
     }
     
-    private func checkReturnedAccountType(withExpectedType expectedType: VIMUserAccountType, andExpectation expectation: XCTestExpectation)
+    private func userRequest() -> Request<VIMUser> {
+        return Request<VIMUser>(path: TestConstants.UserUri)
+    }
+    
+    private func checkAccountTypeAnalyticsIdentifier(for user: VIMUser, withExpectedType expectedType: VIMUserAccountType)
     {
-        let request = Request<VIMUser>(path: "/users/" + Constants.CensoredId)
+        XCTAssertEqual(user.accountType, expectedType)
         
-        _ = VimeoClient.sharedClient.request(request, completion: { (response) in
-            switch response
-            {
+        let analyticsIdentifier = user.accountTypeAnalyticsIdentifier()
+        switch expectedType
+        {
+        case .basic:
+            XCTAssertEqual(analyticsIdentifier, "basic")
+        case .plus:
+            XCTAssertEqual(analyticsIdentifier, "plus")
+        case .pro:
+            XCTAssertEqual(analyticsIdentifier, "pro")
+        case .business:
+            XCTAssertEqual(analyticsIdentifier, "business")
+        case .livePro:
+            XCTAssertEqual(analyticsIdentifier, "live_pro")
+        case .liveBusiness:
+            XCTAssertEqual(analyticsIdentifier, "live_business")
+        case .livePremium:
+            XCTAssertEqual(analyticsIdentifier, "live_premium")
+        case .proUnlimited:
+            XCTAssertEqual(analyticsIdentifier, "pro_unlimited")
+        case .producer:
+            XCTAssertEqual(analyticsIdentifier, "producer")
+        }
+    }
+    
+    private func send(request: Request<VIMUser>, withDescription: String, validationClosure: @escaping ((VIMUser?) -> Void)) {
+        let expectation = self.expectation(description: withDescription)
+        
+        _ = VimeoClient.sharedClient.request(request, completion: { response in
+            switch response {
             case .success(let result):
-                XCTAssertEqual(result.model.accountType, expectedType)
-                
-                let analyticsIdentifier = result.model.accountTypeAnalyticsIdentifier()
-                switch expectedType
-                {
-                case .basic:
-                    XCTAssertEqual(analyticsIdentifier, "basic")
-                case .plus:
-                    XCTAssertEqual(analyticsIdentifier, "plus")
-                case .pro:
-                    XCTAssertEqual(analyticsIdentifier, "pro")
-                case .business:
-                    XCTAssertEqual(analyticsIdentifier, "business")
-                case .livePro:
-                    XCTAssertEqual(analyticsIdentifier, "live_pro")
-                case .liveBusiness:
-                    XCTAssertEqual(analyticsIdentifier, "live_business")
-                case .livePremium:
-                    XCTAssertEqual(analyticsIdentifier, "live_premium")
-                case .proUnlimited:
-                    XCTAssertEqual(analyticsIdentifier, "pro_unlimited")
-                case .producer:
-                    XCTAssertEqual(analyticsIdentifier, "producer")
-                }
-                
+                validationClosure(result.model)
             case .failure(let error):
                 XCTFail("\(error)")
             }
@@ -102,63 +113,128 @@ class VIMUserTests: XCTestCase
     func testUserObjectReturningLiveProForAccountType()
     {
         self.stubResponse(withFile: "user_live_pro.json")
-        let expectation = self.expectation(description: "Expectation for Live Pro User Object")
-        self.checkReturnedAccountType(withExpectedType: .livePro, andExpectation: expectation)
+        let request = self.userRequest()
+        self.send(request: request, withDescription: "Expectation for Live Pro User Object") { user in
+            self.checkAccountTypeAnalyticsIdentifier(for: user!, withExpectedType: .livePro)
+        }
     }
     
     func testUserObjectReturningLiveBusinessForAccountType()
     {
         self.stubResponse(withFile: "user_live_business.json")
-        let expectation = self.expectation(description: "Expectation for Live Business User Object")
-        self.checkReturnedAccountType(withExpectedType: .liveBusiness, andExpectation: expectation)
+        let request = self.userRequest()
+        self.send(request: request, withDescription: "Expectation for Live Business User Object") { user in
+            self.checkAccountTypeAnalyticsIdentifier(for: user!, withExpectedType: .liveBusiness)
+        }
     }
     
     func testUserObjectReturningLivePremiumForAccountType()
     {
         self.stubResponse(withFile: "user_live_premium.json")
-        let expectation = self.expectation(description: "Expectation for Live Premium User Object")
-        self.checkReturnedAccountType(withExpectedType: .livePremium, andExpectation: expectation)
+        let request = self.userRequest()
+        self.send(request: request, withDescription: "Expectation for Live Premium User Object") { user in
+            self.checkAccountTypeAnalyticsIdentifier(for: user!, withExpectedType: .livePremium)
+        }
     }
     
     func testUserObjectReturningBasicForAccountType()
     {
         self.stubResponse(withFile: "user_basic.json")
-        let expectation = self.expectation(description: "Expectation for Basic User Object")
-        self.checkReturnedAccountType(withExpectedType: .basic, andExpectation: expectation)
+        let request = self.userRequest()
+        self.send(request: request, withDescription: "Expectation for Basic User Object") { user in
+            self.checkAccountTypeAnalyticsIdentifier(for: user!, withExpectedType: .basic)
+        }
     }
     
     func testUserObjectReturningPlusForAccountType()
     {
         self.stubResponse(withFile: "user_plus.json")
-        let expectation = self.expectation(description: "Expectation for Plus User Object")
-        self.checkReturnedAccountType(withExpectedType: .plus, andExpectation: expectation)
+        let request = self.userRequest()
+        self.send(request: request, withDescription: "Expectation for Plus User Object") { user in
+            self.checkAccountTypeAnalyticsIdentifier(for: user!, withExpectedType: .plus)
+        }
     }
     
     func testUserObjectReturningProForAccountType()
     {
         self.stubResponse(withFile: "user_pro.json")
-        let expectation = self.expectation(description: "Expectation for Pro User Object")
-        self.checkReturnedAccountType(withExpectedType: .pro, andExpectation: expectation)
+        let request = self.userRequest()
+        self.send(request: request, withDescription: "Expectation for Pro User Object") { user in
+            self.checkAccountTypeAnalyticsIdentifier(for: user!, withExpectedType: .pro)
+        }
     }
     
     func testUserObjectReturningBusinessForAccountType()
     {
         self.stubResponse(withFile: "user_business.json")
-        let expectation = self.expectation(description: "Expectation for Business User Object")
-        self.checkReturnedAccountType(withExpectedType: .business, andExpectation: expectation)
+        let request = self.userRequest()
+        self.send(request: request, withDescription: "Expectation for Business User Object") { user in
+            self.checkAccountTypeAnalyticsIdentifier(for: user!, withExpectedType: .business)
+        }
     }
 
     func testUserObjectReturningProUnlimitedForAccountType()
     {
         self.stubResponse(withFile: "user_pro_unlimited.json")
-        let expectation = self.expectation(description: "Expectation for Pro Unlimited User Object")
-        self.checkReturnedAccountType(withExpectedType: .proUnlimited, andExpectation: expectation)
+        let request = self.userRequest()
+        self.send(request: request, withDescription: "Expectation for Pro Unlimited User Object") { user in
+            self.checkAccountTypeAnalyticsIdentifier(for: user!, withExpectedType: .proUnlimited)
+        }
     }
 
     func testUserObjectReturningProducerForAccountType()
     {
         self.stubResponse(withFile: "user_producer.json")
-        let expectation = self.expectation(description: "Expectation for Pro Unlimited User Object")
-        self.checkReturnedAccountType(withExpectedType: .producer, andExpectation: expectation)
+        let request = self.userRequest()
+        self.send(request: request, withDescription: "Expectation for Pro Unlimited User Object") { user in
+            self.checkAccountTypeAnalyticsIdentifier(for: user!, withExpectedType: .producer)
+        }
+    }
+    
+    func testUserObjectHasMembershipInfo() {
+        self.stubResponse(for: TestConstants.MeUri, withFile: "user_plus.json")
+        
+        let request = Request<VIMUser>.getMeRequest()
+        self.send(request: request, withDescription: "Expectation for validating membership info") { user in
+            XCTAssertNotNil(user?.membership)
+            XCTAssertNotNil(user?.membership?.subscription)
+            XCTAssertNotNil(user?.membership?.subscription?.renewal)
+            XCTAssertNotNil(user?.membership?.subscription?.trial)
+        }
+    }
+    
+    func testSubscriptionDatesAreValid() {
+        self.stubResponse(for: TestConstants.MeUri, withFile: "user_plus.json")
+        let request = Request<VIMUser>.getMeRequest()
+        self.send(request: request, withDescription: "expectation for validating subscription dates") { user in
+            XCTAssertEqual(user?.membership?.subscription?.renewal?.displayDate, "2019-06-12")
+            
+            let testDate = VIMModelObject.dateFormatter()?.date(from: "2019-06-12T04:00:00+00:00")
+            XCTAssertEqual(user?.membership?.subscription?.renewal?.formattedRenewalDate, testDate)
+        }
+    }
+    
+    func testUserHasBeenInTrialFlag_IsSet() {
+        self.stubResponse(for: TestConstants.MeUri, withFile: "user_basic_had_free_trial.json")
+        let request = Request<VIMUser>.getMeRequest()
+        self.send(request: request, withDescription: "expectation for validating trial flag is set") { user in
+            XCTAssertTrue(user!.hasBeenInFreeTrial())
+        }
+    }
+    
+    func testUserHasBeenInTrialFlag_NotSet() {
+        self.stubResponse(for: TestConstants.MeUri, withFile: "user_basic.json")
+        let request = Request<VIMUser>.getMeRequest()
+        self.send(request: request, withDescription: "expectation for validating trial flag is not set") { user in
+            XCTAssertFalse(user!.hasBeenInFreeTrial())
+        }
+    }
+    
+    func testMembershipDisplayValue() {
+        self.stubResponse(for: TestConstants.MeUri, withFile: "user_pro.json")
+        let request = Request<VIMUser>.getMeRequest()
+        self.send(request: request, withDescription: "expectation for validating membership display") { user in
+            XCTAssertEqual(user?.membership?.display, "Pro")
+        }
     }
 }

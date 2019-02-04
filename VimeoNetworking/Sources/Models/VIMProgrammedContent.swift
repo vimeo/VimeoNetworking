@@ -57,7 +57,7 @@ public class VIMProgrammedContent: VIMModelObject {
     }
     
     //Note: No super call in this method, see explanation in didFinishMapping() [MW] 10/19/16
-    override public func getClassForObjectKey(_ key: String!) -> AnyClass! {
+    override public func getClassForObjectKey(_ key: String!) -> AnyClass? {
         if key == Constants.MetadataKey {
             return NSMutableDictionary.self
         }

@@ -4,14 +4,14 @@
         "type": "basic",
         "display": "Basic",
         "badge": {
-            "type": "support",
-            "text": "Support",
+            "type": "basic",
+            "text": "Basic",
             "alt_text": "mock_alt_text",
             "url": "mock_url"
         },
         "subscription": {
             "trial": {
-                "has_been_in_free_trial": false
+                "has_been_in_free_trial": true
             }
         }
     }

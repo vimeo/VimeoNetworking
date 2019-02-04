@@ -1,11 +1,22 @@
 {
     "uri": "mock_uri",
-    "account": "plus",
-    "badge": {
+    "membership": {
         "type": "plus",
-        "text": "Plus",
-        "alt_text": "mock_alt_text",
-        "url": "mock_url"
+        "display": "Plus",
+        "badge": {
+            "type": "plus",
+            "text": "Plus",
+            "alt_text": "mock_alt_text",
+            "url": "mock_url"
+        },
+        "subscription": {
+            "renewal": {
+                "display_date": "2019-06-12",
+                "renewal_date": "2019-06-12T04:00:00+00:00"
+            },
+            "trial": {
+                "has_been_in_free_trial": false
+            }
+        }
     }
 }
-

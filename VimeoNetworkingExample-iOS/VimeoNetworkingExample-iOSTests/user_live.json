@@ -5,7 +5,25 @@
     "location": "New York",
     "bio": "mock_bio",
     "created_time": "mock_created_time",
-    "account": "basic",
+    "membership": {
+        "type": "basic",
+        "display": "Basic",
+        "badge": {
+            "type": "staff",
+            "text": "Staff",
+            "alt_text": "mock_alt_text",
+            "url": "mock_url"
+        },
+        "subscription": {
+            "renewal": {
+                "display_date": "2019-06-12",
+                "renewal_date": "2019-06-12T04:00:00+00:00"
+            },
+            "trial": {
+                "has_been_in_free_trial": false
+            }
+        }
+    },
     "pictures": {
         "uri": "mock_uri",
         "active": true,
@@ -155,12 +173,6 @@
                 "total": 0
             }
         }
-    },
-    "badge": {
-        "type": "staff",
-        "text": "Staff",
-        "alt_text": "mock_alt_text",
-        "url": "mock_url"
     },
     "preferences": {
         "videos": {

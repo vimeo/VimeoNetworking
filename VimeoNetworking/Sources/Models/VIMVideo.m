@@ -213,7 +213,7 @@ NSString *VIMContentRating_Safe = @"safe";
 
 // This is only called for unarchived model objects [AH]
 
-- (void)upgradeFromModelVersion:(NSUInteger)fromVersion toModelVersion:(NSUInteger)toVersion
+- (void)upgradeFromModelVersion:(NSUInteger)fromVersion toModelVersion:(NSUInteger)toVersion withCoder:(NSCoder *)aDecoder
 {
     if (fromVersion == 2 && toVersion == 3)
     {

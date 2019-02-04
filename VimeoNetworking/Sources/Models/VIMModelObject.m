@@ -28,7 +28,14 @@
 
 #import <objc/runtime.h>
 
-static NSUInteger const VIMModelObjectVersion = 3;
+/*
+ Model Changelog
+ 
+ Version 4: Updated VIMUser object based on API version 3.4.2
+    - Removes user badge & account string from root level of VIMUser object
+    - Adds UserMembership object which now holds badge & account info along with new subscription info
+ */
+static NSUInteger const VIMModelObjectVersion = 4;
 
 NSString *const VIMModelObjectErrorDomain = @"VIMModelObjectErrorDomain";
 NSString *const VIMConnectionKey = @"connections";
@@ -135,7 +142,9 @@ NSInteger const VIMModelObjectValidationErrorCode = 10101;
     {
         if (modelVersion.unsignedIntegerValue < self.class.modelVersion)
         {
-            [self upgradeFromModelVersion:modelVersion.unsignedIntegerValue toModelVersion:self.class.modelVersion];
+            [self upgradeFromModelVersion: modelVersion.unsignedIntegerValue
+                           toModelVersion: self.class.modelVersion
+                                withCoder: aDecoder];
         }
     }
 	
@@ -156,7 +165,7 @@ NSInteger const VIMModelObjectValidationErrorCode = 10101;
 	}];
 }
 
-- (void)upgradeFromModelVersion:(NSUInteger)fromVersion toModelVersion:(NSUInteger)toVersion
+- (void)upgradeFromModelVersion:(NSUInteger)fromVersion toModelVersion:(NSUInteger)toVersion withCoder:(NSCoder *)aDecoder
 {
     // Override in subclasses
 }

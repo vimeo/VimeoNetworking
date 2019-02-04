@@ -1,10 +1,22 @@
 {
     "uri": "mock_uri",
-    "account": "live_premium",
-    "badge": {
+    "membership": {
         "type": "live_premium",
-        "text": "Live Premium",
-        "alt_text": "mock_alt_text",
-        "url": "mock_url"
+        "display": "Live Premium",
+        "badge": {
+            "type": "live_premium",
+            "text": "Live Premium",
+            "alt_text": "mock_alt_text",
+            "url": "mock_url"
+        },
+        "subscription": {
+            "renewal": {
+                "display_date": "2019-06-12",
+                "renewal_date": "2019-06-12T04:00:00+00:00"
+            },
+            "trial": {
+                "has_been_in_free_trial": false
+            }
+        }
     }
 }

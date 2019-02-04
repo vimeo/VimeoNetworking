@@ -65,7 +65,7 @@ class VIMUserBadgeTests: XCTestCase
             switch response
             {
             case .success(let result):
-                XCTAssertEqual(result.model.badge?.badgeType, expectedType)
+                XCTAssertEqual(result.model.membership?.badge?.badgeType, expectedType)
                 
             case .failure(let error):
                 XCTFail("\(error)")

@@ -40,7 +40,7 @@ public class VIMLiveQuota: VIMModelObject {
     /// The `time` field in a `live_quota` response.
     @objc dynamic public private(set) var time: VIMLiveTime?
     
-    override public func getClassForObjectKey(_ key: String!) -> AnyClass! {
+    override public func getClassForObjectKey(_ key: String!) -> AnyClass? {
         if key == Constants.StreamsKey {
             return VIMLiveStreams.self
         }

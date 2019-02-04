@@ -34,9 +34,9 @@
 @class VIMUploadQuota;
 @class VIMUserBadge;
 @class VIMLiveQuota;
+@class UserMembership;
 
-typedef NS_ENUM(NSInteger, VIMUserAccountType)
-{
+typedef NS_ENUM(NSInteger, VIMUserAccountType) {
     VIMUserAccountTypeBasic = 0,
     VIMUserAccountTypePro,
     VIMUserAccountTypePlus,
@@ -51,7 +51,12 @@ typedef NS_ENUM(NSInteger, VIMUserAccountType)
 @interface VIMUser : VIMModelObject
 
 @property (nonatomic, assign, readonly) VIMUserAccountType accountType;
-@property (nonatomic, strong, nullable) VIMUserBadge *badge;
+
+/// Object storing information about the badge to display for the user's account type
+/// DEPRECATED: Use membership.badge instead
+/// - seealso: UserMembership
+//@property (nonatomic, strong, nullable) VIMUserBadge *badge;
+
 @property (nonatomic, copy, nullable) NSString *bio;
 @property (nonatomic, copy, nullable) NSArray *contentFilter;
 @property (nonatomic, strong, nullable) NSDate *createdTime;
@@ -66,8 +71,15 @@ typedef NS_ENUM(NSInteger, VIMUserAccountType)
 @property (nonatomic, strong, nullable) NSArray *userEmails;
 @property (nonatomic, strong, nullable) VIMPreference *preferences;
 @property (nonatomic, strong, nullable) VIMUploadQuota *uploadQuota;
-@property (nonatomic, copy, nullable) NSString *account;
+
+/// A string representation of the user's account type, not to be used for display purposes.
+/// DEPRECATED: use membership.type instead for this information, use membership.display for a non-localized string for use in UI displays,
+/// Note: It is better to use the accountType property to retrieve an enum value representing the user's account type rather than working with the string representations directly.
+/// -seealso: UserMembership
+//@property (nonatomic, copy, nullable) NSString *account;
+
 @property (nonatomic, strong, nullable) VIMLiveQuota *liveQuota;
+@property (nonatomic, strong, nullable) UserMembership *membership;
 
 - (nullable VIMConnection *)connectionWithName:(nonnull NSString *)connectionName;
 - (nullable VIMNotificationsConnection *)notificationsConnection;
@@ -78,5 +90,10 @@ typedef NS_ENUM(NSInteger, VIMUserAccountType)
 
 - (nullable NSString *)accountTypeAnalyticsIdentifier;
 - (BOOL)hasSameBadgeCount:(nullable VIMUser *)newUser;
+
+/// @brief Method for determining whether or not the user has ever had a free trial on Vimeo.
+/// @return true if the user has ever been in a free trial, otherwise it will return false
+/// @attention THIS METHOD IS FOR VIMEO INTERNAL USE ONLY
+- (BOOL)hasBeenInFreeTrial;
 
 @end

@@ -37,7 +37,7 @@ public class VIMUploadQuota: VIMModelObject {
     /// Represents the lifetime quota period
     @objc dynamic public private(set) var lifetime: VIMSizeQuota?
     
-    public override func getClassForObjectKey(_ key: String!) -> AnyClass! {
+    public override func getClassForObjectKey(_ key: String!) -> AnyClass? {
         if key == "space" {
             return VIMSpace.self
         }

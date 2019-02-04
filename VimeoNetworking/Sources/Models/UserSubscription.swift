@@ -1,8 +1,8 @@
 //
-//  SubscriptionCollection.swift
-//  Pods
+//  UserSubscription.swift
+//  VimeoNetworking
 //
-//  Created by Lim, Jennifer on 1/20/17.
+//  Created by Westendorf, Michael on 11/30/18.
 //  Copyright (c) 2014-2018 Vimeo (https://vimeo.com)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,28 +24,21 @@
 //  THE SOFTWARE.
 //
 
-/// Represents all the subscriptions with extra informations
-public class SubscriptionCollection: VIMModelObject {
-    // MARK: - Properties
-
-    /// Represents the uri
-    @objc dynamic public private(set) var uri: String?
+/// This class contains information about the logged in user's subscription status, including information about any free trials the user may be in and information
+/// about the user's renewal date.
+public class UserSubscription: VIMModelObject {
+    /// Object containing information about the logged in user's renewal date
+    @objc dynamic public private(set) var renewal: UserSubscriptionRenewal?
     
-    /// Represents the subscription
-    @objc dynamic public private(set) var subscription: Subscription?
-    
-    /// Represents the migration that indicates whether the user has migrated from the old system `VIMTrigger` to new new system `Localytics`.
-    @objc dynamic public private(set) var migrated: NSNumber?
-    
-    // MARK: - VIMMappable
-    
-    public override func getObjectMapping() -> Any {
-        return ["subscriptions": "subscription"]
-    }
+    /// Object containing information about the logged in user's free trial status
+    @objc dynamic public private(set) var trial: UserSubscriptionTrial?
     
     public override func getClassForObjectKey(_ key: String!) -> AnyClass? {
-        if key == "subscriptions" {
-            return Subscription.self
+        if key == "renewal" {
+            return UserSubscriptionRenewal.self
+        }
+        if key == "trial" {
+            return UserSubscriptionTrial.self
         }
         
         return nil

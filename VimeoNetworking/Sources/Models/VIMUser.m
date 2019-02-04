@@ -108,6 +108,10 @@ static NSString *const Producer = @"producer";
         return [VIMLiveQuota class];
     }
 
+    if ([key isEqualToString:@"membership"]) {
+        return [UserMembership class];
+    }
+    
     return nil;
 }
 
@@ -214,39 +218,39 @@ static NSString *const Producer = @"producer";
 
 - (void)parseAccountType
 {
-    if ([self.account isEqualToString:Plus])
+    if ([self.membership.type isEqualToString:Plus])
     {
         self.accountType = VIMUserAccountTypePlus;
     }
-    else if ([self.account isEqualToString:Pro])
+    else if ([self.membership.type isEqualToString:Pro])
     {
         self.accountType = VIMUserAccountTypePro;
     }
-    else if ([self.account isEqualToString:Basic])
+    else if ([self.membership.type isEqualToString:Basic])
     {
         self.accountType = VIMUserAccountTypeBasic;
     }
-    else if ([self.account isEqualToString:Business])
+    else if ([self.membership.type isEqualToString:Business])
     {
         self.accountType = VIMUserAccountTypeBusiness;
     }
-    else if ([self.account isEqualToString:LivePro])
+    else if ([self.membership.type isEqualToString:LivePro])
     {
         self.accountType = VIMUserAccountTypeLivePro;
     }
-    else if ([self.account isEqualToString:LiveBusiness])
+    else if ([self.membership.type isEqualToString:LiveBusiness])
     {
         self.accountType = VIMUserAccountTypeLiveBusiness;
     }
-    else if ([self.account isEqualToString:LivePremium])
+    else if ([self.membership.type isEqualToString:LivePremium])
     {
         self.accountType = VIMUserAccountTypeLivePremium;
     }
-    else if ([self.account isEqualToString:ProUnlimited])
+    else if ([self.membership.type isEqualToString:ProUnlimited])
     {
         self.accountType = VIMUserAccountTypeProUnlimited;
     }
-    else if ([self.account isEqualToString:Producer])
+    else if ([self.membership.type isEqualToString:Producer])
     {
         self.accountType = VIMUserAccountTypeProducer;
     }
@@ -329,11 +333,16 @@ static NSString *const Producer = @"producer";
 
 // This is only called for unarchived model objects [AH]
 
-- (void)upgradeFromModelVersion:(NSUInteger)fromVersion toModelVersion:(NSUInteger)toVersion
+- (void)upgradeFromModelVersion:(NSUInteger)fromVersion toModelVersion:(NSUInteger)toVersion withCoder:(NSCoder *)aDecoder
 {
     if ((fromVersion == 1 && toVersion == 2) || (fromVersion == 2 && toVersion == 3))
     {
         [self checkIntegrityOfPictureCollection];
+    }
+    
+    if(fromVersion < 4)
+    {
+        [self updateMembershipInfo: aDecoder];
     }
 }
 
@@ -365,6 +374,29 @@ static NSString *const Producer = @"producer";
     }
 }
 
+// For models prior to version 4, there was a computed property defined in VIMUser+Extension.swift named "membership" which returned a String
+// value.  That computed property has been renamed to "localizedAccountName" and "membership" is now a property defined in VIMUser.h with a type
+// of "UserMembership".  This means that during de-serialization, the wrong type will be put into membership and needs to be fixed.  We check to
+// see if this mismatch has occurred and re-create a correct UserMembership object from the data we have in the decoder object.
+// [MW] 1/18/19
+- (void)updateMembershipInfo:(NSCoder *)aDecoder
+{
+    if(![self.membership isKindOfClass: [UserMembership self]])
+    {
+        self.membership = [[UserMembership alloc] init];
+        
+        VIMUserBadge *badge = [aDecoder decodeObjectForKey: @"badge"];
+        self.membership.badge = badge;
+        
+        NSString *account = [aDecoder decodeObjectForKey: @"account"];
+        self.membership.type = account;
+        
+        // Set new properties to nil since the data didn't exist at the time this model was serialized to disk.
+        self.membership.display = nil;
+        self.membership.subscription = nil;
+    }
+}
+
 - (BOOL)hasSameBadgeCount:(VIMUser *)newUser
 {
     VIMNotificationsConnection *currentAccountConnection = [self notificationsConnection];
@@ -374,6 +406,17 @@ static NSString *const Producer = @"producer";
     NSInteger responseTotal = [responseConnection supportedNotificationNewTotal];
     
     return currentAccountTotal == responseTotal;
+}
+
+- (BOOL)hasBeenInFreeTrial
+{
+    if([self.membership.subscription.trial.hasBeenInFreeTrial respondsToSelector: @selector(boolValue)] == NO)
+    {
+        NSAssert(NO, @"hasBeenInFreeTrial is expected to be an NSNumber and should respond to boolValue!");
+        return NO;
+    }
+    
+    return self.membership.subscription.trial.hasBeenInFreeTrial.boolValue;
 }
 
 @end
