@@ -382,13 +382,19 @@ static NSString *const Producer = @"producer";
 
 - (BOOL)hasBeenInFreeTrial
 {
-    if([self.membership.subscription.trial.hasBeenInFreeTrial respondsToSelector: @selector(boolValue)] == NO)
+    if (@available(iOS 11.2, *))
     {
-        NSAssert(NO, @"hasBeenInFreeTrial is expected to be an NSNumber and should respond to boolValue!");
-        return NO;
+        if ([self.membership.subscription.trial.hasBeenInFreeTrial respondsToSelector: @selector(boolValue)] == NO)
+        {
+            NSAssert(NO, @"hasBeenInFreeTrial is expected to be an NSNumber and should respond to boolValue!");
+            return NO;
+        }
+        return self.membership.subscription.trial.hasBeenInFreeTrial.boolValue;
     }
-    
-    return self.membership.subscription.trial.hasBeenInFreeTrial.boolValue;
+    else
+    {
+        return true;
+    }
 }
 
 @end
