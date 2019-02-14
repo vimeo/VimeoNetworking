@@ -572,4 +572,9 @@ NSString *VIMContentRating_Safe = @"safe";
     return false;
 }
 
+- (BOOL)hasVideoTransferPage
+{
+    return self.fileTransfer != nil && self.fileTransfer.url != nil && [self canDownloadFromDesktop] == YES;
+}
+
 @end
