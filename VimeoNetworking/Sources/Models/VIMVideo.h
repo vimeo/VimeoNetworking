@@ -179,7 +179,7 @@ typedef NS_ENUM(NSUInteger, VIMVideoProcessingStatus) {
  
  @return @p true if the video has a file transfer page.
  */
-- (BOOL)hasFileTransferPage;
+- (BOOL)hasVideoTransferPage;
 - (BOOL)canDownloadFromDesktop;
 
 @end
