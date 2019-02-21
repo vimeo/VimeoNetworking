@@ -24,13 +24,9 @@
 //  THE SOFTWARE.
 //
 
-/// `FileTransfer` represents a `file_transfer` response in a `video`
-/// response.
-@objc public class FileTransfer: VIMModelObject {
-    /// A URL for getting the video file.
-    @objc public private(set) var url: URL?
-    
+public class FileTransfer: VIMModelObject {
     @objc private(set) var link: String?
+    @objc public private(set) var url: URL?
     
     override public func didFinishMapping() {
         guard let link = self.link else {
