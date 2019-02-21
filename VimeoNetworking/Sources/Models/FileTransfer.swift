@@ -24,15 +24,7 @@
 //  THE SOFTWARE.
 //
 
-public class FileTransfer: VIMModelObject {
-    @objc private(set) var link: String?
-    @objc public private(set) var url: URL?
+public class FileTransfer: VIMModelObject
+{
     
-    override public func didFinishMapping() {
-        guard let link = self.link else {
-            return
-        }
-        
-        self.url = URL(string: link)
-    }
 }
