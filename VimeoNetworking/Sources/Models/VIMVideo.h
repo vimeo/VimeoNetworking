@@ -39,6 +39,7 @@
 @class VIMLive;
 @class VIMReviewPage;
 @class VIMUpload;
+@class FileTransfer;
 
 extern NSString * __nonnull VIMContentRating_Language;
 extern NSString * __nonnull VIMContentRating_Drugs;
@@ -92,6 +93,7 @@ typedef NS_ENUM(NSUInteger, VIMVideoProcessingStatus) {
 @property (nonatomic, strong, nullable) VIMLive *live;
 @property (nonatomic, strong, nullable) VIMReviewPage *reviewPage;
 @property (nonatomic, strong, nullable) VIMUpload *upload;
+@property (nonatomic, strong, nullable) FileTransfer *fileTransfer;
 
 @property (nonatomic, assign) VIMVideoProcessingStatus videoStatus;
 
@@ -169,6 +171,16 @@ typedef NS_ENUM(NSUInteger, VIMVideoProcessingStatus) {
 - (void)setIsLiked:(BOOL)isLiked;
 - (void)setIsWatchLater:(BOOL)isWatchLater;
 - (BOOL)hasReviewPage;
+
+/**
+ Determines if the video allows file transfer. A video has a file
+ transfer page if @p canDownload privacy is @p true and there is a
+ @p file_transfer response.
+ 
+ 
+ @return @p true if the video has a file transfer page.
+ */
+- (BOOL)allowsFileTransfer;
 - (BOOL)canDownloadFromDesktop;
 
 @end

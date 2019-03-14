@@ -58,8 +58,14 @@
 		8E34023E1F67365A001544C4 /* VIMLiveQuotaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34023D1F67365A001544C4 /* VIMLiveQuotaTests.swift */; };
 		8E3402401F673821001544C4 /* user_live.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E34023F1F673821001544C4 /* user_live.json */; };
 		8E49138D1FA786DA0061723A /* MockConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49138C1FA786DA0061723A /* MockConstants.swift */; };
+		8E4BDC652213515600E6CBB6 /* FileTransferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4BDC642213515600E6CBB6 /* FileTransferTests.swift */; };
+		8E4BDC672213544500E6CBB6 /* clip.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E4BDC662213544500E6CBB6 /* clip.json */; };
 		8E5997032058280900A4A83C /* user_live_premium.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E5997022058280900A4A83C /* user_live_premium.json */; };
 		8E5997042058280900A4A83C /* user_live_premium.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E5997022058280900A4A83C /* user_live_premium.json */; };
+		8E5B9F4C2194E22400848AA8 /* GCSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5B9F4B2194E22400848AA8 /* GCSTests.swift */; };
+		8E5B9F4E2194E2EC00848AA8 /* gcs.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E5B9F4D2194E2EC00848AA8 /* gcs.json */; };
+		8E5B9F502195E47300848AA8 /* upload_gcs.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E5B9F4F2195E47300848AA8 /* upload_gcs.json */; };
+		8E5B9F522195E53200848AA8 /* UploadGCSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5B9F512195E53200848AA8 /* UploadGCSTests.swift */; };
 		8EDAF23D1F8523B1006072EF /* VIMLiveHeartbeatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDAF23C1F8523B1006072EF /* VIMLiveHeartbeatTests.swift */; };
 		8EDE2D701FDF3F4200143E95 /* VIMUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE2D6F1FDF3F4200143E95 /* VIMUserTests.swift */; };
 		8EDE2D741FDF43CD00143E95 /* user_live_pro.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EDE2D721FDF413A00143E95 /* user_live_pro.json */; };
@@ -161,7 +167,13 @@
 		8E34023D1F67365A001544C4 /* VIMLiveQuotaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIMLiveQuotaTests.swift; sourceTree = "<group>"; };
 		8E34023F1F673821001544C4 /* user_live.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_live.json; sourceTree = "<group>"; };
 		8E49138C1FA786DA0061723A /* MockConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConstants.swift; sourceTree = "<group>"; };
+		8E4BDC642213515600E6CBB6 /* FileTransferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTransferTests.swift; sourceTree = "<group>"; };
+		8E4BDC662213544500E6CBB6 /* clip.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = clip.json; sourceTree = "<group>"; };
 		8E5997022058280900A4A83C /* user_live_premium.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user_live_premium.json; sourceTree = "<group>"; };
+		8E5B9F4B2194E22400848AA8 /* GCSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCSTests.swift; sourceTree = "<group>"; };
+		8E5B9F4D2194E2EC00848AA8 /* gcs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = gcs.json; sourceTree = "<group>"; };
+		8E5B9F4F2195E47300848AA8 /* upload_gcs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = upload_gcs.json; sourceTree = "<group>"; };
+		8E5B9F512195E53200848AA8 /* UploadGCSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadGCSTests.swift; sourceTree = "<group>"; };
 		8EDAF23C1F8523B1006072EF /* VIMLiveHeartbeatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIMLiveHeartbeatTests.swift; sourceTree = "<group>"; };
 		8EDE2D6F1FDF3F4200143E95 /* VIMUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIMUserTests.swift; sourceTree = "<group>"; };
 		8EDE2D721FDF413A00143E95 /* user_live_pro.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = user_live_pro.json; sourceTree = "<group>"; };
@@ -300,6 +312,12 @@
 				8E34023F1F673821001544C4 /* user_live.json */,
 				8EDAF23C1F8523B1006072EF /* VIMLiveHeartbeatTests.swift */,
 				8E49138C1FA786DA0061723A /* MockConstants.swift */,
+				8E4BDC642213515600E6CBB6 /* FileTransferTests.swift */,
+				8E4BDC662213544500E6CBB6 /* clip.json */,
+				8E5B9F4B2194E22400848AA8 /* GCSTests.swift */,
+				8E5B9F4D2194E2EC00848AA8 /* gcs.json */,
+				8E5B9F4F2195E47300848AA8 /* upload_gcs.json */,
+				8E5B9F512195E53200848AA8 /* UploadGCSTests.swift */,
 			);
 			path = "VimeoNetworkingExample-iOSTests";
 			sourceTree = "<group>";
@@ -600,13 +618,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C6F88841D999878006A24F4 /* programmed_cinema.json in Resources */,
+				8E4BDC672213544500E6CBB6 /* clip.json in Resources */,
 				8EDE2D761FDF474B00143E95 /* user_live_business.json in Resources */,
 				8EDE8E221F55C4CF00C4D969 /* clip_live.json in Resources */,
 				8EDE2D741FDF43CD00143E95 /* user_live_pro.json in Resources */,
+				8E5B9F502195E47300848AA8 /* upload_gcs.json in Resources */,
 				8EDE2D861FE05B3600143E95 /* user_support.json in Resources */,
 				3C1F8DFF1EFC304000A062D3 /* cinema-success-response.json in Resources */,
 				8E3402401F673821001544C4 /* user_live.json in Resources */,
 				8EDE2D7C1FE0210E00143E95 /* user_pro.json in Resources */,
+				8E5B9F4E2194E2EC00848AA8 /* gcs.json in Resources */,
 				BE2D774420FE2FF700B27C24 /* user_producer.json in Resources */,
 				8EDE2D7E1FE0214E00143E95 /* user_business.json in Resources */,
 				3C0DCFCC1ECB25FC00960774 /* categories-animation-response.json in Resources */,
@@ -853,14 +874,17 @@
 				3CE06F9D1ED31200007A1AFE /* ExceptionCatcherTests.swift in Sources */,
 				8EDE2D701FDF3F4200143E95 /* VIMUserTests.swift in Sources */,
 				3CE06F9A1ED30D80007A1AFE /* Dictionary+ExtensionTests.swift in Sources */,
+				8E5B9F522195E53200848AA8 /* UploadGCSTests.swift in Sources */,
 				8EDE8E201F55C44900C4D969 /* VIMLiveTests.swift in Sources */,
 				0C7364351DFF4871000C3585 /* NSErrorExtensionTests.swift in Sources */,
 				8EDAF23D1F8523B1006072EF /* VIMLiveHeartbeatTests.swift in Sources */,
+				8E4BDC652213515600E6CBB6 /* FileTransferTests.swift in Sources */,
 				8EDE2D801FE0559600143E95 /* VIMUserBadgeTests.swift in Sources */,
 				3C6F88851D999878006A24F4 /* FakeDataSource.swift in Sources */,
 				3C0DCFC81ECB22EC00960774 /* ObjectMappingTestUtilities.swift in Sources */,
 				3C1F8E081F151B8E00A062D3 /* VIMUploadQuota+Tests.swift in Sources */,
 				A7D414481E2E6FC500B68B14 /* VimeoClientTests.swift in Sources */,
+				8E5B9F4C2194E22400848AA8 /* GCSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
