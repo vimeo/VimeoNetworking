@@ -32,9 +32,11 @@ Once you have a new app set up, click into its authentication settings and make 
 
 ```Swift
 let appConfiguration = AppConfiguration(
-		clientIdentifier: "Your client identifier goes here",
-		clientSecret: "Your client secret goes here",
-		scope: [.Public, .Private, .Interact] //replace with your scopes)
+    clientIdentifier: "Your client identifier goes here",
+    clientSecret: "Your client secret goes here",
+    scopes: [.Public, .Private, .Interact],
+    keychainService: "YourKeyChainService"
+)
 ```
 
 ### Client
@@ -42,7 +44,7 @@ let appConfiguration = AppConfiguration(
 To interact with the Vimeo API, we use a `VimeoClient` instance.  The client is the primary interface of **VimeoNetworking**, it takes care of executing requests, cache storage and retrieval, tracking the current authenticated account, and handling global error conditions.  You can instantiate one with the application configuration you created a moment ago.
 
 ```Swift
-let vimeoClient = VimeoClient(configuration: appConfiguration)
+let vimeoClient = VimeoClient(appConfiguration: appConfiguration, configureSessionManagerBlock: nil)
 ```
 
 ## Authenticating
@@ -54,15 +56,19 @@ Before we can actually start getting meaningful data from the API, there's one l
 Client credentials allow you to see everything that's publicly available on Vimeo.  This is essentially equivalent to visiting Vimeo.com without signing up for an account or logging in.  This is the simplest authentication method to implement, just one function completes the grant.
 
 ```Swift
-let authenticationController = AuthenticationController(client: vimeoClient)
+let authenticationController = AuthenticationController(
+    client: vimeoClient,
+    appConfiguration: appConfiguration,
+    configureSessionManagerBlock: nil
+)
 
 authenticationController.clientCredentialsGrant { result in
-	switch result {
-	case .Success(let account):
-		print("Successfully authenticated with account: \(account)")
-	case .Failure(let error):
-		print("error authenticating: \(error)")
-	}
+    switch result {
+    case .success(let account):
+        print("Successfully authenticated with account: \(account)")
+    case .failure(let error):
+        print("error authenticating: \(error)")
+    }
 }
 ```
 
@@ -77,27 +83,29 @@ To prepare your application to receive this redirect, navigate to your app's tar
 Now, in an appropriate place in your app, open the code grant authorization URL in Safari:
 
 ```Swift
-let authenticationController = AuthenticationController(client: vimeoClient)
+let authenticationController = AuthenticationController(
+    client: vimeoClient,
+    appConfiguration: appConfiguration,
+    configureSessionManagerBlock: nil
+)
+
 
 let URL = authenticationController.codeGrantAuthorizationURL()
-UIApplication.sharedApplication.openURL(URL)
+UIApplication.shared.open(URL, options: [:], completionHandler: nil)
 ```
 
 The user will be prompted to log in and grant permissions to your application.  When they accept, your redirect URL will be opened, which will reopen your application.  Handle this event in your application delegate:
 
 ```Swift
-func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool
-    {
-        authenticationController.codeGrant(responseURL: url) { result in
-            switch result
-            {
-            case .Success(let account):
-                print("authenticated successfully: \(account)")
-            case .Failure(let error):
-                print("failure authenticating: \(error)")
-            }
-        }
-
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        authenticationController.codeGrant(responseURL: URL) { result in
+			switch result {
+			case .success(let account):
+				print("authenticated successfully: \(account)")
+			case .failure(let error):
+				print("failure authenticating: \(error)")
+			}
+		}
         return true
     }
 ```
@@ -107,13 +115,17 @@ func application(app: UIApplication, openURL url: NSURL, options: [String : AnyO
 If you want to use your own OAuth token, for example a contant token generated for your [API's application](https://developer.vimeo.com/apps), you can circumvent code grant authorization mechanisms and use the ```accessToken``` function of ```AuthenticationController```.
 
 ```Swift
-let authenticationController = AuthenticationController(client: vimeoClient)
+let authenticationController = AuthenticationController(
+    client: vimeoClient,
+    appConfiguration: appConfiguration,
+    configureSessionManagerBlock: nil
+)
+
 authenticationController.accessToken("your_access_tocken") { result in
-    switch result
-    {
-        case .Success(let account):
+    switch result {
+        case .success(let account):
             print("authenticated successfully: \(account)")
-        case .Failure(let error):
+        case .failure(let error):
            print("failure authenticating: \(error)")
     }
 }
@@ -126,7 +138,7 @@ authenticationController.accessToken("your_access_tocken") { result in
 ```Swift
 do
 {
-	if let account = try authenticationController.loadSavedAccount()
+	if let account = try authenticationController.loadUserAccount()
 	{
 		print("account loaded successfully: \(account)"
 	}
@@ -166,10 +178,10 @@ After we send that request, we'll get a `Result` enum back.  This could be eithe
 ```Swift
 vimeoClient.request(videoRequest) { result in
 	switch result {
-	case .Success(let response: Response):
-		let video: VIMVideo = response.model
+	case .success(let response):
+		let video = response.model
 		print("retrieved video: \(video)")
-	case .Failure(let error: NSError):
+	case .failure(let error):
 		print("error retrieving video: \(error)"
 	}
 }
@@ -186,13 +198,13 @@ let staffPickedVideosRequest = Request<[VIMVideo]>(path: "/channels/staffpicks/v
 vimeoClient.request(staffPickedVideosRequest) { result in
 	switch result
 	{
-	case .Success(let response: Response):
-		let videos: [VIMVideo] = response.model
+	case .success(let response):
+		let videos = response.model
 		for video in videos
 		{
 			print("retrieved video: \(video)")
 		}
-	case .Failure(let error: NSError):
+	case .failure(let error: NSError):
 		print("error retrieving videos: \(error)"
 	}
 }
