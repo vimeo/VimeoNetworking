@@ -79,7 +79,6 @@ import Foundation
     @objc public var modifiedTimeString: String?
     @objc public var modifiedTime: Date?
     @objc public var privacy: VIMPrivacy?
-    @objc public var password: String?
     @objc public var duration: NSNumber?
     @objc public var uri: String?
     @objc public var link: String?
