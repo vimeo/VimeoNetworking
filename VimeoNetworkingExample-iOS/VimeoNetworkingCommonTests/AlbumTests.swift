@@ -119,9 +119,19 @@ class AlbumTests: XCTestCase {
     {
         let privacyDictionary: [String: Any] = ["view": "password"]
         let privacy = VIMPrivacy(keyValueDictionary: privacyDictionary)!
-        let videoDictionary: [String: Any] = ["privacy": privacy as Any]
-        let testAlbum = Album(keyValueDictionary: videoDictionary)!
+        let albumDictionary: [String: Any] = ["privacy": privacy as Any]
+        let testAlbum = Album(keyValueDictionary: albumDictionary)!
         XCTAssertTrue(testAlbum.isPasswordProtected(), "Test album should return as password protected.")
+    }
+
+    func test_privacyPassword_isEqualToExpectedValue_whenPrivacyViewIsPassword()
+    {
+        let privacyDictionary: [String: Any] = ["view": "password", "password": "test"]
+        let privacy = VIMPrivacy(keyValueDictionary: privacyDictionary)!
+        let albumDictionary: [String: Any] = ["privacy": privacy as Any]
+        let testAlbum = Album(keyValueDictionary: albumDictionary)!
+        XCTAssertTrue(testAlbum.isPasswordProtected(), "Test album should return as password protected.")
+        XCTAssertEqual(testAlbum.privacy?.password, "test", "Password should be 'test'.")
     }
     
     func test_isPasswordProtected_returnsFalse_whenPrivacyViewIsEmbedOnly()
