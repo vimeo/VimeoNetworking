@@ -56,6 +56,7 @@ public enum Scope: String, CaseIterable {
     case Stats = "stats"
     case PromoCodes = "promo_codes"
     case VideoFiles = "video_files"
+    case Email = "email"
     
     /// Combines an array of scopes into a scope string as expected by the API.
     ///
