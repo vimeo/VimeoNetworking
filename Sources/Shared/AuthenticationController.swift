@@ -47,6 +47,17 @@ final public class AuthenticationController {
         static let ScopeKey = "scope"
         static let StateKey = "state"
         static let CodeGrantAuthorizationPath = "oauth/authorize"
+        
+        fileprivate struct URLQueries {
+            static let Email = "email"
+            static let Name = "name"
+            static let AuthorizationAction = "auth_action"
+        }
+    }
+    
+    public enum AuthorizationAction : String {
+        case join
+        case login
     }
     
     
@@ -166,29 +177,38 @@ final public class AuthenticationController {
         return URI
     }
     
-    /**
-     Generate a URL to open the Vimeo code grant authorization page.  When opened in Safari, this page allows users to log into your application.
-     
-     - returns: the code grant authorization page URL
-     */
-    public func codeGrantAuthorizationURL() -> URL {
+    /// Generate a URL to open the Vimeo code grant authorization page.  When opened in Safari, this page allows users to log into your application.
+    ///
+    /// - Parameters:
+    ///   - name: Optional placeholder: when set, the user will see a placeholder name inside the name text field in Safari
+    ///   - email: Optional placeholder: when set, the user will see a placeholder email inside the email text field in Safari
+    ///   - action: Set this parameter to send user straight to join or login inside Safari, default is login
+    /// - Returns: the code grant authorization page URL
+    public func codeGrantAuthorizationURL(usingPlaceholdersForName name: String? = nil, andEmail email: String? = nil, showingInitialAuthorizationAction action: AuthorizationAction = .login) -> URL {
         let parameters = [Constants.ResponseTypeKey: Constants.CodeKey,
                           Constants.ClientIDKey: self.configuration.clientIdentifier,
                           Constants.RedirectURIKey: self.codeGrantRedirectURI,
                           Constants.ScopeKey: Scope.combine(self.configuration.scopes),
                           Constants.StateKey: type(of: self).state]
         
-        let urlString = self.configuration.baseUrl.appendingPathComponent(Constants.CodeGrantAuthorizationPath).absoluteString
+        let urlString = self.configuration.baseUrl.appendingPathComponent(Constants.CodeGrantAuthorizationPath)
+            .appendingQueries([
+                URLQueryItem(name: Constants.URLQueries.Email, value: email),
+                URLQueryItem(name: Constants.URLQueries.Name, value: name),
+                URLQueryItem(name: Constants.URLQueries.AuthorizationAction, value: action.rawValue)
+                ])
+            .absoluteString
+        
         
         var error: NSError?
         let urlRequest = VimeoRequestSerializer(appConfiguration: self.configuration).request(withMethod: VimeoClient.Method.GET.rawValue, urlString: urlString, parameters: parameters, error: &error)
         
-        guard let url = urlRequest.url, error == nil
-        else {
-            fatalError("Could not make code grant auth URL")
+        guard let codeGrantAuthorizationURL = urlRequest.url, error == nil
+            else {
+                fatalError("Could not make code grant auth URL")
         }
         
-        return url
+        return codeGrantAuthorizationURL
     }
     
     /**
@@ -555,3 +575,21 @@ final public class AuthenticationController {
         self.client.currentAccount = account
     }
 }
+
+// MARK: Helpers
+private extension URL {
+    func appendingQueries(_ urlQueries: [URLQueryItem]) -> URL {
+        var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)
+        var queries: [URLQueryItem] = urlComponents?.queryItems ?? []
+        let newQueries = urlQueries.compactMap({ (item) -> URLQueryItem? in
+            return item.value != nil ? item : nil
+        })
+        queries.append(contentsOf: newQueries)
+        urlComponents?.queryItems = queries
+        guard let newUrl = urlComponents?.url else {
+            return self
+        }
+        return newUrl
+    }
+}
+
