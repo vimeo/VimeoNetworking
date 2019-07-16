@@ -34,8 +34,13 @@ platform :ios do
 
     pretty_junit(file_pattern: "fastlane/test_output/report.junit")
 
-    if is_ci?
+    # Fork PRs cannot use danger because CircleCI (rightly) doesn't expose sensitive environment vars which danger makes use of to comment on PRs.
+    # So we opt out of danger for fork PRs by checking the `CIRCLE_BRANCH` environment var and matching it against pull/XXXX where XXXX == numeric chars    
+    is_fork_pr = (ENV["CIRCLE_BRANCH"] =~ /pull\/[0-9]+/) != nil
+    if is_ci? && !is_fork_pr
       danger(use_bundle_exec: false)
+    else 
+      UI.message "Skipping danger: is_ci? #{is_ci?}, is_fork_pr? #{is_fork_pr}"
     end
   end
 
