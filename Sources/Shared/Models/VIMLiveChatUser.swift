@@ -24,25 +24,6 @@
 //  THE SOFTWARE.
 //
 
-/// The user's account type.
-///
-/// - basic: "Vimeo Basic" tier.
-/// - business: "Vimeo Business" tier.
-/// - liveBusiness: "Business Live" tier.
-/// - livePro: "PRO Live" tier.
-/// - plus: "Vimeo Plus" tier.
-/// - pro: "Vimeo PRO" tier.
-/// - proUnlimited: "Custom Live" tier.
-public enum AccountType: String {
-    case basic = "basic"
-    case business = "business"
-    case liveBusiness = "live_business"
-    case livePro = "live_pro"
-    case plus = "plus"
-    case pro = "pro"
-    case proUnlimited = "pro_unlimited"
-}
-
 /// An object representing the `user` field in a `chat` response.
 public class VIMLiveChatUser: VIMModelObject {
     private struct Constants {
@@ -55,12 +36,11 @@ public class VIMLiveChatUser: VIMModelObject {
     @objc public private(set) var account: String?
     
     /// The user's account type in `AccountType`.
-    public var accountType: AccountType? {
+    public var accountType: VIMUserAccountType? {
         guard let accountValue = self.account else {
             return nil
         }
-        
-        return AccountType(rawValue: accountValue)
+        return VIMUserAccountType(string: accountValue)
     }
     
     /// The user's ID.

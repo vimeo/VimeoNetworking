@@ -36,19 +36,10 @@
 @class VIMLiveQuota;
 @class UserMembership;
 
-typedef NS_ENUM(NSInteger, VIMUserAccountType) {
-    VIMUserAccountTypeBasic = 0,
-    VIMUserAccountTypePro,
-    VIMUserAccountTypePlus,
-    VIMUserAccountTypeBusiness,
-    VIMUserAccountTypeLivePro,
-    VIMUserAccountTypeLiveBusiness,
-    VIMUserAccountTypeLivePremium,
-    VIMUserAccountTypeProUnlimited,
-    VIMUserAccountTypeProducer
-};
+typedef NS_ENUM(NSInteger, VIMUserAccountType);
 
 @interface VIMUser : VIMModelObject
+
 
 @property (nonatomic, assign, readonly) VIMUserAccountType accountType;
 

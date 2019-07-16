@@ -34,16 +34,6 @@
 #import "VIMPreference.h"
 #import "VIMUserBadge.h"
 
-static NSString *const Basic = @"basic";
-static NSString *const Plus = @"plus";
-static NSString *const Pro = @"pro";
-static NSString *const Business = @"business";
-static NSString *const LivePro = @"live_pro";
-static NSString *const LiveBusiness = @"live_business";
-static NSString *const LivePremium = @"live_premium";
-static NSString *const ProUnlimited = @"pro_unlimited";
-static NSString *const Producer = @"producer";
-
 @interface VIMUser ()
 
 @property (nonatomic, strong) NSDictionary *metadata;
@@ -218,41 +208,9 @@ static NSString *const Producer = @"producer";
 
 - (void)parseAccountType
 {
-    if ([self.membership.type isEqualToString:Plus])
-    {
-        self.accountType = VIMUserAccountTypePlus;
-    }
-    else if ([self.membership.type isEqualToString:Pro])
-    {
-        self.accountType = VIMUserAccountTypePro;
-    }
-    else if ([self.membership.type isEqualToString:Basic])
-    {
-        self.accountType = VIMUserAccountTypeBasic;
-    }
-    else if ([self.membership.type isEqualToString:Business])
-    {
-        self.accountType = VIMUserAccountTypeBusiness;
-    }
-    else if ([self.membership.type isEqualToString:LivePro])
-    {
-        self.accountType = VIMUserAccountTypeLivePro;
-    }
-    else if ([self.membership.type isEqualToString:LiveBusiness])
-    {
-        self.accountType = VIMUserAccountTypeLiveBusiness;
-    }
-    else if ([self.membership.type isEqualToString:LivePremium])
-    {
-        self.accountType = VIMUserAccountTypeLivePremium;
-    }
-    else if ([self.membership.type isEqualToString:ProUnlimited])
-    {
-        self.accountType = VIMUserAccountTypeProUnlimited;
-    }
-    else if ([self.membership.type isEqualToString:Producer])
-    {
-        self.accountType = VIMUserAccountTypeProducer;
+    NSString *membershipType = self.membership.type;
+    if (membershipType) {
+        self.accountType = [VIMUserAccountTypeBridge accountFromString:membershipType];
     }
 }
 
@@ -305,28 +263,7 @@ static NSString *const Producer = @"producer";
 
 - (NSString *)accountTypeAnalyticsIdentifier
 {
-    switch (self.accountType)
-    {
-        default:
-        case VIMUserAccountTypeBasic:
-            return Basic;
-        case VIMUserAccountTypePlus:
-            return Plus;
-        case VIMUserAccountTypePro:
-            return Pro;
-        case VIMUserAccountTypeBusiness:
-            return Business;
-        case VIMUserAccountTypeLivePro:
-            return LivePro;
-        case VIMUserAccountTypeLiveBusiness:
-            return LiveBusiness;
-        case VIMUserAccountTypeLivePremium:
-            return LivePremium;
-        case VIMUserAccountTypeProUnlimited:
-            return ProUnlimited;
-        case VIMUserAccountTypeProducer:
-            return Producer;
-    }
+    return [VIMUserAccountTypeBridge stringFrom:self.accountType];
 }
 
 #pragma mark - Model Versioning

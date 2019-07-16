@@ -84,6 +84,8 @@ class VIMUserTests: XCTestCase {
             XCTAssertEqual(analyticsIdentifier, "pro_unlimited")
         case .producer:
             XCTAssertEqual(analyticsIdentifier, "producer")
+        case .enterprise:
+            XCTAssertEqual(analyticsIdentifier, "enterprise")
         @unknown default:
             XCTFail("Unhandled switch case. Please fix this and re-run the tests")
         }
