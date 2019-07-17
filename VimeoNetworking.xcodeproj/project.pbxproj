@@ -663,14 +663,14 @@
 		5B69E4E922DE2E29009E84B6 /* VIMUserAccountTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69E4E522DE2E07009E84B6 /* VIMUserAccountTypeTests.swift */; };
 		5B69E4EA22DE2E29009E84B6 /* VIMUserAccountTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69E4E522DE2E07009E84B6 /* VIMUserAccountTypeTests.swift */; };
 		5B69E4EB22DE2E2A009E84B6 /* VIMUserAccountTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B69E4E522DE2E07009E84B6 /* VIMUserAccountTypeTests.swift */; };
-		7E388B7DAAA730F67222354D /* Pods_VimeoNetworking_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25EE618A23DD07A19E67F5 /* Pods_VimeoNetworking_iOS.framework */; };
-		9E6913F9D6917E929DA785FE /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48683A775227828528A4492B /* Pods_Example.framework */; };
-		C1E13A752650AE7CE4523125 /* Pods_VimeoNetworking_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D711BBD962E1ACC44FB5766 /* Pods_VimeoNetworking_macOS.framework */; };
-		E8A4DC3A157A4EC2E3E381A3 /* Pods_VimeoNetworking_macOS_VimeoNetworking_macOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D548BFE2CDF46B766FBA2C /* Pods_VimeoNetworking_macOS_VimeoNetworking_macOSTests.framework */; };
-		F820920C3AA9B92D02E54151 /* Pods_VimeoNetworking_iOS_VimeoNetworking_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD1AC32F3AD058C45C9F45D /* Pods_VimeoNetworking_iOS_VimeoNetworking_iOSTests.framework */; };
+		7AB0DEA0BCE9DBC1B80BA3D3 /* Pods_VimeoNetworking_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E51D879667F81EB014A0C506 /* Pods_VimeoNetworking_iOS.framework */; };
+		A03F5F894DFF832C9C91F658 /* Pods_VimeoNetworking_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D830AC559AEFE2220E4AA901 /* Pods_VimeoNetworking_macOS.framework */; };
 		B587219122DCC7F200C0D81E /* AuthenticationControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587218F22DCC70A00C0D81E /* AuthenticationControllerTests.swift */; };
 		B587219222DCC7F300C0D81E /* AuthenticationControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587218F22DCC70A00C0D81E /* AuthenticationControllerTests.swift */; };
 		B587219322DCC7F400C0D81E /* AuthenticationControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587218F22DCC70A00C0D81E /* AuthenticationControllerTests.swift */; };
+		D89F012C8915580FDB120B6E /* Pods_VimeoNetworking_iOS_VimeoNetworking_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EF61C4E6269B97B747D537 /* Pods_VimeoNetworking_iOS_VimeoNetworking_iOSTests.framework */; };
+		E93AB0C01B0946A63A43A1DB /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E06A38CA0ED334F7F8121DD /* Pods_Example.framework */; };
+		EE9E90C7DFFB1AD5245D5DA6 /* Pods_VimeoNetworking_macOS_VimeoNetworking_macOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887958BF7CD88B92E87051A6 /* Pods_VimeoNetworking_macOS_VimeoNetworking_macOSTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
