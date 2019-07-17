@@ -45,5 +45,6 @@ extern NSString * __nonnull VIMPrivacy_Stock;
 @property (nonatomic, copy, nullable) NSString *embed;
 @property (nonatomic, copy, nullable) NSString *view;
 @property (nonatomic, copy, nullable) NSString *bypassToken;
+@property (nonatomic, copy, nullable) NSString *password;
 
 @end
