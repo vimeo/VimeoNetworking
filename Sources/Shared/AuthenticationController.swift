@@ -587,7 +587,7 @@ private extension URL {
         queries.append(contentsOf: newQueries)
         urlComponents?.queryItems = queries
         guard let newUrl = urlComponents?.url else {
-            return self
+            fatalError("Could not generate queries on code grant auth URL. Probably some invalid characters were added")
         }
         return newUrl
     }
