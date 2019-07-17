@@ -584,8 +584,11 @@ private extension URL {
         let newQueries = urlQueries.compactMap({ (item) -> URLQueryItem? in
             return item.value != nil ? item : nil
         })
-        queries.append(contentsOf: newQueries)
-        urlComponents?.queryItems = queries
+        if newQueries.count > 0 {
+            queries.append(contentsOf: newQueries)
+            urlComponents?.queryItems = queries
+        }
+    
         guard let newUrl = urlComponents?.url else {
             fatalError("Could not generate queries on code grant auth URL. Probably some invalid characters were added")
         }
