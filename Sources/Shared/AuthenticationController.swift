@@ -184,7 +184,7 @@ final public class AuthenticationController {
     ///   - email: Optional placeholder: when set, the user will see a placeholder email inside the email text field in Safari
     ///   - action: Set this parameter to send user straight to join or login inside Safari, default is login
     /// - Returns: the code grant authorization page URL
-    public func codeGrantAuthorizationURL(usingPlaceholdersForName name: String? = nil, andEmail email: String? = nil, showingInitialAuthorizationAction action: AuthorizationAction = .login) -> URL {
+    public func codeGrantAuthorizationURL(usingPlaceholdersForName name: String? = nil, andEmail email: String? = nil, showingInitialAuthorizationAction action: AuthorizationAction? = nil) -> URL {
         let parameters = [Constants.ResponseTypeKey: Constants.CodeKey,
                           Constants.ClientIDKey: self.configuration.clientIdentifier,
                           Constants.RedirectURIKey: self.codeGrantRedirectURI,
@@ -195,7 +195,7 @@ final public class AuthenticationController {
             .appendingQueries([
                 URLQueryItem(name: Constants.URLQueries.Email, value: email),
                 URLQueryItem(name: Constants.URLQueries.Name, value: name),
-                URLQueryItem(name: Constants.URLQueries.AuthorizationAction, value: action.rawValue)
+                URLQueryItem(name: Constants.URLQueries.AuthorizationAction, value: action?.rawValue)
                 ])
             .absoluteString
         
