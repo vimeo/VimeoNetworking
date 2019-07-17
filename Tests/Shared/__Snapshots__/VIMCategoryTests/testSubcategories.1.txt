@@ -1,0 +1,62 @@
+▿ Optional<Array<Any>>
+  ▿ some: 6 elements
+    ▿ 3 key/value pairs
+      ▿ (2 elements)
+        - key: link
+        - value: https://vimeo.com/categories/animation/2d/videos
+      ▿ (2 elements)
+        - key: name
+        - value: 2D
+      ▿ (2 elements)
+        - key: uri
+        - value: /categories/animation/subcategories/2d
+    ▿ 3 key/value pairs
+      ▿ (2 elements)
+        - key: link
+        - value: https://vimeo.com/categories/animation/3d/videos
+      ▿ (2 elements)
+        - key: name
+        - value: 3D/CG
+      ▿ (2 elements)
+        - key: uri
+        - value: /categories/animation/subcategories/3d
+    ▿ 3 key/value pairs
+      ▿ (2 elements)
+        - key: link
+        - value: https://vimeo.com/categories/animation/mograph/videos
+      ▿ (2 elements)
+        - key: name
+        - value: Mograph
+      ▿ (2 elements)
+        - key: uri
+        - value: /categories/animation/subcategories/mograph
+    ▿ 3 key/value pairs
+      ▿ (2 elements)
+        - key: link
+        - value: https://vimeo.com/categories/animation/projectionmapping/videos
+      ▿ (2 elements)
+        - key: name
+        - value: Projection Mapping
+      ▿ (2 elements)
+        - key: uri
+        - value: /categories/animation/subcategories/projectionmapping
+    ▿ 3 key/value pairs
+      ▿ (2 elements)
+        - key: link
+        - value: https://vimeo.com/categories/animation/stopmotion/videos
+      ▿ (2 elements)
+        - key: name
+        - value: Stop Frame
+      ▿ (2 elements)
+        - key: uri
+        - value: /categories/animation/subcategories/stopmotion
+    ▿ 3 key/value pairs
+      ▿ (2 elements)
+        - key: link
+        - value: https://vimeo.com/categories/animation/vfx/videos
+      ▿ (2 elements)
+        - key: name
+        - value: VFX
+      ▿ (2 elements)
+        - key: uri
+        - value: /categories/animation/subcategories/vfx

@@ -35,17 +35,17 @@ extern NSInteger const VIMModelObjectValidationErrorCode;
 
 @interface VIMModelObject : NSObject <NSCopying, NSSecureCoding, VIMMappable>
 
-@property (nonatomic, copy) NSString *objectID;
+// @property (nonatomic, copy) NSString *objectID;
 
-+ (NSUInteger)modelVersion;
+//+ (NSUInteger)modelVersion;
 + (NSDateFormatter *)dateFormatter;
-+ (NSSet *)propertyKeys;
+//+ (NSSet *)propertyKeys;
 
 - (instancetype)initWithKeyValueDictionary:(NSDictionary *)dictionary;
 
-- (NSDictionary *)keyValueDictionary;
+//- (NSDictionary *)keyValueDictionary;
 
-- (void)upgradeFromModelVersion:(NSUInteger)fromVersion toModelVersion:(NSUInteger)toVersion withCoder:(NSCoder *)aDecoder;
+//- (void)upgradeFromModelVersion:(NSUInteger)fromVersion toModelVersion:(NSUInteger)toVersion withCoder:(NSCoder *)aDecoder;
 
 - (void)validateModel:(NSError **)error;
 
