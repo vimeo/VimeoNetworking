@@ -36,10 +36,15 @@ class AuthenticationControllerTests : XCTestCase {
         
         let redirectUriItem = queryItems.first { $0.name == "redirect_uri" }
         XCTAssertEqual(redirectUriItem?.value, "vimeo\(ClientIdentifier)://auth")
+        
+        let responseType = queryItems.first { $0.name == "response_type" }
+        XCTAssertEqual(responseType?.value, "code")
+        
+        XCTAssertEqual(queryItems.count, 5)
     }
     
-    func test_auth_URL_with_email_and_name_placeholder() {
-        let codeGrant = authenticationController.codeGrantAuthorizationURL()
+    func test_auth_URL_with_email_and_name_placeholder_and_auth_action() {
+        let codeGrant = authenticationController.codeGrantAuthorizationURL(usingPlaceholdersForName: "some_name", andEmail: "some_email", showingInitialAuthorizationAction: .join)
         
         guard let urlComponents = URLComponents(url: codeGrant, resolvingAgainstBaseURL: true) else {
             XCTFail("Unable to retrieve components from code grant url")
@@ -52,7 +57,13 @@ class AuthenticationControllerTests : XCTestCase {
         }
         
         let authAction = queryItems.first { $0.name == "auth_action" }
-        XCTAssertEqual(authAction?.value, "login")
+        XCTAssertEqual(authAction?.value, "join")
+        
+        let emailItem = queryItems.first { $0.name == "email" }
+        XCTAssertEqual(emailItem?.value, "some_email")
+        
+        let nameItem = queryItems.first { $0.name == "name" }
+        XCTAssertEqual(nameItem?.value, "some_name")
     
     }
 }
