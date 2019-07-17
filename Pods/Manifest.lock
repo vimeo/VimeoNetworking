@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Nimble (8.0.2)
   - OHHTTPStubs/Core (8.0.0)
   - OHHTTPStubs/Default (8.0.0):
     - OHHTTPStubs/Core
@@ -27,24 +28,44 @@ PODS:
   - OHHTTPStubs/OHPathHelpers (8.0.0)
   - OHHTTPStubs/Swift (8.0.0):
     - OHHTTPStubs/Default
+  - SnapshotTesting (1.5.0)
   - SwiftLint (0.25.1)
+  - VimeoTestsSupport (1.0.0):
+    - Nimble (= 8.0.2)
+    - SnapshotTesting (= 1.5.0)
 
 DEPENDENCIES:
   - AFNetworking (= 3.1.0)
   - OHHTTPStubs/Swift (= 8.0.0)
   - SwiftLint (= 0.25.1)
+  - "VimeoTestsSupport (from `git@github.vimeows.com:MobileApps/VimeoTestsSupport.git`, branch `master`)"
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - Nimble
     - OHHTTPStubs
+    - SnapshotTesting
     - SwiftLint
+
+EXTERNAL SOURCES:
+  VimeoTestsSupport:
+    :branch: master
+    :git: "git@github.vimeows.com:MobileApps/VimeoTestsSupport.git"
+
+CHECKOUT OPTIONS:
+  VimeoTestsSupport:
+    :commit: 743f375cc22f71d5e29df2e5dca3ed711d5af7cf
+    :git: "git@github.vimeows.com:MobileApps/VimeoTestsSupport.git"
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Nimble: 622629381bda1dd5678162f21f1368cec7cbba60
   OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
+  SnapshotTesting: 9ca1d80f6322509a035856170c11d0571b1f7171
   SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
+  VimeoTestsSupport: b39648ccd76fbfc46ed5231300e4b34748515b31
 
-PODFILE CHECKSUM: d0c0cbb095907329a33c85773db44fb72b6960e4
+PODFILE CHECKSUM: d147bbe37897a9a148910425f556645ed929655f
 
 COCOAPODS: 1.7.3

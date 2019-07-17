@@ -26,6 +26,9 @@
 
 import XCTest
 import OHHTTPStubs
+import VimeoTestsSupport
+import Nimble
+
 @testable import VimeoNetworking
 
 class VIMUserTests: XCTestCase {
@@ -36,7 +39,6 @@ class VIMUserTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
         VimeoClient.configureSharedClient(withAppConfiguration: AppConfiguration(clientIdentifier: "{CLIENT_ID}",
                                                                                  clientSecret: "{CLIENT_SECRET}",
                                                                                  scopes: [.Public, .Private, .Purchased, .Create, .Edit, .Delete, .Interact, .Upload],

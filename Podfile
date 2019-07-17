@@ -26,6 +26,7 @@ target 'VimeoNetworking-iOS' do
     platform :ios, '10.3'     
     shared_pods
     target 'VimeoNetworking-iOSTests' do
+        pod 'VimeoTestsSupport', :git => 'git@github.vimeows.com:MobileApps/VimeoTestsSupport.git', :branch => 'master'
         test_pods
     end
 end
