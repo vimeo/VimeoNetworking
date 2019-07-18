@@ -53,7 +53,7 @@ final public class AuthenticationController {
     private static let PinCodeRequestInterval: TimeInterval = 5
     
         /// Completion closure type for authentication requests
-    public typealias AuthenticationCompletion = ResultCompletion<VIMAccount>.T
+    public typealias AuthenticationCompletion = ResultCompletion<VIMAccount, Error>.T
     
         /// State is tracked for the code grant request/response cycle, to avoid interception
     static let state = ProcessInfo.processInfo.globallyUniqueString
@@ -209,7 +209,7 @@ final public class AuthenticationController {
             
             let error = NSError(domain: Constants.ErrorDomain, code: LocalErrorCode.codeGrant.rawValue, userInfo: [NSLocalizedDescriptionKey: errorDescription])
             
-            completion(.failure(error: error))
+            completion(.failure(error))
             
             return
         }
@@ -221,7 +221,7 @@ final public class AuthenticationController {
             
             let error = NSError(domain: Constants.ErrorDomain, code: LocalErrorCode.codeGrantState.rawValue, userInfo: [NSLocalizedDescriptionKey: errorDescription])
             
-            completion(.failure(error: error))
+            completion(.failure(error))
             
             return
         }
@@ -310,17 +310,17 @@ final public class AuthenticationController {
      - parameter completion:                handler for authentication success or failure
      */
     public func authenticate(withResponse accountResponseDictionary: VimeoClient.ResponseDictionary, completion: AuthenticationCompletion) {
-        let result: Result<Response<VIMAccount>>
+        let result: Result<Response<VIMAccount>, Error>
         
         do {
             let account: VIMAccount = try VIMObjectMapper.mapObject(responseDictionary: accountResponseDictionary)
             
             let response = Response(model: account, json: accountResponseDictionary)
             
-            result = Result.success(result: response)
+            result = Result.success(response)
         }
         catch let error as NSError {
-            result = Result.failure(error: error)
+            result = Result.failure(error)
         }
         
         let handledResult = self.handleAuthenticationResult(result)
@@ -371,7 +371,7 @@ final public class AuthenticationController {
                     
                     let error = NSError(domain: Constants.ErrorDomain, code: LocalErrorCode.pinCodeInfo.rawValue, userInfo: [NSLocalizedDescriptionKey: errorDescription])
                     
-                    completion(.failure(error: error))
+                    completion(.failure(error))
                     
                     return
                 }
@@ -384,7 +384,7 @@ final public class AuthenticationController {
                 self.doPinCodeAuthorization(userCode: userCode, deviceCode: deviceCode, expirationDate: expirationDate, completion: completion)
                 
             case .failure(let error):
-                completion(.failure(error: error))
+                completion(.failure(error))
             }
         }
     }
@@ -396,7 +396,7 @@ final public class AuthenticationController {
             
             let error = NSError(domain: Constants.ErrorDomain, code: LocalErrorCode.pinCodeExpired.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
             
-            completion(.failure(error: error))
+            completion(.failure(error))
             
             return
         }
@@ -410,7 +410,7 @@ final public class AuthenticationController {
                 completion(result)
                 
             case .failure(let error):
-                if error.statusCode == HTTPStatusCode.badRequest.rawValue // 400: Bad Request implies the code hasn't been activated yet, so try again.
+                if (error as NSError).statusCode == HTTPStatusCode.badRequest.rawValue // 400: Bad Request implies the code hasn't been activated yet, so try again.
                 {
                     guard let strongSelf = self
                         else {
@@ -497,12 +497,12 @@ final public class AuthenticationController {
         }
     }
     
-    private func handleAuthenticationResult(_ result: Result<Response<VIMAccount>>) -> Result<VIMAccount> {
+    private func handleAuthenticationResult(_ result: Result<Response<VIMAccount>, Error>) -> Result<VIMAccount, Error> {
         guard case .success(let accountResponse) = result
         else {
             let resultError: NSError
             if case .failure(let error) = result {
-                resultError = error
+                resultError = error as NSError
             }
             else {
                 let errorDescription = "Authentication result malformed"
@@ -512,7 +512,7 @@ final public class AuthenticationController {
                 resultError = NSError(domain: Constants.ErrorDomain, code: LocalErrorCode.noResponse.rawValue, userInfo: [NSLocalizedDescriptionKey: errorDescription])
             }
             
-            return .failure(error: resultError)
+            return .failure(resultError)
         }
         
         let account = accountResponse.model
@@ -529,10 +529,10 @@ final public class AuthenticationController {
             try self.accountStore.save(account, ofType: accountType)
         }
         catch let error {
-            return .failure(error: error as NSError)
+            return .failure(error)
         }
         
-        return .success(result: account)
+        return .success(account)
     }
     
     private func setClientAccount(with account: VIMAccount?, shouldClearCache: Bool = false) throws {

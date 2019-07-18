@@ -26,21 +26,6 @@
 
 import Foundation
 
-/**
- `Result` describes a general final output of a process that can be either successful or unsuccessful
- 
- - Success: action successful, returns a result of type `ResultType`
- - Failure: action failed, returns an `NSError`
- */
-public enum Result<ResultType> {
-        /// action successful, returns a result of type `ResultType`
-    case success(result: ResultType)
-    
-        /// action failed, returns an `NSError`
-    case failure(error: NSError)
-}
-
-/// `ResultCompletion` creates a generic typealias to generally define completion blocks that return a `Result`
-public enum ResultCompletion<ResultType> {
-    public typealias T = (Result<ResultType>) -> Void
+public enum ResultCompletion<ResultType, E: Error> {
+    public typealias T = (Result<ResultType, E>) -> Void
 }

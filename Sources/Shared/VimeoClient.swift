@@ -159,7 +159,7 @@ final public class VimeoClient {
      
      - returns: a `RequestToken` for the in-flight request
      */
-    public func request<ModelType>(_ request: Request<ModelType>, completionQueue: DispatchQueue = DispatchQueue.main, completion: @escaping ResultCompletion<Response<ModelType>>.T) -> RequestToken {
+    public func request<ModelType>(_ request: Request<ModelType>, completionQueue: DispatchQueue = DispatchQueue.main, completion: @escaping ResultCompletion<Response<ModelType>, Error>.T) -> RequestToken {
         if request.useCache {
             self.responseCache.response(forRequest: request) { result in
                 
@@ -176,17 +176,17 @@ final public class VimeoClient {
                         
                         completionQueue.async {
                             
-                            completion(.failure(error: error))
+                            completion(.failure(error))
                         }
                     }
                     
                 case .failure(let error):
                     
-                    self.handleError(error, request: request)
+                    self.handleError(error as NSError, request: request)
                     
                     completionQueue.async {
                         
-                        completion(.failure(error: error))
+                        completion(.failure(error))
                     }
                 }
             }
@@ -262,7 +262,7 @@ final public class VimeoClient {
     
     // MARK: - Private task completion handlers
     
-    private func handleTaskSuccess<ModelType>(forRequest request: Request<ModelType>, task: URLSessionDataTask?, responseObject: Any?, isCachedResponse: Bool = false, completionQueue: DispatchQueue, completion: @escaping ResultCompletion<Response<ModelType>>.T) {
+    private func handleTaskSuccess<ModelType>(forRequest request: Request<ModelType>, task: URLSessionDataTask?, responseObject: Any?, isCachedResponse: Bool = false, completionQueue: DispatchQueue, completion: @escaping ResultCompletion<Response<ModelType>, Error>.T) {
         guard let responseDictionary = responseObject as? ResponseDictionary
         else {
             if ModelType.self == VIMNullResponse.self {
@@ -273,7 +273,7 @@ final public class VimeoClient {
                 let response = Response(model: nullResponseObject, json: [:]) as! Response<ModelType>
 
                 completionQueue.async {
-                    completion(.success(result: response as Response<ModelType>))
+                    completion(.success(response as Response<ModelType>))
                 }
             }
             else {
@@ -341,7 +341,7 @@ final public class VimeoClient {
             }
             
             completionQueue.async {
-                completion(.success(result: response))
+                completion(.success(response))
             }
         }
         catch let error {
@@ -351,7 +351,7 @@ final public class VimeoClient {
         }
     }
     
-    private func handleTaskFailure<ModelType>(forRequest request: Request<ModelType>, task: URLSessionDataTask?, error: NSError?, completionQueue: DispatchQueue, completion: @escaping ResultCompletion<Response<ModelType>>.T) {
+    private func handleTaskFailure<ModelType>(forRequest request: Request<ModelType>, task: URLSessionDataTask?, error: NSError?, completionQueue: DispatchQueue, completion: @escaping ResultCompletion<Response<ModelType>, Error>.T) {
         let error = error ?? NSError(domain: type(of: self).ErrorDomain, code: LocalErrorCode.undefined.rawValue, userInfo: [NSLocalizedDescriptionKey: "Undefined error"])
         
         if error.code == NSURLErrorCancelled {
@@ -371,7 +371,7 @@ final public class VimeoClient {
         }
         
         completionQueue.async {
-            completion(.failure(error: error))
+            completion(.failure(error))
         }
     }
     
