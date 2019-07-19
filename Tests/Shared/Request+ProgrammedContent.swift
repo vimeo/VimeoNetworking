@@ -112,7 +112,7 @@ class Request_ProgrammedContent: XCTestCase {
             case .success(_):
                 XCTFail("This test should not return a success")
                 
-            case .failure(let error):
+            case .failure(let error as NSError):
                 XCTAssertNotNil(error)
                 XCTAssertEqual(error.vimeoInvalidParametersErrorCodesString, "2218")
                 XCTAssertEqual(error.vimeoServerErrorCode!, 2204)
