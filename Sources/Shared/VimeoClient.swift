@@ -159,7 +159,7 @@ final public class VimeoClient {
      
      - returns: a `RequestToken` for the in-flight request
      */
-    public func request<ModelType>(_ request: Request<ModelType>, completionQueue: DispatchQueue = DispatchQueue.main, completion: @escaping ResultCompletion<Response<ModelType>, Error>.T) -> RequestToken {
+    public func request<ModelType>(_ request: Request<ModelType>, completionQueue: DispatchQueue = DispatchQueue.main, completion: @escaping ResultCompletion<Response<ModelType>, NSError>.T) -> RequestToken {
         if request.useCache {
             self.responseCache.response(forRequest: request) { result in
                 
@@ -182,7 +182,7 @@ final public class VimeoClient {
                     
                 case .failure(let error):
                     
-                    self.handleError(error as NSError, request: request)
+                    self.handleError(error, request: request)
                     
                     completionQueue.async {
                         
@@ -262,7 +262,7 @@ final public class VimeoClient {
     
     // MARK: - Private task completion handlers
     
-    private func handleTaskSuccess<ModelType>(forRequest request: Request<ModelType>, task: URLSessionDataTask?, responseObject: Any?, isCachedResponse: Bool = false, completionQueue: DispatchQueue, completion: @escaping ResultCompletion<Response<ModelType>, Error>.T) {
+    private func handleTaskSuccess<ModelType>(forRequest request: Request<ModelType>, task: URLSessionDataTask?, responseObject: Any?, isCachedResponse: Bool = false, completionQueue: DispatchQueue, completion: @escaping ResultCompletion<Response<ModelType>, NSError>.T) {
         guard let responseDictionary = responseObject as? ResponseDictionary
         else {
             if ModelType.self == VIMNullResponse.self {
@@ -351,7 +351,7 @@ final public class VimeoClient {
         }
     }
     
-    private func handleTaskFailure<ModelType>(forRequest request: Request<ModelType>, task: URLSessionDataTask?, error: NSError?, completionQueue: DispatchQueue, completion: @escaping ResultCompletion<Response<ModelType>, Error>.T) {
+    private func handleTaskFailure<ModelType>(forRequest request: Request<ModelType>, task: URLSessionDataTask?, error: NSError?, completionQueue: DispatchQueue, completion: @escaping ResultCompletion<Response<ModelType>, NSError>.T) {
         let error = error ?? NSError(domain: type(of: self).ErrorDomain, code: LocalErrorCode.undefined.rawValue, userInfo: [NSLocalizedDescriptionKey: "Undefined error"])
         
         if error.code == NSURLErrorCancelled {

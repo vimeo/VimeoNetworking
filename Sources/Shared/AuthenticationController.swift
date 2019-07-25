@@ -53,7 +53,7 @@ final public class AuthenticationController {
     private static let PinCodeRequestInterval: TimeInterval = 5
     
         /// Completion closure type for authentication requests
-    public typealias AuthenticationCompletion = ResultCompletion<VIMAccount, Error>.T
+    public typealias AuthenticationCompletion = ResultCompletion<VIMAccount, NSError>.T
     
         /// State is tracked for the code grant request/response cycle, to avoid interception
     static let state = ProcessInfo.processInfo.globallyUniqueString
@@ -310,7 +310,7 @@ final public class AuthenticationController {
      - parameter completion:                handler for authentication success or failure
      */
     public func authenticate(withResponse accountResponseDictionary: VimeoClient.ResponseDictionary, completion: AuthenticationCompletion) {
-        let result: Result<Response<VIMAccount>, Error>
+        let result: Result<Response<VIMAccount>, NSError>
         
         do {
             let account: VIMAccount = try VIMObjectMapper.mapObject(responseDictionary: accountResponseDictionary)
@@ -410,7 +410,7 @@ final public class AuthenticationController {
                 completion(result)
                 
             case .failure(let error):
-                if (error as NSError).statusCode == HTTPStatusCode.badRequest.rawValue // 400: Bad Request implies the code hasn't been activated yet, so try again.
+                if error.statusCode == HTTPStatusCode.badRequest.rawValue // 400: Bad Request implies the code hasn't been activated yet, so try again.
                 {
                     guard let strongSelf = self
                         else {
@@ -497,12 +497,12 @@ final public class AuthenticationController {
         }
     }
     
-    private func handleAuthenticationResult(_ result: Result<Response<VIMAccount>, Error>) -> Result<VIMAccount, Error> {
+    private func handleAuthenticationResult(_ result: Result<Response<VIMAccount>, NSError>) -> Result<VIMAccount, NSError> {
         guard case .success(let accountResponse) = result
         else {
             let resultError: NSError
             if case .failure(let error) = result {
-                resultError = error as NSError
+                resultError = error
             }
             else {
                 let errorDescription = "Authentication result malformed"
@@ -528,7 +528,7 @@ final public class AuthenticationController {
             
             try self.accountStore.save(account, ofType: accountType)
         }
-        catch let error {
+        catch let error as NSError {
             return .failure(error)
         }
         
