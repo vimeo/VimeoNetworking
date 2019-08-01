@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name                    = "VimeoNetworking"
-  s.version                 = "4.0.0"
+  s.version                 = "5.0.0"
   s.summary                 = "A library for interacting with the Vimeo API."
   s.description             = "An iOS/tvOS library for interacting with the Vimeo API."
   s.homepage                = "https://github.com/vimeo/VimeoNetworking"
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.social_media_url        = "http://twitter.com/vimeo"
   s.ios.deployment_target   = "10.3"
-  s.tvos.deployment_target  = "9.0"
+  s.tvos.deployment_target  = "10.0"
   s.osx.deployment_target   = "10.11"
   
   s.source                  = { :git => "https://github.com/vimeo/VimeoNetworking.git", :tag => s.version.to_s }

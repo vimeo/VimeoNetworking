@@ -73,18 +73,18 @@ final public class ResponseCache {
      - parameter request:    the request for which the cache should be queried
      - parameter completion: returns `.Success(ResponseDictionary)`, if found in cache, or `.Success(nil)` for a cache miss.  Returns `.Failure(NSError)` if an error occurred.
      */
-    func response<ModelType>(forRequest request: Request<ModelType>, completion: @escaping ResultCompletion<VimeoClient.ResponseDictionary?>.T) {
+    func response<ModelType>(forRequest request: Request<ModelType>, completion: @escaping ResultCompletion<VimeoClient.ResponseDictionary?, NSError>.T) {
         let key = request.cacheKey
         
         self.memoryCache.responseDictionary(forKey: key) { (responseDictionary) in
             
             if responseDictionary != nil {
-                completion(.success(result: responseDictionary))
+                completion(.success(responseDictionary))
             }
             else {
                 self.diskCache.responseDictionary(forKey: key, completion: { (responseDictionary) in
                     
-                    completion(.success(result: responseDictionary))
+                    completion(.success(responseDictionary))
                 })
             }
         }

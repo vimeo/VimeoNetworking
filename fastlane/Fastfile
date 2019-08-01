@@ -17,7 +17,8 @@ default_platform :ios
 
 platform :ios do
   before_all do
-    ensure_xcode_version(version: "10.2.1")
+    xcode_version = ENV["XCODE_VERSION"] || "10.2.1"
+    ensure_xcode_version(version: xcode_version)
   end
 
   desc "run tests"
@@ -56,7 +57,7 @@ platform :ios do
     increment_version_number(
       bump_type: bump_type,
       version_number: version_number,
-      xcodeproj: "VimeoNetworking-iOS.xcodeproj"
+      xcodeproj: "VimeoNetworking.xcodeproj"
     )
 
     version_bump_podspec(

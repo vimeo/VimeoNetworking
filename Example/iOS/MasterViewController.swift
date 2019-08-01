@@ -175,9 +175,9 @@ class MasterViewController: UITableViewController
         }
         else
         {
-            let URL = authenticationController.codeGrantAuthorizationURL()
+            let url = authenticationController.codeGrantAuthorizationURL()
             
-            UIApplication.shared.openURL(URL)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 
