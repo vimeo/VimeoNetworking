@@ -26,22 +26,46 @@
 
 import Foundation
 
+@objcMembers
 public class UserItem: VIMModelObject {
-    
+
     /// The `Folder` for the `UserItem` if one exists
-    @objc var folder: Folder?
-    
+    public var folder: Folder?
+
+    /// The item type for the `UserItem` represented by a string
+    public var type: String?
+
     /// The item type for the `UserItem`, mapped to a Swift-only enum
-    var type: UserItemType?
-    
+    public internal(set) var userItemType: UserItemType?
+
     /// The video of the `UserItem` if one exists
-    @objc var video: VIMVideo?
+    public var video: VIMVideo?
+
+    public override func didFinishMapping() {
+        if let type = type {
+            userItemType = UserItemType(rawValue: type)
+        }
+    }
+
+    public override func getClassForObjectKey(_ key: String!) -> AnyClass? {
+        return Mappings.classesByEncodingKeys[key]
+    }
 }
 
 extension UserItem {
-    
     public enum UserItemType: String {
         case folder
         case video
     }
 }
+
+extension UserItem {
+    struct Mappings
+    {
+        static let classesByEncodingKeys = [
+            "folder": Folder.self,
+            "video": VIMVideo.self
+        ]
+    }
+}
+
