@@ -36,7 +36,6 @@ extern NSInteger const VIMModelObjectValidationErrorCode;
 @interface VIMModelObject : NSObject <NSCopying, NSSecureCoding, VIMMappable>
 
 + (NSDateFormatter *)dateFormatter;
-+ (NSSet *)propertyKeys;
 
 - (instancetype)initWithKeyValueDictionary:(NSDictionary *)dictionary;
 
