@@ -127,7 +127,7 @@
 
 - (BOOL)validateModel:(NSError *__autoreleasing *)error
 {        
-    if ([super validateModel:error] == false)
+    if ([super validateModel:error] == NO)
     {
         return NO;
     }
