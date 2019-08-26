@@ -34,7 +34,7 @@ private let DefaultModelKeyPath = "data"
 public protocol MappableResponse {
     
     /// Returns the class type used by `VIMObjectMapper` to deserialize the response
-    static var mappingClass: AnyClass? { get }
+    static var mappingClass: AnyClass { get }
     
     /// Optionally returns a nested JSON key to reference for mapping
     static var modelKeyPath: String? { get }
@@ -52,7 +52,7 @@ public protocol MappableResponse {
  */
 extension VIMModelObject: MappableResponse {
     
-    public static var mappingClass: AnyClass? {
+    public static var mappingClass: AnyClass {
         return self
     }
     
@@ -68,7 +68,7 @@ extension VIMModelObject: MappableResponse {
  */
 extension Array: MappableResponse where Element: VIMModelObject {
 
-    public static var mappingClass: AnyClass? {
+    public static var mappingClass: AnyClass {
         return Element.self
     }
     
@@ -88,7 +88,7 @@ extension Array: MappableResponse where Element: VIMModelObject {
  */
 public class VIMNullResponse: MappableResponse {
     
-    public static var mappingClass: AnyClass? {
+    public static var mappingClass: AnyClass {
         return self
     }
     

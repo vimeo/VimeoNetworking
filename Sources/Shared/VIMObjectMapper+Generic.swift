@@ -44,18 +44,7 @@ extension VIMObjectMapper {
         modelKeyPath: String? = nil
     ) throws -> ModelType {
         
-        guard let mappingClass = ModelType.mappingClass else {
-            let description = "no mapping class found"
-
-            assertionFailure(description)
-
-            let error = NSError(
-                domain: ErrorDomain,
-                code: LocalErrorCode.noMappingClass.rawValue,
-                userInfo: [NSLocalizedDescriptionKey: description]
-            )
-            throw error
-        }
+        let mappingClass: AnyClass = ModelType.mappingClass
 
         let modelKeyPath = modelKeyPath ?? ModelType.modelKeyPath ?? ""
 
