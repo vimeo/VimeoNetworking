@@ -59,16 +59,7 @@ extension VIMModelObject: MappableResponse {
     public static var modelKeyPath: String? {
         return nil
     }
-    
-    public func validateModel() throws {
-        var error: NSError? = nil
         
-        self.validateModel(&error)
-        
-        if let error = error {
-            throw error
-        }
-    }
 }
 
 /**
@@ -87,14 +78,7 @@ extension Array: MappableResponse where Element: VIMModelObject {
     
     public func validateModel() throws {
         for model in self {
-            
-            var error: NSError? = nil
-            
-            model.validateModel(&error)
-            
-            if let error = error {
-                throw error
-            }
+            try model.validateModel()
         }
     }
 }

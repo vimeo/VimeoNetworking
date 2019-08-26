@@ -172,9 +172,10 @@ NSInteger const VIMModelObjectValidationErrorCode = 10101;
 
 #pragma mark - Model Validation
 
-- (void)validateModel:(NSError **)error
+- (BOOL)validateModel:(NSError **)error
 {
     *error = nil;
+    return YES;
 }
 
 #pragma mark - NSCopying

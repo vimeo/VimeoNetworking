@@ -43,6 +43,6 @@ extern NSInteger const VIMModelObjectValidationErrorCode;
 
 - (void)upgradeFromModelVersion:(NSUInteger)fromVersion toModelVersion:(NSUInteger)toVersion withCoder:(NSCoder *)aDecoder;
 
-- (void)validateModel:(NSError **)error;
+- (BOOL)validateModel:(NSError **)error;
 
 @end
