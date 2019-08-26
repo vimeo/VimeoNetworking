@@ -32,6 +32,7 @@
 
 - (void)addMappingClass:(Class)mappingClass forKeypath:(NSString *)keypath;
 
+- (id)applyMappingToJSON:(id)JSON;
 - (id)applyMappingToJSON:(id)JSON forKeypath:(NSString *)keyPath;
 
 @end

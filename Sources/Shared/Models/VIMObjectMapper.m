@@ -342,6 +342,11 @@
     return result;
 }
 
+- (id)applyMappingToJSON:(id)JSON
+{
+    return [self _createObjectsFromJSON:JSON keypath:@"" mappingClass:nil];
+}
+
 - (id)applyMappingToJSON:(id)JSON forKeypath:(NSString *)keyPath;
 {
     return [self _createObjectsFromJSON:JSON keypath:keyPath mappingClass:nil];

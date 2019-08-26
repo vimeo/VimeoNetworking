@@ -36,7 +36,7 @@ class FakeDataSource<T: VIMMappable> {
     init(jsonData: [AnyHashable: Any], keyPath: String) {
         mapper.addMappingClass(T.self, forKeypath: keyPath)
         
-        guard let mappedData = mapper.applyMapping(toJSON: jsonData, forKeypath: "") as? [AnyHashable: Any] else {
+        guard let mappedData = mapper.applyMapping(toJSON: jsonData) as? [AnyHashable: Any] else {
             return
         }
         
