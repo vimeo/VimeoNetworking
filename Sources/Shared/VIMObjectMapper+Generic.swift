@@ -26,7 +26,7 @@
 
 extension VIMObjectMapper {
     
-    static var ErrorDomain: String { return "ObjectMapperErrorDomain" }
+    private static let ErrorDomain = "ObjectMapperErrorDomain"
 
     /**
      Deserializes a response dictionary into a model object
@@ -39,14 +39,21 @@ extension VIMObjectMapper {
 
      - returns: A deserialized object of type `ModelType`
      */
-    static func mapObject<ModelType: MappableResponse>(responseDictionary: VimeoClient.ResponseDictionary, modelKeyPath: String? = nil) throws -> ModelType {
+    static func mapObject<ModelType: MappableResponse>(
+        responseDictionary: VimeoClient.ResponseDictionary,
+        modelKeyPath: String? = nil
+    ) throws -> ModelType {
+        
         guard let mappingClass = ModelType.mappingClass else {
             let description = "no mapping class found"
 
             assertionFailure(description)
 
-            let error = NSError(domain: self.ErrorDomain, code: LocalErrorCode.noMappingClass.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
-
+            let error = NSError(
+                domain: ErrorDomain,
+                code: LocalErrorCode.noMappingClass.rawValue,
+                userInfo: [NSLocalizedDescriptionKey: description]
+            )
             throw error
         }
 
@@ -68,7 +75,11 @@ extension VIMObjectMapper {
 
             assertionFailure(description)
 
-            let error = NSError(domain: self.ErrorDomain, code: LocalErrorCode.mappingFailed.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
+            let error = NSError(
+                domain: self.ErrorDomain,
+                code: LocalErrorCode.mappingFailed.rawValue,
+                userInfo: [NSLocalizedDescriptionKey: description]
+            )
 
             throw error
         }
@@ -77,8 +88,16 @@ extension VIMObjectMapper {
 
         return modelObject
     }
+}
 
-    private static func findMappedObject<MappedObject: MappableResponse>(in responseDictionary: VimeoClient.ResponseDictionary?, using keyPaths: [String]) -> MappedObject? {
+// MARK: Private helpers
+private extension VIMObjectMapper {
+    
+    static func findMappedObject<MappedObject: MappableResponse>(
+        in responseDictionary: VimeoClient.ResponseDictionary?,
+        using keyPaths: [String]
+    ) -> MappedObject? {
+        
         var keyPaths = keyPaths
 
         guard keyPaths.isEmpty == false else {
