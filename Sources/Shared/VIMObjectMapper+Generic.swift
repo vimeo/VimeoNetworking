@@ -25,6 +25,7 @@
 //
 
 extension VIMObjectMapper {
+    
     static var ErrorDomain: String { return "ObjectMapperErrorDomain" }
 
     /**
