@@ -189,13 +189,11 @@ NSString *VIMContentRating_Safe = @"safe";
 
 #pragma mark - Model Validation
 
-- (void)validateModel:(NSError *__autoreleasing *)error
+- (BOOL)validateModel:(NSError *__autoreleasing *)error
 {
-    [super validateModel:error];
-    
-    if (*error)
+    if ([super validateModel:error] == NO)
     {
-        return;
+        return NO;
     }
     
     if (self.uri == nil)
@@ -203,7 +201,7 @@ NSString *VIMContentRating_Safe = @"safe";
         NSString *description = @"VIMVideo failed validation: uri cannot be nil";
         *error = [NSError errorWithDomain:VIMModelObjectErrorDomain code:VIMModelObjectValidationErrorCode userInfo:@{NSLocalizedDescriptionKey: description}];
         
-        return;
+        return NO;
     }
     
     if (self.resourceKey == nil)
@@ -211,8 +209,10 @@ NSString *VIMContentRating_Safe = @"safe";
         NSString *description = @"VIMVideo failed validation: resourceKey cannot be nil";
         *error = [NSError errorWithDomain:VIMModelObjectErrorDomain code:VIMModelObjectValidationErrorCode userInfo:@{NSLocalizedDescriptionKey: description}];
         
-        return;
+        return NO;
     }
+    
+    return YES;
 }
 
 #pragma mark - Model Versioning

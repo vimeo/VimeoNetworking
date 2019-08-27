@@ -198,7 +198,7 @@ class VIMUserTests: XCTestCase {
         self.send(request: request, withDescription: "expectation for validating subscription dates") { user in
             XCTAssertEqual(user?.membership?.subscription?.renewal?.displayDate, "2019-06-12")
             
-            let testDate = VIMModelObject.dateFormatter()?.date(from: "2019-06-12T04:00:00+00:00")
+            let testDate = VIMModelObject.dateFormatter().date(from: "2019-06-12T04:00:00+00:00")
             XCTAssertEqual(user?.membership?.subscription?.renewal?.formattedRenewalDate, testDate)
         }
     }

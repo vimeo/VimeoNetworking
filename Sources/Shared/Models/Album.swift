@@ -159,7 +159,7 @@ import Foundation
     
     private func formatDate(from dateString: String?) -> Date? {
         guard let dateString = dateString,
-            let date = VIMModelObject.dateFormatter()?.date(from: dateString) else {
+            let date = VIMModelObject.dateFormatter().date(from: dateString) else {
                 return nil
         }
         

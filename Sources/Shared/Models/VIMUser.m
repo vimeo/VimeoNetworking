@@ -125,13 +125,11 @@
 
 #pragma mark - Model Validation
 
-- (void)validateModel:(NSError *__autoreleasing *)error
-{
-    [super validateModel:error];
-    
-    if (*error)
+- (BOOL)validateModel:(NSError *__autoreleasing *)error
+{        
+    if ([super validateModel:error] == NO)
     {
-        return;
+        return NO;
     }
     
     if (self.uri == nil)
@@ -139,7 +137,7 @@
         NSString *description = @"VIMUser failed validation: uri cannot be nil";
         *error = [NSError errorWithDomain:VIMModelObjectErrorDomain code:VIMModelObjectValidationErrorCode userInfo:@{NSLocalizedDescriptionKey: description}];
         
-        return;
+        return NO;
     }
     
     // TODO: Uncomment this when user objects get resource keys [RH] (5/17/16)
@@ -150,6 +148,8 @@
     //
     //        return;
     //    }
+    
+    return YES;
 }
 
 #pragma mark - Parsing Helpers

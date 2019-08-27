@@ -28,6 +28,8 @@
 
 #import "VIMMappable.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 extern NSString *const VIMModelObjectErrorDomain;
 extern NSString *const VIMConnectionKey;
 extern NSString *const VIMInteractionKey;
@@ -35,18 +37,18 @@ extern NSInteger const VIMModelObjectValidationErrorCode;
 
 @interface VIMModelObject : NSObject <NSCopying, NSSecureCoding, VIMMappable>
 
-@property (nonatomic, copy) NSString *objectID;
-
-+ (NSUInteger)modelVersion;
 + (NSDateFormatter *)dateFormatter;
-+ (NSSet *)propertyKeys;
 
-- (instancetype)initWithKeyValueDictionary:(NSDictionary *)dictionary;
+- (nullable instancetype)initWithKeyValueDictionary:(nullable NSDictionary *)dictionary;
 
-- (NSDictionary *)keyValueDictionary;
+- (nullable NSDictionary*)keyValueDictionary;
 
-- (void)upgradeFromModelVersion:(NSUInteger)fromVersion toModelVersion:(NSUInteger)toVersion withCoder:(NSCoder *)aDecoder;
+- (void)upgradeFromModelVersion:(NSUInteger)fromVersion
+                 toModelVersion:(NSUInteger)toVersion
+                      withCoder:(NSCoder *)aDecoder;
 
-- (void)validateModel:(NSError **)error;
+- (BOOL)validateModel:(NSError **)error;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -40,10 +40,10 @@ public class UserSubscriptionRenewal: VIMModelObject {
     }
     
     private func formatRenewalDate() {
-        guard let renewalDate = self.renewalDate, let dateFormatter = VIMModelObject.dateFormatter() else {
+        guard let renewalDate = self.renewalDate else {
             return
         }
-        
+        let dateFormatter = VIMModelObject.dateFormatter()
         self.formattedRenewalDate = dateFormatter.date(from: renewalDate)
     }
 }
