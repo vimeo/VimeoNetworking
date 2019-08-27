@@ -60,8 +60,7 @@ extension UserItem {
 }
 
 extension UserItem {
-    struct Mappings
-    {
+    struct Mappings {
         static let classesByEncodingKeys = [
             "folder": Folder.self,
             "video": VIMVideo.self
