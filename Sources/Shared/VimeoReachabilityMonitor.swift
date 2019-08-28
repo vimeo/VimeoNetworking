@@ -28,14 +28,14 @@ public class VimeoReachabilityMonitor: ReachabilityMonitoringType {
     private let reachabilityManager: NetworkReachabilityManager?
     
     /// The closure to be called when a reachability change is detected
-    private let onReachabilityChange: ((Status) -> Void)?
+    private let onReachabilityChange: (Status) -> Void
     
     /// A typealias to NetworkReachabilityManager.Status
     public typealias Status = NetworkReachabilityManager.Status
             
     public init(
         reachabilityManager: NetworkReachabilityManager? = nil,
-        onReachabilityChange: ((Status) -> Void)? = nil
+        onReachabilityChange: @escaping (Status) -> Void
     ) {
         self.reachabilityManager = reachabilityManager
         self.onReachabilityChange = onReachabilityChange
@@ -50,7 +50,7 @@ public class VimeoReachabilityMonitor: ReachabilityMonitoringType {
         self.reachabilityManager?.startListening(onUpdatePerforming: { [weak self] status in
             guard status != self?.lastKnownReachabilityStatus else { return }
             self?.lastKnownReachabilityStatus = status
-            self?.onReachabilityChange?(status)
+            self?.onReachabilityChange(status)
         })
     }
     
