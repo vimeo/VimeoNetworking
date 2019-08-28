@@ -29,16 +29,16 @@ import Foundation
 public class Folder: VIMModelObject, ConnectionsProviding, ConnectionsParsing {
     
     /// The created time for the `Folder`
-    @objc public private(set) var createdTimeString: String?
+    @objc public private(set) var createdDate: NSDate?
     
     /// The meta data for the `Folder`
     @objc internal var metadata: Metadata?
     
     /// The modified time for the `Folder`
-    @objc public private(set) var modifiedTimeString: String?
+    @objc public private(set) var modifiedDate: NSDate?
 
     /// The modified time by the user for the `Folder`
-    @objc public private(set) var lastUserActionEventDateString: String?
+    @objc public private(set) var lastUserActionEventDate: NSDate?
     
     /// The name for the `Folder`
     @objc public private(set) var name: String?
@@ -72,16 +72,7 @@ public class Folder: VIMModelObject, ConnectionsProviding, ConnectionsParsing {
     
     /// The Slack user preferences for the `Folder`, mapped to a Swift-only enum
     public private(set) var userPreferences: [SlackUserPreferences]?
-    
-    /// The created time for the `Folder`, converted to a `Date` type
-    @objc public private(set) var createdDate: Date?
-    
-    /// The modified time for the `Folder`, converted to a `Date` type
-    @objc public private(set) var modifiedDate: Date?
 
-    /// The modified time by the user for the `Folder`, converted to a `Date` type
-    @objc public private(set) var lastUserActionEventDate: Date?
-    
     // MARK: - VIMModelObject overrides
     
     public override func didFinishMapping() {
@@ -97,10 +88,6 @@ public class Folder: VIMModelObject, ConnectionsProviding, ConnectionsParsing {
         if let slackUserPreferences = self.slackUserPreferences {
             self.userPreferences = slackUserPreferences.compactMap { SlackUserPreferences(rawValue: $0) }
         }
-
-        self.createdDate = self.formatDate(from: self.createdTimeString)
-        self.modifiedDate = self.formatDate(from: self.modifiedTimeString)
-        self.lastUserActionEventDate = self.formatDate(from: self.lastUserActionEventDateString)
     }
     
     public override func getObjectMapping() -> Any {
@@ -110,16 +97,6 @@ public class Folder: VIMModelObject, ConnectionsProviding, ConnectionsParsing {
     public override func getClassForObjectKey(_ key: String!) -> AnyClass? {
         return Mappings.classesByEncodingKeys[key]
     }
-
-    private func formatDate(from dateString: String?) -> Date? {
-        guard
-            let dateString = dateString,
-            let date = VIMModelObject.dateFormatter().date(from: dateString) else {
-                return nil
-        }
-
-        return date
-    }
 }
 
 extension Folder {
@@ -127,9 +104,9 @@ extension Folder {
     struct Mappings {
         
         static let membersByEncodingKeys = [
-            "created_time": "createdTimeString",
-            "modified_time": "modifiedTimeString",
-            "last_user_action_event_date": "lastUserActionEventDateString",
+            "created_time": "createdTime",
+            "modified_time": "modifiedTime",
+            "last_user_action_event_date": "lastUserActionEventDate",
             "resource_key": "resourceKey",
             "slack_incoming_webhooks_id": "slackIncomingWebhooksId",
             "slack_integration_channel": "slackIntegrationChannel"
