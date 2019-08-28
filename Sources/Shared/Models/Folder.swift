@@ -29,13 +29,13 @@ import Foundation
 public class Folder: VIMModelObject, ConnectionsProviding, ConnectionsParsing {
     
     /// The created time for the `Folder`
-    @objc public private(set) var createdDate: NSDate?
+    @objc public private(set) var createdTime: NSDate?
     
     /// The meta data for the `Folder`
     @objc internal var metadata: Metadata?
     
     /// The modified time for the `Folder`
-    @objc public private(set) var modifiedDate: NSDate?
+    @objc public private(set) var modifiedTime: NSDate?
 
     /// The modified time by the user for the `Folder`
     @objc public private(set) var lastUserActionEventDate: NSDate?
