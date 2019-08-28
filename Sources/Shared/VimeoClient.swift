@@ -89,6 +89,8 @@ final public class VimeoClient {
         /// response cache handles all memory and disk caching of response dictionaries
     private let responseCache = ResponseCache()
     
+    private var reachabilityMonitor: ReachabilityMonitoringType
+    
     struct Constants {
         fileprivate static let BearerQuery = "Bearer "
         fileprivate static let AuthorizationHeader = "Authorization"
@@ -108,17 +110,32 @@ final public class VimeoClient {
     /// - Parameters:
     ///   - appConfiguration: Your application's configuration
     ///   - configureSessionManagerBlock: a block to configure the session manager
-    convenience public init(appConfiguration: AppConfiguration, configureSessionManagerBlock: ConfigureSessionManagerBlock?) {
-        self.init(appConfiguration: appConfiguration, sessionManager: VimeoSessionManager.defaultSessionManager(appConfiguration: appConfiguration, configureSessionManagerBlock: configureSessionManagerBlock))
+    convenience public init(
+        appConfiguration: AppConfiguration,
+        configureSessionManagerBlock: ConfigureSessionManagerBlock? = nil,
+        reachabilityMonitor: ReachabilityMonitoringType = VimeoReachabilityMonitor.default
+    ) {
+        let sessionManager = VimeoSessionManager.defaultSessionManager(
+            appConfiguration: appConfiguration,
+            configureSessionManagerBlock: configureSessionManagerBlock
+        )
+        self.init(
+            appConfiguration: appConfiguration,
+            sessionManager: sessionManager
+        )
     }
     
-    public init(appConfiguration: AppConfiguration?, sessionManager: VimeoSessionManager?) {
+    public init(
+        appConfiguration: AppConfiguration? = nil,
+        sessionManager: VimeoSessionManager? = nil,
+        reachabilityMonitor: ReachabilityMonitoringType = VimeoReachabilityMonitor.default
+    ) {
+        self.reachabilityMonitor = reachabilityMonitor
         if let appConfiguration = appConfiguration,
             let sessionManager = sessionManager {
             self.configuration = appConfiguration
             self.sessionManager = sessionManager
-            
-            VimeoReachability.beginPostingReachabilityChangeNotifications()
+            self.reachabilityMonitor.beginMonitoringReachabilityChanges()
         }
     }
     
@@ -159,7 +176,11 @@ final public class VimeoClient {
      
      - returns: a `RequestToken` for the in-flight request
      */
-    public func request<ModelType>(_ request: Request<ModelType>, completionQueue: DispatchQueue = DispatchQueue.main, completion: @escaping ResultCompletion<Response<ModelType>, NSError>.T) -> RequestToken {
+    public func request<ModelType>(
+        _ request: Request<ModelType>,
+        completionQueue: DispatchQueue = DispatchQueue.main,
+        completion: @escaping ResultCompletion<Response<ModelType>, NSError>.T
+    ) -> RequestToken {
         if request.useCache {
             self.responseCache.response(forRequest: request) { result in
                 
@@ -262,9 +283,15 @@ final public class VimeoClient {
     
     // MARK: - Private task completion handlers
     
-    private func handleTaskSuccess<ModelType>(forRequest request: Request<ModelType>, task: URLSessionDataTask?, responseObject: Any?, isCachedResponse: Bool = false, completionQueue: DispatchQueue, completion: @escaping ResultCompletion<Response<ModelType>, NSError>.T) {
-        guard let responseDictionary = responseObject as? ResponseDictionary
-        else {
+    private func handleTaskSuccess<ModelType>(
+        forRequest request: Request<ModelType>,
+        task: URLSessionDataTask?,
+        responseObject: Any?,
+        isCachedResponse: Bool = false,
+        completionQueue: DispatchQueue,
+        completion: @escaping ResultCompletion<Response<ModelType>, NSError>.T
+    ) {
+        guard let responseDictionary = responseObject as? ResponseDictionary else {
             if ModelType.self == VIMNullResponse.self {
                 let nullResponseObject = VIMNullResponse()
                 
@@ -351,7 +378,13 @@ final public class VimeoClient {
         }
     }
     
-    private func handleTaskFailure<ModelType>(forRequest request: Request<ModelType>, task: URLSessionDataTask?, error: NSError?, completionQueue: DispatchQueue, completion: @escaping ResultCompletion<Response<ModelType>, NSError>.T) {
+    private func handleTaskFailure<ModelType>(
+        forRequest request: Request<ModelType>,
+        task: URLSessionDataTask?,
+        error: NSError?,
+        completionQueue: DispatchQueue,
+        completion: @escaping ResultCompletion<Response<ModelType>, NSError>.T
+    ) {
         let error = error ?? NSError(domain: type(of: self).ErrorDomain, code: LocalErrorCode.undefined.rawValue, userInfo: [NSLocalizedDescriptionKey: "Undefined error"])
         
         if error.code == NSURLErrorCancelled {
@@ -377,7 +410,11 @@ final public class VimeoClient {
     
     // MARK: - Private error handling
     
-    private func handleError<ModelType>(_ error: NSError, request: Request<ModelType>, task: URLSessionDataTask? = nil) {
+    private func handleError<ModelType>(
+        _ error: NSError,
+        request: Request<ModelType>,
+        task: URLSessionDataTask? = nil
+    ) {
         if error.isServiceUnavailableError {
             NetworkingNotification.clientDidReceiveServiceUnavailableError.post(object: nil)
         }
@@ -401,15 +438,16 @@ extension VimeoClient {
     /// Singleton instance for VimeoClient. Applications must call configureSharedClient(withAppConfiguration appConfiguration:)
     /// before it can be accessed.
     public static var sharedClient: VimeoClient {
-        guard let _ = self._sharedClient.configuration,
+        guard
+            let _ = self._sharedClient.configuration,
             let _ = self._sharedClient.sessionManager else {
-            assertionFailure("VimeoClient.sharedClient must be configured before accessing")
-            return self._sharedClient
+                assertionFailure("VimeoClient.sharedClient must be configured before accessing")
+                return self._sharedClient
         }
-        
         return self._sharedClient
     }
-    private static let _sharedClient = VimeoClient(appConfiguration: nil, sessionManager: nil)
+    
+    private static let _sharedClient = VimeoClient()
     
     /// Configures the singleton sharedClient instance. This function allows applications to provide
     /// client specific app configurations at start time.
@@ -417,14 +455,22 @@ extension VimeoClient {
     /// - Parameters:
     ///   - appConfiguration: An AppConfiguration instance
     ///   - configureSessionManagerBlock: a block to configure the session manager
-    public static func configureSharedClient(withAppConfiguration appConfiguration: AppConfiguration, configureSessionManagerBlock: ConfigureSessionManagerBlock?) {
+    public static func configureSharedClient(
+        withAppConfiguration appConfiguration: AppConfiguration,
+        configureSessionManagerBlock: ConfigureSessionManagerBlock? = nil,
+        reachabilityMonitor: ReachabilityMonitoringType = VimeoReachabilityMonitor.default
+    ) {
         self._sharedClient.configuration = appConfiguration
         
-        let defaultSessionManager = VimeoSessionManager.defaultSessionManager(appConfiguration: appConfiguration, configureSessionManagerBlock: configureSessionManagerBlock)
+        let defaultSessionManager = VimeoSessionManager.defaultSessionManager(
+            appConfiguration: appConfiguration,
+            configureSessionManagerBlock: configureSessionManagerBlock
+        )
         
         self._sharedClient.sessionManager?.invalidateSessionCancelingTasks(false)
         self._sharedClient.sessionManager = defaultSessionManager
+        self._sharedClient.reachabilityMonitor = reachabilityMonitor
         
-        VimeoReachability.beginPostingReachabilityChangeNotifications()
+        self._sharedClient.reachabilityMonitor.beginMonitoringReachabilityChanges()
     }
 }
