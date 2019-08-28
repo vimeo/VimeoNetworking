@@ -31,9 +31,9 @@ public class VimeoReachabilityMonitor: ReachabilityMonitoringType {
     private let onReachabilityChange: (Status) -> Void
     
     /// A typealias to NetworkReachabilityManager.Status
-    public typealias Status = NetworkReachabilityManager.Status
+    public typealias Status = NetworkReachabilityStatus
             
-    public init(
+    init(
         reachabilityManager: NetworkReachabilityManager? = nil,
         onReachabilityChange: @escaping (Status) -> Void
     ) {

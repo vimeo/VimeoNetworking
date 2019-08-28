@@ -11,6 +11,35 @@ import SystemConfiguration
 /// Original source from the link below, with modifications.
 /// https://raw.githubusercontent.com/Alamofire/Alamofire/master/Source/NetworkReachabilityManager.swift
 ///
+
+/// Defines the status of network reachability.
+public enum NetworkReachabilityStatus {
+    /// It is unknown whether the network is reachable.
+    case unknown
+    /// The network is not reachable.
+    case notReachable
+    /// The network is reachable on the associated `ConnectionType`.
+    case reachable(ConnectionType)
+    
+    init(_ flags: SCNetworkReachabilityFlags) {
+        guard flags.isActuallyReachable else { self = .notReachable; return }
+        
+        var networkStatus: NetworkReachabilityStatus = .reachable(.ethernetOrWiFi)
+        
+        if flags.isCellular { networkStatus = .reachable(.cellular) }
+        
+        self = networkStatus
+    }
+    
+    /// Defines the various connection types detected by reachability flags.
+    public enum ConnectionType {
+        /// The connection type is either over Ethernet or WiFi.
+        case ethernetOrWiFi
+        /// The connection type is a cellular connection.
+        case cellular
+    }
+}
+
 /// The `NetworkReachabilityManager` class listens for reachability changes of
 /// hosts and addresses for both cellular and WiFi network interfaces.
 ///
@@ -18,39 +47,11 @@ import SystemConfiguration
 /// or to retry network requests when a connection is established.
 /// Reachability should *not* be used to prevent a user from initiating a network request,
 /// as it's possible that an initial request may be required to establish reachability.
-open class NetworkReachabilityManager {
-    
-    /// Defines the status of network reachability.
-    public enum Status {
-        /// It is unknown whether the network is reachable.
-        case unknown
-        /// The network is not reachable.
-        case notReachable
-        /// The network is reachable on the associated `ConnectionType`.
-        case reachable(ConnectionType)
-        
-        init(_ flags: SCNetworkReachabilityFlags) {
-            guard flags.isActuallyReachable else { self = .notReachable; return }
+internal class NetworkReachabilityManager {
             
-            var networkStatus: Status = .reachable(.ethernetOrWiFi)
-            
-            if flags.isCellular { networkStatus = .reachable(.cellular) }
-            
-            self = networkStatus
-        }
-        
-        /// Defines the various connection types detected by reachability flags.
-        public enum ConnectionType {
-            /// The connection type is either over Ethernet or WiFi.
-            case ethernetOrWiFi
-            /// The connection type is a cellular connection.
-            case cellular
-        }
-    }
-    
     /// A closure executed when the network reachability status changes. The closure takes a single argument: the
     /// network reachability status.
-    typealias Listener = (Status) -> Void
+    typealias Listener = (NetworkReachabilityStatus) -> Void
     
     /// Default `NetworkReachabilityManager` for the zero address and a `listenerQueue` of `.main`.
     static let `default` = NetworkReachabilityManager()
@@ -78,8 +79,8 @@ open class NetworkReachabilityManager {
     }
     
     /// The current network reachability status.
-    var status: Status {
-        return flags.map(Status.init) ?? .unknown
+    var status: NetworkReachabilityStatus {
+        return flags.map(NetworkReachabilityStatus.init) ?? .unknown
     }
     
     /// `DispatchQueue` on which reachability will update.
@@ -190,14 +191,14 @@ open class NetworkReachabilityManager {
     ///
     /// - Parameter flags: `SCNetworkReachabilityFlags` to use to calculate the status.
     private func notifyListener(_ flags: SCNetworkReachabilityFlags) {
-        let newStatus = Status(flags)
+        let newStatus = NetworkReachabilityStatus(flags)
         listenerQueue?.async { self.listener?(newStatus) }
     }
 }
 
 // MARK: - Convenience conformance
 
-extension NetworkReachabilityManager.Status: Equatable { }
+extension NetworkReachabilityStatus: Equatable { }
 
 // MARK: - Convenience properties
 
