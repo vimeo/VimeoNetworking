@@ -89,7 +89,7 @@ final public class VimeoClient {
         /// response cache handles all memory and disk caching of response dictionaries
     private let responseCache = ResponseCache()
     
-    private var reachabilityMonitor: ReachabilityMonitoringType
+    private var reachabilityMonitor: ReachabilityManagingType?
     
     struct Constants {
         fileprivate static let BearerQuery = "Bearer "
@@ -113,7 +113,7 @@ final public class VimeoClient {
     convenience public init(
         appConfiguration: AppConfiguration,
         configureSessionManagerBlock: ConfigureSessionManagerBlock? = nil,
-        reachabilityMonitor: ReachabilityMonitoringType = VimeoReachabilityMonitor.default
+        reachabilityMonitor: ReachabilityManagingType? = VimeoReachabilityProvider.reachabilityManager
     ) {
         let sessionManager = VimeoSessionManager.defaultSessionManager(
             appConfiguration: appConfiguration,
@@ -128,14 +128,13 @@ final public class VimeoClient {
     public init(
         appConfiguration: AppConfiguration? = nil,
         sessionManager: VimeoSessionManager? = nil,
-        reachabilityMonitor: ReachabilityMonitoringType = VimeoReachabilityMonitor.default
+        reachabilityMonitor: ReachabilityManagingType? = VimeoReachabilityProvider.reachabilityManager
     ) {
         self.reachabilityMonitor = reachabilityMonitor
         if let appConfiguration = appConfiguration,
             let sessionManager = sessionManager {
             self.configuration = appConfiguration
             self.sessionManager = sessionManager
-            self.reachabilityMonitor.beginMonitoringReachabilityChanges()
         }
     }
     
@@ -458,7 +457,7 @@ extension VimeoClient {
     public static func configureSharedClient(
         withAppConfiguration appConfiguration: AppConfiguration,
         configureSessionManagerBlock: ConfigureSessionManagerBlock? = nil,
-        reachabilityMonitor: ReachabilityMonitoringType = VimeoReachabilityMonitor.default
+        reachabilityMonitor: ReachabilityManagingType? = VimeoReachabilityProvider.reachabilityManager
     ) {
         self._sharedClient.configuration = appConfiguration
         
@@ -470,7 +469,6 @@ extension VimeoClient {
         self._sharedClient.sessionManager?.invalidateSessionCancelingTasks(false)
         self._sharedClient.sessionManager = defaultSessionManager
         self._sharedClient.reachabilityMonitor = reachabilityMonitor
-        
-        self._sharedClient.reachabilityMonitor.beginMonitoringReachabilityChanges()
+                
     }
 }

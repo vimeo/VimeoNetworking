@@ -8,6 +8,19 @@
 import Foundation
 import SystemConfiguration
 
+/// The protocol indicating the capabilities of a `ReachabilityManagingType` type
+public protocol ReachabilityManagingType {
+    func startListening(onQueue queue: DispatchQueue, onUpdatePerforming listener: @escaping ReachabilityListener) -> Bool
+    func stopListening()
+    var isReachable: Bool { get }
+    var isReachableOnCellular: Bool { get }
+    var isReachableOnEthernetOrWiFi: Bool { get }
+}
+
+/// A closure executed when the network reachability status changes. The closure takes a single argument: the
+/// network reachability status.
+public typealias ReachabilityListener = (NetworkReachabilityStatus) -> Void
+
 /// Original source from the link below, with modifications.
 /// https://raw.githubusercontent.com/Alamofire/Alamofire/master/Source/NetworkReachabilityManager.swift
 ///
@@ -18,12 +31,8 @@ import SystemConfiguration
 /// or to retry network requests when a connection is established.
 /// Reachability should *not* be used to prevent a user from initiating a network request,
 /// as it's possible that an initial request may be required to establish reachability.
-internal class NetworkReachabilityManager {
+internal class NetworkReachabilityManager: ReachabilityManagingType {
             
-    /// A closure executed when the network reachability status changes. The closure takes a single argument: the
-    /// network reachability status.
-    typealias Listener = (NetworkReachabilityStatus) -> Void
-    
     /// Default `NetworkReachabilityManager` for the zero address and a `listenerQueue` of `.main`.
     static let `default` = NetworkReachabilityManager()
     
@@ -55,16 +64,19 @@ internal class NetworkReachabilityManager {
     }
     
     /// `DispatchQueue` on which reachability will update.
-    private let reachabilityQueue = DispatchQueue(label: "org.alamofire.reachabilityQueue")
+    private let reachabilityQueue = DispatchQueue(label: "com.vimeo.reachabilityQueue")
 
     /// A closure executed when the network reachability status changes.
-    private var listener: Listener?
+    private var listener: ReachabilityListener?
     
     /// `DispatchQueue` on which listeners will be called.
     private var listenerQueue: DispatchQueue?
     
     /// `SCNetworkReachability` instance providing notifications.
     private let reachability: SCNetworkReachability
+    
+    /// Protected storage for the previous status.
+    private let previousStatus = Protector<NetworkReachabilityStatus?>(nil)
     
     // MARK: - Initialization
     
@@ -115,7 +127,7 @@ internal class NetworkReachabilityManager {
     /// - Returns: `true` if listening was started successfully, `false` otherwise.
     @discardableResult
     func startListening(onQueue queue: DispatchQueue = .main,
-                        onUpdatePerforming listener: @escaping Listener) -> Bool {
+                        onUpdatePerforming listener: @escaping ReachabilityListener) -> Bool {
         stopListening()
         
         listenerQueue = queue
@@ -150,6 +162,7 @@ internal class NetworkReachabilityManager {
     func stopListening() {
         SCNetworkReachabilitySetCallback(reachability, nil, nil)
         SCNetworkReachabilitySetDispatchQueue(reachability, nil)
+        previousStatus.write { $0 = nil }
         listenerQueue = nil
         listener = nil
     }
@@ -163,6 +176,90 @@ internal class NetworkReachabilityManager {
     /// - Parameter flags: `SCNetworkReachabilityFlags` to use to calculate the status.
     private func notifyListener(_ flags: SCNetworkReachabilityFlags) {
         let newStatus = NetworkReachabilityStatus(flags)
-        listenerQueue?.async { self.listener?(newStatus) }
+        previousStatus.write { previousStatus in
+            guard previousStatus != newStatus else { return }
+            
+            previousStatus = newStatus
+            
+            listenerQueue?.async { self.listener?(newStatus) }
+        }
+    }
+}
+
+// MARK: -
+
+/// An `os_unfair_lock` wrapper.
+final class UnfairLock {
+    private let unfairLock: os_unfair_lock_t
+
+    init() {
+        unfairLock = .allocate(capacity: 1)
+        unfairLock.initialize(to: os_unfair_lock())
+    }
+
+    deinit {
+        unfairLock.deinitialize(count: 1)
+        unfairLock.deallocate()
+    }
+
+    fileprivate func lock() {
+        os_unfair_lock_lock(unfairLock)
+    }
+
+    fileprivate func unlock() {
+        os_unfair_lock_unlock(unfairLock)
+    }
+
+    /// Executes a closure returning a value while acquiring the lock.
+    ///
+    /// - Parameter closure: The closure to run.
+    ///
+    /// - Returns:           The value the closure generated.
+    func around<T>(_ closure: () -> T) -> T {
+        lock(); defer { unlock() }
+        return closure()
+    }
+
+    /// Execute a closure while acquiring the lock.
+    ///
+    /// - Parameter closure: The closure to run.
+    func around(_ closure: () -> Void) {
+        lock(); defer { unlock() }
+        return closure()
+    }
+}
+
+/// A thread-safe wrapper around a value.
+final class Protector<T> {
+    private let lock = UnfairLock()
+    private var value: T
+
+    init(_ value: T) {
+        self.value = value
+    }
+
+    /// The contained value. Unsafe for anything more than direct read or write.
+    var directValue: T {
+        get { return lock.around { value } }
+        set { lock.around { value = newValue } }
+    }
+
+    /// Synchronously read or transform the contained value.
+    ///
+    /// - Parameter closure: The closure to execute.
+    ///
+    /// - Returns:           The return value of the closure passed.
+    func read<U>(_ closure: (T) -> U) -> U {
+        return lock.around { closure(self.value) }
+    }
+
+    /// Synchronously modify the protected value.
+    ///
+    /// - Parameter closure: The closure to execute.
+    ///
+    /// - Returns:           The modified value.
+    @discardableResult
+    func write<U>(_ closure: (inout T) -> U) -> U {
+        return lock.around { closure(&self.value) }
     }
 }
