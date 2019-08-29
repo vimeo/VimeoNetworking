@@ -18,13 +18,16 @@ class NetworkReachabilityStatusTests: XCTestCase {
         // Then status should be reachable with connection type ethernet or wifi
         XCTAssertEqual(status, .reachable(.ethernetOrWiFi))
     }
-    
+        
+    // Note: `isWWAN` is unavailable on macOS
+    #if os(iOS) || os(tvOS) || os(watchOS)
     func testInitializer_IsReachable_Through_WWAN() {
         // When initialized with a `reachable` and `isWWAN` flags
         let status = NetworkReachabilityStatus([.reachable, .isWWAN])
         // Then status should be reachable with connection type cellular
         XCTAssertEqual(status, .reachable(.cellular))
     }
+    #endif
     
     func testInitializer_WhenNoFlagsPassed() {
         // When initialized with no flags
