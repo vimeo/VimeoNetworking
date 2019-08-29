@@ -11,35 +11,6 @@ import SystemConfiguration
 /// Original source from the link below, with modifications.
 /// https://raw.githubusercontent.com/Alamofire/Alamofire/master/Source/NetworkReachabilityManager.swift
 ///
-
-/// Defines the status of network reachability.
-public enum NetworkReachabilityStatus {
-    /// It is unknown whether the network is reachable.
-    case unknown
-    /// The network is not reachable.
-    case notReachable
-    /// The network is reachable on the associated `ConnectionType`.
-    case reachable(ConnectionType)
-    
-    init(_ flags: SCNetworkReachabilityFlags) {
-        guard flags.isActuallyReachable else { self = .notReachable; return }
-        
-        var networkStatus: NetworkReachabilityStatus = .reachable(.ethernetOrWiFi)
-        
-        if flags.isCellular { networkStatus = .reachable(.cellular) }
-        
-        self = networkStatus
-    }
-    
-    /// Defines the various connection types detected by reachability flags.
-    public enum ConnectionType {
-        /// The connection type is either over Ethernet or WiFi.
-        case ethernetOrWiFi
-        /// The connection type is a cellular connection.
-        case cellular
-    }
-}
-
 /// The `NetworkReachabilityManager` class listens for reachability changes of
 /// hosts and addresses for both cellular and WiFi network interfaces.
 ///
@@ -193,26 +164,5 @@ internal class NetworkReachabilityManager {
     private func notifyListener(_ flags: SCNetworkReachabilityFlags) {
         let newStatus = NetworkReachabilityStatus(flags)
         listenerQueue?.async { self.listener?(newStatus) }
-    }
-}
-
-// MARK: - Convenience conformance
-
-extension NetworkReachabilityStatus: Equatable { }
-
-// MARK: - Convenience properties
-
-private extension SCNetworkReachabilityFlags {
-    var isReachable: Bool { return contains(.reachable) }
-    var isConnectionRequired: Bool { return contains(.connectionRequired) }
-    var canConnectAutomatically: Bool { return contains(.connectionOnDemand) || contains(.connectionOnTraffic) }
-    var canConnectWithoutUserInteraction: Bool { return canConnectAutomatically && !contains(.interventionRequired) }
-    var isActuallyReachable: Bool { return isReachable && (!isConnectionRequired || canConnectWithoutUserInteraction) }
-    var isCellular: Bool {
-        #if os(iOS) || os(tvOS)
-        return contains(.isWWAN)
-        #else
-        return false
-        #endif
     }
 }
