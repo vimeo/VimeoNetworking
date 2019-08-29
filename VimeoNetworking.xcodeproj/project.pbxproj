@@ -233,9 +233,9 @@
 		5B5EF02D22B441A3005C66BE /* ExceptionCatcher+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF7722B441A3005C66BE /* ExceptionCatcher+Swift.swift */; };
 		5B5EF02E22B441A3005C66BE /* ExceptionCatcher+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF7722B441A3005C66BE /* ExceptionCatcher+Swift.swift */; };
 		5B5EF02F22B441A3005C66BE /* ExceptionCatcher+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF7722B441A3005C66BE /* ExceptionCatcher+Swift.swift */; };
-		5B5EF03022B441A3005C66BE /* VimeoReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF7822B441A3005C66BE /* VimeoReachabilityMonitor.swift */; };
-		5B5EF03122B441A3005C66BE /* VimeoReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF7822B441A3005C66BE /* VimeoReachabilityMonitor.swift */; };
-		5B5EF03222B441A3005C66BE /* VimeoReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF7822B441A3005C66BE /* VimeoReachabilityMonitor.swift */; };
+		5B5EF03022B441A3005C66BE /* VimeoReachabilityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF7822B441A3005C66BE /* VimeoReachabilityProvider.swift */; };
+		5B5EF03122B441A3005C66BE /* VimeoReachabilityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF7822B441A3005C66BE /* VimeoReachabilityProvider.swift */; };
+		5B5EF03222B441A3005C66BE /* VimeoReachabilityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF7822B441A3005C66BE /* VimeoReachabilityProvider.swift */; };
 		5B5EF03322B441A3005C66BE /* NetworkingNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF7922B441A3005C66BE /* NetworkingNotification.swift */; };
 		5B5EF03422B441A3005C66BE /* NetworkingNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF7922B441A3005C66BE /* NetworkingNotification.swift */; };
 		5B5EF03522B441A3005C66BE /* NetworkingNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF7922B441A3005C66BE /* NetworkingNotification.swift */; };
@@ -828,7 +828,7 @@
 		5B5EEF7522B441A3005C66BE /* Objc_ExceptionCatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Objc_ExceptionCatcher.m; sourceTree = "<group>"; };
 		5B5EEF7622B441A3005C66BE /* Request+Toggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Toggle.swift"; sourceTree = "<group>"; };
 		5B5EEF7722B441A3005C66BE /* ExceptionCatcher+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExceptionCatcher+Swift.swift"; sourceTree = "<group>"; };
-		5B5EEF7822B441A3005C66BE /* VimeoReachabilityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimeoReachabilityMonitor.swift; sourceTree = "<group>"; };
+		5B5EEF7822B441A3005C66BE /* VimeoReachabilityProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimeoReachabilityProvider.swift; sourceTree = "<group>"; };
 		5B5EEF7922B441A3005C66BE /* NetworkingNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingNotification.swift; sourceTree = "<group>"; };
 		5B5EEF7A22B441A3005C66BE /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		5B5EEF7B22B441A3005C66BE /* Request+Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Authentication.swift"; sourceTree = "<group>"; };
@@ -1242,7 +1242,7 @@
 			children = (
 				5BF72AC92316F64800A0D2C8 /* NetworkReachabilityManager.swift */,
 				5B20D0FC23172F5D00CA3028 /* NetworkReachabilityStatus.swift */,
-				5B5EEF7822B441A3005C66BE /* VimeoReachabilityMonitor.swift */,
+				5B5EEF7822B441A3005C66BE /* VimeoReachabilityProvider.swift */,
 			);
 			path = Reachability;
 			sourceTree = "<group>";
@@ -2306,7 +2306,7 @@
 				5B5EF04B22B441A3005C66BE /* VIMPictureCollection.m in Sources */,
 				5B5EF08D22B441A3005C66BE /* VIMVideoFile.m in Sources */,
 				5B5EF17D22B441A4005C66BE /* VIMRecommendation.m in Sources */,
-				5B5EF03022B441A3005C66BE /* VimeoReachabilityMonitor.swift in Sources */,
+				5B5EF03022B441A3005C66BE /* VimeoReachabilityProvider.swift in Sources */,
 				5B5EF0C022B441A4005C66BE /* VIMCredit.m in Sources */,
 				5B5EF04822B441A3005C66BE /* String+Parameters.swift in Sources */,
 				5B5EF1B322B441A4005C66BE /* Request+User.swift in Sources */,
@@ -2431,7 +2431,7 @@
 				5B5EF04C22B441A3005C66BE /* VIMPictureCollection.m in Sources */,
 				5B5EF08E22B441A3005C66BE /* VIMVideoFile.m in Sources */,
 				5B5EF17E22B441A4005C66BE /* VIMRecommendation.m in Sources */,
-				5B5EF03122B441A3005C66BE /* VimeoReachabilityMonitor.swift in Sources */,
+				5B5EF03122B441A3005C66BE /* VimeoReachabilityProvider.swift in Sources */,
 				5B5EF0C122B441A4005C66BE /* VIMCredit.m in Sources */,
 				5B5EF04922B441A3005C66BE /* String+Parameters.swift in Sources */,
 				5B5EF1B422B441A4005C66BE /* Request+User.swift in Sources */,
@@ -2647,7 +2647,7 @@
 				5B5EF02622B441A3005C66BE /* Request+ProgrammedContent.swift in Sources */,
 				5B5EF18E22B441A4005C66BE /* VIMVideoHLSFile.m in Sources */,
 				5B5EF0BC22B441A4005C66BE /* VIMUser.m in Sources */,
-				5B5EF03222B441A3005C66BE /* VimeoReachabilityMonitor.swift in Sources */,
+				5B5EF03222B441A3005C66BE /* VimeoReachabilityProvider.swift in Sources */,
 				5B5EF1B222B441A4005C66BE /* Response.swift in Sources */,
 				5B5EF15522B441A4005C66BE /* VIMUserBadge.m in Sources */,
 				5B5EF16A22B441A4005C66BE /* VIMAppeal.m in Sources */,

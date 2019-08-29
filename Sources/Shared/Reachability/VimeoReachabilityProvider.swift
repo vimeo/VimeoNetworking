@@ -1,5 +1,5 @@
 //
-//  VimeoReachabilityMonitor.swift
+//  VimeoReachabilityProvider.swift
 //  Vimeo
 //
 //  Copyright © 2019 Vimeo. All rights reserved.
