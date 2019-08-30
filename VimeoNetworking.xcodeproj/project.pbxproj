@@ -174,9 +174,6 @@
 		5B20D1022317303200CA3028 /* NetworkReachabilityStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20D1012317303200CA3028 /* NetworkReachabilityStatusTests.swift */; };
 		5B20D1032317303200CA3028 /* NetworkReachabilityStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20D1012317303200CA3028 /* NetworkReachabilityStatusTests.swift */; };
 		5B20D1042317303200CA3028 /* NetworkReachabilityStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20D1012317303200CA3028 /* NetworkReachabilityStatusTests.swift */; };
-		5B20D1062318106B00CA3028 /* VimeoReachabilityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20D1052318106B00CA3028 /* VimeoReachabilityMonitorTests.swift */; };
-		5B20D1072318106B00CA3028 /* VimeoReachabilityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20D1052318106B00CA3028 /* VimeoReachabilityMonitorTests.swift */; };
-		5B20D1082318106B00CA3028 /* VimeoReachabilityMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20D1052318106B00CA3028 /* VimeoReachabilityMonitorTests.swift */; };
 		5B20D10B231850D100CA3028 /* NetworkingReachabilityManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20D10A231850D100CA3028 /* NetworkingReachabilityManagerTests.swift */; };
 		5B20D10C231850D100CA3028 /* NetworkingReachabilityManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20D10A231850D100CA3028 /* NetworkingReachabilityManagerTests.swift */; };
 		5B20D10D231850D100CA3028 /* NetworkingReachabilityManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B20D10A231850D100CA3028 /* NetworkingReachabilityManagerTests.swift */; };
@@ -804,7 +801,6 @@
 		5B1DF37F22B41D7B007F2416 /* VimeoNetworking.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = VimeoNetworking.plist; sourceTree = "<group>"; };
 		5B20D0FC23172F5D00CA3028 /* NetworkReachabilityStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityStatus.swift; sourceTree = "<group>"; };
 		5B20D1012317303200CA3028 /* NetworkReachabilityStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityStatusTests.swift; sourceTree = "<group>"; };
-		5B20D1052318106B00CA3028 /* VimeoReachabilityMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimeoReachabilityMonitorTests.swift; sourceTree = "<group>"; };
 		5B20D10A231850D100CA3028 /* NetworkingReachabilityManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingReachabilityManagerTests.swift; sourceTree = "<group>"; };
 		5B3D4FE122DE24DD002D937B /* VIMUserAccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIMUserAccountType.swift; sourceTree = "<group>"; };
 		5B5EEF4C22B428DC005C66BE /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -1251,7 +1247,6 @@
 			isa = PBXGroup;
 			children = (
 				5B20D1012317303200CA3028 /* NetworkReachabilityStatusTests.swift */,
-				5B20D1052318106B00CA3028 /* VimeoReachabilityMonitorTests.swift */,
 				5B20D10A231850D100CA3028 /* NetworkingReachabilityManagerTests.swift */,
 			);
 			path = Reachability;
@@ -2682,7 +2677,6 @@
 				5B1DF32F22B41C90007F2416 /* FakeDataSource.swift in Sources */,
 				5B1DF2FC22B41C90007F2416 /* VIMVideoTests.swift in Sources */,
 				5B1DF32022B41C90007F2416 /* GCSTests.swift in Sources */,
-				5B20D1062318106B00CA3028 /* VimeoReachabilityMonitorTests.swift in Sources */,
 				5B1DF32C22B41C90007F2416 /* ModelObjectValidationTests.swift in Sources */,
 				5B1DF2F922B41C90007F2416 /* Dictionary+ExtensionTests.swift in Sources */,
 				5B1DF30B22B41C90007F2416 /* VIMQuantityQuota+Tests.swift in Sources */,
@@ -2722,7 +2716,6 @@
 				5B1AE5D022B5AA1400FE120E /* FakeDataSource.swift in Sources */,
 				5B1DF2FA22B41C90007F2416 /* Dictionary+ExtensionTests.swift in Sources */,
 				5B1AE5CB22B5AA1400FE120E /* GCSTests.swift in Sources */,
-				5B20D1072318106B00CA3028 /* VimeoReachabilityMonitorTests.swift in Sources */,
 				5B1AE5CF22B5AA1400FE120E /* ModelObjectValidationTests.swift in Sources */,
 				5B1DF30C22B41C90007F2416 /* VIMQuantityQuota+Tests.swift in Sources */,
 				5B1DF2E822B41C90007F2416 /* ExceptionCatcherTests.swift in Sources */,
@@ -2762,7 +2755,6 @@
 				5B1AE5DB22B5AA1500FE120E /* FakeDataSource.swift in Sources */,
 				5B1DF2FB22B41C90007F2416 /* Dictionary+ExtensionTests.swift in Sources */,
 				5B1AE5D622B5AA1500FE120E /* GCSTests.swift in Sources */,
-				5B20D1082318106B00CA3028 /* VimeoReachabilityMonitorTests.swift in Sources */,
 				5B1AE5DA22B5AA1500FE120E /* ModelObjectValidationTests.swift in Sources */,
 				5B1DF30D22B41C90007F2416 /* VIMQuantityQuota+Tests.swift in Sources */,
 				5B1DF2E922B41C90007F2416 /* ExceptionCatcherTests.swift in Sources */,
