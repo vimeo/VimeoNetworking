@@ -10,8 +10,6 @@ import SystemConfiguration
 
 /// The protocol indicating the capabilities of a `ReachabilityManagingType` type
 public protocol ReachabilityManagingType {
-    func startListening(on queue: DispatchQueue, onUpdatePerforming listener: @escaping ReachabilityListener) -> Bool
-    func stopListening()
     var isReachable: Bool { get }
     var isReachableOnCellular: Bool { get }
     var isReachableOnEthernetOrWiFi: Bool { get }
