@@ -121,7 +121,8 @@ final public class VimeoClient {
         )
         self.init(
             appConfiguration: appConfiguration,
-            sessionManager: sessionManager
+            sessionManager: sessionManager,
+            reachabilityMonitor: reachabilityMonitor
         )
     }
     

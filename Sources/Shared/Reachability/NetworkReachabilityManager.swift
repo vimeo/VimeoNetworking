@@ -182,7 +182,7 @@ internal class NetworkReachabilityManager: ReachabilityManagingType {
         guard previousStatus != newStatus else { return }
         previousStatus = newStatus
         listenerQueue?.async {
-            self.listener?(newStatus)            
+            self.listener?(newStatus)
         }
     }
 }

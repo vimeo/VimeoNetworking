@@ -12,7 +12,7 @@ import SystemConfiguration
 
 class NetworkReachabilityStatusTests: XCTestCase {
 
-    func testInitializer_IsReachable() {
+    func testInitializer_IsReachable_WithReachableFlag() {
         // When initialized with a `reachable` flag
         let status = NetworkReachabilityStatus([.reachable])
         // Then status should be reachable with connection type ethernet or wifi
@@ -21,7 +21,7 @@ class NetworkReachabilityStatusTests: XCTestCase {
         
     // Note: `isWWAN` is unavailable on macOS
     #if os(iOS) || os(tvOS) || os(watchOS)
-    func testInitializer_IsReachable_Through_WWAN() {
+    func testInitializer_IsReachable_Through_Cellular_WithIsWWANFlag() {
         // When initialized with a `reachable` and `isWWAN` flags
         let status = NetworkReachabilityStatus([.reachable, .isWWAN])
         // Then status should be reachable with connection type cellular
@@ -29,28 +29,28 @@ class NetworkReachabilityStatusTests: XCTestCase {
     }
     #endif
     
-    func testInitializer_WhenNoFlagsPassed() {
+    func testInitializer_NotReachable_WhenNoFlagsPassed() {
         // When initialized with no flags
         let status = NetworkReachabilityStatus([])
         // Then status should be not reachable
         XCTAssertEqual(status, .notReachable)
     }
     
-    func testInitializer_Reachable_WithConnectionRequired() {
+    func testInitializer_NotReachable_WithConnectionRequired() {
         // When initialized with reachable flag but connection required
         let status = NetworkReachabilityStatus([.reachable, .connectionRequired])
         // Then status should be not reachable
         XCTAssertEqual(status, .notReachable)
     }
     
-    func testInitializer_Reachable_WithConnectionRequired_AbleToConnectOnDemand() {
+    func testInitializer_ReachableViaEthernet_WithConnectionRequired_AbleToConnectOnDemand() {
         // When initialized with a reachable flag and connection required but able to connect on demand
         let status = NetworkReachabilityStatus([.reachable, .connectionRequired, .connectionOnDemand])
         // Then status should be not reachable
         XCTAssertEqual(status, .reachable(.ethernetOrWiFi))
     }
 
-    func testInitializer_Reachable_WithConnectionRequired_AbleToConnectOnDemand_WithIntervention() {
+    func testInitializer_NotReachable_WithConnectionRequired_AbleToConnectOnDemand_WithInterventionRequired() {
         // When initialized with a reachable flag, connection required, able to connect on traffic but
         // with intervention required
         let status = NetworkReachabilityStatus([
@@ -63,14 +63,14 @@ class NetworkReachabilityStatusTests: XCTestCase {
         XCTAssertEqual(status, .notReachable)
     }
 
-    func testInitializer_Reachable_WithConnectionRequired_AbleToConnectOnTraffic() {
+    func testInitializer_ReachableViaEthernet_WithConnectionRequired_AbleToConnectOnTraffic() {
         // When initialized with a reachable flag and connection required but able to connect on traffic
         let status = NetworkReachabilityStatus([.reachable, .connectionRequired, .connectionOnTraffic])
         // Then status should be not reachable
         XCTAssertEqual(status, .reachable(.ethernetOrWiFi))
     }
 
-    func testInitializer_Reachable_WithConnectionRequired_AbleToConnectOnTraffic_WithIntervention() {
+    func testInitializer_NotReachable_WithConnectionRequired_AbleToConnectOnTraffic_WithIntervention() {
         // When initialized with a reachable flag, connection required, able to connect on traffic but
         // with intervention required
         let status = NetworkReachabilityStatus([
