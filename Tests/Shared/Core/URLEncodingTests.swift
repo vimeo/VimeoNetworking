@@ -16,16 +16,12 @@ extension URLRequest: URLRequestConvertible {
     }
 }
 
-class ParameterEncodingTestCase: XCTestCase {
-    let urlRequest = URLRequest(url: URL(string: "https://example.com/")!)
-}
-
 // MARK: -
 
-class URLParameterEncodingTestCase: ParameterEncodingTestCase {
+class URLParameterEncodingTestCase: XCTestCase {
     
     // MARK: Properties
-    
+    let urlRequest = URLRequest(url: URL(string: "https://example.com/")!)
     let encoding = URLEncoding.default
     
     // MARK: Tests - Parameter Types
@@ -560,91 +556,6 @@ class URLParameterEncodingTestCase: ParameterEncodingTestCase {
         }
     }
     
-}
-
-// MARK: -
-
-class JSONParameterEncodingTestCase: ParameterEncodingTestCase {
-    // MARK: Properties
-    
-    let encoding = JSONEncoding.default
-    
-    // MARK: Tests
-    
-    func testJSONParameterEncodeNilParameters() {
-        do {
-            // Given, When
-            let URLRequest = try encoding.encode(self.urlRequest, with: nil)
-            
-            // Then
-            XCTAssertNil(URLRequest.url?.query, "query should be nil")
-            XCTAssertNil(URLRequest.value(forHTTPHeaderField: "Content-Type"))
-            XCTAssertNil(URLRequest.httpBody, "HTTPBody should be nil")
-        } catch {
-            XCTFail("Test encountered unexpected error: \(error)")
-        }
-    }
-    
-    func testJSONParameterEncodeComplexParameters() {
-        do {
-            // Given
-            let parameters: [String: Any] = [
-                "foo": "bar",
-                "baz": ["a", 1, true],
-                "qux": [
-                    "a": 1,
-                    "b": [2, 2],
-                    "c": [3, 3, 3]
-                ]
-            ]
-            
-            // When
-            let URLRequest = try encoding.encode(self.urlRequest, with: parameters)
-            
-            // Then
-            XCTAssertNil(URLRequest.url?.query)
-            XCTAssertNotNil(URLRequest.value(forHTTPHeaderField: "Content-Type"))
-            XCTAssertEqual(URLRequest.value(forHTTPHeaderField: "Content-Type"), "application/json")
-            XCTAssertNotNil(URLRequest.httpBody)
-            
-            if let httpBody = URLRequest.httpBody {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: httpBody, options: .allowFragments)
-                    
-                    if let json = json as? NSObject {
-                        XCTAssertEqual(json, parameters as NSObject)
-                    } else {
-                        XCTFail("json should be an NSObject")
-                    }
-                } catch {
-                    XCTFail("json should not be nil")
-                }
-            } else {
-                XCTFail("json should not be nil")
-            }
-        } catch {
-            XCTFail("Test encountered unexpected error: \(error)")
-        }
-    }
-    
-    func testJSONParameterEncodeParametersRetainsCustomContentType() {
-        do {
-            // Given
-            var mutableURLRequest = URLRequest(url: URL(string: "https://example.com/")!)
-            mutableURLRequest.setValue("application/custom-json-type+json", forHTTPHeaderField: "Content-Type")
-            
-            let parameters = ["foo": "bar"]
-            
-            // When
-            let urlRequest = try encoding.encode(mutableURLRequest, with: parameters)
-            
-            // Then
-            XCTAssertNil(urlRequest.url?.query)
-            XCTAssertEqual(urlRequest.value(forHTTPHeaderField: "Content-Type"), "application/custom-json-type+json")
-        } catch {
-            XCTFail("Test encountered unexpected error: \(error)")
-        }
-    }
 }
 
 // TODO: AFNetworking tests to be ported [RDPA 02/09/2019]
