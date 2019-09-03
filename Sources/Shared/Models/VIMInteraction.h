@@ -67,4 +67,9 @@ typedef NS_ENUM(NSInteger, VIMInteractionStreamStatus) {
  */
 @property (nonatomic, assign, readonly) BOOL isForDRMProtectedContent;
 
+- (BOOL)canGet;
+- (BOOL)canPost;
+- (BOOL)canPatch;
+- (BOOL)canDelete;
+
 @end
