@@ -39,11 +39,16 @@ struct URLEncoding: ParameterEncoding {
     func encode(_ requestConvertible: URLRequestConvertible, with parameters: Any?) throws -> URLRequest {
         var urlRequest = try requestConvertible.asURLRequest()
         
-        guard let parameters = parameters as? Parameters else {
+        guard let unwrappedParameters = parameters as? Parameters else {
+            if parameters == nil {
+                // NO-OP - just return the original, unmodified request
+                return urlRequest
+            }
+            // Couldn't cast to Parameters so we bail with an error
             throw VimeoNetworkingError.encodingFailed(.invalidParameters)
         }
         
-        if parameters.count == 0 {
+        if unwrappedParameters.count == 0 {
             // NO-OP - just return the original, unmodified request
             return urlRequest
         }
@@ -56,10 +61,10 @@ struct URLEncoding: ParameterEncoding {
         switch httpMethod {
         // These methods take their encoded parameters directly in the URL
         case .get, .head, .delete:
-            return try inURLEncode(parameters, for: &urlRequest)
+            return try inURLEncode(unwrappedParameters, for: &urlRequest)
         // For all other cases, assume body encoding
         default:
-            return try bodyEncode(parameters, for: &urlRequest)
+            return try bodyEncode(unwrappedParameters, for: &urlRequest)
         }
     }
     
