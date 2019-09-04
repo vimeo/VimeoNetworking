@@ -14,6 +14,9 @@ private extension String {
     static let contentTypeFormUrlEncodedHeaderValue     = "application/x-www-form-urlencoded; charset=utf-8"
 }
 
+/// The dictionary of parameters for a given `URLRequest`.
+typealias Parameters = [String: Any]
+
 /// The type used to create a URL encoded string of parameters to be appended to the request URL.
 /// For URL requests with a non-nil HTTP body, the content type is set to
 /// `application/x-www-form-urlencoded; charset=utf-8`
@@ -33,10 +36,14 @@ struct URLEncoding: ParameterEncoding {
     ///
     /// - Returns: the encoded URLRequest instance
     /// - Throws: an error if the encoding process fails.
-    func encode(_ requestConvertible: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+    func encode(_ requestConvertible: URLRequestConvertible, with parameters: Any?) throws -> URLRequest {
         var urlRequest = try requestConvertible.asURLRequest()
         
-        guard let parameters = parameters, parameters.count > 0 else {
+        guard let parameters = parameters as? Parameters else {
+            throw VimeoNetworkingError.encodingFailed(.invalidParameters)
+        }
+        
+        if parameters.count == 0 {
             // NO-OP - just return the original, unmodified request
             return urlRequest
         }

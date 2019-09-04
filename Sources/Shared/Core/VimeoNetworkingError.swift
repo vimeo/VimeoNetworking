@@ -12,6 +12,7 @@ enum VimeoNetworkingError: Error {
     case encodingFailed(EncodingFailedReason)
     
     enum EncodingFailedReason {
+        case invalidParameters
         case missingURL
         case missingHTTPMethod
         case jsonEncoding(error: Error)

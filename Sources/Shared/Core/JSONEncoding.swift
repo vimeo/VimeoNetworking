@@ -41,7 +41,7 @@ struct JSONEncoding: ParameterEncoding {
     ///
     /// - Returns: the encoded URLRequest instance
     /// - Throws: an error if the encoding process fails.
-    func encode(_ requestConvertible: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+    func encode(_ requestConvertible: URLRequestConvertible, with parameters: Any?) throws -> URLRequest {
         var urlRequest = try requestConvertible.asURLRequest()
         
         guard let parameters = parameters else {

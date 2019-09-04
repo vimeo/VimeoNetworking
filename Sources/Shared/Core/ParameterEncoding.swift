@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // TODO: Remove this protocol in favour of the original
 // declaration that will be merged in a future PR. [RDPA 09/02/2019]
@@ -14,10 +15,13 @@ protocol URLRequestConvertible {
     func asURLRequest() throws -> URLRequest
 }
 
-/// The dictionary of parameters for a given `URLRequest`.
-typealias Parameters = [String: Any]
+extension URLRequest: URLRequestConvertible {
+    func asURLRequest() throws -> URLRequest {
+        return self
+    }
+}
 
 /// The type that describes how parameters are used in a `URLRequest`.
 protocol ParameterEncoding {
-    func encode(_ requestConvertible: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest
+    func encode(_ requestConvertible: URLRequestConvertible, with parameters: Any?) throws -> URLRequest
 }
