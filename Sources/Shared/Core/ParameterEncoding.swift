@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 // TODO: Remove this protocol in favour of the original
 // declaration that will be merged in a future PR. [RDPA 09/02/2019]
