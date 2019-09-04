@@ -12,7 +12,7 @@ import SystemConfiguration
 
 class NetworkReachabilityStatusTests: XCTestCase {
 
-    func testThatStatusIsReachableWhenUsingReachableFlag() {
+    func test_Initializer_StatusIsReachable_WhenInitiliazedWithReachableFlag() {
         // When initialized with a `reachable` flag
         let status = NetworkReachabilityStatus([.reachable])
         
@@ -22,7 +22,7 @@ class NetworkReachabilityStatusTests: XCTestCase {
         
     // Note: `isWWAN` is unavailable on macOS
     #if os(iOS) || os(tvOS) || os(watchOS)
-    func testThatStatusIsReachableThroughCellularWhenUsingIsWWANFlag() {
+    func test_Initializer_StatusIsReachableThroughCellular_WhenInitializedWithIsWWANFlag() {
         // When initialized with a `reachable` and `isWWAN` flags
         let status = NetworkReachabilityStatus([.reachable, .isWWAN])
         
@@ -31,7 +31,7 @@ class NetworkReachabilityStatusTests: XCTestCase {
     }
     #endif
     
-    func testThatStatusIsNotReachableWhenNoFlagsPassed() {
+    func test_Initializer_StatusIsNotReachable_WhenInitializedWithNoFlagsPassed() {
         // When initialized with no flags
         let status = NetworkReachabilityStatus([])
         
@@ -39,7 +39,7 @@ class NetworkReachabilityStatusTests: XCTestCase {
         XCTAssertEqual(status, .notReachable)
     }
     
-    func testThatStatusIsNotReachableWhenUsingConnectionRequiredFlag() {
+    func test_Initializer_StatusIsNotReachable_WhenInitiliazedWithConnectionRequiredFlag() {
         // When initialized with reachable flag but connection required
         let status = NetworkReachabilityStatus([.reachable, .connectionRequired])
         
@@ -47,7 +47,7 @@ class NetworkReachabilityStatusTests: XCTestCase {
         XCTAssertEqual(status, .notReachable)
     }
     
-    func testThatStatusIsReachableViaEthernetWhenUsingConnectionRequired_AbleToConnectOnDemandFlags() {
+    func test_Initializer_StatusIsReachableViaEthernet_WhenInitializedWithConnectionRequired_AbleToConnectOnDemandFlags() {
         // When initialized with a reachable flag and connection required but able to connect on demand
         let status = NetworkReachabilityStatus([.reachable, .connectionRequired, .connectionOnDemand])
         
@@ -55,7 +55,7 @@ class NetworkReachabilityStatusTests: XCTestCase {
         XCTAssertEqual(status, .reachable(.ethernetOrWiFi))
     }
 
-    func testThatStatusIsNotReachableWhenUsingConnectionRequired_AbleToConnectOnDemand_WithInterventionRequiredFlags() {
+    func test_Initialized_StatusIsNotReachable_WhenInitializedWithConnectionRequired_AbleToConnectOnDemand_WithInterventionRequiredFlags() {
         // When initialized with a reachable flag, connection required, able to connect on traffic but
         // with intervention required
         let status = NetworkReachabilityStatus([
@@ -69,7 +69,7 @@ class NetworkReachabilityStatusTests: XCTestCase {
         XCTAssertEqual(status, .notReachable)
     }
 
-    func testThatStatusIsReachableViaEthernetWhenUsingConnectionRequired_AbleToConnectOnTrafficFlags() {
+    func test_Initializer_StatusIsReachableViaEthernet_WhenInitiliazedWithConnectionRequired_AbleToConnectOnTrafficFlags() {
         // When initialized with a reachable flag and connection required but able to connect on traffic
         let status = NetworkReachabilityStatus([.reachable, .connectionRequired, .connectionOnTraffic])
         
@@ -77,7 +77,7 @@ class NetworkReachabilityStatusTests: XCTestCase {
         XCTAssertEqual(status, .reachable(.ethernetOrWiFi))
     }
 
-    func testThatStatusIsNotReachableWhenUsingConnectionRequired_AbleToConnectOnTraffic_WithInterventionFlags() {
+    func test_Initializer_StatusIsNotReachable_WhenInitializedWithConnectionRequired_AbleToConnectOnTraffic_WithInterventionFlags() {
         // When initialized with a reachable flag, connection required, able to connect on traffic but
         // with intervention required
         let status = NetworkReachabilityStatus([
@@ -90,6 +90,4 @@ class NetworkReachabilityStatusTests: XCTestCase {
         // Then status should be not reachable
         XCTAssertEqual(status, .notReachable)
     }
-
-    
 }

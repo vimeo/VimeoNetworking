@@ -11,7 +11,7 @@ import XCTest
 
 class NetworkingReachabilityManagerTests: XCTestCase {
 
-    func testThatManagerCanBeInitializedFromHost() {
+    func test_Initializer_InstanceIsNotNull_WhenInitializedFromHost() {
         // Given, When
         let manager = NetworkReachabilityManager(host: "localhost")
         
@@ -19,7 +19,7 @@ class NetworkingReachabilityManagerTests: XCTestCase {
         XCTAssertNotNil(manager)
     }
 
-    func testThatManagerCanBeInitializedFromAddress() {
+    func test_Initializer_InstanceIsNotNull_WhenInitializedFromAddress() {
         // Given, When
         let manager = NetworkReachabilityManager()
 
@@ -27,7 +27,7 @@ class NetworkingReachabilityManagerTests: XCTestCase {
         XCTAssertNotNil(manager)
     }
 
-    func testThatHostManagerIsReachableOnWiFi() {
+    func test_InitializedFromHost_StartsWithReachableOnWiFi() {
         // Given, When
         let manager = NetworkReachabilityManager(host: "localhost")
 
@@ -38,18 +38,7 @@ class NetworkingReachabilityManagerTests: XCTestCase {
         XCTAssertEqual(manager?.isReachableOnEthernetOrWiFi, true)
     }
 
-    func testThatHostManagerStartsWithReachableStatus() {
-        // Given, When
-        let manager = NetworkReachabilityManager(host: "localhost")
-
-        // Then
-        XCTAssertEqual(manager?.status, .reachable(.ethernetOrWiFi))
-        XCTAssertEqual(manager?.isReachable, true)
-        XCTAssertEqual(manager?.isReachableOnCellular, false)
-        XCTAssertEqual(manager?.isReachableOnEthernetOrWiFi, true)
-    }
-
-    func testThatAddressManagerStartsWithReachableStatus() {
+    func test_DefaultInitializer_StartsWithReachableOnWifi() {
         // Given, When
         let manager = NetworkReachabilityManager()
 
@@ -60,7 +49,7 @@ class NetworkingReachabilityManagerTests: XCTestCase {
         XCTAssertEqual(manager?.isReachableOnEthernetOrWiFi, true)
     }
 
-    func testThatZeroManagerCanBeProperlyRestarted() {
+    func test_DefaultInitializedInstance_CanBeProperlyRestarted() {
         // Given
         let manager = NetworkReachabilityManager()
         let first = expectation(description: "first listener notified")
@@ -83,7 +72,7 @@ class NetworkingReachabilityManagerTests: XCTestCase {
         XCTAssertEqual(manager?.status, .reachable(.ethernetOrWiFi))
     }
 
-    func testThatHostManagerCanBeProperlyRestarted() {
+    func test_HostInitializedInstance_CanBeProperlyRestarted() {
         // Given
         let manager = NetworkReachabilityManager(host: "localhost")
         let first = expectation(description: "first listener notified")
@@ -108,7 +97,7 @@ class NetworkingReachabilityManagerTests: XCTestCase {
 
     func testThatHostManagerCanBeDeinitialized() {
         // Given
-        var manager: NetworkReachabilityManager? = NetworkReachabilityManager(host: "localhost")
+        var manager = NetworkReachabilityManager(host: "localhost")
 
         // When
         manager = nil
@@ -130,9 +119,9 @@ class NetworkingReachabilityManagerTests: XCTestCase {
 
     // MARK: - Listener
 
-    func testThatHostManagerIsNotifiedWhenStartListeningIsCalled() {
+    func test_HostInitializer_StartListening_ClosureIsCalled_WhenStartListeningIsCalled() {
         // Given
-        guard let manager = NetworkReachabilityManager(host: "store.apple.com") else {
+        guard let manager = NetworkReachabilityManager(host: "localhost") else {
             XCTFail("manager should NOT be nil")
             return
         }
@@ -152,7 +141,7 @@ class NetworkingReachabilityManagerTests: XCTestCase {
         XCTAssertEqual(networkReachabilityStatus, .reachable(.ethernetOrWiFi))
     }
 
-    func testThatAddressManagerIsNotifiedWhenStartListeningIsCalled() {
+    func test_DefaultInitializer_StartListening_ClosureIsCalled_WhenStartListeningIsCalled() {
         // Given
         let manager = NetworkReachabilityManager()
         let expectation = self.expectation(description: "listener closure should be executed")
@@ -169,5 +158,4 @@ class NetworkingReachabilityManagerTests: XCTestCase {
         // Then
         XCTAssertEqual(networkReachabilityStatus, .reachable(.ethernetOrWiFi))
     }
-
 }
