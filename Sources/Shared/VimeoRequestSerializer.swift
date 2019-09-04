@@ -93,36 +93,27 @@ final public class VimeoRequestSerializer: AFJSONRequestSerializer {
     // MARK: Overrides
     
     public override func request(withMethod method: String, urlString URLString: String, parameters: Any?, error: NSErrorPointer) -> NSMutableURLRequest {
-        var request = super.request(withMethod: method, urlString: URLString, parameters: parameters, error: error) as URLRequest
-        
-        request = self.requestConfiguringHeaders(fromRequest: request)
-        
-        return (request as NSURLRequest).mutableCopy() as! NSMutableURLRequest
-    }
-    
-    public override func multipartFormRequest(withMethod method: String, urlString URLString: String, parameters: [String : Any]?, constructingBodyWith block: ((AFMultipartFormData) -> Void)?, error: NSErrorPointer) -> NSMutableURLRequest {
-        var request = super.multipartFormRequest(withMethod: method, urlString: URLString, parameters: parameters, constructingBodyWith: block, error: error) as URLRequest
-        
-        request = self.requestConfiguringHeaders(fromRequest: request)
-        
-        return (request as NSURLRequest).mutableCopy() as! NSMutableURLRequest
-    }
-    
-    public override func request(withMultipartForm request: URLRequest, writingStreamContentsToFile fileURL: URL, completionHandler handler: ((Error?) -> Void)? = nil) -> NSMutableURLRequest {
-        var request = super.request(withMultipartForm: request, writingStreamContentsToFile: fileURL, completionHandler: handler) as URLRequest
-        
+        var request = super.request(withMethod: method, urlString: URLString, parameters: nil, error: error) as URLRequest
+        do {
+            request = try JSONEncoding.default.encode(request, with: parameters)
+        } catch (let encodingError) {
+            error?.pointee = encodingError as NSError
+        }
         request = self.requestConfiguringHeaders(fromRequest: request)
         
         return (request as NSURLRequest).mutableCopy() as! NSMutableURLRequest
     }
     
     public override func request(bySerializingRequest request: URLRequest, withParameters parameters: Any?, error: NSErrorPointer) -> URLRequest? {
-        if var request = super.request(bySerializingRequest: request, withParameters: parameters, error: error) {
-            request = self.requestConfiguringHeaders(fromRequest: request)
-            
-            return request
+        guard var request = super.request(bySerializingRequest: request, withParameters: nil, error: error) else {
+            return nil
         }
-        
+        do {
+            request = try JSONEncoding.default.encode(request, with: parameters)
+            return self.requestConfiguringHeaders(fromRequest: request)
+        } catch (let encodingError) {
+            error?.pointee = encodingError as NSError
+        }
         return nil
     }
     
