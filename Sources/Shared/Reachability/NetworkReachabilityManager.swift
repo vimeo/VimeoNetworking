@@ -8,8 +8,8 @@
 import Foundation
 import SystemConfiguration
 
-/// The protocol indicating the capabilities of a `ReachabilityManagingType` type
-public protocol ReachabilityManagingType {
+/// The protocol indicating the capabilities of a `ReachabilityManaging` type
+public protocol ReachabilityManaging {
     var isReachable: Bool { get }
     var isReachableOnCellular: Bool { get }
     var isReachableOnEthernetOrWiFi: Bool { get }
@@ -29,7 +29,7 @@ public typealias ReachabilityListener = (NetworkReachabilityStatus) -> Void
 /// or to retry network requests when a connection is established.
 /// Reachability should *not* be used to prevent a user from initiating a network request,
 /// as it's possible that an initial request may be required to establish reachability.
-internal class NetworkReachabilityManager: ReachabilityManagingType {
+internal class NetworkReachabilityManager: ReachabilityManaging {
             
     /// Default `NetworkReachabilityManager` for the zero address and a `listenerQueue` of `.main`.
     static let `default` = NetworkReachabilityManager()

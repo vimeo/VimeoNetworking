@@ -14,7 +14,7 @@ public enum VimeoReachabilityProvider {
     /// Upon initialization, this reachability manager immediately starts listening
     /// for reachability changes and broadcasts them via system notification to
     /// interested subscribers.
-    public static let reachabilityManager: ReachabilityManagingType? = {
+    public static let reachabilityManager: ReachabilityManaging? = {
         let manager = NetworkReachabilityManager.default
         manager?.startListening { _ in
             NetworkingNotification.reachabilityDidChange.post(object: nil)

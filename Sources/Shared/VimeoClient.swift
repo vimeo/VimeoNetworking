@@ -89,7 +89,7 @@ final public class VimeoClient {
         /// response cache handles all memory and disk caching of response dictionaries
     private let responseCache = ResponseCache()
     
-    private var reachabilityMonitor: ReachabilityManagingType?
+    private var reachabilityManager: ReachabilityManaging?
     
     struct Constants {
         fileprivate static let BearerQuery = "Bearer "
@@ -112,8 +112,8 @@ final public class VimeoClient {
     ///   - configureSessionManagerBlock: a block to configure the session manager
     convenience public init(
         appConfiguration: AppConfiguration,
-        configureSessionManagerBlock: ConfigureSessionManagerBlock? = nil,
-        reachabilityMonitor: ReachabilityManagingType? = VimeoReachabilityProvider.reachabilityManager
+        reachabilityManager: ReachabilityManaging? = VimeoReachabilityProvider.reachabilityManager,
+        configureSessionManagerBlock: ConfigureSessionManagerBlock? = nil
     ) {
         let sessionManager = VimeoSessionManager.defaultSessionManager(
             appConfiguration: appConfiguration,
@@ -121,17 +121,17 @@ final public class VimeoClient {
         )
         self.init(
             appConfiguration: appConfiguration,
-            sessionManager: sessionManager,
-            reachabilityMonitor: reachabilityMonitor
+            reachabilityManager: reachabilityManager,
+            sessionManager: sessionManager
         )
     }
     
     public init(
         appConfiguration: AppConfiguration? = nil,
-        sessionManager: VimeoSessionManager? = nil,
-        reachabilityMonitor: ReachabilityManagingType? = VimeoReachabilityProvider.reachabilityManager
+        reachabilityManager: ReachabilityManaging? = VimeoReachabilityProvider.reachabilityManager,
+        sessionManager: VimeoSessionManager? = nil
     ) {
-        self.reachabilityMonitor = reachabilityMonitor
+        self.reachabilityManager = reachabilityManager
         if let appConfiguration = appConfiguration,
             let sessionManager = sessionManager {
             self.configuration = appConfiguration
@@ -178,7 +178,7 @@ final public class VimeoClient {
      */
     public func request<ModelType>(
         _ request: Request<ModelType>,
-        completionQueue: DispatchQueue = DispatchQueue.main,
+        completionQueue: DispatchQueue = .main,
         completion: @escaping ResultCompletion<Response<ModelType>, NSError>.T
     ) -> RequestToken {
         if request.useCache {
@@ -457,8 +457,8 @@ extension VimeoClient {
     ///   - configureSessionManagerBlock: a block to configure the session manager
     public static func configureSharedClient(
         withAppConfiguration appConfiguration: AppConfiguration,
-        configureSessionManagerBlock: ConfigureSessionManagerBlock? = nil,
-        reachabilityMonitor: ReachabilityManagingType? = VimeoReachabilityProvider.reachabilityManager
+        reachabilityManager: ReachabilityManaging? = VimeoReachabilityProvider.reachabilityManager,
+        configureSessionManagerBlock: ConfigureSessionManagerBlock? = nil
     ) {
         self._sharedClient.configuration = appConfiguration
         
@@ -469,7 +469,7 @@ extension VimeoClient {
         
         self._sharedClient.sessionManager?.invalidateSessionCancelingTasks(false)
         self._sharedClient.sessionManager = defaultSessionManager
-        self._sharedClient.reachabilityMonitor = reachabilityMonitor
+        self._sharedClient.reachabilityManager = reachabilityManager
                 
     }
 }
