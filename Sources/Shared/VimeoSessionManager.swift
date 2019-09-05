@@ -46,7 +46,11 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
      
      - returns: an initialized `VimeoSessionManager`
      */
-    required public init(baseUrl: URL, sessionConfiguration: URLSessionConfiguration, requestSerializer: VimeoRequestSerializer) {
+    required public init(
+        baseUrl: URL,
+        sessionConfiguration: URLSessionConfiguration,
+        requestSerializer: VimeoRequestSerializer
+    ) {
         super.init(baseURL: baseUrl, sessionConfiguration: sessionConfiguration)
         
         self.requestSerializer = requestSerializer
@@ -63,7 +67,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
     
     public func request(
         with endpoint: EndpointType,
-        then callback: @escaping SessionManagingResult
+        then callback: @escaping (SessionManagingResponse) -> Void
     ) -> Cancelable? {
         let path = endpoint.path
         let parameters = endpoint.parameters
@@ -71,13 +75,19 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
         var task: Cancelable?
         
         let successCallback: SessionManagingDataTaskSuccess = { dataTask, value in
-            let response = SessionManagingResponse(task: dataTask, value: value)
-            callback(Result.success(response))
+            let response = SessionManagingResponse(
+                task: dataTask, value: value, error: nil
+            )
+            callback(response)
         }
         
         let failureCallback: SessionManagingDataTaskFailure = { dataTask, error in
-            let sessionError = SessionManagingError(task: dataTask, error: error)
-            callback(Result.failure(sessionError))
+            let response = SessionManagingResponse(
+                task: dataTask,
+                value: nil,
+                error: error
+            )
+            callback(response)
         }
         
         switch endpoint.method {

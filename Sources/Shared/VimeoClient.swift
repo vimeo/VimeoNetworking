@@ -198,10 +198,9 @@ final public class VimeoClient {
             return RequestToken(path: request.path, task: nil)
         }
         else {
-            let task = self.sessionManager?.request(with: request, then: { result in
+            let task = self.sessionManager?.request(with: request, then: { response in
                 DispatchQueue.global(qos: .userInitiated).async {
-                    switch result {
-                    case .success(let response):
+                    if response.error == nil {
                         self.handleTaskSuccess(
                             forRequest: request,
                             task: response.task,
@@ -209,12 +208,11 @@ final public class VimeoClient {
                             completionQueue: completionQueue,
                             completion: completion
                         )
-
-                    case .failure(let error):
+                    } else {
                         self.handleTaskFailure(
                             forRequest: request,
-                            task: error.task,
-                            error: error.error as NSError,
+                            task: response.task,
+                            error: response.error as NSError?,
                             completionQueue: completionQueue,
                             completion: completion
                         )

@@ -22,21 +22,12 @@ public protocol Cancelable {
     func cancel()
 }
 
-/// Wrapper for the error returned by the session manager
-/// It can optionally include the corresponding task that generated the error
-public struct SessionManagingError: Error {
-    let task: URLSessionDataTask?
-    let error: Error
-}
-
 /// Wrapper for the response returned by the session manager
-/// including the corresponding task that originated the response value (if any)
 public struct SessionManagingResponse {
-    let task: URLSessionDataTask
+    let task: URLSessionDataTask?
     let value: Any?
+    let error: Error?
 }
-
-public typealias SessionManagingResult = (Result<SessionManagingResponse, SessionManagingError>) -> Void
 
 /// A protocol describing the requirements of a SessionManaging type
 public protocol SessionManaging {
@@ -47,7 +38,7 @@ public protocol SessionManaging {
     /// Entrypoint for requests to be run by the session manager
     func request(
         with endpoint: EndpointType,
-        then callback: @escaping SessionManagingResult
+        then callback: @escaping (SessionManagingResponse) -> Void
     ) -> Cancelable?
 
 }
