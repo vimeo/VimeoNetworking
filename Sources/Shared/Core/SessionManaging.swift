@@ -17,15 +17,10 @@ public protocol AuthenticationListeningDelegate {
     func clientDidClearAccount()
 }
 
-/// A protocol representing a type that can be canceled
-public protocol Cancelable {
-    func cancel()
-}
-
 /// Wrapper for the response returned by the session manager
-public struct SessionManagingResponse {
+public struct SessionManagingResponse<T> {
     let task: URLSessionDataTask?
-    let value: Any?
+    let value: T?
     let error: Error?
 }
 
@@ -38,9 +33,9 @@ public protocol SessionManaging {
     /// Entrypoint for requests to be run by the session manager
     func request(
         with endpoint: EndpointType,
-        then callback: @escaping (SessionManagingResponse) -> Void
+        then callback: @escaping (SessionManagingResponse<Any>) -> Void
     ) -> Cancelable?
-
+    
 }
 
 /// A protocol representing an endpoint to which requests can be sent to
@@ -51,5 +46,10 @@ public protocol EndpointType {
 }
 
 extension Request: EndpointType {}
+
+/// A protocol representing a type that can be canceled
+public protocol Cancelable {
+    func cancel()
+}
 
 extension URLSessionDataTask: Cancelable {}

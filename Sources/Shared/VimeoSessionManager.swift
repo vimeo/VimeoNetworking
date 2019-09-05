@@ -67,7 +67,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
     
     public func request(
         with endpoint: EndpointType,
-        then callback: @escaping (SessionManagingResponse) -> Void
+        then callback: @escaping (SessionManagingResponse<Any>) -> Void
     ) -> Cancelable? {
         let path = endpoint.path
         let parameters = endpoint.parameters
@@ -82,7 +82,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
         }
         
         let failureCallback: SessionManagingDataTaskFailure = { dataTask, error in
-            let response = SessionManagingResponse(
+            let response = SessionManagingResponse<Any>(
                 task: dataTask,
                 value: nil,
                 error: error
