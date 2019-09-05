@@ -21,7 +21,7 @@ public extension Request {
     static func setDeviceAsActiveToReceiveNotifications(forNotificationsURI notificationsURI: String, deviceToken: String) -> Request {
         let subscriptionsURI = Request.subscriptionsURI(forNotificationsURI: notificationsURI, deviceToken: deviceToken)
 
-        return Request(method: .PUT, path: subscriptionsURI, parameters: nil)
+        return Request(method: .put, path: subscriptionsURI, parameters: nil)
     }
 
     /// Retrieve the notification subscriptions.
@@ -30,7 +30,7 @@ public extension Request {
     static func getNotificationSubscriptionRequest(forNotificationsURI notificationsURI: String, deviceToken: String) -> Request {
         let subscriptionsURI = Request.subscriptionsURI(forNotificationsURI: notificationsURI, deviceToken: deviceToken)
 
-        return Request(method: .GET, path: subscriptionsURI, parameters: nil)
+        return Request(method: .get, path: subscriptionsURI, parameters: nil)
     }
 
     /// Create a request that updates the push notification subscriptions
@@ -40,7 +40,7 @@ public extension Request {
     static func updateNotificationSubscriptionsRequest(withSubscription subscription: VimeoClient.RequestParametersDictionary, notificationsURI: String, deviceToken: String) -> Request {
         let subscriptionsURI = Request.subscriptionsURI(forNotificationsURI: notificationsURI, deviceToken: deviceToken)
 
-        return Request(method: .PATCH, path: subscriptionsURI, parameters: subscription)
+        return Request(method: .patch, path: subscriptionsURI, parameters: subscription)
     }
 
     // MARK: - Helper
@@ -51,7 +51,7 @@ public extension Request {
     
     static func markNotificationAsNotNewRequest(forNotification notification: VIMNotification, notificationsURI: String) -> Request {
         guard let latestURI = notification.uri else {
-            return Request(method: .PATCH, path: notificationsURI, parameters: nil)
+            return Request(method: .patch, path: notificationsURI, parameters: nil)
         }
 
         let parameters = [
@@ -59,7 +59,7 @@ public extension Request {
             "new" : "false"
         ]
 
-        return Request(method: .PATCH, path: notificationsURI, parameters: parameters)
+        return Request(method: .patch, path: notificationsURI, parameters: parameters)
     }
 
     static func markNotificationsAsSeenRequest(forNotifications notifications: [VIMNotification], notificationsURI: String) -> Request {
@@ -73,6 +73,6 @@ public extension Request {
             }
         }
 
-        return Request(method: .PATCH, path: notificationsURI, parameters: parameters)
+        return Request(method: .patch, path: notificationsURI, parameters: parameters)
     }
 }

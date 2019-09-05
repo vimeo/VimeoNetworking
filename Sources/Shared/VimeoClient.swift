@@ -33,24 +33,6 @@ import Foundation
 final public class VimeoClient {
     // MARK: -
     
-    /// HTTP methods available for requests
-    public enum Method: String {
-        /// Retrieve a resource
-        case GET
-        
-        /// Create a new resource
-        case POST
-        
-        /// Set a resource
-        case PUT
-        
-        /// Update a resource
-        case PATCH
-        
-        /// Remove a resource
-        case DELETE
-    }
-    
     /**
      *  `RequestToken` stores a reference to an in-flight request
      */
@@ -59,7 +41,7 @@ final public class VimeoClient {
         public let path: String?
         
         /// The data task of the request
-        public let task: URLSessionDataTask?
+        public let task: Cancellable?
         
         /**
          Cancel the request
@@ -83,8 +65,9 @@ final public class VimeoClient {
     
     // MARK: -
     
-        /// Session manager handles the http session data tasks and request/response serialization
-    fileprivate var sessionManager: VimeoSessionManager? = nil
+    /// Session manager handles the http session data tasks and request/response serialization
+    public typealias SessionManagingAuthenticationListening = SessionManaging & AuthenticationListeningDelegate
+    fileprivate var sessionManager: SessionManagingAuthenticationListening? = nil
     
         /// response cache handles all memory and disk caching of response dictionaries
     private let responseCache = ResponseCache()
@@ -129,7 +112,7 @@ final public class VimeoClient {
     public init(
         appConfiguration: AppConfiguration? = nil,
         reachabilityManager: ReachabilityManaging? = VimeoReachabilityProvider.reachabilityManager,
-        sessionManager: VimeoSessionManager? = nil
+        sessionManager: SessionManagingAuthenticationListening? = nil
     ) {
         self.reachabilityManager = reachabilityManager
         if let appConfiguration = appConfiguration,
@@ -215,48 +198,48 @@ final public class VimeoClient {
             return RequestToken(path: request.path, task: nil)
         }
         else {
-            let success: (URLSessionDataTask, Any?) -> Void = { (task, responseObject) in
-                
+            let task = self.sessionManager?.request(request, then: { result in
                 DispatchQueue.global(qos: .userInitiated).async {
-                    
-                    self.handleTaskSuccess(forRequest: request, task: task, responseObject: responseObject, completionQueue: completionQueue, completion: completion)
-                }
-            }
-            
-            let failure: (URLSessionDataTask?, Error) -> Void = { (task, error) in
-                
-                DispatchQueue.global(qos: .userInitiated).async {
+                    switch result {
+                    case .success(let response):
+                        self.handleTaskSuccess(
+                            forRequest: request,
+                            task: response.task,
+                            responseObject: response.value,
+                            completionQueue: completionQueue,
+                            completion: completion
+                        )
 
-                    self.handleTaskFailure(forRequest: request, task: task, error: error as NSError, completionQueue: completionQueue, completion: completion)
+                    case .failure(let error):
+                        self.handleTaskFailure(
+                            forRequest: request,
+                            task: error.task,
+                            error: error.error as NSError,
+                            completionQueue: completionQueue,
+                            completion: completion
+                        )
+                    }
                 }
-            }
-            
-            let path = request.path
-            let parameters = request.parameters
-            
-            let task: URLSessionDataTask?
-            
-            switch request.method {
-            case .GET:
-                task = self.sessionManager?.get(path, parameters: parameters, progress: nil, success: success, failure: failure)
-            case .POST:
-                task = self.sessionManager?.post(path, parameters: parameters, progress: nil, success: success, failure: failure)
-            case .PUT:
-                task = self.sessionManager?.put(path, parameters: parameters, success: success, failure: failure)
-            case .PATCH:
-                task = self.sessionManager?.patch(path, parameters: parameters, success: success, failure: failure)
-            case .DELETE:
-                task = self.sessionManager?.delete(path, parameters: parameters, success: success, failure: failure)
-            }
+            })
             
             guard let requestTask = task else {
                 let description = "Session manager did not return a task"
                 
                 assertionFailure(description)
                 
-                let error = NSError(domain: type(of: self).ErrorDomain, code: LocalErrorCode.requestMalformed.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
+                let error = NSError(
+                    domain: type(of: self).ErrorDomain,
+                    code: LocalErrorCode.requestMalformed.rawValue,
+                    userInfo: [NSLocalizedDescriptionKey: description]
+                )
                 
-                self.handleTaskFailure(forRequest: request, task: task, error: error, completionQueue: completionQueue, completion: completion)
+                self.handleTaskFailure(
+                    forRequest: request,
+                    task: nil,
+                    error: error,
+                    completionQueue: completionQueue,
+                    completion: completion
+                )
                 
                 return RequestToken(path: request.path, task: nil)
             }
@@ -467,7 +450,7 @@ extension VimeoClient {
             configureSessionManagerBlock: configureSessionManagerBlock
         )
         
-        self._sharedClient.sessionManager?.invalidateSessionCancelingTasks(false)
+        self._sharedClient.sessionManager?.invalidate()
         self._sharedClient.sessionManager = defaultSessionManager
         self._sharedClient.reachabilityManager = reachabilityManager
                 

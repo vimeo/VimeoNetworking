@@ -48,7 +48,7 @@ class RequestComparisons {
     }
     
     static func ValidateDefaults<ModelType>(request: Request<ModelType>) -> Bool {
-        return request.method == .GET
+        return request.method == .get
             && request.parameters == nil
             && request.modelKeyPath == nil
             && request.cacheResponse == false

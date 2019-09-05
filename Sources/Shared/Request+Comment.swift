@@ -19,6 +19,6 @@ public extension Request {
     static func postCommentRequest(forURI uri: String, text: String) -> Request {
         let parameters = ["text": text]
         
-        return Request(method: .POST, path: uri, parameters: parameters)
+        return Request(method: .post, path: uri, parameters: parameters)
     }
 }

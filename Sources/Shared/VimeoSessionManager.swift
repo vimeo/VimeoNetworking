@@ -25,12 +25,18 @@
 //
 
 import Foundation
-
 import AFNetworking
+
+private typealias SessionManagingDataTaskSuccess = ((URLSessionDataTask, Any?) -> Void)
+private typealias SessionManagingDataTaskFailure = ((URLSessionDataTask?, Error) -> Void)
+private typealias SessionManagingDataTaskProgress = (Progress) -> Void
+
+extension URLSessionDataTask: Cancellable {}
 
 /** `VimeoSessionManager` handles networking and serialization for raw HTTP requests.  It is a direct subclass of `AFHTTPSessionManager` and it's designed to be used internally by `VimeoClient`.  For the majority of purposes, it would be better to use `VimeoClient` and a `Request` object to better encapsulate this logic, since the latter provides richer functionality overall.
  */
-final public class VimeoSessionManager: AFHTTPSessionManager {
+final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
+    
     // MARK: Initialization
     
     /**
@@ -53,6 +59,49 @@ final public class VimeoSessionManager: AFHTTPSessionManager {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public func invalidate() {
+        self.invalidateSessionCancelingTasks(false)
+    }
+    
+    public func request(
+        _ endpoint: EndpointType,
+        then callback: @escaping SessionManagingResult
+    ) -> Cancellable? {
+        let path = endpoint.path
+        let parameters = endpoint.parameters
+        
+        var task: Cancellable?
+        
+        let successCallback: SessionManagingDataTaskSuccess = { dataTask, value in
+            let response = SessionManagingResponse(task: dataTask, value: value)
+            callback(Result.success(response))
+        }
+        
+        let failureCallback: SessionManagingDataTaskFailure = { dataTask, error in
+            let sessionError = SessionManagingError(task: dataTask, error: error)
+            callback(Result.failure(sessionError))
+        }
+        
+        switch endpoint.method {
+        case .get:
+            task = self.get(path, parameters: parameters, progress: nil, success: successCallback, failure: failureCallback)
+        case .post:
+            task = self.post(path, parameters: parameters, progress: nil, success: successCallback, failure: failureCallback)
+        case .put:
+            task = self.put(path, parameters: parameters, success: successCallback, failure: failureCallback)
+        case .patch:
+            task = self.patch(path, parameters: parameters, success: successCallback, failure: failureCallback)
+        case .delete:
+            task = self.delete(path, parameters: parameters, success: successCallback, failure: failureCallback)
+        case .connect, .head, .options, .trace:
+            break
+        }
+        
+        return task
+    }
+}
+
+extension VimeoSessionManager: AuthenticationListeningDelegate {
     // MARK: - Authentication
     
     /**
@@ -60,7 +109,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager {
      
      - parameter account: the new account
      */
-    func clientDidAuthenticate(with account: VIMAccount) {
+    public func clientDidAuthenticate(with account: VIMAccount) {
         guard let requestSerializer = self.requestSerializer as? VimeoRequestSerializer
         else {
             return
@@ -75,7 +124,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager {
     /**
      Called when a client is logged out and the current account should be cleared from the session manager
      */
-    func clientDidClearAccount() {
+    public func clientDidClearAccount() {
         guard let requestSerializer = self.requestSerializer as? VimeoRequestSerializer
             else {
             return
@@ -83,4 +132,5 @@ final public class VimeoSessionManager: AFHTTPSessionManager {
         
         requestSerializer.accessTokenProvider = nil
     }
+    
 }

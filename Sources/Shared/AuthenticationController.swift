@@ -181,7 +181,7 @@ final public class AuthenticationController {
         let urlString = self.configuration.baseUrl.appendingPathComponent(Constants.CodeGrantAuthorizationPath).absoluteString
         
         var error: NSError?
-        let urlRequest = VimeoRequestSerializer(appConfiguration: self.configuration).request(withMethod: VimeoClient.Method.GET.rawValue, urlString: urlString, parameters: parameters, error: &error)
+        let urlRequest = VimeoRequestSerializer(appConfiguration: self.configuration).request(withMethod: HTTPMethod.get.rawValue, urlString: urlString, parameters: parameters, error: &error)
         
         guard let url = urlRequest.url, error == nil
         else {

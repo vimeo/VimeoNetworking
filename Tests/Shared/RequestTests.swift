@@ -48,19 +48,19 @@ class RequestTests: XCTestCase {
     }
     
     func test_RetryPolicy_DefaultPolicyForMethodShouldReturnSingleAttempt() {
-        var defaultPolicy = RetryPolicy.defaultPolicyForMethod(for: .GET)
+        var defaultPolicy = RetryPolicy.defaultPolicyForMethod(for: .get)
         XCTAssertTrue(RequestComparisons.CompareRetryPolicies(defaultPolicy, .singleAttempt), "RetryPolicy.defaultPolicyForMethod should return singleAttempt for all methods")
         
-        defaultPolicy = RetryPolicy.defaultPolicyForMethod(for: .POST)
+        defaultPolicy = RetryPolicy.defaultPolicyForMethod(for: .post)
         XCTAssertTrue(RequestComparisons.CompareRetryPolicies(defaultPolicy, .singleAttempt), "RetryPolicy.defaultPolicyForMethod should return singleAttempt for all methods")
 
-        defaultPolicy = RetryPolicy.defaultPolicyForMethod(for: .PUT)
+        defaultPolicy = RetryPolicy.defaultPolicyForMethod(for: .put)
         XCTAssertTrue(RequestComparisons.CompareRetryPolicies(defaultPolicy, .singleAttempt), "RetryPolicy.defaultPolicyForMethod should return singleAttempt for all methods")
 
-        defaultPolicy = RetryPolicy.defaultPolicyForMethod(for: .PATCH)
+        defaultPolicy = RetryPolicy.defaultPolicyForMethod(for: .patch)
         XCTAssertTrue(RequestComparisons.CompareRetryPolicies(defaultPolicy, .singleAttempt), "RetryPolicy.defaultPolicyForMethod should return singleAttempt for all methods")
         
-        defaultPolicy = RetryPolicy.defaultPolicyForMethod(for: .DELETE)
+        defaultPolicy = RetryPolicy.defaultPolicyForMethod(for: .delete)
         XCTAssertTrue(RequestComparisons.CompareRetryPolicies(defaultPolicy, .singleAttempt), "RetryPolicy.defaultPolicyForMethod should return singleAttempt for all methods")
     }
     
@@ -80,7 +80,7 @@ class RequestTests: XCTestCase {
     
     func test_Request_setValuesThroughConstructor() {
         let testPath = "/test"
-        let request = Request<VIMNullResponse>(method: .POST,
+        let request = Request<VIMNullResponse>(method: .post,
                                                path: testPath,
                                                parameters: ["param" : "test field"],
                                                modelKeyPath: "data",
@@ -91,7 +91,7 @@ class RequestTests: XCTestCase {
         XCTAssertEqual(request.path, testPath)
         XCTAssertEqual(request.URI, "/test?param=test%20field")
         XCTAssertTrue(request.cacheResponse)
-        XCTAssertEqual(request.method, .POST)
+        XCTAssertEqual(request.method, .post)
         XCTAssertEqual(request.useCache, true)
         XCTAssertTrue(RequestComparisons.CompareRetryPolicies(request.retryPolicy, .multipleAttempts(attemptCount: 3, initialDelay: 2.0)))
     }

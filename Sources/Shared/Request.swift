@@ -47,9 +47,9 @@ public enum RetryPolicy {
      
      - returns: the default retry policy for the given `Method`
      */
-    static func defaultPolicyForMethod(for method: VimeoClient.Method) -> RetryPolicy {
+    static func defaultPolicyForMethod(for method: HTTPMethod) -> RetryPolicy {
         switch method {
-        case .GET, .DELETE, .PATCH, .POST, .PUT:
+        case .get, .delete, .patch, .post, .put, .connect, .head, .options, .trace:
             return .singleAttempt
         }
     }
@@ -72,25 +72,25 @@ public struct Request<ModelType: MappableResponse> {
     
     // MARK: -
     
-        /// HTTP method (e.g. `.GET`, `.POST`)
-    public let method: VimeoClient.Method
+    /// HTTP method (e.g. `.GET`, `.POST`)
+    public let method: HTTPMethod
     
-        /// request url path (e.g. `/me`, `/videos/123456`)
+    /// request url path (e.g. `/me`, `/videos/123456`)
     public let path: String
     
-        /// any parameters to include with the request
+    /// any parameters to include with the request
     public let parameters: Any?
 
-        /// query a nested JSON key path for the response model object to be returned
+    /// query a nested JSON key path for the response model object to be returned
     public let modelKeyPath: String?
     
-        /// describes how this request should query for cached responses
+    /// describes how this request should query for cached responses
     public let useCache: Bool
     
-        /// whether a successful response to this request should be stored in cache
+    /// whether a successful response to this request should be stored in cache
     public let cacheResponse: Bool
     
-        /// describes how the request should handle retrying after failure
+    /// describes how the request should handle retrying after failure
     internal(set) public var retryPolicy: RetryPolicy
     
     // MARK: -
@@ -108,7 +108,7 @@ public struct Request<ModelType: MappableResponse> {
      
      - returns: an initialized `Request`
      */
-    public init(method: VimeoClient.Method = .GET,
+    public init(method: HTTPMethod = .get,
                 path: String,
                 parameters: Any? = nil,
                 modelKeyPath: String? = nil,

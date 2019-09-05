@@ -9,7 +9,7 @@
 import Foundation
 
 /// A typesafe representation of all available HTTP methods
-enum HTTPMethod: String {
+public enum HTTPMethod: String {
     /// The CONNECT method
     case connect        = "CONNECT"
     

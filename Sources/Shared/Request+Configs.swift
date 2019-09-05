@@ -20,10 +20,10 @@ extension Request {
         let path = "/configs"
         
         if cache {
-            return Request(method: .GET, path: path, useCache: true)
+            return Request(method: .get, path: path, useCache: true)
         }
         else {
-            return Request(method: .GET, path: path, cacheResponse: true)
+            return Request(method: .get, path: path, cacheResponse: true)
         }
     }
 }

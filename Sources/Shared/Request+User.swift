@@ -129,6 +129,6 @@ public extension Request {
      - returns: the new `Request`
      */
     static func patchUser(withUserURI userURI: String, parameters: VimeoClient.RequestParametersDictionary) -> Request {
-        return Request(method: .PATCH, path: userURI, parameters: parameters)
+        return Request(method: .patch, path: userURI, parameters: parameters)
     }
 }

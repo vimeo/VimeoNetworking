@@ -26,7 +26,7 @@ extension Request {
     public static func registerDeviceForPushNotifications(withDeviceToken deviceToken: String, parameters: VimeoClient.RequestParametersDictionary) -> Request {
         let uri = self.uri(forDeviceToken: deviceToken)
         
-        return Request(method: .PUT, path: uri, parameters: parameters)
+        return Request(method: .put, path: uri, parameters: parameters)
     }
     
     /**
@@ -41,7 +41,7 @@ extension Request {
     public static func unregisterDeviceForPushNotifications(withDeviceToken deviceToken: String, parameters: VimeoClient.RequestParametersDictionary) -> Request {
         let uri = self.uri(forDeviceToken: deviceToken)
 
-        return Request(method: .DELETE, path: uri, parameters: parameters)
+        return Request(method: .delete, path: uri, parameters: parameters)
     }
     
     /**
@@ -53,7 +53,7 @@ extension Request {
      - returns: a new `Request`
      */
     public static func addPushNotificationTrigger(withParameters parameters: VimeoClient.RequestParametersDictionary) -> Request {
-        return Request(method: .POST, path: self.TriggersURI, parameters: parameters)
+        return Request(method: .post, path: self.TriggersURI, parameters: parameters)
     }
     
     /**
@@ -65,7 +65,7 @@ extension Request {
      - returns: a new `Request`
      */
     public static func removePushNotificationTrigger(forTriggerURI triggerURI: String) -> Request {
-        return Request(method: .DELETE, path: triggerURI)
+        return Request(method: .delete, path: triggerURI)
     }
     
     /**
@@ -79,7 +79,7 @@ extension Request {
     public static func pushNotificationTriggers(forDeviceToken deviceToken: String, parameters: VimeoClient.RequestParametersArray) -> Request {
         let uri = self.uri(forDeviceToken: deviceToken) + self.TriggersURI
 
-        return Request(method: .PUT, path: uri, parameters: parameters, modelKeyPath: "data")
+        return Request(method: .put, path: uri, parameters: parameters, modelKeyPath: "data")
     }
     
     // MARK: Helpers

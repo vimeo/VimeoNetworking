@@ -109,7 +109,7 @@ public extension Request {
      - returns: a new `Request`
      */
     static func patchVideoRequest(withVideoURI videoURI: String, parameters: VimeoClient.RequestParametersDictionary) -> Request {
-        return Request(method: .PATCH, path: videoURI, parameters: parameters)
+        return Request(method: .patch, path: videoURI, parameters: parameters)
     }
     
     /**
@@ -120,6 +120,6 @@ public extension Request {
      - returns: a new `Request`
      */
     static func deleteVideoRequest(forVideoURI videoURI: String) -> Request {
-        return Request(method: .DELETE, path: videoURI)
+        return Request(method: .delete, path: videoURI)
     }
 }

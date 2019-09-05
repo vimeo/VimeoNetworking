@@ -39,6 +39,6 @@ public extension Request {
      - returns: a new `Request`
      */
     static func toggle(forURI uri: String, newValue: Bool) -> Request {
-        return Request(method: newValue ? .PUT : .DELETE, path: uri)
+        return Request(method: newValue ? .put : .delete, path: uri)
     }
 }
