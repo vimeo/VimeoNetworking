@@ -72,40 +72,30 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
         let path = endpoint.uri
         let parameters = endpoint.parameters
         
-        var task: Cancelable?
-        
-        let successCallback: SessionManagingDataTaskSuccess = { dataTask, value in
-            let response = SessionManagingResponse(
-                task: dataTask, value: value, error: nil
-            )
+        let success: SessionManagingDataTaskSuccess = { dataTask, value in
+            let response = SessionManagingResponse(task: dataTask, value: value, error: nil)
             callback(response)
         }
         
-        let failureCallback: SessionManagingDataTaskFailure = { dataTask, error in
-            let response = SessionManagingResponse<Any>(
-                task: dataTask,
-                value: nil,
-                error: error
-            )
+        let failure: SessionManagingDataTaskFailure = { dataTask, error in
+            let response = SessionManagingResponse<Any>(task: dataTask, value: nil, error: error)
             callback(response)
         }
         
         switch endpoint.method {
         case .get:
-            task = self.get(path, parameters: parameters, progress: nil, success: successCallback, failure: failureCallback)
+            return self.get(path, parameters: parameters, progress: nil, success: success, failure: failure)
         case .post:
-            task = self.post(path, parameters: parameters, progress: nil, success: successCallback, failure: failureCallback)
+            return self.post(path, parameters: parameters, progress: nil, success: success, failure: failure)
         case .put:
-            task = self.put(path, parameters: parameters, success: successCallback, failure: failureCallback)
+            return self.put(path, parameters: parameters, success: success, failure: failure)
         case .patch:
-            task = self.patch(path, parameters: parameters, success: successCallback, failure: failureCallback)
+            return self.patch(path, parameters: parameters, success: success, failure: failure)
         case .delete:
-            task = self.delete(path, parameters: parameters, success: successCallback, failure: failureCallback)
+            return self.delete(path, parameters: parameters, success: success, failure: failure)
         case .connect, .head, .options, .trace:
-            break
-        }
-        
-        return task
+            return nil
+        }                
     }
 }
 
