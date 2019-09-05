@@ -69,7 +69,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
         with endpoint: EndpointType,
         then callback: @escaping (SessionManagingResponse<Any>) -> Void
     ) -> Cancelable? {
-        let path = endpoint.path
+        let path = endpoint.uri
         let parameters = endpoint.parameters
         
         var task: Cancelable?

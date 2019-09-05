@@ -40,12 +40,14 @@ public protocol SessionManaging {
 
 /// A protocol representing an endpoint to which requests can be sent to
 public protocol EndpointType {
-    var path: String { get }
+    var uri: String { get }
     var parameters: Any? { get }
     var method: HTTPMethod { get }
 }
 
-extension Request: EndpointType {}
+extension Request: EndpointType {
+    public var uri: String { return path }
+}
 
 /// A protocol representing a type that can be canceled
 public protocol Cancelable {
