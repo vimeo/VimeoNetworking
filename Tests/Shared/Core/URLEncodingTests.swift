@@ -10,12 +10,6 @@ import Foundation
 import XCTest
 @testable import VimeoNetworking
 
-extension URLRequest: URLRequestConvertible {
-    public func asURLRequest() throws -> URLRequest {
-        return self
-    }
-}
-
 class URLParameterEncodingTestCase: XCTestCase {
     
     let urlRequest = URLRequest(url: URL(string: "https://example.com/")!)

@@ -31,8 +31,6 @@ private typealias SessionManagingDataTaskSuccess = ((URLSessionDataTask, Any?) -
 private typealias SessionManagingDataTaskFailure = ((URLSessionDataTask?, Error) -> Void)
 private typealias SessionManagingDataTaskProgress = (Progress) -> Void
 
-extension URLSessionDataTask: Cancellable {}
-
 /** `VimeoSessionManager` handles networking and serialization for raw HTTP requests.  It is a direct subclass of `AFHTTPSessionManager` and it's designed to be used internally by `VimeoClient`.  For the majority of purposes, it would be better to use `VimeoClient` and a `Request` object to better encapsulate this logic, since the latter provides richer functionality overall.
  */
 final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
@@ -64,13 +62,13 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
     }
     
     public func request(
-        _ endpoint: EndpointType,
+        with endpoint: EndpointType,
         then callback: @escaping SessionManagingResult
-    ) -> Cancellable? {
+    ) -> Cancelable? {
         let path = endpoint.path
         let parameters = endpoint.parameters
         
-        var task: Cancellable?
+        var task: Cancelable?
         
         let successCallback: SessionManagingDataTaskSuccess = { dataTask, value in
             let response = SessionManagingResponse(task: dataTask, value: value)

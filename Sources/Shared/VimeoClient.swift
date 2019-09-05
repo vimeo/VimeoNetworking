@@ -41,7 +41,7 @@ final public class VimeoClient {
         public let path: String?
         
         /// The data task of the request
-        public let task: Cancellable?
+        public let task: Cancelable?
         
         /**
          Cancel the request
@@ -198,7 +198,7 @@ final public class VimeoClient {
             return RequestToken(path: request.path, task: nil)
         }
         else {
-            let task = self.sessionManager?.request(request, then: { result in
+            let task = self.sessionManager?.request(with: request, then: { result in
                 DispatchQueue.global(qos: .userInitiated).async {
                     switch result {
                     case .success(let response):
