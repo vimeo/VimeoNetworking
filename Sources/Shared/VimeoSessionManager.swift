@@ -129,6 +129,5 @@ extension VimeoSessionManager: AuthenticationListeningDelegate {
         }
         
         requestSerializer.accessTokenProvider = nil
-    }
-    
+    }    
 }
