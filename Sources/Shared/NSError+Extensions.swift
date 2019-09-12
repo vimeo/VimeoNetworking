@@ -35,12 +35,12 @@ public enum VimeoErrorKey: String {
 
 /// Convenience methods used to parse `NSError`s returned by Vimeo api responses
 @objc public extension NSError {
-        /// Returns true if the error is a 503 Service Unavailable error
+    /// Returns true if the error is a 503 Service Unavailable error
     var isServiceUnavailableError: Bool {
         return self.statusCode == HTTPStatusCode.serviceUnavailable.rawValue
     }
     
-        /// Returns true if the error is due to an invalid access token
+    /// Returns true if the error is due to an invalid access token
     var isInvalidTokenError: Bool {
         if let urlResponse = self.userInfo[AFNetworkingOperationFailingURLResponseErrorKey] as? HTTPURLResponse, urlResponse.statusCode == HTTPStatusCode.unauthorized.rawValue {
             if let header = urlResponse.allHeaderFields["Www-Authenticate"] as? String, header == "Bearer error=\"invalid_token\"" {
@@ -51,12 +51,12 @@ public enum VimeoErrorKey: String {
         return false
     }
     
-        /// Returns true if the error is due to the cancellation of a network task
+    /// Returns true if the error is due to the cancellation of a network task
     func isNetworkTaskCancellationError() -> Bool {
         return self.domain == NSURLErrorDomain && self.code == NSURLErrorCancelled
     }
     
-        /// Returns true if the error is a url connection error
+    /// Returns true if the error is a url connection error
     func isConnectionError() -> Bool {
         return [NSURLErrorTimedOut,
             NSURLErrorCannotFindHost,
@@ -64,6 +64,12 @@ public enum VimeoErrorKey: String {
             NSURLErrorDNSLookupFailed,
             NSURLErrorNotConnectedToInternet,
             NSURLErrorNetworkConnectionLost].contains(self.code)
+    }
+    
+    /// Returns true if the error code is 404 Not Found
+    var is404NotFoundError: Bool {
+        let response = userInfo[AFNetworkingOperationFailingURLResponseErrorKey] as? HTTPURLResponse
+        return response?.statusCode == 404
     }
     
     /**
