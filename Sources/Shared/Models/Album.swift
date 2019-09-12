@@ -45,6 +45,7 @@ import Foundation
             static let Pictures = "pictures"
             static let Metadata = "metadata"
             static let Connections = "connections"
+            static let Interactions = "interactions"
         }
         
         struct Value {
@@ -86,8 +87,9 @@ import Foundation
     @objc public var videoThumbnails: NSArray?
     @objc public var user: VIMUser?
     @objc public var theme: String?
-    @objc dynamic private var metadata: [String: Any]?
-    @objc dynamic private var connections: [String: Any]?
+    @objc private var metadata: [String: Any]?
+    @objc private var connections: [String: Any]?
+    @objc private var interactions: [String: Any]?
     
     public override func getObjectMapping() -> Any? {
         return [
@@ -130,10 +132,15 @@ import Foundation
         self.createdTime = self.formatDate(from: self.createdTimeString)
         self.modifiedTime = self.formatDate(from: self.modifiedTimeString)
         self.parseConnections()
+        self.parseInteractions()
     }
     
-    public func connectionWithName(connectionName: String) -> VIMConnection? {
+    public func connection(withName connectionName: String) -> VIMConnection? {
         return self.connections?[connectionName] as? VIMConnection
+    }
+
+    public func interaction(withName interactionName: String) -> VIMInteraction? {
+        return self.interactions?[interactionName] as? VIMInteraction
     }
     
     // MARK: - Convenience
@@ -145,14 +152,23 @@ import Foundation
     // MARK: - Private
 
     private func parseConnections() {
-        guard let dictionary = self.metadata?[Constant.Key.Connections] as? [String: Any] else {
-            return
-        }
+        guard let dictionary = self.metadata?[Constant.Key.Connections] as? [String: Any] else { return }
         
         self.connections = [String: Any]()
         for (key, value) in dictionary {
             if let valueDict = value as? [String: Any] {
                 self.connections?[key] = VIMConnection(keyValueDictionary: valueDict)
+            }
+        }
+    }
+
+    private func parseInteractions() {
+        guard let dictionary = self.metadata?[Constant.Key.Interactions] as? [String: Any] else { return }
+
+        self.interactions = [String: Any]()
+        for (key, value) in dictionary {
+            if let valueDict = value as? [String: Any] {
+                self.interactions?[key] = VIMInteraction(keyValueDictionary: valueDict)
             }
         }
     }
