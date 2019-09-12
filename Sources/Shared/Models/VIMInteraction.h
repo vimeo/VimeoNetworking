@@ -36,6 +36,7 @@ extern NSString * const __nonnull VIMInteractionNameRent;
 extern NSString * const __nonnull VIMInteractionNameSubscribe;
 extern NSString * const __nonnull VIMInteractionNamePurchase;
 extern NSString * const __nonnull VIMInteractionNameAlbum;
+extern NSString * const __nonnull VIMInteractionNameAddTo;
 
 typedef NS_ENUM(NSInteger, VIMInteractionStreamStatus) {
     VIMInteractionStreamStatusUnavailable = 0,      // user cannot purchase

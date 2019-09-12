@@ -36,6 +36,7 @@ NSString * const VIMInteractionNameRent = @"rent";
 NSString * const VIMInteractionNameSubscribe = @"subscribe";
 NSString * const VIMInteractionNamePurchase = @"purchase";
 NSString * const VIMInteractionNameAlbum = @"album";
+NSString * const VIMInteractionNameAddTo = @"add_to";
 
 @interface VIMInteraction()
 @property (nonatomic, copy, nullable) NSString *added_time;
