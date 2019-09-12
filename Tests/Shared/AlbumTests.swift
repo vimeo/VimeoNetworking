@@ -108,9 +108,9 @@ class AlbumTests: XCTestCase {
             return
         }
         
-        XCTAssertNotNil(album.connectionWithName(connectionName: VIMConnectionNameVideos), "Expected to find a videos connection but return nil instead.")
+        XCTAssertNotNil(album.connection(withName: VIMConnectionNameVideos), "Expected to find a videos connection but return nil instead.")
         
-        let videosConnection = album.connectionWithName(connectionName: VIMConnectionNameVideos)
+        let videosConnection = album.connection(withName: VIMConnectionNameVideos)
         XCTAssertEqual(videosConnection?.uri, "/albums/5451829/videos", "The connection URI's do not match.")
         XCTAssertEqual(videosConnection?.total, 2, "The total number of videos in the connection do not much the expected number of 2.")
     }
@@ -123,8 +123,7 @@ class AlbumTests: XCTestCase {
         XCTAssertTrue(testAlbum.isPasswordProtected(), "Test album should return as password protected.")
     }
 
-    func test_privacyPassword_isEqualToExpectedValue_whenPrivacyViewIsPassword()
-    {
+    func test_privacyPassword_isEqualToExpectedValue_whenPrivacyViewIsPassword() {
         let privacyDictionary: [String: Any] = ["view": "password", "password": "test"]
         let privacy = VIMPrivacy(keyValueDictionary: privacyDictionary)!
         let albumDictionary: [String: Any] = ["privacy": privacy as Any]
