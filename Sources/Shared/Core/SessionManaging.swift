@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AFNetworking
 
 /// The protocols declared in this file have been created to abstract our dependency
 /// on AFNetworking and the Vimeo subclasses that inherit from it,
@@ -23,6 +24,9 @@ public struct SessionManagingResponse<T> {
     let value: T?
     let error: Error?
 }
+
+public typealias SSLPinningMode = AFSSLPinningMode
+public typealias SecurityPolicy = AFSecurityPolicy
 
 /// A protocol describing the requirements of a SessionManaging type
 public protocol SessionManaging {
