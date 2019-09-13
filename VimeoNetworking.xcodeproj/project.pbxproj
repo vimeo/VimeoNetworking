@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C5F05BF232BFC1F00E2D5AD /* BatchOperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5F05BE232BFC1F00E2D5AD /* BatchOperable.swift */; };
+		0C5F05C0232BFC1F00E2D5AD /* BatchOperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5F05BE232BFC1F00E2D5AD /* BatchOperable.swift */; };
+		0C5F05C1232BFC1F00E2D5AD /* BatchOperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5F05BE232BFC1F00E2D5AD /* BatchOperable.swift */; };
 		2FCC188BC3EE850980E4C7D5 /* Pods_VimeoNetworking_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66B43D25318F400304BCF876 /* Pods_VimeoNetworking_tvOS.framework */; };
 		380EAFA5457E1203D06D0884 /* Pods_VimeoNetworking_tvOS_VimeoNetworking_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E501631A49C6E81266C735 /* Pods_VimeoNetworking_tvOS_VimeoNetworking_tvOSTests.framework */; };
 		5B1AE5C822B5AA1400FE120E /* NSErrorExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1DF2B822B41C90007F2416 /* NSErrorExtensionTests.swift */; };
@@ -716,6 +719,7 @@
 
 /* Begin PBXFileReference section */
 		08D548BFE2CDF46B766FBA2C /* Pods_VimeoNetworking_macOS_VimeoNetworking_macOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VimeoNetworking_macOS_VimeoNetworking_macOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C5F05BE232BFC1F00E2D5AD /* BatchOperable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchOperable.swift; sourceTree = "<group>"; };
 		0FBE6D7B6190E83B694CAE2B /* Pods-VimeoNetworking-macOS-VimeoNetworking-macOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworking-macOS-VimeoNetworking-macOSTests.debug.xcconfig"; path = "Target Support Files/Pods-VimeoNetworking-macOS-VimeoNetworking-macOSTests/Pods-VimeoNetworking-macOS-VimeoNetworking-macOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		13342C84A232F50251268E8E /* Pods-VimeoNetworking-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworking-iOS.release.xcconfig"; path = "Target Support Files/Pods-VimeoNetworking-iOS/Pods-VimeoNetworking-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		198CFAD8E5A5FDB0E5455551 /* Pods-VimeoNetworking-iOS-VimeoNetworking-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworking-iOS-VimeoNetworking-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-VimeoNetworking-iOS-VimeoNetworking-iOSTests/Pods-VimeoNetworking-iOS-VimeoNetworking-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1237,6 +1241,7 @@
 				5B5EEF8122B441A3005C66BE /* Models */,
 				5B5EF00622B441A3005C66BE /* AccountStore.swift */,
 				5B5EEF7022B441A3005C66BE /* AppConfiguration.swift */,
+				0C5F05BE232BFC1F00E2D5AD /* BatchOperable.swift */,
 				5B5EF00922B441A3005C66BE /* AuthenticationController.swift */,
 				5B5EEF7122B441A3005C66BE /* ClosureTypes.swift */,
 				5B5EEF6C22B441A3005C66BE /* Constants.swift */,
@@ -2326,6 +2331,7 @@
 				5B5EF12F22B441A4005C66BE /* VIMPeriodic.swift in Sources */,
 				5B5EF18C22B441A4005C66BE /* VIMVideoHLSFile.m in Sources */,
 				5B5EF0C922B441A4005C66BE /* VIMVideoPlayRepresentation.m in Sources */,
+				0C5F05BF232BFC1F00E2D5AD /* BatchOperable.swift in Sources */,
 				5B5EF0CF22B441A4005C66BE /* UserSubscriptionRenewal.swift in Sources */,
 				5B5EF06922B441A3005C66BE /* UserSubscriptionTrial.swift in Sources */,
 				5B5EF08A22B441A3005C66BE /* VIMNotificationsConnection.m in Sources */,
@@ -2448,6 +2454,7 @@
 				5B5EF10322B441A4005C66BE /* VIMProgrammedContent.swift in Sources */,
 				5B5EF13022B441A4005C66BE /* VIMPeriodic.swift in Sources */,
 				5B5EF18D22B441A4005C66BE /* VIMVideoHLSFile.m in Sources */,
+				0C5F05C0232BFC1F00E2D5AD /* BatchOperable.swift in Sources */,
 				5B5EF0CA22B441A4005C66BE /* VIMVideoPlayRepresentation.m in Sources */,
 				5B5EF0D022B441A4005C66BE /* UserSubscriptionRenewal.swift in Sources */,
 				5B5EF06A22B441A3005C66BE /* UserSubscriptionTrial.swift in Sources */,
@@ -2532,6 +2539,7 @@
 				5B5EF0C822B441A4005C66BE /* Album.swift in Sources */,
 				5B5EF08322B441A3005C66BE /* VIMVideo.m in Sources */,
 				5B5EF04A22B441A3005C66BE /* String+Parameters.swift in Sources */,
+				0C5F05C1232BFC1F00E2D5AD /* BatchOperable.swift in Sources */,
 				5B5EF09222B441A3005C66BE /* VIMSeason.m in Sources */,
 				5B5EF1D622B441A4005C66BE /* Request+Comment.swift in Sources */,
 				5B5EF19D22B441A4005C66BE /* PinCodeInfo.swift in Sources */,
