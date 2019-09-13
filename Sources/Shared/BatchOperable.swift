@@ -24,7 +24,7 @@
 //
 
 /// Conforming objcets are capable of being added and to, or removed from, a containing object in a single request.
-protocol BatchOperable: Equatable {
+public protocol BatchOperable: Equatable {
     /// An identifier for the item.
     var uri: String? { get }
 
@@ -36,11 +36,11 @@ protocol BatchOperable: Equatable {
 }
 
 extension Album: BatchOperable {
-    static var addParameter: String { return "add" }
-    static var removeParameter: String { return "remove" }
+    static public var addParameter: String { return "add" }
+    static public var removeParameter: String { return "remove" }
 }
 
 extension VIMVideo: BatchOperable {
-    static var addParameter: String { return "set" }
-    static var removeParameter: String { return "remove" }
+    static public var addParameter: String { return "set" }
+    static public var removeParameter: String { return "remove" }
 }
