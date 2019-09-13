@@ -33,6 +33,8 @@ public protocol BatchOperable: Equatable {
 
     /// The key value required to indicate the item is being batch removed from a containing object.
     static var removeParameter: String { get }
+
+    static var batchTypeParameter: String { get }
 }
 
 extension Album: BatchOperable {
