@@ -24,7 +24,7 @@
 //
 
 /// Conforming objcets are capable of being added and to, or removed from, a containing object in a single request.
-public protocol BatchOperable: Equatable {
+public protocol BatchOperable: Hashable {
     /// An identifier for the item.
     var uri: String? { get }
 
