@@ -28,21 +28,25 @@ public protocol BatchOperable: Equatable {
     /// An identifier for the item.
     var uri: String? { get }
 
-    /// The key value required to indicate the item is being batch added to a containing object.
+    /// The key required to indicate the item is being batch added to a containing object.
     static var addParameter: String { get }
 
-    /// The key value required to indicate the item is being batch removed from a containing object.
+    /// The key required to indicate the item is being batch removed from a containing object.
     static var removeParameter: String { get }
 
-    static var batchTypeParameter: String { get }
+    /// The key required for some batch requests to indicate the type of the batch item being operated on. Note that not all batch requests use this parameter and will fail if
+    ///  provided. Check Vimeo's API documentation for more information.
+    static var batchTypeParameter: String? { get }
 }
 
 extension Album: BatchOperable {
     static public var addParameter: String { return "add" }
     static public var removeParameter: String { return "remove" }
+    static public var batchTypeParameter: String? { return nil }
 }
 
 extension VIMVideo: BatchOperable {
     static public var addParameter: String { return "set" }
     static public var removeParameter: String { return "remove" }
+    static public var batchTypeParameter: String? { return "video" }
 }
