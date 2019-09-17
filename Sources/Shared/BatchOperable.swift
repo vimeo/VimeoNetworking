@@ -23,7 +23,7 @@
 //  THE SOFTWARE.
 //
 
-/// Conforming objcets are capable of being added and to, or removed from, a containing object in a single request.
+/// Conforming objcets are capable of being added to, or removed from, a containing object in a single request.
 public protocol BatchOperable: Hashable {
     /// An identifier for the item.
     var uri: String? { get }
