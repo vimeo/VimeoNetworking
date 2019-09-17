@@ -34,8 +34,9 @@ public protocol BatchOperable: Hashable {
     /// The key required to indicate the item is being batch removed from a containing object.
     static var removeParameter: String { get }
 
-    /// The key required for some batch requests to indicate the type of the batch item being operated on. Note that not all batch requests use this parameter and will fail if
-    ///  provided. Check Vimeo's API documentation for more information.
+    /// The key required for some batch requests to indicate the type of the batch item being operated on.
+    /// Note that not all batch requests use this parameter and will fail if provided.
+    /// Check Vimeo's API documentation for more information.
     static var batchTypeParameter: String? { get }
 }
 
