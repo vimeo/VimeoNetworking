@@ -38,4 +38,10 @@ public extension Request {
     static func albumRequest(for uri: String) -> Request {
         return Request(path: uri)
     }
+
+    /// Returns a new request to delete the album for the given URI.
+    /// - Parameter albumURI: The album's URI.
+    static func deleteAlbumRequest(for albumURI: String) -> Request {
+        return Request(method: .DELETE, path: albumURI)
+    }
 }
