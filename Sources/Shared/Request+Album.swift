@@ -29,14 +29,43 @@ public typealias AlbumRequest = Request<Album>
 /// `Request` that returns an array of `Album` objects.
 public typealias AlbumListRequest = Request<[Album]>
 
+fileprivate enum Key {
+    static let name = "name"
+    static let description = "description"
+    static let password = "password"
+    static let privacy = "privacy"
+}
+
 public extension Request {
-    
     /// Returns a new request to fetch a specific album.
     ///
     /// - Parameter uri: The album's URI.
     /// - Returns: Returns a new `Request` for an individual album.
     static func albumRequest(for uri: String) -> Request {
         return Request(path: uri)
+    }
+
+    /// Returns a new request for creating an album.
+    /// - Parameter userURI: The URI for the current user, and owner of the album being created.
+    /// - Parameter name: The name of the album being created.
+    /// - Parameter description: An optional description for the album.
+    /// - Parameter privacy: The privacy parameter as a String. If none is specified it defaults to "anyone".
+    /// - Parameter password: A optional password parameter, only required when privacy is set to "password".
+    static func createAlbumRequest(
+        userURI: String,
+        name: String,
+        description: String? = nil,
+        privacy: String? = VIMPrivacy_Public,
+        password: String? = nil
+    ) -> Request {
+        var parameters = [String: String]()
+        parameters[Key.name] = name
+        parameters[Key.description] = description
+
+        privacy.map { parameters[Key.privacy] = $0 }
+        password.map { parameters[Key.password] = $0 }
+
+        return Request(method: .POST, path: userURI + "/albums", parameters: parameters)
     }
 
     /// Returns a new request to delete the album for the given URI.
