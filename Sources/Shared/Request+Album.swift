@@ -50,7 +50,7 @@ public extension Request {
     /// - Parameter name: The name of the album being created.
     /// - Parameter description: An optional description for the album.
     /// - Parameter privacy: The privacy parameter as a String. If none is specified it defaults to "anyone".
-    /// - Parameter password: A optional password parameter, only required when privacy is set to "password".
+    /// - Parameter password: An optional password parameter, only required when privacy is set to "password".
     static func createAlbumRequest(
         userURI: String,
         name: String,
@@ -66,6 +66,29 @@ public extension Request {
         password.map { parameters[Key.password] = $0 }
 
         return Request(method: .POST, path: userURI + "/albums", parameters: parameters)
+    }
+
+    /// Returns a new request for updating an exising album.
+    /// - Parameter albumURI: The URI for the album that will be updated.
+    /// - Parameter name: The name of the album.
+    /// - Parameter description: An optional description for the album.
+    /// - Parameter privacy: The privacy parameter as a String.
+    /// - Parameter password: An optional password parameter, only required when the privacy is set to "password".
+    static func updateAlbumRequest(
+        albumURI: String,
+        name: String,
+        description: String? = nil,
+        privacy: String?,
+        password: String? = nil
+    ) -> Request {
+        var parameters = [String: String]()
+        parameters[Key.name] = name
+        parameters[Key.description] = description
+
+        privacy.map { parameters[Key.privacy] = $0 }
+        password.map { parameters[Key.password] = $0 }
+
+        return Request(method: .PATCH, path: albumURI, parameters: parameters)
     }
 
     /// Returns a new request to delete the album for the given URI.
