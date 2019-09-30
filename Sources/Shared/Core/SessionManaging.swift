@@ -9,6 +9,8 @@
 import Foundation
 import AFNetworking
 
+public typealias JSON = Any
+
 /// The protocols declared in this file have been created to abstract our dependency
 /// on AFNetworking and the Vimeo subclasses that inherit from it,
 /// Specifically `VimeoSessionManager`, `VimeoRequestSerializer` and `VimeoResponseSerializer`
@@ -28,23 +30,33 @@ public struct SessionManagingResponse<T> {
 public typealias SSLPinningMode = AFSSLPinningMode
 public typealias SecurityPolicy = AFSecurityPolicy
 
-/// A protocol describing the requirements of a SessionManaging type
+/// A type that can create different cancellable asynchronous requests based on
+/// an `EndpointType` parameter and the appropriate callback.
+/// The callbacks are generic in nature and can respond with `Data`, `JSON` or `Decodable` values.
 public protocol SessionManaging {
     
     /// Used to invalidate the session manager
     func invalidate()
     
-    /// Entrypoint for requests to be run by the session manager
+    /// Creates and returns a cancellable, asynchronous data request
+    /// and runs the callback passed in once the work is performed.
+    /// The callback may include the Data value and/or any error returned by the request.
     func request(
         with endpoint: EndpointType,
         then callback: @escaping (SessionManagingResponse<Data>) -> Void
     ) -> Cancelable?
 
+    /// Creates and returns a cancellable, asynchronous JSON request
+    /// and runs the callback passed in once the work is completed.
+    /// The callback may include the JSON value and/or any error returned by the request.
     func request(
         with endpoint: EndpointType,
-        then callback: @escaping (SessionManagingResponse<Any>) -> Void
+        then callback: @escaping (SessionManagingResponse<JSON>) -> Void
     ) -> Cancelable?
 
+    /// Creates and returns a cancellable, asynchronous Decodable request
+    /// and runs the callback passed in once the work is performed.
+    /// The callback may include the Decodable value type and/or any error returned by the request.
     func request<T: Decodable>(
         with endpoint: EndpointType,
         then callback: @escaping (SessionManagingResponse<T>) -> Void

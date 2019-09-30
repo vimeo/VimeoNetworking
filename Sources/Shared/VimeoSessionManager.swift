@@ -27,8 +27,6 @@
 import Foundation
 import AFNetworking
 
-public typealias JSON = Any
-
 private typealias SessionManagingDataTaskSuccess<T> = ((URLSessionDataTask, T?) -> Void)
 private typealias SessionManagingDataTaskFailure = ((URLSessionDataTask?, Error) -> Void)
 private typealias SessionManagingDataTaskProgress = (Progress) -> Void
@@ -52,8 +50,8 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
 
     // MARK: - Private
 
-    /// The response serializer to be used for serializing responses into JSON
-    private let jsonResponseSerializer: AFURLResponseSerialization
+    /// The custom Vimeo response serializer that is used serializing data requests into JSON
+    public let vimeoResponseSerializer = VimeoResponseSerializer()
 
     /// The JSONDecoder instance used for decoding decodable type responses
     private let jsonDecoder = JSONDecoder()
@@ -72,10 +70,8 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
     required public init(
         baseUrl: URL,
         sessionConfiguration: URLSessionConfiguration,
-        requestSerializer: VimeoRequestSerializer,
-        jsonResponseSerializer: AFURLResponseSerialization = VimeoResponseSerializer()
+        requestSerializer: VimeoRequestSerializer
     ) {
-        self.jsonResponseSerializer = jsonResponseSerializer
         super.init(baseURL: baseUrl, sessionConfiguration: sessionConfiguration)
         self.requestSerializer = requestSerializer
         self.responseSerializer = AFHTTPResponseSerializer()
@@ -128,7 +124,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
         with endpoint: EndpointType,
         then callback: @escaping (SessionManagingResponse<JSON>) -> Void
     ) -> Cancelable? {
-        return self.request(with: endpoint) { [jsonResponseSerializer] (response: SessionManagingResponse<Data>) in
+        return self.request(with: endpoint) { [vimeoResponseSerializer] (response: SessionManagingResponse<Data>) in
             guard let responseData = response.value else {
                 let error = response.error ?? VimeoSessionManagerError.responseDataNotFound
                 let errorResponse = SessionManagingResponse<JSON>(
@@ -140,7 +136,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
                 return
             }
             var error: NSError?
-            let json = jsonResponseSerializer.responseObject(
+            let json = vimeoResponseSerializer.responseObject(
                 for: response.task?.response,
                 data: responseData,
                 error: &error
