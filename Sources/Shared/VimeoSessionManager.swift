@@ -128,7 +128,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
         with endpoint: EndpointType,
         then callback: @escaping (SessionManagingResponse<JSON>) -> Void
     ) -> Cancelable? {
-        self.request(with: endpoint) { [jsonResponseSerializer] (response: SessionManagingResponse<Data>) in
+        return self.request(with: endpoint) { [jsonResponseSerializer] (response: SessionManagingResponse<Data>) in
             guard let responseData = response.value else {
                 let error = response.error ?? VimeoSessionManagerError.responseDataNotFound
                 let errorResponse = SessionManagingResponse<JSON>(
@@ -154,7 +154,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
         with endpoint: EndpointType,
         then callback: @escaping (SessionManagingResponse<T>) -> Void
     ) -> Cancelable? {
-        self.request(with: endpoint) { [jsonDecoder] (response: SessionManagingResponse<Data>) in
+        return self.request(with: endpoint) { [jsonDecoder] (response: SessionManagingResponse<Data>) in
             guard let data = response.value else {
                 let error = response.error ?? VimeoSessionManagerError.responseDataNotFound
                 let errorResponse = SessionManagingResponse<T>(
