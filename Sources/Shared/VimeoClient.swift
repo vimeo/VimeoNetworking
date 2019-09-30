@@ -200,7 +200,7 @@ final public class VimeoClient {
             return RequestToken(path: request.path, task: nil)
         }
         else {
-            let task = self.sessionManager?.request(with: request, then: { response in
+            let task = self.sessionManager?.request(with: request, then: { (response: SessionManagingResponse<Any>) in
                 DispatchQueue.global(qos: .userInitiated).async {
                     if response.error == nil {
                         self.handleTaskSuccess(

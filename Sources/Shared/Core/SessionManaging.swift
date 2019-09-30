@@ -37,9 +37,19 @@ public protocol SessionManaging {
     /// Entrypoint for requests to be run by the session manager
     func request(
         with endpoint: EndpointType,
+        then callback: @escaping (SessionManagingResponse<Data>) -> Void
+    ) -> Cancelable?
+
+    func request(
+        with endpoint: EndpointType,
         then callback: @escaping (SessionManagingResponse<Any>) -> Void
     ) -> Cancelable?
-    
+
+    func request<T: Decodable>(
+        with endpoint: EndpointType,
+        then callback: @escaping (SessionManagingResponse<T>) -> Void
+    ) -> Cancelable?
+
 }
 
 /// A protocol representing an endpoint to which requests can be sent to
