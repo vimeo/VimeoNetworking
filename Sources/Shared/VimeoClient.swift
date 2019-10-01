@@ -367,16 +367,12 @@ final public class VimeoClient {
     private func handleTaskFailure<ModelType>(
         forRequest request: Request<ModelType>,
         task: URLSessionDataTask?,
-        error: NSError?,
+        error: NSError,
         completionQueue: DispatchQueue,
         completion: @escaping ResultCompletion<Response<ModelType>, NSError>.T
     ) {
-        let error = error ?? NSError(domain: type(of: self).ErrorDomain, code: LocalErrorCode.undefined.rawValue, userInfo: [NSLocalizedDescriptionKey: "Undefined error"])
-        
-        if error.code == NSURLErrorCancelled {
-            return
-        }
-        
+        guard error.code != NSURLErrorCancelled else { return }
+
         self.handleError(error, request: request, task: task)
         
         if case .multipleAttempts(let attemptCount, let initialDelay) = request.retryPolicy, attemptCount > 1 {
