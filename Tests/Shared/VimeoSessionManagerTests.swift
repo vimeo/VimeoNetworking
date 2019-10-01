@@ -38,7 +38,7 @@ class VimeoSessionManagerTests: XCTestCase {
                                              apiVersion: "3.3")
     
         let sessionManager = VimeoSessionManager.defaultSessionManager(appConfiguration: configuration, configureSessionManagerBlock: nil)
-        XCTAssertEqual(sessionManager.baseURL, TestVimeoBaseURL)
+        XCTAssertEqual(sessionManager.httpSessionManager.baseURL, TestVimeoBaseURL)
     }
     
     func test_VimeoSessionManager_canSetBaseUrl() {
@@ -51,7 +51,7 @@ class VimeoSessionManagerTests: XCTestCase {
                                              baseUrl: testApiServer)
         
         let sessionManager = VimeoSessionManager.defaultSessionManager(appConfiguration: configuration, configureSessionManagerBlock: nil)
-        XCTAssertEqual(sessionManager.baseURL, testApiServer)
+        XCTAssertEqual(sessionManager.httpSessionManager.baseURL, testApiServer)
     }
     
     func test_VimeoSessionManager_canCreateTasksWithOverridenBaseUrl() {
@@ -68,19 +68,19 @@ class VimeoSessionManagerTests: XCTestCase {
         let testPath = "/test/api/endpoint"
         let testUrl = testApiServer.appendingPathComponent(testPath)
         
-        var task = sessionManager.get(testPath, parameters: nil, progress: nil, success: nil, failure: nil)
+        var task = sessionManager.httpSessionManager.get(testPath, parameters: nil, progress: nil, success: nil, failure: nil)
         XCTAssertEqual(task?.currentRequest?.url, testUrl)
         
-        task = sessionManager.post(testPath, parameters: nil, progress: nil, success: nil, failure: nil)
+        task = sessionManager.httpSessionManager.post(testPath, parameters: nil, progress: nil, success: nil, failure: nil)
         XCTAssertEqual(task?.currentRequest?.url, testUrl)
         
-        task = sessionManager.put(testPath, parameters: nil, success: nil, failure: nil)
+        task = sessionManager.httpSessionManager.put(testPath, parameters: nil, success: nil, failure: nil)
         XCTAssertEqual(task?.currentRequest?.url, testUrl)
 
-        task = sessionManager.patch(testPath, parameters: nil, success: nil, failure: nil)
+        task = sessionManager.httpSessionManager.patch(testPath, parameters: nil, success: nil, failure: nil)
         XCTAssertEqual(task?.currentRequest?.url, testUrl)
 
-        task = sessionManager.delete(testPath, parameters: nil, success: nil, failure: nil)
+        task = sessionManager.httpSessionManager.delete(testPath, parameters: nil, success: nil, failure: nil)
         XCTAssertEqual(task?.currentRequest?.url, testUrl)
     }
     
@@ -96,19 +96,19 @@ class VimeoSessionManagerTests: XCTestCase {
         let testPath = "/test/api/endpoint"
         let testUrl = TestVimeoBaseURL.appendingPathComponent(testPath)
         
-        var task = sessionManager.get(testPath, parameters: nil, progress: nil, success: nil, failure: nil)
+        var task = sessionManager.httpSessionManager.get(testPath, parameters: nil, progress: nil, success: nil, failure: nil)
         XCTAssertEqual(task?.currentRequest?.url, testUrl)
         
-        task = sessionManager.post(testPath, parameters: nil, progress: nil, success: nil, failure: nil)
+        task = sessionManager.httpSessionManager.post(testPath, parameters: nil, progress: nil, success: nil, failure: nil)
         XCTAssertEqual(task?.currentRequest?.url, testUrl)
         
-        task = sessionManager.put(testPath, parameters: nil, success: nil, failure: nil)
+        task = sessionManager.httpSessionManager.put(testPath, parameters: nil, success: nil, failure: nil)
         XCTAssertEqual(task?.currentRequest?.url, testUrl)
         
-        task = sessionManager.patch(testPath, parameters: nil, success: nil, failure: nil)
+        task = sessionManager.httpSessionManager.patch(testPath, parameters: nil, success: nil, failure: nil)
         XCTAssertEqual(task?.currentRequest?.url, testUrl)
         
-        task = sessionManager.delete(testPath, parameters: nil, success: nil, failure: nil)
+        task = sessionManager.httpSessionManager.delete(testPath, parameters: nil, success: nil, failure: nil)
         XCTAssertEqual(task?.currentRequest?.url, testUrl)
     }
     
@@ -126,7 +126,7 @@ class VimeoSessionManagerTests: XCTestCase {
         
         sessionManager.clientDidAuthenticate(with: testAccount)
         
-        guard let requestSerializer = sessionManager.requestSerializer as? VimeoRequestSerializer else {
+        guard let requestSerializer = sessionManager.requestSerializer else {
             XCTFail("Incorrect request serializer")
             return
         }
@@ -146,7 +146,7 @@ class VimeoSessionManagerTests: XCTestCase {
         let testAccount = VIMAccount()
         testAccount.accessToken = "TestAccessToken"
         
-        guard let requestSerializer = sessionManager.requestSerializer as? VimeoRequestSerializer else {
+        guard let requestSerializer = sessionManager.requestSerializer else {
             XCTFail("Incorrect request serializer")
             return
         }

@@ -31,32 +31,46 @@ private typealias SessionManagingDataTaskSuccess<T> = ((URLSessionDataTask, T?) 
 private typealias SessionManagingDataTaskFailure = ((URLSessionDataTask?, Error) -> Void)
 private typealias SessionManagingDataTaskProgress = (Progress) -> Void
 
-/** `VimeoSessionManager` handles networking and serialization for raw HTTP requests.  It is a direct subclass of `AFHTTPSessionManager` and it's designed to be used internally by `VimeoClient`.  For the majority of purposes, it would be better to use `VimeoClient` and a `Request` object to better encapsulate this logic, since the latter provides richer functionality overall.
+/** `VimeoSessionManager` handles networking and serialization for raw HTTP requests.
+ Internally, it uses  an `AFHTTPSessionManager` instance to handle requests.
+ This class was designed to be used internally by `VimeoClient`. For the majority of purposes,
+ it would be better to use`VimeoClient` and a `Request` object to better encapsulate this logic,
+ since the latter provides richer functionality overall.
  */
-
-final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
+final public class VimeoSessionManager: NSObject, SessionManaging {
 
     // MARK: - Public
 
-    /// Getter and setter override that restricts access to the setter property
-    public override var responseSerializer: AFHTTPResponseSerializer & AFURLResponseSerialization {
-        get { return super.responseSerializer }
-        set { assert(false, "The setter for this property is unavailable and considered a NO-OP. DO NOT OVERRIDE") }
+    public var responseSerializer: AFHTTPResponseSerializer {
+        return httpSessionManager.responseSerializer
     }
 
+    public var requestSerializer: VimeoRequestSerializer? {
+        return httpSessionManager.requestSerializer as? VimeoRequestSerializer
+    }
+
+    /// Getter and setter for the securityPolicy property on AFHTTPSessionManager
+    @objc public var securityPolicy: SecurityPolicy {
+        get { return httpSessionManager.securityPolicy }
+        set { httpSessionManager.securityPolicy = newValue }
+    }
+    
     /// Getter and setter for acceptableContentTypes property on the Vimeo/JSON response serializer
     @objc public var acceptableContentTypes: Set<String>? {
-        get { return vimeoResponseSerializer.acceptableContentTypes }
-        set { vimeoResponseSerializer.acceptableContentTypes = newValue }
+        get { return jsonResponseSerializer.acceptableContentTypes }
+        set { jsonResponseSerializer.acceptableContentTypes = newValue }
     }
 
     // MARK: - Private
 
     /// The custom Vimeo response serializer that is used for serializing Data responses into JSON
-    public lazy var vimeoResponseSerializer = VimeoResponseSerializer()
+    public lazy var jsonResponseSerializer = VimeoResponseSerializer()
 
     /// The JSONDecoder instance used for decoding decodable type responses
     private lazy var jsonDecoder = JSONDecoder()
+
+    // The underlying HTTP Session Manager
+    public let httpSessionManager: AFHTTPSessionManager
 
     // MARK: - Initialization
 
@@ -74,12 +88,9 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
         sessionConfiguration: URLSessionConfiguration,
         requestSerializer: VimeoRequestSerializer
     ) {
-        super.init(baseURL: baseUrl, sessionConfiguration: sessionConfiguration)
-        self.requestSerializer = requestSerializer
-        // Here we use the default HTTP response serializer so we can opt-out of automatic JSON serialization
-        // carried out by AFNetworking. This allows us to decide if we want and how to serialize a response
-        // based on the API used to make the request
-        super.responseSerializer = AFHTTPResponseSerializer()
+        self.httpSessionManager = AFHTTPSessionManager(baseURL: baseUrl, sessionConfiguration: sessionConfiguration)
+        self.httpSessionManager.requestSerializer = requestSerializer
+        self.httpSessionManager.responseSerializer = AFHTTPResponseSerializer()
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -87,7 +98,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
     }
 
     public func invalidate(cancelPendingTasks: Bool) {
-        self.invalidateSessionCancelingTasks(cancelPendingTasks)
+        self.httpSessionManager.invalidateSessionCancelingTasks(cancelPendingTasks)
     }
 
     public func request(
@@ -111,15 +122,15 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
 
         switch endpoint.method {
         case .get:
-            return self.get(path, parameters: parameters, progress: nil, success: success, failure: failure)
+            return self.httpSessionManager.get(path, parameters: parameters, progress: nil, success: success, failure: failure)
         case .post:
-            return self.post(path, parameters: parameters, progress: nil, success: success, failure: failure)
+            return self.httpSessionManager.post(path, parameters: parameters, progress: nil, success: success, failure: failure)
         case .put:
-            return self.put(path, parameters: parameters, success: success, failure: failure)
+            return self.httpSessionManager.put(path, parameters: parameters, success: success, failure: failure)
         case .patch:
-            return self.patch(path, parameters: parameters, success: success, failure: failure)
+            return self.httpSessionManager.patch(path, parameters: parameters, success: success, failure: failure)
         case .delete:
-            return self.delete(path, parameters: parameters, success: success, failure: failure)
+            return self.httpSessionManager.delete(path, parameters: parameters, success: success, failure: failure)
         case .connect, .head, .options, .trace:
             return nil
         }
@@ -130,13 +141,13 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
         with endpoint: EndpointType,
         then callback: @escaping (Result<JSON, Error>, URLSessionDataTask?) -> Void
     ) -> Cancelable? {
-        return self.request(with: endpoint) { [vimeoResponseSerializer] (dataResult: Result<Data, Error>, dataTask) in
+        return self.request(with: endpoint) { [jsonResponseSerializer] (dataResult: Result<Data, Error>, dataTask) in
             switch dataResult {
             case .failure(let error):
                 callback(Result<JSON, Error>.failure(error), dataTask)
             case .success(let data):
                 var maybeError: NSError?
-                let maybeJSON = vimeoResponseSerializer.responseObject(
+                let maybeJSON = jsonResponseSerializer.responseObject(
                     for: dataTask?.response,
                     data: data,
                     error: &maybeError
@@ -180,8 +191,7 @@ extension VimeoSessionManager: AuthenticationListeningDelegate {
      - parameter account: the new account
      */
     public func clientDidAuthenticate(with account: VIMAccount) {
-        guard let requestSerializer = self.requestSerializer as? VimeoRequestSerializer
-        else {
+        guard let requestSerializer = self.requestSerializer else {
             return
         }
 
@@ -195,11 +205,7 @@ extension VimeoSessionManager: AuthenticationListeningDelegate {
      Called when a client is logged out and the current account should be cleared from the session manager
      */
     public func clientDidClearAccount() {
-        guard let requestSerializer = self.requestSerializer as? VimeoRequestSerializer
-            else {
-            return
-        }
-
+        guard let requestSerializer = self.requestSerializer else { return }
         requestSerializer.accessTokenProvider = nil
     }
 }
