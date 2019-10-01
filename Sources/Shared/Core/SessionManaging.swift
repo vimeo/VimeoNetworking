@@ -33,7 +33,7 @@ public protocol SessionManaging {
     
     /// Creates and returns a cancellable, asynchronous data request
     /// and runs the callback passed in once the work is performed.
-    /// The callback may include the Data value and/or any error returned by the request.
+    /// The callback includes a Result<Data> type and the corresponding URLSessionDataTask, if one exists
     func request(
         with endpoint: EndpointType,
         then callback: @escaping (Result<Data, Error>, URLSessionDataTask?) -> Void
@@ -41,7 +41,7 @@ public protocol SessionManaging {
 
     /// Creates and returns a cancellable, asynchronous JSON request
     /// and runs the callback passed in once the work is completed.
-    /// The callback may include the JSON value and/or any error returned by the request.
+    /// The callback includes a Result<JSON> type and the corresponding URLSessionDataTask, if one exists
     func request(
         with endpoint: EndpointType,
         then callback: @escaping (Result<JSON, Error>, URLSessionDataTask?) -> Void
@@ -49,7 +49,7 @@ public protocol SessionManaging {
 
     /// Creates and returns a cancellable, asynchronous Decodable request
     /// and runs the callback passed in once the work is performed.
-    /// The callback may include the Decodable value type and/or any error returned by the request.
+    /// The callback includes a Result<T: Decodable> type and the corresponding URLSessionDataTask, if one exists
     func request<T: Decodable>(
         with endpoint: EndpointType,
         then callback: @escaping (Result<T, Error>, URLSessionDataTask?) -> Void
@@ -59,14 +59,12 @@ public protocol SessionManaging {
 
 /// A protocol representing an endpoint to which requests can be sent to
 public protocol EndpointType {
-    var uri: String { get }
+    var path: String { get }
     var parameters: Any? { get }
     var method: HTTPMethod { get }
 }
 
-extension Request: EndpointType {
-    public var uri: String { return path }
-}
+extension Request: EndpointType {}
 
 /// A protocol representing a type that can be canceled
 public protocol Cancelable {

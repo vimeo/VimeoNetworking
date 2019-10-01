@@ -94,7 +94,7 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
         with endpoint: EndpointType,
         then callback: @escaping (Result<Data, Error>, URLSessionDataTask?) -> Void
     ) -> Cancelable? {
-        let path = endpoint.uri
+        let path = endpoint.path
         let parameters = endpoint.parameters
 
         let success: SessionManagingDataTaskSuccess = { (dataTask, value: Any?) in
