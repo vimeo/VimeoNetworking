@@ -10,6 +10,12 @@ import Foundation
 
 enum VimeoNetworkingError: Error {
     case encodingFailed(EncodingFailedReason)
+    case decodingFailed(DecodingFailedReason)
+    case unknownError
+    
+    enum DecodingFailedReason {
+        case responseDataNotFound
+    }
     
     enum EncodingFailedReason {
         case invalidParameters
@@ -17,4 +23,5 @@ enum VimeoNetworkingError: Error {
         case missingHTTPMethod
         case jsonEncoding(error: Error)
     }
+
 }

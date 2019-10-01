@@ -34,23 +34,25 @@ private typealias SessionManagingDataTaskProgress = (Progress) -> Void
 /** `VimeoSessionManager` handles networking and serialization for raw HTTP requests.  It is a direct subclass of `AFHTTPSessionManager` and it's designed to be used internally by `VimeoClient`.  For the majority of purposes, it would be better to use `VimeoClient` and a `Request` object to better encapsulate this logic, since the latter provides richer functionality overall.
  */
 
-enum VimeoSessionManagerError: Error {
-    case responseDataNotFound
-}
-
 final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
 
     // MARK: - Public
 
-    /// Getter and setter for acceptableContentTypes propert on response serializer
+    /// Getter and setter override that restricts access to the setter property
+    public override var responseSerializer: AFHTTPResponseSerializer & AFURLResponseSerialization {
+        get { return super.responseSerializer }
+        set { assert(false, "The setter for this property is unavailable and considered a NO-OP. DO NOT OVERRIDE") }
+    }
+
+    /// Getter and setter for acceptableContentTypes property on the Vimeo/JSON response serializer
     @objc public var acceptableContentTypes: Set<String>? {
-        get { return responseSerializer.acceptableContentTypes }
-        set { responseSerializer.acceptableContentTypes = newValue }
+        get { return vimeoResponseSerializer.acceptableContentTypes }
+        set { vimeoResponseSerializer.acceptableContentTypes = newValue }
     }
 
     // MARK: - Private
 
-    /// The custom Vimeo response serializer that is used serializing data requests into JSON
+    /// The custom Vimeo response serializer that is used for serializing Data responses into JSON
     public let vimeoResponseSerializer = VimeoResponseSerializer()
 
     /// The JSONDecoder instance used for decoding decodable type responses
@@ -74,33 +76,37 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
     ) {
         super.init(baseURL: baseUrl, sessionConfiguration: sessionConfiguration)
         self.requestSerializer = requestSerializer
-        self.responseSerializer = AFHTTPResponseSerializer()
+        // Here we use the default HTTP response serializer so we can opt-out of automatic JSON serialization
+        // carried out by AFNetworking. This allows us to decide if we want and how to serialize a response
+        // based on the API used to make the request
+        super.responseSerializer = AFHTTPResponseSerializer()
     }
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func invalidate() {
-        self.invalidateSessionCancelingTasks(false)
+    public func invalidate(cancelPendingTasks: Bool) {
+        self.invalidateSessionCancelingTasks(cancelPendingTasks)
     }
 
     public func request(
         with endpoint: EndpointType,
-        then callback: @escaping (SessionManagingResponse<Data>) -> Void
+        then callback: @escaping (Result<Data, Error>, URLSessionDataTask?) -> Void
     ) -> Cancelable? {
         let path = endpoint.uri
         let parameters = endpoint.parameters
 
         let success: SessionManagingDataTaskSuccess = { (dataTask, value: Any?) in
-            let value = value as? Data ?? nil
-            let response = SessionManagingResponse<Data>(task: dataTask, value: value, error: nil)
-            callback(response)
+            guard let data = value as? Data else {
+                callback(Result.failure(VimeoNetworkingError.decodingFailed(.responseDataNotFound)), dataTask)
+                return
+            }
+            callback(Result.success(data), dataTask)
         }
 
         let failure: SessionManagingDataTaskFailure = { dataTask, error in
-            let response = SessionManagingResponse<Data>(task: dataTask, value: nil, error: error)
-            callback(response)
+            callback(Result.failure(error), dataTask)
         }
 
         switch endpoint.method {
@@ -122,57 +128,44 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
 
     public func request(
         with endpoint: EndpointType,
-        then callback: @escaping (SessionManagingResponse<JSON>) -> Void
+        then callback: @escaping (Result<JSON, Error>, URLSessionDataTask?) -> Void
     ) -> Cancelable? {
-        return self.request(with: endpoint) { [vimeoResponseSerializer] (response: SessionManagingResponse<Data>) in
-            guard let responseData = response.value else {
-                let error = response.error ?? VimeoSessionManagerError.responseDataNotFound
-                let errorResponse = SessionManagingResponse<JSON>(
-                    task: response.task,
-                    value: nil,
-                    error: error
+        return self.request(with: endpoint) { [vimeoResponseSerializer] (dataResult: Result<Data, Error>, dataTask) in
+            switch dataResult {
+            case .failure(let error):
+                callback(Result<JSON, Error>.failure(error), dataTask)
+            case .success(let data):
+                var maybeError: NSError?
+                let maybeJSON = vimeoResponseSerializer.responseObject(
+                    for: dataTask?.response,
+                    data: data,
+                    error: &maybeError
                 )
-                callback(errorResponse)
-                return
+                guard let json = maybeJSON else {
+                    let error = (maybeError as Error?) ?? VimeoNetworkingError.unknownError
+                    callback(Result.failure(error), dataTask)
+                    return
+                }
+                callback(Result.success(json), dataTask)
             }
-            var error: NSError?
-            let json = vimeoResponseSerializer.responseObject(
-                for: response.task?.response,
-                data: responseData,
-                error: &error
-            )
-            let response = SessionManagingResponse<JSON>(task: response.task, value: json, error: error)
-            callback(response)
         }
     }
 
     public func request<T: Decodable>(
         with endpoint: EndpointType,
-        then callback: @escaping (SessionManagingResponse<T>) -> Void
+        then callback: @escaping (Result<T, Error>, URLSessionDataTask?) -> Void
     ) -> Cancelable? {
-        return self.request(with: endpoint) { [jsonDecoder] (response: SessionManagingResponse<Data>) in
-            guard let data = response.value else {
-                let error = response.error ?? VimeoSessionManagerError.responseDataNotFound
-                let errorResponse = SessionManagingResponse<T>(
-                    task: response.task,
-                    value: nil,
-                    error: error
-                )
-                callback(errorResponse)
-                return
-            }
-
-            do {
-                let decoded = try jsonDecoder.decode(T.self, from: data)
-                let successResponse = SessionManagingResponse<T>(
-                    task: response.task,
-                    value: decoded,
-                    error: response.error
-                )
-                callback(successResponse)
-            } catch {
-                let errorResponse = SessionManagingResponse<T>(task: response.task, value: nil, error: error)
-                callback(errorResponse)
+        return self.request(with: endpoint) { [jsonDecoder] (dataResult: Result<Data, Error>, dataTask) in
+            switch dataResult {
+            case .failure(let error):
+                callback(Result<T, Error>.failure(error), dataTask)
+            case .success(let data):
+                do {
+                    let decoded = try jsonDecoder.decode(T.self, from: data)
+                    callback(Result.success(decoded), dataTask)
+                } catch {
+                    callback(Result.failure(error), dataTask)
+                }
             }
         }
     }

@@ -20,13 +20,6 @@ public protocol AuthenticationListeningDelegate {
     func clientDidClearAccount()
 }
 
-/// Wrapper for the response returned by the session manager
-public struct SessionManagingResponse<T> {
-    let task: URLSessionDataTask?
-    let value: T?
-    let error: Error?
-}
-
 public typealias SSLPinningMode = AFSSLPinningMode
 public typealias SecurityPolicy = AFSecurityPolicy
 
@@ -35,15 +28,15 @@ public typealias SecurityPolicy = AFSecurityPolicy
 /// The callbacks are generic in nature and can respond with `Data`, `JSON` or `Decodable` values.
 public protocol SessionManaging {
     
-    /// Used to invalidate the session manager
-    func invalidate()
+    /// Used to invalidate the session manager, and optionally cancel any pending tasks
+    func invalidate(cancelPendingTasks: Bool)
     
     /// Creates and returns a cancellable, asynchronous data request
     /// and runs the callback passed in once the work is performed.
     /// The callback may include the Data value and/or any error returned by the request.
     func request(
         with endpoint: EndpointType,
-        then callback: @escaping (SessionManagingResponse<Data>) -> Void
+        then callback: @escaping (Result<Data, Error>, URLSessionDataTask?) -> Void
     ) -> Cancelable?
 
     /// Creates and returns a cancellable, asynchronous JSON request
@@ -51,7 +44,7 @@ public protocol SessionManaging {
     /// The callback may include the JSON value and/or any error returned by the request.
     func request(
         with endpoint: EndpointType,
-        then callback: @escaping (SessionManagingResponse<JSON>) -> Void
+        then callback: @escaping (Result<JSON, Error>, URLSessionDataTask?) -> Void
     ) -> Cancelable?
 
     /// Creates and returns a cancellable, asynchronous Decodable request
@@ -59,7 +52,7 @@ public protocol SessionManaging {
     /// The callback may include the Decodable value type and/or any error returned by the request.
     func request<T: Decodable>(
         with endpoint: EndpointType,
-        then callback: @escaping (SessionManagingResponse<T>) -> Void
+        then callback: @escaping (Result<T, Error>, URLSessionDataTask?) -> Void
     ) -> Cancelable?
 
 }

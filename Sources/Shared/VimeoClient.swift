@@ -200,21 +200,24 @@ final public class VimeoClient {
             return RequestToken(path: request.path, task: nil)
         }
         else {
-            let task = self.sessionManager?.request(with: request, then: { (response: SessionManagingResponse<Any>) in
+            let task = self.sessionManager?.request(
+                with: request,
+                then: { (result: Result<JSON, Error>, dataTask) in
                 DispatchQueue.global(qos: .userInitiated).async {
-                    if response.error == nil {
+                    switch result {
+                    case .success(let JSON):
                         self.handleTaskSuccess(
                             forRequest: request,
-                            task: response.task,
-                            responseObject: response.value,
+                            task: dataTask,
+                            responseObject: JSON,
                             completionQueue: completionQueue,
                             completion: completion
                         )
-                    } else {
+                    case .failure(let error):
                         self.handleTaskFailure(
                             forRequest: request,
-                            task: response.task,
-                            error: response.error as NSError?,
+                            task: dataTask,
+                            error: error as NSError,
                             completionQueue: completionQueue,
                             completion: completion
                         )
@@ -453,7 +456,7 @@ extension VimeoClient {
             configureSessionManagerBlock: configureSessionManagerBlock
         )
         
-        self._sharedClient.sessionManager?.invalidate()
+        self._sharedClient.sessionManager?.invalidate(cancelPendingTasks: false)
         self._sharedClient.sessionManager = defaultSessionManager
         self._sharedClient.reachabilityManager = reachabilityManager
                 
