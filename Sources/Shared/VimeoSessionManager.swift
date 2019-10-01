@@ -53,10 +53,10 @@ final public class VimeoSessionManager: AFHTTPSessionManager, SessionManaging {
     // MARK: - Private
 
     /// The custom Vimeo response serializer that is used for serializing Data responses into JSON
-    public let vimeoResponseSerializer = VimeoResponseSerializer()
+    public lazy var vimeoResponseSerializer = VimeoResponseSerializer()
 
     /// The JSONDecoder instance used for decoding decodable type responses
-    private let jsonDecoder = JSONDecoder()
+    private lazy var jsonDecoder = JSONDecoder()
 
     // MARK: - Initialization
 
