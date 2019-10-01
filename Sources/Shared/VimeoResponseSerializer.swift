@@ -34,7 +34,7 @@ final public class VimeoResponseSerializer: AFJSONResponseSerializer {
         static let ErrorDomain = "VimeoResponseSerializerErrorDomain"
     }
     
-    public override init() {
+    override init() {
         super.init()
 
         self.acceptableContentTypes = VimeoResponseSerializer.acceptableContentTypes()
