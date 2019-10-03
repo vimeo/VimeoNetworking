@@ -24,9 +24,9 @@ public typealias SSLPinningMode = AFSSLPinningMode
 public typealias SecurityPolicy = AFSecurityPolicy
 
 public struct SessionManagingResult<T, E: Error> {
-    let request: URLRequest?
-    let response: URLResponse?
-    let result: Result<T, E>
+    public let request: URLRequest?
+    public let response: URLResponse?
+    public let result: Result<T, E>
 
     init(request: URLRequest? = nil, response: URLResponse? = nil, result: Result<T, E>) {
         self.request = request
