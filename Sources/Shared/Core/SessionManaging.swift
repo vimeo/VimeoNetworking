@@ -52,18 +52,18 @@ public protocol SessionManaging {
     func request(
         _ requestConvertible: URLRequestConvertible,
         parameters: Any?,
-        then callback: @escaping (SessionManagingResult<JSON, VNError>) -> Void
+        then callback: @escaping (SessionManagingResult<JSON, Error>) -> Void
     ) -> Task?
 
     func download(
         _ requestConvertible: URLRequestConvertible,
-        then callback: @escaping (SessionManagingResult<URL, VNError>) -> Void
+        then callback: @escaping (SessionManagingResult<URL, Error>) -> Void
     ) -> Task?
 
     func upload(
         _ requestConvertible: URLRequestConvertible,
         sourceFile: URL,
-        then callback: @escaping (SessionManagingResult<JSON, VNError>) -> Void
+        then callback: @escaping (SessionManagingResult<JSON, Error>) -> Void
     ) -> Task?
 
 }

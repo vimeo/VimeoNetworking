@@ -11,8 +11,8 @@ import Foundation
 public enum VNError: Error {
     case encodingFailed(EncodingFailedReason)
     case requestError(Error)
-    case serializatingError(Error?)
-    case unknownError(Error?)
+    case serializatingError
+    case unknownError
     
     public enum EncodingFailedReason {
         case invalidParameters
