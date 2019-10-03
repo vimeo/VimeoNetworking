@@ -25,8 +25,14 @@ public typealias SecurityPolicy = AFSecurityPolicy
 
 public struct SessionManagingResult<T, E: Error> {
     let request: URLRequest?
-    let response: URLRequest?
+    let response: URLResponse?
     let result: Result<T, E>
+
+    init(request: URLRequest? = nil, response: URLResponse? = nil, result: Result<T, E>) {
+        self.request = request
+        self.response = response
+        self.result = result
+    }
 }
 
 /// A type that can perform asynchronous requests from a
@@ -34,7 +40,7 @@ public struct SessionManagingResult<T, E: Error> {
 public protocol SessionManaging {
     
     /// Used to invalidate the session manager, and optionally cancel any pending tasks
-    func invalidate(cancelingPendingTasks: Bool)
+    func invalidate(cancelingPendingTasks cancelPendingTasks: Bool)
     
     /// The various methods below create asynchronous operations described by the
     /// requestConvertible object, and return a corresponding task that can be used to identify and
