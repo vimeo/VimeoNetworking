@@ -19,7 +19,10 @@ extension Request: EndpointType {
     // substantial refactoring. So for now the request serialization is the responsibility of the
     // SessionManaging type [RDPA 10/02/2019].
     public func asURLRequest() throws -> URLRequest {
-        var urlRequest = URLRequest(url: baseURL.appendingPathComponent(path))
+        guard let url = URL(string: path, relativeTo: baseURL) else {
+            throw VNError.invalidURL
+        }
+        var urlRequest = URLRequest(url: url)
         headers?.forEach { field, value in
             urlRequest.setValue(value, forHTTPHeaderField: field)
         }
@@ -27,4 +30,3 @@ extension Request: EndpointType {
         return urlRequest
     }
 }
-

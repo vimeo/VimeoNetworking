@@ -10,6 +10,7 @@ import Foundation
 
 public enum VNError: Error {
     case encodingFailed(EncodingFailedReason)
+    case invalidURL
     case requestError(Error)
     case serializatingError
     case unknownError
