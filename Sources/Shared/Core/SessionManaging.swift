@@ -23,52 +23,41 @@ public protocol AuthenticationListeningDelegate {
 public typealias SSLPinningMode = AFSSLPinningMode
 public typealias SecurityPolicy = AFSecurityPolicy
 
-/// A type that can create different cancellable asynchronous requests based on
-/// an `EndpointType` parameter and the appropriate callback.
-/// The callbacks are generic in nature and can respond with `Data`, `JSON` or `Decodable` values.
+public struct SessionManagingResult<T, E: Error> {
+    let request: URLRequest?
+    let response: URLRequest?
+    let result: Result<T, E>
+}
+
+/// A type that can perform asynchronous requests from a
+/// URLRequestConvertible parameter and a response callback.
 public protocol SessionManaging {
     
     /// Used to invalidate the session manager, and optionally cancel any pending tasks
-    func invalidate(cancelPendingTasks: Bool)
+    func invalidate(cancelingPendingTasks: Bool)
     
-    /// Creates and returns a cancellable, asynchronous data request
-    /// and runs the callback passed in once the work is performed.
-    /// The callback includes a Result<Data> type and the corresponding URLSessionDataTask, if one exists
+    /// The various methods below create asynchronous operations described by the
+    /// requestConvertible object, and return a corresponding task that can be used to identify and
+    /// control the lifecycle of the request.
+    /// The callback provided will be executed once the operation completes. It will include
+    /// the result object along with the originating request and corresponding response objects.
+    /// Note that these methods make no guarantees as to which thread the callback will be called on.
+
     func request(
-        with endpoint: EndpointType,
-        then callback: @escaping (Result<Data, Error>, URLSessionDataTask?) -> Void
-    ) -> Cancelable?
+        _ requestConvertible: URLRequestConvertible,
+        parameters: Any?,
+        then callback: @escaping (SessionManagingResult<JSON, VimeoNetworkingError>) -> Void
+    ) -> Task?
 
-    /// Creates and returns a cancellable, asynchronous JSON request
-    /// and runs the callback passed in once the work is completed.
-    /// The callback includes a Result<JSON> type and the corresponding URLSessionDataTask, if one exists
-    func request(
-        with endpoint: EndpointType,
-        then callback: @escaping (Result<JSON, Error>, URLSessionDataTask?) -> Void
-    ) -> Cancelable?
+    func download(
+        _ requestConvertible: URLRequestConvertible,
+        then callback: @escaping (SessionManagingResult<URL, VimeoNetworkingError>) -> Void
+    ) -> Task?
 
-    /// Creates and returns a cancellable, asynchronous Decodable request
-    /// and runs the callback passed in once the work is performed.
-    /// The callback includes a Result<T: Decodable> type and the corresponding URLSessionDataTask, if one exists
-    func request<T: Decodable>(
-        with endpoint: EndpointType,
-        then callback: @escaping (Result<T, Error>, URLSessionDataTask?) -> Void
-    ) -> Cancelable?
+    func upload(
+        _ requestConvertible: URLRequestConvertible,
+        sourceFile: URL,
+        then callback: @escaping (SessionManagingResult<JSON, VimeoNetworkingError>) -> Void
+    ) -> Task?
 
 }
-
-/// A protocol representing an endpoint to which requests can be sent to
-public protocol EndpointType {
-    var path: String { get }
-    var parameters: Any? { get }
-    var method: HTTPMethod { get }
-}
-
-extension Request: EndpointType {}
-
-/// A protocol representing a type that can be canceled
-public protocol Cancelable {
-    func cancel()
-}
-
-extension URLSessionDataTask: Cancelable {}
