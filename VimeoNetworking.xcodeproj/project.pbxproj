@@ -682,9 +682,9 @@
 		5B6263932320603200B25462 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6263882320603200B25462 /* ParameterEncoding.swift */; };
 		5B6263942320603200B25462 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6263882320603200B25462 /* ParameterEncoding.swift */; };
 		5B6263952320603200B25462 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6263882320603200B25462 /* ParameterEncoding.swift */; };
-		5B6263962320603200B25462 /* VimeoNetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6263892320603200B25462 /* VimeoNetworkingError.swift */; };
-		5B6263972320603200B25462 /* VimeoNetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6263892320603200B25462 /* VimeoNetworkingError.swift */; };
-		5B6263982320603200B25462 /* VimeoNetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6263892320603200B25462 /* VimeoNetworkingError.swift */; };
+		5B6263962320603200B25462 /* VNError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6263892320603200B25462 /* VNError.swift */; };
+		5B6263972320603200B25462 /* VNError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6263892320603200B25462 /* VNError.swift */; };
+		5B6263982320603200B25462 /* VNError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6263892320603200B25462 /* VNError.swift */; };
 		5B62639C2320605700B25462 /* URLEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62639A2320605700B25462 /* URLEncodingTests.swift */; };
 		5B62639D2320605700B25462 /* URLEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62639A2320605700B25462 /* URLEncodingTests.swift */; };
 		5B62639E2320605700B25462 /* URLEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B62639A2320605700B25462 /* URLEncodingTests.swift */; };
@@ -1010,7 +1010,7 @@
 		5B6263862320603200B25462 /* JSONEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoding.swift; sourceTree = "<group>"; };
 		5B6263872320603200B25462 /* URLEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncoding.swift; sourceTree = "<group>"; };
 		5B6263882320603200B25462 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
-		5B6263892320603200B25462 /* VimeoNetworkingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VimeoNetworkingError.swift; sourceTree = "<group>"; };
+		5B6263892320603200B25462 /* VNError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VNError.swift; sourceTree = "<group>"; };
 		5B62639A2320605700B25462 /* URLEncodingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncodingTests.swift; sourceTree = "<group>"; };
 		5B62639B2320605700B25462 /* JSONEncodingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingTests.swift; sourceTree = "<group>"; };
 		5B6263B22321402B00B25462 /* SessionManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManaging.swift; sourceTree = "<group>"; };
@@ -1474,7 +1474,7 @@
 				5B6263862320603200B25462 /* JSONEncoding.swift */,
 				5B6263882320603200B25462 /* ParameterEncoding.swift */,
 				5B6263872320603200B25462 /* URLEncoding.swift */,
-				5B6263892320603200B25462 /* VimeoNetworkingError.swift */,
+				5B6263892320603200B25462 /* VNError.swift */,
 				5B62636023203B0700B25462 /* URLRequestConvertible.swift */,
 				5B6263B22321402B00B25462 /* SessionManaging.swift */,
 				5B76317C2346683200711C3E /* EndpointType.swift */,
@@ -2373,7 +2373,7 @@
 				5B5EF1CE22B441A4005C66BE /* Request+Channel.swift in Sources */,
 				5B5EF06322B441A3005C66BE /* VIMModelObject.m in Sources */,
 				5B5EF13E22B441A4005C66BE /* VIMAccount.m in Sources */,
-				5B6263962320603200B25462 /* VimeoNetworkingError.swift in Sources */,
+				5B6263962320603200B25462 /* VNError.swift in Sources */,
 				5B5EF0D822B441A4005C66BE /* VIMVODItem.m in Sources */,
 				5B5EF10522B441A4005C66BE /* VIMVideoDRMFiles.m in Sources */,
 				5B5EF14722B441A4005C66BE /* VIMLive.swift in Sources */,
@@ -2507,7 +2507,7 @@
 				5B5EF04022B441A3005C66BE /* VimeoSessionManager+Constructors.swift in Sources */,
 				5B5EF1CF22B441A4005C66BE /* Request+Channel.swift in Sources */,
 				5B5EF06422B441A3005C66BE /* VIMModelObject.m in Sources */,
-				5B6263972320603200B25462 /* VimeoNetworkingError.swift in Sources */,
+				5B6263972320603200B25462 /* VNError.swift in Sources */,
 				5B5EF13F22B441A4005C66BE /* VIMAccount.m in Sources */,
 				5B5EF0D922B441A4005C66BE /* VIMVODItem.m in Sources */,
 				5B5EF10622B441A4005C66BE /* VIMVideoDRMFiles.m in Sources */,
@@ -2733,7 +2733,7 @@
 				5B5EF1B222B441A4005C66BE /* Response.swift in Sources */,
 				5B5EF15522B441A4005C66BE /* VIMUserBadge.m in Sources */,
 				5B5EF16A22B441A4005C66BE /* VIMAppeal.m in Sources */,
-				5B6263982320603200B25462 /* VimeoNetworkingError.swift in Sources */,
+				5B6263982320603200B25462 /* VNError.swift in Sources */,
 				5B5EF18822B441A4005C66BE /* GCS.swift in Sources */,
 				5B5EF10422B441A4005C66BE /* VIMProgrammedContent.swift in Sources */,
 				5B5EF08C22B441A3005C66BE /* VIMNotificationsConnection.m in Sources */,

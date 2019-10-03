@@ -46,18 +46,18 @@ public protocol SessionManaging {
     func request(
         _ requestConvertible: URLRequestConvertible,
         parameters: Any?,
-        then callback: @escaping (SessionManagingResult<JSON, VimeoNetworkingError>) -> Void
+        then callback: @escaping (SessionManagingResult<JSON, VNError>) -> Void
     ) -> Task?
 
     func download(
         _ requestConvertible: URLRequestConvertible,
-        then callback: @escaping (SessionManagingResult<URL, VimeoNetworkingError>) -> Void
+        then callback: @escaping (SessionManagingResult<URL, VNError>) -> Void
     ) -> Task?
 
     func upload(
         _ requestConvertible: URLRequestConvertible,
         sourceFile: URL,
-        then callback: @escaping (SessionManagingResult<JSON, VimeoNetworkingError>) -> Void
+        then callback: @escaping (SessionManagingResult<JSON, VNError>) -> Void
     ) -> Task?
 
 }
