@@ -10,18 +10,14 @@ import Foundation
 
 public enum VNError: Error {
     case encodingFailed(EncodingFailedReason)
-    case decodingFailed(DecodingFailedReason)
-    case unknownError
-    
-    public enum DecodingFailedReason {
-        case responseDataNotFound
-    }
+    case requestError(Error)
+    case serializatingError(Error?)
+    case unknownError(Error?)
     
     public enum EncodingFailedReason {
         case invalidParameters
         case missingURL
         case missingHTTPMethod
         case jsonEncoding(error: Error)
-        case serializationFailed
     }
 }

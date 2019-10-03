@@ -15,7 +15,7 @@ private extension String {
 }
 
 /// The dictionary of parameters for a given `URLRequest`.
-typealias Parameters = [String: Any]
+public typealias Parameters = [String: Any]
 
 /// The type used to create a URL encoded string of parameters to be appended to the request URL.
 /// For URL requests with a non-nil HTTP body, the content type is set to
@@ -45,7 +45,7 @@ struct URLEncoding: ParameterEncoding {
                 return urlRequest
             }
             // Couldn't cast to Parameters so we bail with an error
-            throw VimeoNetworkingError.encodingFailed(.invalidParameters)
+            throw VNError.encodingFailed(.invalidParameters)
         }
         
         if unwrappedParameters.count == 0 {
@@ -55,7 +55,7 @@ struct URLEncoding: ParameterEncoding {
         
         let rawMethod = urlRequest.httpMethod ?? ""
         guard let httpMethod = HTTPMethod(rawValue: rawMethod) else {
-            throw VimeoNetworkingError.encodingFailed(.missingHTTPMethod)
+            throw VNError.encodingFailed(.missingHTTPMethod)
         }
         
         switch httpMethod {
@@ -70,7 +70,7 @@ struct URLEncoding: ParameterEncoding {
     
     private func inURLEncode(_ parameters: Parameters, for urlRequest: inout URLRequest) throws -> URLRequest {
         guard let url = urlRequest.url else {
-            throw VimeoNetworkingError.encodingFailed(.missingURL)
+            throw VNError.encodingFailed(.missingURL)
         }
         
         if var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) {

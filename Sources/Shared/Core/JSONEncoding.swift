@@ -58,7 +58,7 @@ struct JSONEncoding: ParameterEncoding {
             
             urlRequest.httpBody = data
         } catch {
-            throw VimeoNetworkingError.encodingFailed(.jsonEncoding(error: error))
+            throw VNError.encodingFailed(.jsonEncoding(error: error))
         }
         
         return urlRequest
