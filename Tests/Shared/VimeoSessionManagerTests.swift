@@ -126,10 +126,7 @@ class VimeoSessionManagerTests: XCTestCase {
         
         sessionManager.clientDidAuthenticate(with: testAccount)
         
-        guard let requestSerializer = sessionManager.requestSerializer else {
-            XCTFail("Incorrect request serializer")
-            return
-        }
+        let requestSerializer = sessionManager.jsonRequestSerializer
         
         XCTAssertEqual(requestSerializer.accessTokenProvider?(), testAccount.accessToken)
     }
@@ -146,10 +143,7 @@ class VimeoSessionManagerTests: XCTestCase {
         let testAccount = VIMAccount()
         testAccount.accessToken = "TestAccessToken"
         
-        guard let requestSerializer = sessionManager.requestSerializer else {
-            XCTFail("Incorrect request serializer")
-            return
-        }
+        let requestSerializer = sessionManager.jsonRequestSerializer
         
         sessionManager.clientDidAuthenticate(with: testAccount)
         XCTAssertNotNil(requestSerializer.accessTokenProvider)
