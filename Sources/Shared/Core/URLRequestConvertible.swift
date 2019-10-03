@@ -9,7 +9,7 @@
 import Foundation
 
 /// A protocol that represents a type that can be converted to a URLRequest
-protocol URLRequestConvertible {
+public protocol URLRequestConvertible {
     func asURLRequest() throws -> URLRequest
 }
 
@@ -18,13 +18,13 @@ extension URLRequestConvertible {
 }
 
 extension URLRequest: URLRequestConvertible {
-    func asURLRequest() throws -> URLRequest {
+    public func asURLRequest() throws -> URLRequest {
         return self
     }
 }
 
 extension URL: URLRequestConvertible {
-    func asURLRequest() throws -> URLRequest {
+    public func asURLRequest() throws -> URLRequest {
         return URLRequest(url: self)
     }
 }
