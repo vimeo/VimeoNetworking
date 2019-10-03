@@ -186,7 +186,6 @@ extension VimeoSessionManager {
                         result: result
                     )
                     callback(sessionManagingResult)
-
                 }
             )
         } catch {
@@ -251,8 +250,9 @@ private extension VimeoSessionManager {
     }
 }
 
+// MARK: - Authentication
+
 extension VimeoSessionManager: AuthenticationListeningDelegate {
-    // MARK: - Authentication
 
     /**
      Called when authentication completes successfully to update the session manager with the new access token

@@ -24,8 +24,7 @@ struct JSONEncoding: ParameterEncoding {
     
     /// The writing options to be used by the JSON serializer
     private let options: JSONSerialization.WritingOptions
-    
-    
+        
     /// Creates and returns a `JSONEncoding` instance using the specified options.
     ///
     /// - Parameter options: the options for JSON serializing the parameters
@@ -63,5 +62,4 @@ struct JSONEncoding: ParameterEncoding {
         
         return urlRequest
     }
-    
 }

@@ -96,9 +96,9 @@ struct URLEncoding: ParameterEncoding {
 }
 
 // MARK: - Private convenience utilities
-extension URLEncoding {
+private extension URLEncoding {
     
-    private func query(forParameters parameters: [String: Any]) -> String {
+    func query(forParameters parameters: [String: Any]) -> String {
         var components: [(String, String)] = []
         
         for key in parameters.keys.sorted(by: <) {
@@ -109,7 +109,7 @@ extension URLEncoding {
         return components.map { "\($0)=\($1)" }.joined(separator: "&")
     }
     
-    private func queryComponents(fromKey key: String, value: Any) -> [(String, String)] {
+    func queryComponents(fromKey key: String, value: Any) -> [(String, String)] {
         var components: [(String, String)] = []
         
         if let dictionary = value as? [String: Any] {

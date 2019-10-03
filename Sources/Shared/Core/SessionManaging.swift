@@ -16,7 +16,12 @@ public typealias JSON = Any
 /// Specifically `VimeoSessionManager`, `VimeoRequestSerializer` and `VimeoResponseSerializer`
 /// The goal is to make it easier for these dependencies to be swapped out when needed.
 public protocol AuthenticationListeningDelegate {
+
+    /// Called when authentication completes successfully
+    /// - Parameter account: the new authenticated account
     func clientDidAuthenticate(with account: VIMAccount)
+
+    /// Called when a client is logged out
     func clientDidClearAccount()
 }
 
