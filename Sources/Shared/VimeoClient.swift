@@ -41,7 +41,7 @@ final public class VimeoClient {
         public let path: String?
         
         /// The data task of the request
-        public let task: Cancelable?
+        public let task: Task?
         
         /**
          Cancel the request
@@ -167,87 +167,17 @@ final public class VimeoClient {
         completion: @escaping ResultCompletion<Response<ModelType>, NSError>.T
     ) -> RequestToken {
         if request.useCache {
-            self.responseCache.response(forRequest: request) { result in
-                
-                switch result {
-                case .success(let responseDictionary):
-                    
-                    if let responseDictionary = responseDictionary {
-                        self.handleTaskSuccess(forRequest: request, task: nil, responseObject: responseDictionary, isCachedResponse: true, completionQueue: completionQueue, completion: completion)
-                    }
-                    else {
-                        let error = NSError(domain: type(of: self).ErrorDomain, code: LocalErrorCode.cachedResponseNotFound.rawValue, userInfo: [NSLocalizedDescriptionKey: "Cached response not found"])
-                        
-                        self.handleError(error, request: request)
-                        
-                        completionQueue.async {
-                            
-                            completion(.failure(error))
-                        }
-                    }
-                    
-                case .failure(let error):
-                    
-                    self.handleError(error, request: request)
-                    
-                    completionQueue.async {
-                        
-                        completion(.failure(error))
-                    }
-                }
-            }
-
-            return RequestToken(path: request.path, task: nil)
-        }
-        else {
-            let task = self.sessionManager?.request(
-                with: request,
-                then: { (result: Result<JSON, Error>, dataTask) in
-                DispatchQueue.global(qos: .userInitiated).async {
-                    switch result {
-                    case .success(let JSON):
-                        self.handleTaskSuccess(
-                            forRequest: request,
-                            task: dataTask,
-                            responseObject: JSON,
-                            completionQueue: completionQueue,
-                            completion: completion
-                        )
-                    case .failure(let error):
-                        self.handleTaskFailure(
-                            forRequest: request,
-                            task: dataTask,
-                            error: error as NSError,
-                            completionQueue: completionQueue,
-                            completion: completion
-                        )
-                    }
-                }
-            })
-            
-            guard let requestTask = task else {
-                let description = "Session manager did not return a task"
-                
-                assertionFailure(description)
-                
-                let error = NSError(
-                    domain: type(of: self).ErrorDomain,
-                    code: LocalErrorCode.requestMalformed.rawValue,
-                    userInfo: [NSLocalizedDescriptionKey: description]
-                )
-                
-                self.handleTaskFailure(
-                    forRequest: request,
-                    task: nil,
-                    error: error,
-                    completionQueue: completionQueue,
-                    completion: completion
-                )
-                
-                return RequestToken(path: request.path, task: nil)
-            }
-            
-            return RequestToken(path: request.path, task: requestTask)
+            return self.cachedResponse(
+                for: request,
+                completionQueue: completionQueue,
+                then: completion
+            )
+        } else {
+            return self.perform(
+                request,
+                completionQueue: completionQueue,
+                then: completion
+            )
         }
     }
     
@@ -266,12 +196,112 @@ final public class VimeoClient {
     public func removeAllCachedResponses() {
         self.responseCache.clear()
     }
-    
+
+    // MARK: - Private network request handling
+
+    private func perform<ModelType>(
+        _ request: Request<ModelType>,
+        completionQueue: DispatchQueue,
+        then callback: @escaping ResultCompletion<Response<ModelType>, NSError>.T
+    ) -> RequestToken {
+        let task = self.sessionManager?.request(
+            request,
+            parameters: request.parameters,
+            then: { (sessionManagingResult: SessionManagingResult<JSON, VNError>) in
+                DispatchQueue.global(qos: .userInitiated).async {
+                    switch sessionManagingResult.result {
+                    case .success(let JSON):
+                        self.handleTaskSuccess(
+                            for: request,
+                            urlRequest: sessionManagingResult.request,
+                            responseObject: JSON,
+                            completionQueue: completionQueue,
+                            completion: callback
+                        )
+                    case .failure(let error):
+                        self.handleTaskFailure(
+                            for: request,
+                            urlRequest: sessionManagingResult.request,
+                            error: error as NSError,
+                            completionQueue: completionQueue,
+                            completion: callback
+                        )
+                    }
+                }
+            }
+        )
+        task?.resume()
+        
+        guard let requestTask = task else {
+            let description = "Session manager did not return a task"
+            assertionFailure(description)
+
+            let error = NSError(
+                domain: type(of: self).ErrorDomain,
+                code: LocalErrorCode.requestMalformed.rawValue,
+                userInfo: [NSLocalizedDescriptionKey: description]
+            )
+            self.handleTaskFailure(
+                for: request,
+                urlRequest: nil,
+                error: error,
+                completionQueue: completionQueue,
+                completion: callback
+            )
+            return RequestToken(path: request.path, task: nil)
+        }
+
+        return RequestToken(path: request.path, task: requestTask)
+    }
+
+    // MARK: - Private cache response handling
+
+    private func cachedResponse<ModelType>(
+        for request: Request<ModelType>,
+        completionQueue: DispatchQueue,
+        then callback: @escaping ResultCompletion<Response<ModelType>, NSError>.T
+    ) -> RequestToken {
+        self.responseCache.response(forRequest: request) { result in
+            switch result {
+            case .success(let responseDictionary):
+                if let responseDictionary = responseDictionary {
+                    self.handleTaskSuccess(
+                        for: request,
+                        urlRequest: nil,
+                        responseObject: responseDictionary,
+                        isCachedResponse: true,
+                        completionQueue: completionQueue,
+                        completion: callback
+                    )
+                } else {
+                    let error = NSError(
+                        domain: type(of: self).ErrorDomain,
+                        code: LocalErrorCode.cachedResponseNotFound.rawValue,
+                        userInfo: [NSLocalizedDescriptionKey: "Cached response not found"]
+                    )
+                    self.handleError(error, request: request)
+
+                    completionQueue.async {
+                        callback(.failure(error))
+                    }
+                }
+
+            case .failure(let error):
+                self.handleError(error, request: request)
+
+                completionQueue.async {
+                    callback(.failure(error))
+                }
+            }
+        }
+        return RequestToken(path: request.path, task: nil)
+    }
+
     // MARK: - Private task completion handlers
     
     private func handleTaskSuccess<ModelType>(
-        forRequest request: Request<ModelType>,
-        task: URLSessionDataTask?,
+        for request: Request<ModelType>,
+        urlRequest: URLRequest?,
         responseObject: Any?,
         isCachedResponse: Bool = false,
         completionQueue: DispatchQueue,
@@ -296,7 +326,13 @@ final public class VimeoClient {
                 
                 let error = NSError(domain: type(of: self).ErrorDomain, code: LocalErrorCode.invalidResponseDictionary.rawValue, userInfo: [NSLocalizedDescriptionKey: description])
                 
-                self.handleTaskFailure(forRequest: request, task: task, error: error, completionQueue: completionQueue, completion: completion)
+                self.handleTaskFailure(
+                    for: request,
+                    urlRequest: urlRequest,
+                    error: error,
+                    completionQueue: completionQueue,
+                    completion: completion
+                )
             }
             
             return
@@ -360,20 +396,26 @@ final public class VimeoClient {
         catch let error {
             self.responseCache.removeResponse(forKey: request.cacheKey)
             
-            self.handleTaskFailure(forRequest: request, task: task, error: error as NSError, completionQueue: completionQueue, completion: completion)
+            self.handleTaskFailure(
+                for: request,
+                urlRequest: urlRequest,
+                error: error as NSError,
+                completionQueue: completionQueue,
+                completion: completion
+            )
         }
     }
     
     private func handleTaskFailure<ModelType>(
-        forRequest request: Request<ModelType>,
-        task: URLSessionDataTask?,
+        for request: Request<ModelType>,
+        urlRequest: URLRequest?,
         error: NSError,
         completionQueue: DispatchQueue,
         completion: @escaping ResultCompletion<Response<ModelType>, NSError>.T
     ) {
         guard error.code != NSURLErrorCancelled else { return }
 
-        self.handleError(error, request: request, task: task)
+        self.handleError(error, request: request, urlRequest: urlRequest)
         
         if case .multipleAttempts(let attemptCount, let initialDelay) = request.retryPolicy, attemptCount > 1 {
             var retryRequest = request
@@ -395,18 +437,17 @@ final public class VimeoClient {
     private func handleError<ModelType>(
         _ error: NSError,
         request: Request<ModelType>,
-        task: URLSessionDataTask? = nil
+        urlRequest: URLRequest? = nil
     ) {
         if error.isServiceUnavailableError {
             NetworkingNotification.clientDidReceiveServiceUnavailableError.post(object: nil)
-        }
-        else if error.isInvalidTokenError {
-            NetworkingNotification.clientDidReceiveInvalidTokenError.post(object: self.token(fromTask: task))
+        } else if error.isInvalidTokenError {
+            NetworkingNotification.clientDidReceiveInvalidTokenError.post(object: self.token(from: urlRequest))
         }
     }
     
-    private func token(fromTask task: URLSessionDataTask?) -> String? {
-        guard let bearerHeader = task?.originalRequest?.allHTTPHeaderFields?[Constants.AuthorizationHeader],
+    private func token(from urlRequest: URLRequest?) -> String? {
+        guard let bearerHeader = urlRequest?.allHTTPHeaderFields?[Constants.AuthorizationHeader],
             let range = bearerHeader.range(of: Constants.BearerQuery) else {
             return nil
         }
@@ -452,7 +493,7 @@ extension VimeoClient {
             configureSessionManagerBlock: configureSessionManagerBlock
         )
         
-        self._sharedClient.sessionManager?.invalidate(cancelPendingTasks: false)
+        self._sharedClient.sessionManager?.invalidate(cancelingPendingTasks: false)
         self._sharedClient.sessionManager = defaultSessionManager
         self._sharedClient.reachabilityManager = reachabilityManager
                 
