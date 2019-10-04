@@ -64,8 +64,10 @@ final public class VimeoSessionManager: NSObject, SessionManaging {
     /// The JSONDecoder instance used for decoding decodable type responses
     private lazy var jsonDecoder = JSONDecoder()
 
+    // MARK: - Internal
+
     // The underlying HTTP Session Manager
-    private let httpSessionManager: AFHTTPSessionManager
+    internal let httpSessionManager: AFHTTPSessionManager
 
     // MARK: - Initialization
 
