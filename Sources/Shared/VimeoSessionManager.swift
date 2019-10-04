@@ -283,6 +283,11 @@ private func process(
     case .failure(let error):
         return Result<JSON, Error>.failure(error)
     case .success(let data):
+        // If the payload is empty we return an empty JSON response
+        // otherwise the subsequent parsing will fail and propagate a failure
+        guard data.isEmpty == false else {
+            return Result.success([:])
+        }
         var maybeError: NSError?
         let maybeJSON = serializer.responseObject(
             for: response,

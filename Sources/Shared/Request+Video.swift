@@ -73,7 +73,7 @@ public extension Request {
      - returns: a new `Request`
      */
     static func selectedUsersRequest(forVideoURI videoURI: String) -> Request {
-        let parameters = [VimeoClient.Constants.PerPageKey: 100]
+        let parameters = [VimeoClient.Constants.perPageKey: 100]
         
         let path = videoURI + self.SelectedUsersPrivacyPath
         
