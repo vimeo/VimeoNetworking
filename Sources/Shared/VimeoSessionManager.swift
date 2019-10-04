@@ -113,14 +113,49 @@ extension VimeoSessionManager {
     public func request(
         _ requestConvertible: URLRequestConvertible,
         parameters: Any? = nil,
-        then callback: @escaping (SessionManagingResult<JSON, Error>) -> Void
+        then callback: @escaping (SessionManagingResult<Data>) -> Void
+    ) throws -> Task? {
+        let request = try requestConvertible.asURLRequest()
+        var maybeError: NSError?
+        guard let serializedRequest = jsonRequestSerializer.request(
+            bySerializingRequest: request,
+            withParameters: parameters,
+            error: &maybeError
+        ) else {
+            let error = (maybeError as Error?) ?? VNError.serializatingError
+            let sessionManagingResult = SessionManagingResult<Data>(
+                request: request,
+                result: Result.failure(error)
+            )
+            callback(sessionManagingResult)
+            return nil
+        }
+        return self.httpSessionManager.dataTask(with: serializedRequest) { (urlResponse, value, error) in
+            let result: Result<Data, Error> = {
+                if let error = error {
+                    return Result.failure(error)
+                } else if let data = value as? Data {
+                    return Result.success(data)
+                } else {
+                    return Result.failure(VNError.unknownError)
+                }
+            }()
+            let sessionManagingResult = SessionManagingResult(request: request, response: urlResponse, result: result)
+            callback(sessionManagingResult)
+        }
+    }
+
+    public func request(
+        _ requestConvertible: URLRequestConvertible,
+        parameters: Any? = nil,
+        then callback: @escaping (SessionManagingResult<JSON>) -> Void
     ) -> Task? {
         do {
-            return try self.request(requestConvertible, parameters: parameters) { [jsonResponseSerializer] (dataResult: Result<Data, Error>, urlRequest, urlResponse) in
-                let result = process(urlResponse, result: dataResult, with: jsonResponseSerializer)
+            return try self.request(requestConvertible, parameters: parameters) { [jsonResponseSerializer] (sessionManagingResult: SessionManagingResult<Data>) in
+                let result = process(sessionManagingResult.response, result: sessionManagingResult.result, with: jsonResponseSerializer)
                 let sessionManagingResult = SessionManagingResult(
-                    request: urlRequest,
-                    response: urlResponse,
+                    request: sessionManagingResult.request,
+                    response: sessionManagingResult.response,
                     result: result
                 )
                 callback(sessionManagingResult)
@@ -136,17 +171,21 @@ extension VimeoSessionManager {
     public func upload(
         _ requestConvertible: URLRequestConvertible,
         sourceFile: URL,
-        then callback: @escaping (SessionManagingResult<JSON, Error>) -> Void
+        then callback: @escaping (SessionManagingResult<JSON>) -> Void
     ) -> Task? {
         do {
             return try self.upload(
                 requestConvertible,
                 sourceFile: sourceFile
-            ) { [jsonResponseSerializer] (dataResult: Result<Data, Error>, urlRequest, urlResponse) in
-                let result = process(urlResponse, result: dataResult, with: jsonResponseSerializer)
+            ) { [jsonResponseSerializer] (sessionManagingResult: SessionManagingResult<Data>) in
+                let result = process(
+                    sessionManagingResult.response,
+                    result: sessionManagingResult.result,
+                    with: jsonResponseSerializer
+                )
                 let sessionManagerResult = SessionManagingResult(
-                    request: urlRequest,
-                    response: urlResponse,
+                    request: sessionManagingResult.request,
+                    response: sessionManagingResult.response,
                     result: result
                 )
                 callback(sessionManagerResult)
@@ -162,7 +201,7 @@ extension VimeoSessionManager {
 
     public func download(
         _ requestConvertible: URLRequestConvertible,
-        then callback: @escaping (SessionManagingResult<URL, Error>) -> Void
+        then callback: @escaping (SessionManagingResult<URL>) -> Void
     ) -> Task? {
         do {
             let request = try requestConvertible.asURLRequest()
@@ -180,7 +219,7 @@ extension VimeoSessionManager {
                             return Result.failure(VNError.unknownError)
                         }
                     }()
-                    let sessionManagingResult = SessionManagingResult<URL, Error>(
+                    let sessionManagingResult = SessionManagingResult<URL>(
                         request: request,
                         response: urlResponse,
                         result: result
@@ -202,50 +241,31 @@ extension VimeoSessionManager {
 
 private extension VimeoSessionManager {
 
-    private func request(
-        _ requestConvertible: URLRequestConvertible,
-        parameters: Any? = nil,
-        then callback: @escaping (Result<Data, Error>, URLRequest, URLResponse?) -> Void
-    ) throws -> Task? {
-        let request = try requestConvertible.asURLRequest()
-        var maybeError: NSError?
-        guard let serializedRequest = jsonRequestSerializer.request(
-            bySerializingRequest: request,
-            withParameters: parameters,
-            error: &maybeError
-        ) else {
-            let error = (maybeError as Error?) ?? VNError.serializatingError
-            callback(Result.failure(error), request, nil)
-            return nil
-        }
-        return self.httpSessionManager.dataTask(with: serializedRequest) { (urlResponse, value, error) in
-            if let error = error {
-                callback(Result.failure(error), request, urlResponse)
-            } else if let data = value as? Data {
-                callback(Result.success(data), request, urlResponse)
-            } else {
-                callback(Result.failure(VNError.unknownError), request, urlResponse)
-            }
-        }
-    }
-
     private func upload(
         _ requestConvertible: URLRequestConvertible,
         sourceFile sourceURL: URL,
-        then callback: @escaping (Result<Data, Error>, URLRequest, URLResponse) -> Void
+        then callback: @escaping (SessionManagingResult<Data>) -> Void
     ) throws -> Task? {
         let request = try requestConvertible.asURLRequest()
         return self.httpSessionManager.uploadTask(
             with: request,
             fromFile: sourceURL,
             progress: nil) { (urlResponse, value, error) in
-                if let error = error {
-                    callback(Result.failure(error), request, urlResponse)
-                } else if let data = value as? Data {
-                    callback(Result.success(data), request, urlResponse)
-                } else {
-                    callback(Result.failure(VNError.unknownError), request, urlResponse)
-                }
+                let result: Result<Data, Error> = {
+                    if let error = error {
+                        return Result.failure(error)
+                    } else if let data = value as? Data {
+                        return Result.success(data)
+                    } else {
+                        return Result.failure(VNError.unknownError)
+                    }
+                }()
+                let sessionManagingResult = SessionManagingResult(
+                    request: request,
+                    response: urlResponse,
+                    result: result
+                )
+                callback(sessionManagingResult)
         }
     }
 }
@@ -274,17 +294,14 @@ extension VimeoSessionManager: AuthenticationListeningDelegate {
     }
 }
 
+// MARK: - Helper
+
 private func process(
     _ response: URLResponse?,
     result: Result<Data, Error>,
     with serializer: VimeoResponseSerializer
 ) -> Result<JSON, Error> {
-    switch result {
-    case .failure(let error):
-        return Result<JSON, Error>.failure(error)
-    case .success(let data):
-        // If the payload is empty we return an empty JSON response
-        // otherwise the subsequent parsing will fail and propagate a failure
+    return result.flatMap { data -> Result<JSON, Error> in
         guard data.isEmpty == false else {
             return Result.success([:])
         }

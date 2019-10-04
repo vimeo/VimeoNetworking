@@ -207,7 +207,7 @@ final public class VimeoClient {
         let task = self.sessionManager?.request(
             request,
             parameters: request.parameters,
-            then: { (sessionManagingResult: SessionManagingResult<JSON, Error>) in
+            then: { (sessionManagingResult: SessionManagingResult<JSON>) in
                 DispatchQueue.global(qos: .userInitiated).async {
                     switch sessionManagingResult.result {
                     case .success(let JSON):
