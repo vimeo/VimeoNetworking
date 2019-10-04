@@ -42,23 +42,23 @@ final public class VimeoSessionManager: NSObject, SessionManaging {
     // MARK: - Public
 
     public var responseSerializer: AFHTTPResponseSerializer {
-        return httpSessionManager.responseSerializer
+        return self.httpSessionManager.responseSerializer
     }
 
     public var requestSerializer: AFHTTPRequestSerializer? {
-        return httpSessionManager.requestSerializer
+        return self.httpSessionManager.requestSerializer
     }
 
     /// Getter and setter for the securityPolicy property on AFHTTPSessionManager
     @objc public var securityPolicy: SecurityPolicy {
-        get { return httpSessionManager.securityPolicy }
-        set { httpSessionManager.securityPolicy = newValue }
+        get { return self.httpSessionManager.securityPolicy }
+        set { self.httpSessionManager.securityPolicy = newValue }
     }
     
     /// Getter and setter for acceptableContentTypes property on the Vimeo/JSON response serializer
     @objc public var acceptableContentTypes: Set<String>? {
-        get { return jsonResponseSerializer.acceptableContentTypes }
-        set { jsonResponseSerializer.acceptableContentTypes = newValue }
+        get { return self.jsonResponseSerializer.acceptableContentTypes }
+        set { self.jsonResponseSerializer.acceptableContentTypes = newValue }
     }
 
     // MARK: - Private
@@ -73,7 +73,7 @@ final public class VimeoSessionManager: NSObject, SessionManaging {
     private lazy var jsonDecoder = JSONDecoder()
 
     // The underlying HTTP Session Manager
-    public let httpSessionManager: AFHTTPSessionManager
+    private let httpSessionManager: AFHTTPSessionManager
 
     // MARK: - Initialization
 
@@ -355,6 +355,58 @@ private extension VimeoSessionManager {
                 )
                 callback(sessionManagingResult)
         }
+    }
+}
+
+// Wrapper extensions to hide internals of `httpSessionManager`
+extension VimeoSessionManager {
+    public func task(forIdentifier identifier: Int) -> URLSessionTask? {
+        return self.httpSessionManager.tasks
+            .filter { $0.taskIdentifier == identifier }.first
+    }
+
+    public func downloadTask(forIdentifier identifier: Int) -> URLSessionDownloadTask? {
+        return self.httpSessionManager.downloadTasks
+            .filter { $0.taskIdentifier == identifier }.first
+    }
+
+    public func downloadProgress(for task: URLSessionTask) -> Progress? {
+        return self.httpSessionManager.downloadProgress(for: task)
+    }
+
+    public func uploadTask(forIdentifier identifier: Int) -> URLSessionUploadTask? {
+        return self.httpSessionManager.uploadTasks
+            .filter { $0.taskIdentifier == identifier }.first
+    }
+
+    public func uploadProgress(for task: URLSessionTask) -> Progress? {
+        return self.httpSessionManager.uploadProgress(for: task)
+    }
+
+    public func configureDidBecomeInvalidClosure(_ closure: @escaping (URLSession, Error) -> Void) {
+        self.httpSessionManager.setSessionDidBecomeInvalidBlock(closure)
+    }
+
+    public func configureDownloadTaskDidFinishDownloadingClosure(
+        _ closure: @escaping (URLSession, URLSessionDownloadTask, URL) -> URL?
+    ) {
+        self.httpSessionManager.setDownloadTaskDidFinishDownloadingBlock(closure)
+    }
+
+    public func configureTaskDidCompleteClosure(
+        _ closure: @escaping (URLSession, URLSessionTask, Error?) -> Void
+    ) {
+        self.httpSessionManager.setTaskDidComplete(closure)
+    }
+
+    public func configureDidFinishEventsForBackgroundURLSessionClosure(
+        _ closure: @escaping (URLSession) -> Void
+    ) {
+        self.httpSessionManager.setDidFinishEventsForBackgroundURLSessionBlock(closure)
+    }
+
+    public var sessionIdentifier: String? {
+        return self.httpSessionManager.session.configuration.identifier
     }
 }
 
