@@ -9,12 +9,13 @@
 import Foundation
 import AFNetworking
 
-public typealias JSON = Any
-
-/// The protocols declared in this file have been created to abstract our dependency
+/// The types declared in this file have been created to help abstract our dependency
 /// on AFNetworking and the Vimeo subclasses that inherit from it,
 /// Specifically `VimeoSessionManager`, `VimeoRequestSerializer` and `VimeoResponseSerializer`
-/// The goal is to make it easier for these dependencies to be swapped out when needed.
+
+public typealias JSON = Any
+
+/// A type that listens to and responds to authentication status changes
 public protocol AuthenticationListeningDelegate {
 
     /// Called when authentication completes successfully
@@ -52,32 +53,36 @@ public protocol SessionManaging {
     /// control the lifecycle of the request.
     /// The callback provided will be executed once the operation completes. It will include
     /// the result object along with the originating request and corresponding response objects.
-    /// Note that these methods make no guarantees as to which thread the callback will be called on.
 
+    // Data request
     func request(
         _ requestConvertible: URLRequestConvertible,
         parameters: Any?,
         then callback: @escaping (SessionManagingResult<Data>) -> Void
     ) -> Task?
 
+    // JSON request
     func request(
         _ requestConvertible: URLRequestConvertible,
         parameters: Any?,
         then callback: @escaping (SessionManagingResult<JSON>) -> Void
     ) -> Task?
 
+    // Decodable request
     func request<T: Decodable>(
         _ requestConvertible: URLRequestConvertible,
         parameters: Any?,
         then callback: @escaping (SessionManagingResult<T>) -> Void
     ) -> Task?
 
+    // Download request
     func download(
         _ requestConvertible: URLRequestConvertible,
         destinationURL: URL?,
         then callback: @escaping (SessionManagingResult<URL>) -> Void
     ) -> Task?
 
+    // Upload request
     func upload(
         _ requestConvertible: URLRequestConvertible,
         sourceFile: URL,
