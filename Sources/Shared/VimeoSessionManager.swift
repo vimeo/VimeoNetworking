@@ -114,34 +114,40 @@ extension VimeoSessionManager {
         _ requestConvertible: URLRequestConvertible,
         parameters: Any? = nil,
         then callback: @escaping (SessionManagingResult<Data>) -> Void
-    ) throws -> Task? {
-        let request = try requestConvertible.asURLRequest()
-        var maybeError: NSError?
-        guard let serializedRequest = jsonRequestSerializer.request(
-            bySerializingRequest: request,
-            withParameters: parameters,
-            error: &maybeError
-        ) else {
-            let error = (maybeError as Error?) ?? VNError.serializatingError
-            let sessionManagingResult = SessionManagingResult<Data>(
-                request: request,
-                result: Result.failure(error)
-            )
+    ) -> Task? {
+        do {
+            let request = try requestConvertible.asURLRequest()
+            var maybeError: NSError?
+            guard let serializedRequest = jsonRequestSerializer.request(
+                bySerializingRequest: request,
+                withParameters: parameters,
+                error: &maybeError
+            ) else {
+                let error = (maybeError as Error?) ?? VNError.serializatingError
+                let sessionManagingResult = SessionManagingResult<Data>(
+                    request: request,
+                    result: Result.failure(error)
+                )
+                callback(sessionManagingResult)
+                return nil
+            }
+            return self.httpSessionManager.dataTask(with: serializedRequest) { (urlResponse, value, error) in
+                let result: Result<Data, Error> = {
+                    if let error = error {
+                        return Result.failure(error)
+                    } else if let data = value as? Data {
+                        return Result.success(data)
+                    } else {
+                        return Result.failure(VNError.unknownError)
+                    }
+                }()
+                let sessionManagingResult = SessionManagingResult(request: request, response: urlResponse, result: result)
+                callback(sessionManagingResult)
+            }
+        } catch {
+            let sessionManagingResult = SessionManagingResult(result: Result<Data, Error>.failure(error))
             callback(sessionManagingResult)
             return nil
-        }
-        return self.httpSessionManager.dataTask(with: serializedRequest) { (urlResponse, value, error) in
-            let result: Result<Data, Error> = {
-                if let error = error {
-                    return Result.failure(error)
-                } else if let data = value as? Data {
-                    return Result.success(data)
-                } else {
-                    return Result.failure(VNError.unknownError)
-                }
-            }()
-            let sessionManagingResult = SessionManagingResult(request: request, response: urlResponse, result: result)
-            callback(sessionManagingResult)
         }
     }
 
@@ -150,21 +156,14 @@ extension VimeoSessionManager {
         parameters: Any? = nil,
         then callback: @escaping (SessionManagingResult<JSON>) -> Void
     ) -> Task? {
-        do {
-            return try self.request(requestConvertible, parameters: parameters) { [jsonResponseSerializer] (sessionManagingResult: SessionManagingResult<Data>) in
-                let result = process(sessionManagingResult.response, result: sessionManagingResult.result, with: jsonResponseSerializer)
-                let sessionManagingResult = SessionManagingResult(
-                    request: sessionManagingResult.request,
-                    response: sessionManagingResult.response,
-                    result: result
-                )
-                callback(sessionManagingResult)
-            }
-        } catch {
-            let result = Result<JSON, Error>.failure(error)
-            let sessionManagingResult = SessionManagingResult(result: result)
+        return self.request(requestConvertible, parameters: parameters) { [jsonResponseSerializer] (sessionManagingResult: SessionManagingResult<Data>) in
+            let result = process(sessionManagingResult.response, result: sessionManagingResult.result, with: jsonResponseSerializer)
+            let sessionManagingResult = SessionManagingResult(
+                request: sessionManagingResult.request,
+                response: sessionManagingResult.response,
+                result: result
+            )
             callback(sessionManagingResult)
-            return nil
         }
     }
 

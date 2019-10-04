@@ -58,7 +58,7 @@ public protocol SessionManaging {
         _ requestConvertible: URLRequestConvertible,
         parameters: Any?,
         then callback: @escaping (SessionManagingResult<Data>) -> Void
-    ) throws -> Task?
+    ) -> Task?
 
     func request(
         _ requestConvertible: URLRequestConvertible,
