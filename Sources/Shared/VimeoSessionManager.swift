@@ -41,14 +41,6 @@ final public class VimeoSessionManager: NSObject, SessionManaging {
 
     // MARK: - Public
 
-    public var responseSerializer: AFHTTPResponseSerializer {
-        return self.httpSessionManager.responseSerializer
-    }
-
-    public var requestSerializer: AFHTTPRequestSerializer? {
-        return self.httpSessionManager.requestSerializer
-    }
-
     /// Getter and setter for the securityPolicy property on AFHTTPSessionManager
     @objc public var securityPolicy: SecurityPolicy {
         get { return self.httpSessionManager.securityPolicy }
@@ -61,13 +53,13 @@ final public class VimeoSessionManager: NSObject, SessionManaging {
         set { self.jsonResponseSerializer.acceptableContentTypes = newValue }
     }
 
-    // MARK: - Private
-
     /// The custom Vimeo request serializer that is used for serializing Data requests into JSON
     public let jsonRequestSerializer: VimeoRequestSerializer
 
     /// The custom Vimeo response serializer that is used for serializing Data responses into JSON
     public lazy var jsonResponseSerializer = VimeoResponseSerializer()
+
+    // MARK: - Private
 
     /// The JSONDecoder instance used for decoding decodable type responses
     private lazy var jsonDecoder = JSONDecoder()
