@@ -110,6 +110,19 @@ final public class VimeoSessionManager: NSObject, SessionManaging {
 
 extension VimeoSessionManager {
 
+    // MARK: - Data Request
+
+    /// Creates a data request from a `URLRequestConvertible` and a set of parameters, if any
+    ///
+    /// - Parameters:
+    ///   - requestConvertible: `URLRequestConvertible` the value used to create the `URLRequest`.
+    ///   - parameters: `Any?` parameters to be serialized and sent with to the `URLRequest`
+    ///   - callback: The closure to be executed once the request completes. The closure takes a single
+    ///   SessionManagingResult<Data> argument that wraps the `URLRequest`, `URLResponse` and `Result`
+    ///   of the request operation.
+    ///   Note that this API makes no guarantees as to which queue the callback will be executed on.
+    ///
+    /// - Returns: the `Task` object related to the request.
     public func request(
         _ requestConvertible: URLRequestConvertible,
         parameters: Any? = nil,
@@ -151,6 +164,19 @@ extension VimeoSessionManager {
         }
     }
 
+    // MARK: - JSON Request
+
+    /// Creates a data request from a `URLRequestConvertible` and a set of parameters, if any
+    ///
+    /// - Parameters:
+    ///   - requestConvertible: the value used to create the `URLRequest`.
+    ///   - parameters: `Any?` parameters to be serialized and sent with to the `URLRequest`
+    ///   - callback: The closure to be executed once the request completes. The closure takes a single
+    ///   SessionManagingResult<JSON> argument that wraps the `URLRequest`, `URLResponse` and `Result`
+    ///   of the request operation.
+    ///   Note that this API makes no guarantees as to which queue the callback will be executed on.
+    ///
+    /// - Returns: the `Task` object related to the request.
     public func request(
         _ requestConvertible: URLRequestConvertible,
         parameters: Any? = nil,
@@ -167,6 +193,55 @@ extension VimeoSessionManager {
         }
     }
 
+    // MARK: - Decodable Request
+
+    /// Creates a data request from a `URLRequestConvertible` and a set of parameters, if any
+    ///
+    /// - Parameters:
+    ///   - requestConvertible: the value used to create the `URLRequest`.
+    ///   - parameters: `Any?` parameters to be serialized and sent with to the `URLRequest`
+    ///   - callback: The closure to be executed once the request completes. The closure takes a single
+    ///   SessionManagingResult<T: Decodable> argument that wraps the `URLRequest`, `URLResponse` and `Result`
+    ///   of the request operation.
+    ///   Note that this API makes no guarantees as to which queue the callback will be executed on.
+    ///
+    /// - Returns: the `Task` object related to the request.
+    public func request<T: Decodable>(
+        _ requestConvertible: URLRequestConvertible,
+        parameters: Any? = nil,
+        then callback: @escaping (SessionManagingResult<T>) -> Void
+    ) -> Task? {
+        return self.request(requestConvertible, parameters: parameters) { [jsonDecoder] (sessionManagingResult: SessionManagingResult<Data>) in
+            let decodedResult = sessionManagingResult.result
+                .flatMap { data -> Result<T, Error> in
+                    do {
+                        let decoded = try jsonDecoder.decode(T.self, from: data)
+                        return Result.success(decoded)
+                    } catch {
+                        return Result<T, Error>.failure(error)
+                    }
+                }
+            let sessionManagingResult = SessionManagingResult(
+                request: sessionManagingResult.request,
+                response: sessionManagingResult.response,
+                result: decodedResult
+            )
+            callback(sessionManagingResult)
+        }
+    }
+
+    /// Creates an upload request for the file at the given `sourceFile` URL,
+    /// using the `URLRequestConvertible` value to create the `URLRequest`.
+    ///
+    /// - Parameters:
+    ///   - requestConvertible: the value used to create the `URLRequest`.
+    ///   - sourceFile: The `URL` of the file to be uploaded.
+    ///   - callback: The closure to be executed once the request completes. The closure takes a single
+    ///   SessionManagingResult<JSON> argument that wraps the `URLRequest`, `URLResponse` and `Result`
+    ///   of the request operation.
+    ///   Note that this API makes no guarantees as to which queue the callback will be executed on.
+    ///
+    /// - Returns: the `Task` object related to the request.
     public func upload(
         _ requestConvertible: URLRequestConvertible,
         sourceFile: URL,
@@ -198,8 +273,22 @@ extension VimeoSessionManager {
         }
     }
 
+    /// Creates a download request for the file and saves it at the give `destinationURL`,
+    /// using the `URLRequestConvertible` value to create the `URLRequest`.
+    ///
+    /// - Parameters:
+    ///   - requestConvertible: the value used to create the `URLRequest`.
+    ///   - destinationURL: The `URL` where the file should be downloaded to. If a URL is not specified the
+    ///   file will be downloaded to a temporary location.
+    ///   - callback: The closure to be executed once the request completes. The closure takes a single
+    ///   SessionManagingResult<URL> argument that wraps the `URLRequest`, `URLResponse` and `Result`
+    ///   of the request operation.
+    ///   Note that this API makes no guarantees as to which queue the callback will be executed on.
+    ///
+    /// - Returns: the `Task` object related to the request.
     public func download(
         _ requestConvertible: URLRequestConvertible,
+        destinationURL: URL? = nil,
         then callback: @escaping (SessionManagingResult<URL>) -> Void
     ) -> Task? {
         do {
@@ -207,7 +296,7 @@ extension VimeoSessionManager {
             return self.httpSessionManager.downloadTask(
                 with: request,
                 progress: nil,
-                destination: nil,
+                destination: { temporaryURL, _ in return destinationURL ?? temporaryURL },
                 completionHandler: { urlResponse, url, error in
                     let result: Result<URL, Error> = {
                         if let error = error {
@@ -292,8 +381,6 @@ extension VimeoSessionManager: AuthenticationListeningDelegate {
         jsonRequestSerializer.accessTokenProvider = nil
     }
 }
-
-// MARK: - Helper
 
 private func process(
     _ response: URLResponse?,

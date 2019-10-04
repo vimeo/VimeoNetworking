@@ -66,8 +66,15 @@ public protocol SessionManaging {
         then callback: @escaping (SessionManagingResult<JSON>) -> Void
     ) -> Task?
 
+    func request<T: Decodable>(
+        _ requestConvertible: URLRequestConvertible,
+        parameters: Any?,
+        then callback: @escaping (SessionManagingResult<T>) -> Void
+    ) -> Task?
+
     func download(
         _ requestConvertible: URLRequestConvertible,
+        destinationURL: URL?,
         then callback: @escaping (SessionManagingResult<URL>) -> Void
     ) -> Task?
 
