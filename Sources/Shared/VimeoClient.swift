@@ -126,7 +126,7 @@ final public class VimeoClient {
     
     // MARK: - Authentication
     
-        /// Stores the current account, if one exists
+    /// Stores the current account, if one exists
     public internal(set) var currentAccount: VIMAccount? {
         didSet {
             if let authenticatedAccount = self.currentAccount {
@@ -147,15 +147,14 @@ final public class VimeoClient {
     
     // MARK: - Request
     
-    /**
-     Executes a `Request`
-    
-     - parameter request:         `Request` object containing all the required URL and policy information
-     - parameter completionQueue: dispatch queue on which to execute the completion closure
-     - parameter completion:      a closure executed one or more times, containing a `Result`
-     
-     - returns: a `RequestToken` for the in-flight request
-     */
+    /// Executes a `Request`
+    ///
+    /// - Parameters:
+    ///   - request: `Request` object containing all the required URL and policy information
+    ///   - completionQueue: dispatch queue on which to execute the completion closure
+    ///   - completion: a closure executed one or more times, containing a `Result`
+    ///
+    /// - Returns: a `RequestToken` for the in-flight request
     public func request<ModelType>(
         _ request: Request<ModelType>,
         completionQueue: DispatchQueue = .main,
@@ -176,21 +175,64 @@ final public class VimeoClient {
         }
     }
     
-    /**
-     Removes any cached responses for a given `Request`
-     
-     - parameter request: the `Request` for which to remove all cached responses
-     */
+
+    /// Removes any cached responses for a given `Request`
+    /// - Parameters:
+    ///   - key: the cache key for which to remove all cached responses
     public func removeCachedResponse(forKey key: String) {
         self.responseCache.removeResponse(forKey: key)
     }
     
-    /**
-     Clears a client's cache of all stored responses
-     */
+    /// Clears a client's cache of all stored responses
     public func removeAllCachedResponses() {
         self.responseCache.clear()
     }
+}
+
+extension VimeoClient {
+    /// Singleton instance for VimeoClient. Applications must call configure(with appConfiguration:)
+    /// before it can be accessed.
+    public static var shared: VimeoClient {
+        guard
+            let _ = self._sharedInternal.configuration,
+            let _ = self._sharedInternal.sessionManager else {
+                assertionFailure("VimeoClient.sharedClient must be configured before accessing")
+                return self._sharedInternal
+        }
+        return self._sharedInternal
+    }
+
+    private static let _sharedInternal = VimeoClient()
+
+    /// Configures the singleton sharedClient instance. This function allows applications to provide
+    /// client specific app configurations at start time.
+    ///
+    /// - Parameters:
+    ///   - appConfiguration: An AppConfiguration instance
+    ///   - reachabilityManager: the reachability managing instance to use.
+    ///   - configureSessionManagerBlock: a block to configure the session manager
+    public static func configure(
+        with appConfiguration: AppConfiguration,
+        reachabilityManager: ReachabilityManaging? = nil,
+        configureSessionManagerBlock: ConfigureSessionManagerBlock? = nil
+    ) {
+        let reachabilityManager = reachabilityManager ?? VimeoReachabilityProvider.reachabilityManager
+
+        self._sharedInternal.configuration = appConfiguration
+
+        let defaultSessionManager = VimeoSessionManager.defaultSessionManager(
+            appConfiguration: appConfiguration,
+            configureSessionManagerBlock: configureSessionManagerBlock
+        )
+
+        self._sharedInternal.sessionManager?.invalidate(cancelingPendingTasks: false)
+        self._sharedInternal.sessionManager = defaultSessionManager
+        self._sharedInternal.reachabilityManager = reachabilityManager
+
+    }
+}
+
+extension VimeoClient {
 
     // MARK: - Private network request handling
 
@@ -452,48 +494,5 @@ final public class VimeoClient {
         var str = bearerHeader
         str.removeSubrange(range)
         return str
-    }
-}
-
-extension VimeoClient {
-    /// Singleton instance for VimeoClient. Applications must call configure(with appConfiguration:)
-    /// before it can be accessed.
-    public static var shared: VimeoClient {
-        guard
-            let _ = self._sharedInternal.configuration,
-            let _ = self._sharedInternal.sessionManager else {
-                assertionFailure("VimeoClient.sharedClient must be configured before accessing")
-                return self._sharedInternal
-        }
-        return self._sharedInternal
-    }
-    
-    private static let _sharedInternal = VimeoClient()
-    
-    /// Configures the singleton sharedClient instance. This function allows applications to provide
-    /// client specific app configurations at start time.
-    ///
-    /// - Parameters:
-    ///   - appConfiguration: An AppConfiguration instance
-    ///   - reachabilityManager: the reachability managing instance to use.
-    ///   - configureSessionManagerBlock: a block to configure the session manager
-    public static func configure(
-        with appConfiguration: AppConfiguration,
-        reachabilityManager: ReachabilityManaging? = nil,
-        configureSessionManagerBlock: ConfigureSessionManagerBlock? = nil
-    ) {
-        let reachabilityManager = reachabilityManager ?? VimeoReachabilityProvider.reachabilityManager
-
-        self._sharedInternal.configuration = appConfiguration
-
-        let defaultSessionManager = VimeoSessionManager.defaultSessionManager(
-            appConfiguration: appConfiguration,
-            configureSessionManagerBlock: configureSessionManagerBlock
-        )
-        
-        self._sharedInternal.sessionManager?.invalidate(cancelingPendingTasks: false)
-        self._sharedInternal.sessionManager = defaultSessionManager
-        self._sharedInternal.reachabilityManager = reachabilityManager
-                
     }
 }
