@@ -32,7 +32,7 @@ class VIMLiveTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        VimeoClient.configureSharedClient(withAppConfiguration: AppConfiguration(clientIdentifier: "{CLIENT_ID}",
+        VimeoClient.configure(with: AppConfiguration(clientIdentifier: "{CLIENT_ID}",
                                                                                  clientSecret: "{CLIENT_SECRET}",
                                                                                  scopes: [.Public, .Private, .Purchased, .Create, .Edit, .Delete, .Interact, .Upload],
                                                                                  keychainService: "com.vimeo.keychain_service",
@@ -83,7 +83,7 @@ class VIMLiveTests: XCTestCase {
         
         let expectation = self.expectation(description: "Network call expectation")
         
-        _ = VimeoClient.sharedClient.request(request) { response in
+        _ = VimeoClient.shared.request(request) { response in
             switch response {
             case .success(let result):
                 let video = result.model

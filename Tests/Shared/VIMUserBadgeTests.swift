@@ -32,7 +32,7 @@ class VIMUserBadgeTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        VimeoClient.configureSharedClient(withAppConfiguration: AppConfiguration(clientIdentifier: "{CLIENT_ID}",
+        VimeoClient.configure(with: AppConfiguration(clientIdentifier: "{CLIENT_ID}",
                                                                                  clientSecret: "{CLIENT_SECRET}",
                                                                                  scopes: [.Public, .Private, .Purchased, .Create, .Edit, .Delete, .Interact, .Upload],
                                                                                  keychainService: "com.vimeo.keychain_service",
@@ -56,7 +56,7 @@ class VIMUserBadgeTests: XCTestCase {
     private func checkReturnedBadgeType(withExpectedType expectedType: VIMUserBadgeType, andExpectation expectation: XCTestExpectation) {
         let request = Request<VIMUser>(path: "/users/" + Constants.CensoredId)
         
-        _ = VimeoClient.sharedClient.request(request, completion: { (response) in
+        _ = VimeoClient.shared.request(request, completion: { (response) in
             switch response {
             case .success(let result):
                 XCTAssertEqual(result.model.membership?.badge?.badgeType, expectedType)

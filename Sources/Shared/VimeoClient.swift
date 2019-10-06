@@ -27,25 +27,20 @@
 import Foundation
 
 /// `VimeoClient` handles a rich assortment of functionality focused around interacting with the Vimeo API.  A client object tracks an authenticated account, handles the low-level execution of requests through a session manager with caching functionality, presents a high-level `Request` and `Response` interface, and notifies of globally relevant events and errors through `Notification`s
-///
 /// To start using a client, first instantiate an `AuthenticationController` to load a stored account or authenticate a new one.  Next, create `Request` instances and pass them into the `request` function, which returns `Response`s on success.
-
 final public class VimeoClient {
     // MARK: -
     
-    /**
-     *  `RequestToken` stores a reference to an in-flight request
-     */
+    /// `RequestToken` stores a reference to an in-flight request
     public struct RequestToken {
+
         /// The path of the request
         public let path: String?
         
         /// The data task of the request
         public let task: Task?
-        
-        /**
-         Cancel the request
-         */
+
+        /// Cancels the request
         public func cancel() {
             self.task?.cancel()
         }
@@ -69,7 +64,7 @@ final public class VimeoClient {
     public typealias SessionManagingAuthenticationListening = SessionManaging & AuthenticationListeningDelegate
     private var sessionManager: SessionManagingAuthenticationListening? = nil
     
-        /// response cache handles all memory and disk caching of response dictionaries
+    /// response cache handles all memory and disk caching of response dictionaries
     private let responseCache = ResponseCache()
 
     private var reachabilityManager: ReachabilityManaging?
@@ -145,7 +140,7 @@ final public class VimeoClient {
         }
     }
     
-    public func notifyObserversAccountChanged(forAccount account: VIMAccount?, previousAccount: VIMAccount?) {
+    internal func notifyObserversAccountChanged(forAccount account: VIMAccount?, previousAccount: VIMAccount?) {
         NetworkingNotification.authenticatedAccountDidChange.post(object: account,
                                                         userInfo: [UserInfoKey.previousAccount.rawValue as String : previousAccount ?? NSNull()])
     }
@@ -461,19 +456,19 @@ final public class VimeoClient {
 }
 
 extension VimeoClient {
-    /// Singleton instance for VimeoClient. Applications must call configureSharedClient(withAppConfiguration appConfiguration:)
+    /// Singleton instance for VimeoClient. Applications must call configure(with appConfiguration:)
     /// before it can be accessed.
-    public static var sharedClient: VimeoClient {
+    public static var shared: VimeoClient {
         guard
-            let _ = self._sharedClient.configuration,
-            let _ = self._sharedClient.sessionManager else {
+            let _ = self._sharedInternal.configuration,
+            let _ = self._sharedInternal.sessionManager else {
                 assertionFailure("VimeoClient.sharedClient must be configured before accessing")
-                return self._sharedClient
+                return self._sharedInternal
         }
-        return self._sharedClient
+        return self._sharedInternal
     }
     
-    private static let _sharedClient = VimeoClient()
+    private static let _sharedInternal = VimeoClient()
     
     /// Configures the singleton sharedClient instance. This function allows applications to provide
     /// client specific app configurations at start time.
@@ -482,23 +477,23 @@ extension VimeoClient {
     ///   - appConfiguration: An AppConfiguration instance
     ///   - reachabilityManager: the reachability managing instance to use.
     ///   - configureSessionManagerBlock: a block to configure the session manager
-    public static func configureSharedClient(
-        withAppConfiguration appConfiguration: AppConfiguration,
+    public static func configure(
+        with appConfiguration: AppConfiguration,
         reachabilityManager: ReachabilityManaging? = nil,
         configureSessionManagerBlock: ConfigureSessionManagerBlock? = nil
     ) {
         let reachabilityManager = reachabilityManager ?? VimeoReachabilityProvider.reachabilityManager
 
-        self._sharedClient.configuration = appConfiguration
+        self._sharedInternal.configuration = appConfiguration
 
         let defaultSessionManager = VimeoSessionManager.defaultSessionManager(
             appConfiguration: appConfiguration,
             configureSessionManagerBlock: configureSessionManagerBlock
         )
         
-        self._sharedClient.sessionManager?.invalidate(cancelingPendingTasks: false)
-        self._sharedClient.sessionManager = defaultSessionManager
-        self._sharedClient.reachabilityManager = reachabilityManager
+        self._sharedInternal.sessionManager?.invalidate(cancelingPendingTasks: false)
+        self._sharedInternal.sessionManager = defaultSessionManager
+        self._sharedInternal.reachabilityManager = reachabilityManager
                 
     }
 }
