@@ -124,6 +124,7 @@ extension Folder {
     
     public enum ConnectionKeys: String, MetadataKeys {
         case videos
+        case teamMembers = "team_members"
     }
     
     var connectionMapping: [Folder.ConnectionKeys: VIMConnection.Type] {
