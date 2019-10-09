@@ -49,14 +49,13 @@ public extension Request {
         userURI: String,
         name: String,
         description: String? = nil,
-        privacy: String? = VIMPrivacy_Public,
+        privacy: String = VIMPrivacy_Public,
         password: String? = nil
     ) -> Request {
         var parameters = [String: String]()
         parameters[Key.name] = name
         parameters[Key.description] = description
-
-        privacy.map { parameters[Key.privacy] = $0 }
+        parameters[Key.privacy] = privacy
         password.map { parameters[Key.password] = $0 }
 
         return Request(method: .POST, path: userURI + "/albums", parameters: parameters)
@@ -78,7 +77,6 @@ public extension Request {
         var parameters = [String: String]()
         parameters[Key.name] = name
         parameters[Key.description] = description
-
         privacy.map { parameters[Key.privacy] = $0 }
         password.map { parameters[Key.password] = $0 }
 
