@@ -31,8 +31,6 @@ Pod::Spec.new do |s|
   s.resources               = "Sources/Resources/**/*.*"
   s.frameworks              = "Foundation"
 
-  s.dependency 'AFNetworking', '3.1.0'
-
   s.test_spec 'Tests' do |test_spec|
 
     test_spec.source_files            = "Tests/Shared/**/*.{h,m,swift}"

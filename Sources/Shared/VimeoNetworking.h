@@ -69,3 +69,10 @@ FOUNDATION_EXPORT const unsigned char VimeoNetworkingVersionString[];
 #import <VimeoNetworking/VIMVideoPreference.h>
 #import <VimeoNetworking/VIMVideoUtils.h>
 #import <VimeoNetworking/VIMVODItem.h>
+#import <VimeoNetworking/AFHTTPSessionManager.h>
+#import <VimeoNetworking/AFURLSessionManager.h>
+#import <VimeoNetworking/AFURLResponseSerialization.h>
+#import <VimeoNetworking/AFURLRequestSerialization.h>
+#import <VimeoNetworking/AFSecurityPolicy.h>
+#import <VimeoNetworking/AFNetworkReachabilityManager.h>
+#import <VimeoNetworking/UIImageView+AFNetworking.h>

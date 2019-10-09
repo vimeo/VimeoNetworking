@@ -24,5 +24,4 @@
 //  THE SOFTWARE.
 //
 
-@import AFNetworking;
 @import VimeoNetworking;

@@ -25,7 +25,6 @@
 //
 
 import Foundation
-import AFNetworking
 
 /// Stores string constants used to look up Vimeo-api-specific error information
 public enum VimeoErrorKey: String {

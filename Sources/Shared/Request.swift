@@ -25,7 +25,6 @@
 //
 
 import Foundation
-import AFNetworking
 
 /// Describes how a request should handle retrying after failure
 public enum RetryPolicy {

@@ -6,7 +6,6 @@ workspace 'VimeoNetworking'
 project 'VimeoNetworking.xcodeproj'
 
 def shared_pods
-    pod 'AFNetworking', '3.1.0'
     pod 'SwiftLint', '0.25.1'
 end
 

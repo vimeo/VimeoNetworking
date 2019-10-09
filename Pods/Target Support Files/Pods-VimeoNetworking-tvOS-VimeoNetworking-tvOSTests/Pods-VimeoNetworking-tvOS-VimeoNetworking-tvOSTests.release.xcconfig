@@ -1,10 +1,10 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking-tvOS" "${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs-tvOS"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs-tvOS"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking-tvOS/AFNetworking.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs-tvOS/OHHTTPStubs.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs-tvOS/OHHTTPStubs.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking-tvOS/AFNetworking.framework/Headers" -isystem "${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs-tvOS/OHHTTPStubs.framework/Headers" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking-tvOS" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs-tvOS"
-OTHER_LDFLAGS = $(inherited) -framework "AFNetworking" -framework "CFNetwork" -framework "Foundation" -framework "OHHTTPStubs" -framework "Security" -framework "SystemConfiguration"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs-tvOS/OHHTTPStubs.framework/Headers" -iframework "${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs-tvOS"
+OTHER_LDFLAGS = $(inherited) -framework "CFNetwork" -framework "Foundation" -framework "OHHTTPStubs"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

@@ -26,8 +26,6 @@
 
 import Foundation
 
-import AFNetworking
-
 /** `VimeoResponseSerializer` is an `AFJSONResponseSerializer` that defines our accept header, as well as parses out some Vimeo-specific error information.
  */
 final public class VimeoResponseSerializer: AFJSONResponseSerializer {
