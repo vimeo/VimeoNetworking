@@ -108,9 +108,9 @@ class AlbumTests: XCTestCase {
             return
         }
         
-        XCTAssertNotNil(album.connection(withName: VIMConnectionNameVideos), "Expected to find a videos connection but return nil instead.")
+        XCTAssertNotNil(album.connection(named: VIMConnectionNameVideos), "Expected to find a videos connection but return nil instead.")
         
-        let videosConnection = album.connection(withName: VIMConnectionNameVideos)
+        let videosConnection = album.connection(named: VIMConnectionNameVideos)
         XCTAssertEqual(videosConnection?.uri, "/albums/5451829/videos", "The connection URI's do not match.")
         XCTAssertEqual(videosConnection?.total, 2, "The total number of videos in the connection do not much the expected number of 2.")
     }

@@ -135,11 +135,11 @@ import Foundation
         self.parseInteractions()
     }
     
-    public func connection(withName connectionName: String) -> VIMConnection? {
+    public func connection(named connectionName: String) -> VIMConnection? {
         return self.connections?[connectionName] as? VIMConnection
     }
 
-    public func interaction(withName interactionName: String) -> VIMInteraction? {
+    public func interaction(named interactionName: String) -> VIMInteraction? {
         return self.interactions?[interactionName] as? VIMInteraction
     }
     
