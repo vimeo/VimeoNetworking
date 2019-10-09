@@ -22,8 +22,8 @@ Pod::Spec.new do |s|
   s.source                  = { :git => "https://github.com/vimeo/VimeoNetworking.git", :tag => s.version.to_s }
   
   s.source_files            = "Sources/Shared/**/*.{h,m,swift}"
-  s.ios.source_files        = "Sources/iOS/**/*.{h,m,swift}"
-  s.tvos.source_files       = "Sources/tvOS/**/*.{h,m,swift}"
+  s.ios.source_files        = "Sources/iOS/**/*.{h,m,swift}", "Sources/iOS+tvOS/**/*.{h,m,swift}"
+  s.tvos.source_files       = "Sources/tvOS/**/*.{h,m,swift}", "Sources/iOS+tvOS/**/*.{h,m,swift}"
   s.osx.source_files        = "Sources/macOS/**/*.{h,m,swift}"
     
   s.swift_version           = "5.0"
