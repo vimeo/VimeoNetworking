@@ -154,23 +154,25 @@ import Foundation
     private func parseConnections() {
         guard let dictionary = self.metadata?[Constant.Key.Connections] as? [String: Any] else { return }
         
-        self.connections = [String: Any]()
+        var connections = [String: Any]()
         for (key, value) in dictionary {
             if let valueDict = value as? [String: Any] {
-                self.connections?[key] = VIMConnection(keyValueDictionary: valueDict)
+                connections[key] = VIMConnection(keyValueDictionary: valueDict)
             }
         }
+        self.connections = connections
     }
 
     private func parseInteractions() {
         guard let dictionary = self.metadata?[Constant.Key.Interactions] as? [String: Any] else { return }
 
-        self.interactions = [String: Any]()
+        var interactions = [String: Any]()
         for (key, value) in dictionary {
             if let valueDict = value as? [String: Any] {
-                self.interactions?[key] = VIMInteraction(keyValueDictionary: valueDict)
+                interactions[key] = VIMInteraction(keyValueDictionary: valueDict)
             }
         }
+        self.interactions = dictionary
     }
     
     private func formatDate(from dateString: String?) -> Date? {
