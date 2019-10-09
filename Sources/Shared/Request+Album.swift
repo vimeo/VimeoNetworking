@@ -23,12 +23,6 @@
 //  THE SOFTWARE.
 //
 
-/// `Request` that returns a single `Album`.
-public typealias AlbumRequest = Request<Album>
-
-/// `Request` that returns an array of `Album` objects.
-public typealias AlbumListRequest = Request<[Album]>
-
 fileprivate enum Key {
     static let name = "name"
     static let description = "description"
