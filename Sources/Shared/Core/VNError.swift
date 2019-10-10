@@ -12,7 +12,7 @@ public enum VNError: Error {
     case encodingFailed(EncodingFailedReason)
     case invalidURL
     case requestError(Error)
-    case serializatingError
+    case serializingError
     case unknownError
     
     public enum EncodingFailedReason {

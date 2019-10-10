@@ -130,7 +130,7 @@ extension VimeoSessionManager {
                 withParameters: parameters,
                 error: &maybeError
             ) else {
-                let error = (maybeError as Error?) ?? VNError.serializatingError
+                let error = (maybeError as Error?) ?? VNError.serializingError
                 let sessionManagingResult = SessionManagingResult<Data>(
                     request: request,
                     result: Result.failure(error)
