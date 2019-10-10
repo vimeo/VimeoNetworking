@@ -36,12 +36,14 @@ class VIMUserTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
-        VimeoClient.configure(with: AppConfiguration(clientIdentifier: "{CLIENT_ID}",
-                                                                                 clientSecret: "{CLIENT_SECRET}",
-                                                                                 scopes: [.Public, .Private, .Purchased, .Create, .Edit, .Delete, .Interact, .Upload],
-                                                                                 keychainService: "com.vimeo.keychain_service",
-                                                                                 apiVersion: "3.3.10"), configureSessionManagerBlock: nil)
+        let appConfiguration = AppConfiguration(
+            clientIdentifier: "{CLIENT_ID}",
+            clientSecret: "{CLIENT_SECRET}",
+            scopes: [.Public, .Private, .Purchased, .Create, .Edit, .Delete, .Interact, .Upload],
+            keychainService: "com.vimeo.keychain_service",
+            apiVersion: "3.3.10"
+        )
+        VimeoClient.configure(with: appConfiguration, configureSessionManagerBlock: nil)
     }
     
     override func tearDown() {
