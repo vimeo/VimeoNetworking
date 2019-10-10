@@ -69,20 +69,6 @@ final public class VimeoClient {
 
     private var reachabilityManager: ReachabilityManaging?
 
-    enum Constants {
-        fileprivate static let bearerQuery = "Bearer "
-        fileprivate static let authorizationHeader = "Authorization"
-
-        static let pagingKey = "paging"
-        static let totalKey = "total"
-        static let pageKey = "page"
-        static let perPageKey = "per_page"
-        static let nextKey = "next"
-        static let previousKey = "previous"
-        static let firstKey = "first"
-        static let lastKey = "last"
-    }
-
     /// Create a new client
     ///
     /// - Parameters:
@@ -194,15 +180,15 @@ extension VimeoClient {
     /// before it can be accessed.
     public static var shared: VimeoClient {
         guard
-            let _ = self._sharedInternal.configuration,
-            let _ = self._sharedInternal.sessionManager else {
+            let _ = self._shared.configuration,
+            let _ = self._shared.sessionManager else {
                 assertionFailure("VimeoClient.sharedClient must be configured before accessing")
-                return self._sharedInternal
+                return self._shared
         }
-        return self._sharedInternal
+        return self._shared
     }
 
-    private static let _sharedInternal = VimeoClient()
+    private static let _shared = VimeoClient()
 
     /// Configures the singleton sharedClient instance. This function allows applications to provide
     /// client specific app configurations at start time.
@@ -218,16 +204,16 @@ extension VimeoClient {
     ) {
         let reachabilityManager = reachabilityManager ?? VimeoReachabilityProvider.reachabilityManager
 
-        self._sharedInternal.configuration = appConfiguration
+        self._shared.configuration = appConfiguration
 
         let defaultSessionManager = VimeoSessionManager.defaultSessionManager(
             appConfiguration: appConfiguration,
             configureSessionManagerBlock: configureSessionManagerBlock
         )
 
-        self._sharedInternal.sessionManager?.invalidate(cancelingPendingTasks: false)
-        self._sharedInternal.sessionManager = defaultSessionManager
-        self._sharedInternal.reachabilityManager = reachabilityManager
+        self._shared.sessionManager?.invalidate(cancelingPendingTasks: false)
+        self._shared.sessionManager = defaultSessionManager
+        self._shared.reachabilityManager = reachabilityManager
 
     }
 }
@@ -383,29 +369,29 @@ extension VimeoClient {
             
             var response: Response<ModelType>
             
-            if let pagingDictionary = responseDictionary[Constants.pagingKey] as? ResponseDictionary {
-                let totalCount = responseDictionary[Constants.totalKey] as? Int ?? 0
-                let currentPage = responseDictionary[Constants.pageKey] as? Int ?? 0
-                let itemsPerPage = responseDictionary[Constants.perPageKey] as? Int ?? 0
+            if let pagingDictionary = responseDictionary[.pagingKey] as? ResponseDictionary {
+                let totalCount = responseDictionary[.totalKey] as? Int ?? 0
+                let currentPage = responseDictionary[.pageKey] as? Int ?? 0
+                let itemsPerPage = responseDictionary[.perPageKey] as? Int ?? 0
                 
                 var nextPageRequest: Request<ModelType>? = nil
                 var previousPageRequest: Request<ModelType>? = nil
                 var firstPageRequest: Request<ModelType>? = nil
                 var lastPageRequest: Request<ModelType>? = nil
                 
-                if let nextPageLink = pagingDictionary[Constants.nextKey] as? String {
+                if let nextPageLink = pagingDictionary[.nextKey] as? String {
                     nextPageRequest = request.associatedPageRequest(withNewPath: nextPageLink)
                 }
                 
-                if let previousPageLink = pagingDictionary[Constants.previousKey] as? String {
+                if let previousPageLink = pagingDictionary[.previousKey] as? String {
                     previousPageRequest = request.associatedPageRequest(withNewPath: previousPageLink)
                 }
                 
-                if let firstPageLink = pagingDictionary[Constants.firstKey] as? String {
+                if let firstPageLink = pagingDictionary[.firstKey] as? String {
                     firstPageRequest = request.associatedPageRequest(withNewPath: firstPageLink)
                 }
                 
-                if let lastPageLink = pagingDictionary[Constants.lastKey] as? String {
+                if let lastPageLink = pagingDictionary[.lastKey] as? String {
                     lastPageRequest = request.associatedPageRequest(withNewPath: lastPageLink)
                 }
                 
@@ -487,12 +473,28 @@ extension VimeoClient {
     }
     
     private func token(from urlRequest: URLRequest?) -> String? {
-        guard let bearerHeader = urlRequest?.allHTTPHeaderFields?[Constants.authorizationHeader],
-            let range = bearerHeader.range(of: Constants.bearerQuery) else {
+        guard let bearerHeader = urlRequest?.allHTTPHeaderFields?[.authorizationHeader],
+            let range = bearerHeader.range(of: String.bearerQuery) else {
             return nil
         }
         var str = bearerHeader
         str.removeSubrange(range)
         return str
     }
+}
+
+private extension String {
+    // Auth Header constants
+    static let bearerQuery = "Bearer "
+    static let authorizationHeader = "Authorization"
+
+    // Response Key constants
+    static let pagingKey = "paging"
+    static let totalKey = "total"
+    static let pageKey = "page"
+    static let perPageKey = "per_page"
+    static let nextKey = "next"
+    static let previousKey = "previous"
+    static let firstKey = "first"
+    static let lastKey = "last"
 }
