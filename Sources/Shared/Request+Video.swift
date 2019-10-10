@@ -33,12 +33,6 @@ public typealias VideoRequest = Request<VIMVideo>
 public typealias VideoListRequest = Request<[VIMVideo]>
 
 public extension Request {
-    private static var QueryKey: String { return "query" }
-    
-    private static var VideosPath: String { return "/videos" }
-    
-    private static var SelectedUsersPrivacyPath: String { return "/privacy/users" }
-    
     // MARK: -
     
     /**
@@ -73,9 +67,9 @@ public extension Request {
      - returns: a new `Request`
      */
     static func selectedUsersRequest(forVideoURI videoURI: String) -> Request {
-        let parameters = [VimeoClient.Constants.perPageKey: 100]
+        let parameters = [String.perPageKey: 100]
         
-        let path = videoURI + self.SelectedUsersPrivacyPath
+        let path = videoURI + .selectedUsersPrivacyPath
         
         return Request(path: path, parameters: parameters)
     }
@@ -93,9 +87,9 @@ public extension Request {
     static func queryVideos(withQuery query: String, refinements: VimeoClient.RequestParametersDictionary? = nil) -> Request {
         var parameters = refinements ?? [:]
         
-        parameters[self.QueryKey] = query
+        parameters[.queryKey] = query
         
-        return Request(path: self.VideosPath, parameters: parameters)
+        return Request(path: .videosPath, parameters: parameters)
     }
     
     // MARK: - Edit Video
@@ -122,4 +116,14 @@ public extension Request {
     static func deleteVideoRequest(forVideoURI videoURI: String) -> Request {
         return Request(method: .delete, path: videoURI)
     }
+}
+
+private extension String {
+    // Request & response keys
+    static let perPageKey = "per_page"
+    static let queryKey = "query"
+
+    // Paths
+    static let selectedUsersPrivacyPath = "/privacy/users"
+    static let videosPath = "/videos"
 }

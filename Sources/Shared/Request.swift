@@ -66,10 +66,7 @@ extension RetryPolicy {
  *  `<ModelType>` is the type of the expected response model object
  */
 public struct Request<ModelType: MappableResponse> {
-    // TODO: Make these static when Swift supports it [RH] (5/24/16)
-    private let PageKey = "page"
-    private let PerPageKey = "per_page"
-    
+
     // MARK: -
     
     /// HTTP method (e.g. `.GET`, `.POST`)
