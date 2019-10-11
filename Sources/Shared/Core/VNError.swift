@@ -1,5 +1,5 @@
 //
-//  VNError.swift
+//  VimeoNetworkingError.swift
 //  VimeoNetworking
 //
 //  Created by Rogerio de Paula Assis on 9/2/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum VNError: Error {
+public enum VimeoNetworkingError: Error {
     case encodingFailed(EncodingFailedReason)
     case invalidURL
     case requestError(Error)

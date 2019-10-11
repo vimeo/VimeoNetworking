@@ -45,7 +45,7 @@ struct URLEncoding: ParameterEncoding {
                 return urlRequest
             }
             // Couldn't cast to Parameters so we bail with an error
-            throw VNError.encodingFailed(.invalidParameters)
+            throw VimeoNetworkingError.encodingFailed(.invalidParameters)
         }
         
         if unwrappedParameters.count == 0 {
@@ -55,7 +55,7 @@ struct URLEncoding: ParameterEncoding {
         
         let rawMethod = urlRequest.httpMethod ?? ""
         guard let httpMethod = HTTPMethod(rawValue: rawMethod) else {
-            throw VNError.encodingFailed(.missingHTTPMethod)
+            throw VimeoNetworkingError.encodingFailed(.missingHTTPMethod)
         }
         
         switch httpMethod {
@@ -70,7 +70,7 @@ struct URLEncoding: ParameterEncoding {
     
     private func inURLEncode(_ parameters: Parameters, for urlRequest: inout URLRequest) throws -> URLRequest {
         guard let url = urlRequest.url else {
-            throw VNError.encodingFailed(.missingURL)
+            throw VimeoNetworkingError.encodingFailed(.missingURL)
         }
         
         if var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) {

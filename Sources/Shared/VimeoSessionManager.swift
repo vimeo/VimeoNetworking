@@ -130,7 +130,7 @@ extension VimeoSessionManager {
                 withParameters: parameters,
                 error: &maybeError
             ) else {
-                let error = (maybeError as Error?) ?? VNError.serializingError
+                let error = (maybeError as Error?) ?? VimeoNetworkingError.serializingError
                 let sessionManagingResult = SessionManagingResult<Data>(
                     request: request,
                     result: Result.failure(error)
@@ -145,7 +145,7 @@ extension VimeoSessionManager {
                     } else if let data = value as? Data {
                         return Result.success(data)
                     } else {
-                        return Result.failure(VNError.unknownError)
+                        return Result.failure(VimeoNetworkingError.unknownError)
                     }
                 }()
                 let sessionManagingResult = SessionManagingResult(request: request, response: urlResponse, result: result)
@@ -298,7 +298,7 @@ extension VimeoSessionManager {
                         } else if let url = url {
                             return Result.success(url)
                         } else {
-                            return Result.failure(VNError.unknownError)
+                            return Result.failure(VimeoNetworkingError.unknownError)
                         }
                     }()
                     let sessionManagingResult = SessionManagingResult<URL>(
@@ -339,7 +339,7 @@ private extension VimeoSessionManager {
                     } else if let data = value as? Data {
                         return Result.success(data)
                     } else {
-                        return Result.failure(VNError.unknownError)
+                        return Result.failure(VimeoNetworkingError.unknownError)
                     }
                 }()
                 let sessionManagingResult = SessionManagingResult(
@@ -448,7 +448,7 @@ private func process(
         } else if let json = maybeJSON {
             return Result.success(json)
         } else {
-            return Result.failure(VNError.unknownError)
+            return Result.failure(VimeoNetworkingError.unknownError)
         }
     }
 }

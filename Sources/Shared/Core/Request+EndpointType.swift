@@ -20,7 +20,7 @@ extension Request: EndpointType {
     // SessionManaging type [RDPA 10/02/2019].
     public func asURLRequest() throws -> URLRequest {
         guard let url = URL(string: path, relativeTo: baseURL) else {
-            throw VNError.invalidURL
+            throw VimeoNetworkingError.invalidURL
         }
         var urlRequest = URLRequest(url: url)
         headers?.forEach { field, value in
