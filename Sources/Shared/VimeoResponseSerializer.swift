@@ -114,6 +114,8 @@ final public class VimeoResponseSerializer {
         try self.checkStatusCodeValidity(response: response)
     }
 
+    // MARK: Private API
+
     /**
      Check that a download task response has a valid status code
      
@@ -121,7 +123,7 @@ final public class VimeoResponseSerializer {
      
      - throws: an error if the status code is invalid
      */
-    public func checkStatusCodeValidity(response: URLResponse?) throws {
+    private func checkStatusCodeValidity(response: URLResponse?) throws {
         if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode < 200 || httpResponse.statusCode > 299 {
             let userInfo = [NSLocalizedDescriptionKey: "Invalid http status code for download task."]
             throw NSError(domain: Constants.ErrorDomain, code: 0, userInfo: userInfo)
@@ -137,7 +139,7 @@ final public class VimeoResponseSerializer {
      
      - returns: downloaded data serialized into JSON dictionary
      */
-    public func dictionaryFromDownloadTaskResponse(url: URL?) throws -> [String: Any] {
+    private func dictionaryFromDownloadTaskResponse(url: URL?) throws -> [String: Any] {
         guard let url = url else {
             let userInfo = [NSLocalizedDescriptionKey: "Url for completed download task is nil."]
             throw NSError(domain: Constants.ErrorDomain, code: 0, userInfo: userInfo)
@@ -160,8 +162,6 @@ final public class VimeoResponseSerializer {
         
         return dictionary!
     }
-    
-    // MARK: Private API
 
     private func errorInfo(fromResponse response: URLResponse?, responseObject: Any?) -> [String: Any]? {
         var errorInfo: [String: Any] = [:]
