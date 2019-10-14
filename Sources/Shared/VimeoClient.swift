@@ -176,49 +176,6 @@ final public class VimeoClient {
 }
 
 extension VimeoClient {
-    /// Singleton instance for VimeoClient. Applications must call configure(with appConfiguration:)
-    /// before it can be accessed.
-    public static var shared: VimeoClient {
-        guard
-            let _ = self._shared.configuration,
-            let _ = self._shared.sessionManager else {
-                assertionFailure("VimeoClient.sharedClient must be configured before accessing")
-                return self._shared
-        }
-        return self._shared
-    }
-
-    private static let _shared = VimeoClient()
-
-    /// Configures the singleton sharedClient instance. This function allows applications to provide
-    /// client specific app configurations at start time.
-    ///
-    /// - Parameters:
-    ///   - appConfiguration: An AppConfiguration instance
-    ///   - reachabilityManager: the reachability managing instance to use.
-    ///   - configureSessionManagerBlock: a block to configure the session manager
-    public static func configure(
-        with appConfiguration: AppConfiguration,
-        reachabilityManager: ReachabilityManaging? = nil,
-        configureSessionManagerBlock: ConfigureSessionManagerBlock? = nil
-    ) {
-        let reachabilityManager = reachabilityManager ?? VimeoReachabilityProvider.reachabilityManager
-
-        self._shared.configuration = appConfiguration
-
-        let defaultSessionManager = VimeoSessionManager.defaultSessionManager(
-            appConfiguration: appConfiguration,
-            configureSessionManagerBlock: configureSessionManagerBlock
-        )
-
-        self._shared.sessionManager?.invalidate(cancelingPendingTasks: false)
-        self._shared.sessionManager = defaultSessionManager
-        self._shared.reachabilityManager = reachabilityManager
-
-    }
-}
-
-extension VimeoClient {
 
     // MARK: - Private network request handling
 

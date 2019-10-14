@@ -26,17 +26,13 @@
 
 import XCTest
 import OHHTTPStubs
-import VimeoNetworking
+@testable import VimeoNetworking
 
 class GCSTests: XCTestCase {
+
+
     override func setUp() {
         super.setUp()
-        
-        VimeoClient.configure(with: AppConfiguration(clientIdentifier: "{CLIENT_ID}",
-                                                                                 clientSecret: "{CLIENT_SECRET}",
-                                                                                 scopes: [.Public, .Private, .Purchased, .Create, .Edit, .Delete, .Interact, .Upload],
-                                                                                 keychainService: "com.vimeo.keychain_service",
-                                                                                 apiVersion: "3.3.10"), configureSessionManagerBlock: nil)
     }
     
     func test_gcsResponse_getsParsedIntoGCSObject() {
@@ -48,8 +44,8 @@ class GCSTests: XCTestCase {
         }
         
         let expectation = self.expectation(description: "Network call expectation")
-        
-        _ = VimeoClient.shared.request(request) { response in
+        let client = makeVimeoClient()
+        _ = client.request(request) { response in
             switch response {
             case .success(let result):
                 let gcs = result.model

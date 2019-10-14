@@ -33,13 +33,7 @@ class FileTransferTests: XCTestCase {
     override func setUp() {
         
         super.setUp()
-        
-        VimeoClient.configure(with: AppConfiguration(clientIdentifier: "{CLIENT_ID}",
-                                                                                 clientSecret: "{CLIENT_SECRET}",
-                                                                                 scopes: [.Public, .Private, .Purchased, .Create, .Edit, .Delete, .Interact, .Upload],
-                                                                                 keychainService: "com.vimeo.keychain_service",
-                                                                                 apiVersion: "3.3.10"), configureSessionManagerBlock: nil)
-        
+
         stub(condition: isPath("/videos/" + Constants.CensoredId)) { _ in
             let stubPath = OHPathForFile("clip.json", type(of: self))
             return fixture(filePath: stubPath!, headers: ["Content-Type":"application/json"])
@@ -57,8 +51,9 @@ class FileTransferTests: XCTestCase {
         let request = Request<VIMVideo>(path: "/videos/" + Constants.CensoredId)
         
         let expectation = self.expectation(description: "Network call expectation")
-        
-        _ = VimeoClient.shared.request(request) { response in
+
+        let client = makeVimeoClient()
+        _ = client.request(request) { response in
             switch response {
             case .success(let result):
                 let video = result.model

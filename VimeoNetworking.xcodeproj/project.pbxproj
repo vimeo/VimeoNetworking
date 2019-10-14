@@ -183,6 +183,9 @@
 		5B3D4FE222DE24DD002D937B /* VIMUserAccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3D4FE122DE24DD002D937B /* VIMUserAccountType.swift */; };
 		5B3D4FE322DE24DD002D937B /* VIMUserAccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3D4FE122DE24DD002D937B /* VIMUserAccountType.swift */; };
 		5B3D4FE422DE24DD002D937B /* VIMUserAccountType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3D4FE122DE24DD002D937B /* VIMUserAccountType.swift */; };
+		5B5ABD2A2355423800101DB3 /* VimeoClientFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ABD292355423800101DB3 /* VimeoClientFactory.swift */; };
+		5B5ABD2B2355423800101DB3 /* VimeoClientFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ABD292355423800101DB3 /* VimeoClientFactory.swift */; };
+		5B5ABD2C2355423800101DB3 /* VimeoClientFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5ABD292355423800101DB3 /* VimeoClientFactory.swift */; };
 		5B5EEF1D22B425C9005C66BE /* MockConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1DF2B922B41C90007F2416 /* MockConstants.swift */; };
 		5B5EEF1E22B425CA005C66BE /* MockConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1DF2B922B41C90007F2416 /* MockConstants.swift */; };
 		5B5EEF5622B428DC005C66BE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF4C22B428DC005C66BE /* DetailViewController.swift */; };
@@ -192,9 +195,6 @@
 		5B5EEF5A22B428DC005C66BE /* VimeoClient+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF5222B428DC005C66BE /* VimeoClient+Shared.swift */; };
 		5B5EEF5B22B428DC005C66BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF5322B428DC005C66BE /* AppDelegate.swift */; };
 		5B5EEF5C22B428DC005C66BE /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF5422B428DC005C66BE /* MasterViewController.swift */; };
-		5B5EEF6822B44042005C66BE /* VimeoNetworking-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEF6722B44042005C66BE /* VimeoNetworking-Bridging-Header.h */; };
-		5B5EEF6922B44042005C66BE /* VimeoNetworking-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEF6722B44042005C66BE /* VimeoNetworking-Bridging-Header.h */; };
-		5B5EEF6A22B44042005C66BE /* VimeoNetworking-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEF6722B44042005C66BE /* VimeoNetworking-Bridging-Header.h */; };
 		5B5EF00C22B441A3005C66BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF6C22B441A3005C66BE /* Constants.swift */; };
 		5B5EF00D22B441A3005C66BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF6C22B441A3005C66BE /* Constants.swift */; };
 		5B5EF00E22B441A3005C66BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF6C22B441A3005C66BE /* Constants.swift */; };
@@ -707,15 +707,6 @@
 		5B76317F2346683200711C3E /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B76317C2346683200711C3E /* EndpointType.swift */; };
 		5BB30CAA2332D21A00EB314D /* ImageLoader+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB30CA92332D21A00EB314D /* ImageLoader+Cache.swift */; };
 		5BB30CAB2332D21A00EB314D /* ImageLoader+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB30CA92332D21A00EB314D /* ImageLoader+Cache.swift */; };
-		5BEE3A1D23466F920003FD81 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE3A1C23466F920003FD81 /* Task.swift */; };
-		5BEE3A1E23466F920003FD81 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE3A1C23466F920003FD81 /* Task.swift */; };
-		5BEE3A1F23466F920003FD81 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE3A1C23466F920003FD81 /* Task.swift */; };
-		5BEE3A212346757F0003FD81 /* Request+EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE3A202346757F0003FD81 /* Request+EndpointType.swift */; };
-		5BEE3A222346757F0003FD81 /* Request+EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE3A202346757F0003FD81 /* Request+EndpointType.swift */; };
-		5BEE3A232346757F0003FD81 /* Request+EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE3A202346757F0003FD81 /* Request+EndpointType.swift */; };
-		5BF72ACA2316F64800A0D2C8 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF72AC92316F64800A0D2C8 /* NetworkReachabilityManager.swift */; };
-		5BF72ACB2316F64800A0D2C8 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF72AC92316F64800A0D2C8 /* NetworkReachabilityManager.swift */; };
-		5BF72ACC2316F64800A0D2C8 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF72AC92316F64800A0D2C8 /* NetworkReachabilityManager.swift */; };
 		5BD765B8234D35A900821AF7 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD7659E234D35A900821AF7 /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BD765B9234D35A900821AF7 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD7659E234D35A900821AF7 /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BD765BA234D35A900821AF7 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD7659E234D35A900821AF7 /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -773,8 +764,15 @@
 		5BD765EE234D35A900821AF7 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD765B1234D35A900821AF7 /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BD765EF234D35A900821AF7 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD765B1234D35A900821AF7 /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BD765F0234D35A900821AF7 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BD765B1234D35A900821AF7 /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5BE14356232C30870076B497 /* Request+Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE14355232C30870076B497 /* Request+Trigger.swift */; };
-		5BE14357232C30870076B497 /* Request+Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE14355232C30870076B497 /* Request+Trigger.swift */; };
+		5BEE3A1D23466F920003FD81 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE3A1C23466F920003FD81 /* Task.swift */; };
+		5BEE3A1E23466F920003FD81 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE3A1C23466F920003FD81 /* Task.swift */; };
+		5BEE3A1F23466F920003FD81 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE3A1C23466F920003FD81 /* Task.swift */; };
+		5BEE3A212346757F0003FD81 /* Request+EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE3A202346757F0003FD81 /* Request+EndpointType.swift */; };
+		5BEE3A222346757F0003FD81 /* Request+EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE3A202346757F0003FD81 /* Request+EndpointType.swift */; };
+		5BEE3A232346757F0003FD81 /* Request+EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE3A202346757F0003FD81 /* Request+EndpointType.swift */; };
+		5BF72ACA2316F64800A0D2C8 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF72AC92316F64800A0D2C8 /* NetworkReachabilityManager.swift */; };
+		5BF72ACB2316F64800A0D2C8 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF72AC92316F64800A0D2C8 /* NetworkReachabilityManager.swift */; };
+		5BF72ACC2316F64800A0D2C8 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF72AC92316F64800A0D2C8 /* NetworkReachabilityManager.swift */; };
 		7E388B7DAAA730F67222354D /* Pods_VimeoNetworking_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25EE618A23DD07A19E67F5 /* Pods_VimeoNetworking_iOS.framework */; };
 		9E6913F9D6917E929DA785FE /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48683A775227828528A4492B /* Pods_Example.framework */; };
 		C1E13A752650AE7CE4523125 /* Pods_VimeoNetworking_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D711BBD962E1ACC44FB5766 /* Pods_VimeoNetworking_macOS.framework */; };
@@ -903,6 +901,7 @@
 		5B20D1012317303200CA3028 /* NetworkReachabilityStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityStatusTests.swift; sourceTree = "<group>"; };
 		5B20D10A231850D100CA3028 /* NetworkingReachabilityManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingReachabilityManagerTests.swift; sourceTree = "<group>"; };
 		5B3D4FE122DE24DD002D937B /* VIMUserAccountType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIMUserAccountType.swift; sourceTree = "<group>"; };
+		5B5ABD292355423800101DB3 /* VimeoClientFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimeoClientFactory.swift; sourceTree = "<group>"; };
 		5B5EEF4C22B428DC005C66BE /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		5B5EEF4D22B428DC005C66BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B5EEF4F22B428DC005C66BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -911,7 +910,6 @@
 		5B5EEF5322B428DC005C66BE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B5EEF5422B428DC005C66BE /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		5B5EEF5522B428DC005C66BE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B5EEF6722B44042005C66BE /* VimeoNetworking-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VimeoNetworking-Bridging-Header.h"; sourceTree = "<group>"; };
 		5B5EEF6C22B441A3005C66BE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5B5EEF6D22B441A3005C66BE /* Mappable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
 		5B5EEF6E22B441A3005C66BE /* Request+Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Category.swift"; sourceTree = "<group>"; };
@@ -1090,9 +1088,6 @@
 		5B79216722C2B93B00FC1928 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OHHTTPStubs.framework; sourceTree = "<group>"; };
 		5B79216922C2B94400FC1928 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OHHTTPStubs.framework; sourceTree = "<group>"; };
 		5BB30CA92332D21A00EB314D /* ImageLoader+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageLoader+Cache.swift"; sourceTree = "<group>"; };
-		5BEE3A1C23466F920003FD81 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		5BEE3A202346757F0003FD81 /* Request+EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+EndpointType.swift"; sourceTree = "<group>"; };
-		5BF72AC92316F64800A0D2C8 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		5BD7659B234D35A900821AF7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		5BD7659C234D35A900821AF7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5BD7659E234D35A900821AF7 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -1114,7 +1109,9 @@
 		5BD765AF234D35A900821AF7 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		5BD765B0234D35A900821AF7 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
 		5BD765B1234D35A900821AF7 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		5BE14355232C30870076B497 /* Request+Trigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Request+Trigger.swift"; sourceTree = "<group>"; };
+		5BEE3A1C23466F920003FD81 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		5BEE3A202346757F0003FD81 /* Request+EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+EndpointType.swift"; sourceTree = "<group>"; };
+		5BF72AC92316F64800A0D2C8 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		5D711BBD962E1ACC44FB5766 /* Pods_VimeoNetworking_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VimeoNetworking_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B43D25318F400304BCF876 /* Pods_VimeoNetworking_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VimeoNetworking_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67088A918F7944230D5981E8 /* Pods-VimeoNetworking-macOS-VimeoNetworking-macOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworking-macOS-VimeoNetworking-macOSTests.release.xcconfig"; path = "Target Support Files/Pods-VimeoNetworking-macOS-VimeoNetworking-macOSTests/Pods-VimeoNetworking-macOS-VimeoNetworking-macOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1245,7 +1242,7 @@
 		5B1DF2A322B41C90007F2416 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				5B5EEF6722B44042005C66BE /* VimeoNetworking-Bridging-Header.h */,
+				5B5ABD282355420700101DB3 /* Factory */,
 				5B1DF2A422B41C90007F2416 /* Shared */,
 				5B1DF2B622B41C90007F2416 /* iOS */,
 				5B1DF2C522B41C90007F2416 /* Fixtures */,
@@ -1363,6 +1360,14 @@
 				5B20D10A231850D100CA3028 /* NetworkingReachabilityManagerTests.swift */,
 			);
 			path = Reachability;
+			sourceTree = "<group>";
+		};
+		5B5ABD282355420700101DB3 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				5B5ABD292355423800101DB3 /* VimeoClientFactory.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 		5B5EEF4B22B428DC005C66BE /* iOS */ = {
@@ -1692,14 +1697,6 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		5BE14354232C30870076B497 /* iOS+tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				5BE14355232C30870076B497 /* Request+Trigger.swift */,
-			);
-			path = "iOS+tvOS";
-			sourceTree = "<group>";
-		};
 		8AE2647F20CE4FFA2EC6AF34 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1753,7 +1750,6 @@
 				5B5EF1DD22B441A4005C66BE /* Objc_ExceptionCatcher.h in Headers */,
 				5BD765D6234D35A900821AF7 /* AFURLRequestSerialization.h in Headers */,
 				5BD765C1234D35A900821AF7 /* UIImage+AFNetworking.h in Headers */,
-				5B5EEF6822B44042005C66BE /* VimeoNetworking-Bridging-Header.h in Headers */,
 				5BD765DF234D35A900821AF7 /* AFURLResponseSerialization.h in Headers */,
 				5B5EF0E722B441A4005C66BE /* VIMNotification.h in Headers */,
 				5B5EF11D22B441A4005C66BE /* VIMNotificationsConnection.h in Headers */,
@@ -1817,7 +1813,6 @@
 				5B5EF1DE22B441A4005C66BE /* Objc_ExceptionCatcher.h in Headers */,
 				5BD765D7234D35A900821AF7 /* AFURLRequestSerialization.h in Headers */,
 				5BD765C2234D35A900821AF7 /* UIImage+AFNetworking.h in Headers */,
-				5B5EEF6922B44042005C66BE /* VimeoNetworking-Bridging-Header.h in Headers */,
 				5BD765E0234D35A900821AF7 /* AFURLResponseSerialization.h in Headers */,
 				5B5EF0E822B441A4005C66BE /* VIMNotification.h in Headers */,
 				5B5EF11E22B441A4005C66BE /* VIMNotificationsConnection.h in Headers */,
@@ -1881,7 +1876,6 @@
 				5B5EF1DF22B441A4005C66BE /* Objc_ExceptionCatcher.h in Headers */,
 				5BD765D8234D35A900821AF7 /* AFURLRequestSerialization.h in Headers */,
 				5BD765C3234D35A900821AF7 /* UIImage+AFNetworking.h in Headers */,
-				5B5EEF6A22B44042005C66BE /* VimeoNetworking-Bridging-Header.h in Headers */,
 				5BD765E1234D35A900821AF7 /* AFURLResponseSerialization.h in Headers */,
 				5B5EF0E922B441A4005C66BE /* VIMNotification.h in Headers */,
 				5B5EF11F22B441A4005C66BE /* VIMNotificationsConnection.h in Headers */,
@@ -2967,6 +2961,7 @@
 				5B1DF2F922B41C90007F2416 /* Dictionary+ExtensionTests.swift in Sources */,
 				5B1DF30B22B41C90007F2416 /* VIMQuantityQuota+Tests.swift in Sources */,
 				5B1DF2E722B41C90007F2416 /* ExceptionCatcherTests.swift in Sources */,
+				5B5ABD2A2355423800101DB3 /* VimeoClientFactory.swift in Sources */,
 				5B1DF2EA22B41C90007F2416 /* VIMUploadQuota+Tests.swift in Sources */,
 				5B1DF32922B41C90007F2416 /* VimeoClientTests.swift in Sources */,
 				5B1DF31D22B41C90007F2416 /* FileTransferTests.swift in Sources */,
@@ -3008,6 +3003,7 @@
 				5B1DF30C22B41C90007F2416 /* VIMQuantityQuota+Tests.swift in Sources */,
 				5B1DF2E822B41C90007F2416 /* ExceptionCatcherTests.swift in Sources */,
 				5B1DF2EB22B41C90007F2416 /* VIMUploadQuota+Tests.swift in Sources */,
+				5B5ABD2B2355423800101DB3 /* VimeoClientFactory.swift in Sources */,
 				5B1DF30622B41C90007F2416 /* Request+CategoryTests.swift in Sources */,
 				5B1AE5CE22B5AA1400FE120E /* VimeoClientTests.swift in Sources */,
 				5B1AE5CA22B5AA1400FE120E /* FileTransferTests.swift in Sources */,
@@ -3049,6 +3045,7 @@
 				5B1DF30D22B41C90007F2416 /* VIMQuantityQuota+Tests.swift in Sources */,
 				5B1DF2E922B41C90007F2416 /* ExceptionCatcherTests.swift in Sources */,
 				5B1DF2EC22B41C90007F2416 /* VIMUploadQuota+Tests.swift in Sources */,
+				5B5ABD2C2355423800101DB3 /* VimeoClientFactory.swift in Sources */,
 				5B1DF30722B41C90007F2416 /* Request+CategoryTests.swift in Sources */,
 				5B1AE5D922B5AA1500FE120E /* VimeoClientTests.swift in Sources */,
 				5B1AE5D522B5AA1500FE120E /* FileTransferTests.swift in Sources */,
@@ -3463,7 +3460,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vimeo.VimeoNetworking-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Tests/VimeoNetworking-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3484,7 +3480,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vimeo.VimeoNetworking-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Tests/VimeoNetworking-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3506,7 +3501,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vimeo.VimeoNetworking-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_OBJC_BRIDGING_HEADER = "Tests/VimeoNetworking-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
@@ -3528,7 +3522,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vimeo.VimeoNetworking-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_OBJC_BRIDGING_HEADER = "Tests/VimeoNetworking-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
@@ -3552,7 +3545,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vimeo.VimeoNetworking-macOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "Tests/VimeoNetworking-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -3575,7 +3567,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vimeo.VimeoNetworking-macOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_OBJC_BRIDGING_HEADER = "Tests/VimeoNetworking-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
