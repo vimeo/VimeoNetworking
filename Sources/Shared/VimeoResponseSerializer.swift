@@ -28,22 +28,39 @@ import Foundation
 
 /** `VimeoResponseSerializer` is an `AFJSONResponseSerializer` that defines our accept header, as well as parses out some Vimeo-specific error information.
  */
-final public class VimeoResponseSerializer: AFJSONResponseSerializer {
+final public class VimeoResponseSerializer {
     private struct Constants {
         static let ErrorDomain = "VimeoResponseSerializerErrorDomain"
     }
+
+    /// Getter and setter for acceptableContentTypes property on the Vimeo/JSON response serializer
+    public var acceptableContentTypes: Set<String>? {
+        get { return self.jsonResponseSerializer.acceptableContentTypes }
+        set { self.jsonResponseSerializer.acceptableContentTypes = newValue }
+    }
+
+    // The internal response serializer use to serialize network responses
+    private let jsonResponseSerializer: AFJSONResponseSerializer
+
+    init(jsonResponseSerializer: AFJSONResponseSerializer = AFJSONResponseSerializer()) {
+        self.jsonResponseSerializer = jsonResponseSerializer
+        self.jsonResponseSerializer.acceptableContentTypes = VimeoResponseSerializer.acceptableContentTypes()
+        self.jsonResponseSerializer.readingOptions = .allowFragments
+    }
+
+    /// Creates a response object decoded from the data associated with a specified response.
+    func responseObject(
+        for response: URLResponse?,
+        data: Data?,
+        error: NSErrorPointer
+    ) -> Any? {
+        return self.jsonResponseSerializer.responseObject(
+            for: response,
+            data: data,
+            error: error
+        )
+    }
     
-    override init() {
-        super.init()
-
-        self.acceptableContentTypes = VimeoResponseSerializer.acceptableContentTypes()
-        self.readingOptions = .allowFragments
-    }
-
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-        
     // MARK: Public API
 
     /**
