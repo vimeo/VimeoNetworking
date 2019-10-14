@@ -35,6 +35,7 @@ NSString *VIMPrivacy_Password = @"password";
 NSString *VIMPrivacy_Unlisted = @"unlisted";
 NSString *VIMPrivacy_Disabled = @"disable";
 NSString *VIMPrivacy_Stock = @"stock";
+NSString *VIMPrivacy_EmbedOnly = @"embed_only";
 
 @implementation VIMPrivacy
 
