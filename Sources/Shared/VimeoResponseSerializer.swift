@@ -26,8 +26,8 @@
 
 import Foundation
 
-/// `VimeoResponseSerializer` serializes, defines our accept header, as well as
-/// parses out some Vimeo-specific error information.
+/// `VimeoResponseSerializer` defines our accept header, serializes responses
+///  and parses out some Vimeo-specific error information.
 final public class VimeoResponseSerializer {
 
     private struct Constants {
