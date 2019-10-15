@@ -40,7 +40,12 @@ final public class VimeoClient {
         /// The data task of the request
         public let task: Task?
 
-        /// Cancels the request
+        /// Resumes the request token task
+        public func resume() {
+            self.task?.resume()
+        }
+
+        /// Cancels the request token task
         public func cancel() {
             self.task?.cancel()
         }
