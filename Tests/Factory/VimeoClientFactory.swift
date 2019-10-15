@@ -9,8 +9,27 @@
 import Foundation
 @testable import VimeoNetworking
 
-extension AppConfiguration {
-    static let mock: AppConfiguration = {
+func makeVimeoClient(
+    reachabilityManager: ReachabilityManaging? = VimeoReachabilityProvider.reachabilityManager,
+    sessionManager: SessionManaging & AuthenticationListeningDelegate = VimeoSessionManager.fake,
+    appConfiguration: AppConfiguration = .fake
+) -> VimeoClient {
+    return VimeoClient(
+        appConfiguration: appConfiguration,
+        reachabilityManager: reachabilityManager,
+        sessionManager: sessionManager
+    )
+}
+
+private extension VimeoSessionManager {
+    static let fake: VimeoSessionManager = .defaultSessionManager(
+        appConfiguration: .fake,
+        configureSessionManagerBlock: nil
+    )
+}
+
+private extension AppConfiguration {
+    static let fake: AppConfiguration = {
         return AppConfiguration(
             clientIdentifier: "{CLIENT_ID}",
             clientSecret: "{CLIENT_SECRET}",
@@ -19,17 +38,4 @@ extension AppConfiguration {
             apiVersion: "3.3.13"
         )
     }()
-}
-
-public func makeVimeoClient() -> VimeoClient {
-    let reachabilityManager = VimeoReachabilityProvider.reachabilityManager
-    let defaultSessionManager = VimeoSessionManager.defaultSessionManager(
-        appConfiguration: .mock,
-        configureSessionManagerBlock: nil
-    )
-    return VimeoClient(
-        appConfiguration: .mock,
-        reachabilityManager: reachabilityManager,
-        sessionManager: defaultSessionManager
-    )
 }
