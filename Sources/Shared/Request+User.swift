@@ -131,4 +131,17 @@ public extension Request {
     static func patchUser(withUserURI userURI: String, parameters: VimeoClient.RequestParametersDictionary) -> Request {
         return Request(method: .PATCH, path: userURI, parameters: parameters)
     }
+
+    // MARK: - Get root directory for user
+
+    /// Returns a new request to fetch an array of user items.
+    ///
+    /// - Parameter userURI: The user's URI.
+    /// - Returns: Returns a new `Request` for an array of user items.
+    static func folderRootRequest(for userURI: String) -> Request {
+
+        let path = "\(userURI)/folders/root"
+
+        return Request(method: .GET, path: path)
+    }
 }
