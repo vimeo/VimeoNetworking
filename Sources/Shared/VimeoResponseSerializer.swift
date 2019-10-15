@@ -26,20 +26,21 @@
 
 import Foundation
 
-/** `VimeoResponseSerializer` is an `AFJSONResponseSerializer` that defines our accept header, as well as parses out some Vimeo-specific error information.
- */
+/// `VimeoResponseSerializer` serializes, defines our accept header, as well as
+/// parses out some Vimeo-specific error information.
 final public class VimeoResponseSerializer {
+
     private struct Constants {
         static let ErrorDomain = "VimeoResponseSerializerErrorDomain"
     }
 
-    /// Getter and setter for acceptableContentTypes property on the Vimeo/JSON response serializer
+    /// Getter and setter for acceptableContentTypes property on the underlying response serializer
     public var acceptableContentTypes: Set<String>? {
         get { return self.jsonResponseSerializer.acceptableContentTypes }
         set { self.jsonResponseSerializer.acceptableContentTypes = newValue }
     }
 
-    // The internal response serializer use to serialize network responses
+    // The response serializer used to serialize data responses
     private let jsonResponseSerializer: AFJSONResponseSerializer
 
     init(jsonResponseSerializer: AFJSONResponseSerializer = AFJSONResponseSerializer()) {
@@ -51,14 +52,18 @@ final public class VimeoResponseSerializer {
     /// Creates a response object decoded from the data associated with a specified response.
     func responseObject(
         for response: URLResponse?,
-        data: Data?,
-        error: NSErrorPointer
-    ) -> Any? {
-        return self.jsonResponseSerializer.responseObject(
+        data: Data?
+    ) throws -> Any? {
+        var error: NSError?
+        let value = self.jsonResponseSerializer.responseObject(
             for: response,
             data: data,
-            error: error
+            error: &error
         )
+        if let error = error {
+            throw error
+        }
+        return value
     }
     
     // MARK: Public API
