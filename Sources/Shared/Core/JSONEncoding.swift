@@ -17,10 +17,10 @@ private extension String {
 /// The type used to create a JSON encoded body of parameters to be added to the request URL.
 /// Parameters are encoded using Foundation's `JSONSerialization` serializer.
 /// and the request's `Content-Type` is set to `application/json`.
-struct JSONEncoding: ParameterEncoding {
+public struct JSONEncoding: ParameterEncoding {
     
     /// Returns a default `JSONEncoding` instance.
-    static let `default` = JSONEncoding()
+    public static let `default` = JSONEncoding()
     
     /// The writing options to be used by the JSON serializer
     private let options: JSONSerialization.WritingOptions
@@ -40,7 +40,7 @@ struct JSONEncoding: ParameterEncoding {
     ///
     /// - Returns: the encoded URLRequest instance
     /// - Throws: an error if the encoding process fails.
-    func encode(_ requestConvertible: URLRequestConvertible, with parameters: Any?) throws -> URLRequest {
+    public func encode(_ requestConvertible: URLRequestConvertible, with parameters: Any?) throws -> URLRequest {
         var urlRequest = try requestConvertible.asURLRequest()
         
         guard let parameters = parameters else {

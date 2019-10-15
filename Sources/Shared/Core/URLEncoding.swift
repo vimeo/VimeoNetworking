@@ -23,10 +23,10 @@ public typealias Parameters = [String: Any]
 ///
 /// Collection types are encoded using the convention of appending `[]` to the key for array values (`foo[]=1&foo[]=2`).
 /// For dictionary values, the key surrounded by square brackets is used (`foo[bar]=baz`).
-struct URLEncoding: ParameterEncoding {
+public struct URLEncoding: ParameterEncoding {
     
     /// Returns a default `URLEncoding` instance.
-    static var `default`: URLEncoding { return URLEncoding() }
+    public static var `default`: URLEncoding { return URLEncoding() }
     
     /// Creates a URL request by encoding parameters and adding them to an existing request.
     ///
@@ -36,7 +36,7 @@ struct URLEncoding: ParameterEncoding {
     ///
     /// - Returns: the encoded URLRequest instance
     /// - Throws: an error if the encoding process fails.
-    func encode(_ requestConvertible: URLRequestConvertible, with parameters: Any?) throws -> URLRequest {
+    public func encode(_ requestConvertible: URLRequestConvertible, with parameters: Any?) throws -> URLRequest {
         var urlRequest = try requestConvertible.asURLRequest()
         
         guard let unwrappedParameters = parameters as? Parameters else {
