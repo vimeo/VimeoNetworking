@@ -436,18 +436,9 @@ private func process(
         guard data.isEmpty == false else {
             return Result.success([:])
         }
-        var maybeError: NSError?
-        let maybeJSON = serializer.responseObject(
+        return serializer.responseObject(
             for: response,
-            data: data,
-            error: &maybeError
+            data: data
         )
-        if let error = maybeError {
-            return Result.failure(error)
-        } else if let json = maybeJSON {
-            return Result.success(json)
-        } else {
-            return Result.failure(VimeoNetworkingError.unknownError)
-        }
     }
 }

@@ -53,7 +53,7 @@ final public class VimeoResponseSerializer {
     func responseObject(
         for response: URLResponse?,
         data: Data?
-    ) throws -> Any? {
+    ) -> Result<JSON, Error> {
         var error: NSError?
         let value = self.jsonResponseSerializer.responseObject(
             for: response,
@@ -61,9 +61,12 @@ final public class VimeoResponseSerializer {
             error: &error
         )
         if let error = error {
-            throw error
+            return .failure(error)
+        } else if let unwrappedValue = value {
+            return .success(unwrappedValue)
+        } else {
+            return .failure(VimeoNetworkingError.unknownError)
         }
-        return value
     }
     
     // MARK: Public API
