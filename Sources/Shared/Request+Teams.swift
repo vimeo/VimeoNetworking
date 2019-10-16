@@ -27,6 +27,10 @@
 import Foundation
 
 public extension Request {
+
+    /// Returns a new request to fetch an array of team members.
+    /// - Parameter uri: The team member's URI.
+    /// - Parameter filterString: The filter string to be applied to the fields request parameter.
     static func getTeamMembers(forURI uri: String, filterString: String? = nil) -> Request {
 
         let path = filterString.map { "\(uri)?\(String.fieldsKey)=\($0)" } ?? uri
