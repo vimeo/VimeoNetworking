@@ -24,8 +24,6 @@
 //  THE SOFTWARE.
 //
 
-import Foundation
-
 public extension Request {
 
     /// Returns a new request to fetch an array of team members.
