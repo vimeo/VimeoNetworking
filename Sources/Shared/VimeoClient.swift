@@ -142,14 +142,15 @@ final public class VimeoClient {
     ///
     /// - Parameters:
     ///   - request: `Request` object containing all the required URL and policy information
+    ///   - startImmediately: a boolean indicating whether or not the request should resume immediately
     ///   - completionQueue: dispatch queue on which to execute the completion closure
     ///   - completion: a closure executed one or more times, containing a `Result`
     ///
     /// - Returns: a `RequestToken` for the in-flight request
     public func request<ModelType>(
         _ request: Request<ModelType>,
+        startImmediately: Bool = true,
         completionQueue: DispatchQueue = .main,
-        startImmediatelly: Bool = true,
         completion: @escaping ResultCompletion<Response<ModelType>, NSError>.T
     ) -> RequestToken {
         if request.useCache {
@@ -159,12 +160,13 @@ final public class VimeoClient {
                 then: completion
             )
         } else {
-            return self.perform(
+            let requestToken = self.create(
                 request,
                 completionQueue: completionQueue,
-                startImmediatelly: startImmediatelly,
                 then: completion
             )
+            if startImmediately { requestToken.resume() }
+            return requestToken
         }
     }
 
@@ -172,16 +174,16 @@ final public class VimeoClient {
     ///
     /// - Parameters:
     ///   - endpoint: `EndpointType` object containing the information required to build a request
+    ///   - startImmediately: a boolean indicating whether or not the request should resume immediately
     ///   - completionQueue: dispatch queue on which to execute the callback closure
-    ///   - startImmediatelly: a boolean indicating whether or not the request should resume immediately
     ///   - callback: a closure executed once the request completes, containing a `Result` type
     ///   for the specified decodable.
     ///
     /// - Returns: a `RequestToken` for the in-flight request
     public func request<Model: Decodable>(
         _ endpoint: EndpointType,
+        startImmediately: Bool = true,
         completionQueue: DispatchQueue = .main,
-        startImmediatelly: Bool = true,
         then callback: @escaping (Result<Model, Error>) -> Void
     ) -> RequestToken {
         let task = self.sessionManager?.request(
@@ -193,7 +195,7 @@ final public class VimeoClient {
                 }
             }
         )
-        if startImmediatelly { task?.resume() }
+        if startImmediately { task?.resume() }
         return RequestToken(path: endpoint.path, task: task)
     }
 
@@ -257,10 +259,9 @@ extension VimeoClient {
 
     // MARK: - Private network request handling
 
-    private func perform<ModelType>(
+    private func create<ModelType>(
         _ request: Request<ModelType>,
         completionQueue: DispatchQueue,
-        startImmediatelly: Bool,
         then callback: @escaping ResultCompletion<Response<ModelType>, NSError>.T
     ) -> RequestToken {
         let task = self.sessionManager?.request(
@@ -289,11 +290,7 @@ extension VimeoClient {
                 }
             }
         )
-        
-        if startImmediatelly {
-            task?.resume()
-        }
-        
+
         guard let requestTask = task else {
             let description = "Session manager did not return a task"
             assertionFailure(description)
