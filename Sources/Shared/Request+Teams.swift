@@ -1,6 +1,6 @@
 //
 //  Request+Teams.swift
-//  AFNetworking
+//  VimeoNetworking
 //
 //  Created by Song, Alexander on 10/1/19.
 //  Copyright © 2019 Vimeo. All rights reserved.
