@@ -26,7 +26,8 @@
 
 import Foundation
 
-@objcMembers public class TeamMember: VIMModelObject, ConnectionsProviding, ConnectionsParsing {
+@objcMembers
+public class TeamMember: VIMModelObject, ConnectionsProviding, ConnectionsParsing {
     
     /// The created time for the `TeamMember`
     public private(set) var createdTime: NSDate?
