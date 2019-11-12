@@ -1,0 +1,3435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Request Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/Request" class="dashAnchor"></a>
+    <a title="Request Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">VimeoNetworking Docs</a> (60% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">VimeoNetworking Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Request Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Album.html">Album</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AlbumEmbed.html">AlbumEmbed</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AuthenticationController.html">AuthenticationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ExceptionCatcher.html">ExceptionCatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileTransfer.html">FileTransfer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GCS.html">GCS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GCS/Connection.html">– Connection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ObservationToken.html">ObservationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PinCodeInfo.html">PinCodeInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PlayProgress.html">PlayProgress</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:15VimeoNetworking13ResponseCacheC">ResponseCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Spatial.html">Spatial</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Subscription.html">Subscription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SubscriptionCollection.html">SubscriptionCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserMembership.html">UserMembership</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSubscription.html">UserSubscription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSubscriptionRenewal.html">UserSubscriptionRenewal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSubscriptionTrial.html">UserSubscriptionTrial</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMBadge.html">VIMBadge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLive.html">VIMLive</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveChat.html">VIMLiveChat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveChatUser.html">VIMLiveChatUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveHeartbeat.html">VIMLiveHeartbeat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveQuota.html">VIMLiveQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveStreams.html">VIMLiveStreams</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveTime.html">VIMLiveTime</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMNullResponse.html">VIMNullResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMPeriodic.html">VIMPeriodic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMProgrammedContent.html">VIMProgrammedContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMReviewPage.html">VIMReviewPage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMSizeQuota.html">VIMSizeQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMSpace.html">VIMSpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUpload.html">VIMUpload</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUpload/UploadApproach.html">– UploadApproach</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUpload/UploadStatus.html">– UploadStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUploadQuota.html">VIMUploadQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUserAccountTypeBridge.html">VIMUserAccountTypeBridge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoClient.html">VimeoClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoClient/RequestToken.html">– RequestToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoRequestSerializer.html">VimeoRequestSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoResponseSerializer.html">VimeoResponseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoSessionManager.html">VimeoSessionManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global%20Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:15VimeoNetworking0A7BaseURL10Foundation0D0Vvp">VimeoBaseURL</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPStatusCode.html">HTTPStatusCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LiveQuotaStatus.html">LiveQuotaStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LiveStreamingStatus.html">LiveStreamingStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LocalErrorCode.html">LocalErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkReachabilityStatus.html">NetworkReachabilityStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkReachabilityStatus/ConnectionType.html">– ConnectionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkingNotification.html">NetworkingNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ResultCompletion.html">ResultCompletion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RetryPolicy.html">RetryPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Scope.html">Scope</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TrialStatus.html">TrialStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UserInfoKey.html">UserInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VIMUserAccountType.html">VIMUserAccountType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoErrorCode.html">VimeoErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoErrorKey.html">VimeoErrorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoNetworkingError.html">VimeoNetworkingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoNetworkingError/EncodingFailedReason.html">– EncodingFailedReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoReachabilityProvider.html">VimeoReachabilityProvider</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSError.html">NSError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIImageView.html">UIImageView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URL.html">URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URLRequest.html">URLRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URLSessionTask.html">URLSessionTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/VIMModelObject.html">VIMModelObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/VIMVideo.html">VIMVideo</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AuthenticationListener.html">AuthenticationListener</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BatchOperable.html">BatchOperable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EndpointType.html">EndpointType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MappableResponse.html">MappableResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ReachabilityManaging.html">ReachabilityManaging</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SessionManaging.html">SessionManaging</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Task.html">Task</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AppConfiguration.html">AppConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Response.html">Response</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SessionManagingResult.html">SessionManagingResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking21AuthenticationRequesta">AuthenticationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking19CategoryListRequesta">CategoryListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking15CategoryRequesta">CategoryRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking18ChannelListRequesta">ChannelListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking14ChannelRequesta">ChannelRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking20CinemaContentRequesta">CinemaContentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking28ConfigureSessionManagerBlocka">ConfigureSessionManagerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking11HTTPHeadersa">HTTPHeaders</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking4JSONa">JSON</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking10Parametersa">Parameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking21PolicyDocumentRequesta">PolicyDocumentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking20ReachabilityListenera">ReachabilityListener</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking14SSLPinningModea">SSLPinningMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking14SecurityPolicya">SecurityPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking21SoundtrackListRequesta">SoundtrackListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking13ToggleRequesta">ToggleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking15UserListRequesta">UserListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking11UserRequesta">UserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking16VideoListRequesta">VideoListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking12VideoRequesta">VideoRequest</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Request</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">ModelType</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">ModelType</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MappableResponse.html">MappableResponse</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Describes a single request.</p>
+
+<p><code>&lt;ModelType&gt;</code> is the type of the expected response model object</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV6methodAA10HTTPMethodOvp"></a>
+                    <a name="//apple_ref/swift/Property/method" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV6methodAA10HTTPMethodOvp">method</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>HTTP method (e.g. <code>.GET</code>, <code>.POST</code>)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Enums/HTTPMethod.html">HTTPMethod</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV4pathSSvp"></a>
+                    <a name="//apple_ref/swift/Property/path" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV4pathSSvp">path</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>request url path (e.g. <code>/me</code>, <code>/videos/123456</code>)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV10parametersypSgvp"></a>
+                    <a name="//apple_ref/swift/Property/parameters" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV10parametersypSgvp">parameters</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>any parameters to include with the request</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV12modelKeyPathSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/modelKeyPath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV12modelKeyPathSSSgvp">modelKeyPath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>query a nested JSON key path for the response model object to be returned</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">modelKeyPath</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV8useCacheSbvp"></a>
+                    <a name="//apple_ref/swift/Property/useCache" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV8useCacheSbvp">useCache</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>describes how this request should query for cached responses</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">useCache</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV13cacheResponseSbvp"></a>
+                    <a name="//apple_ref/swift/Property/cacheResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV13cacheResponseSbvp">cacheResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>whether a successful response to this request should be stored in cache</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">cacheResponse</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV11retryPolicyAA05RetryE0Ovp"></a>
+                    <a name="//apple_ref/swift/Property/retryPolicy" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV11retryPolicyAA05RetryE0Ovp">retryPolicy</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>describes how the request should handle retrying after failure</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">internal(set)</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">retryPolicy</span><span class="p">:</span> <span class="kt"><a href="../Enums/RetryPolicy.html">RetryPolicy</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV6method4path10parameters12modelKeyPath8useCache13cacheResponse11retryPolicyACyxGAA10HTTPMethodO_SSypSgSSSgS2bAA05RetryO0OSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(method:path:parameters:modelKeyPath:useCache:cacheResponse:retryPolicy:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV6method4path10parameters12modelKeyPath8useCache13cacheResponse11retryPolicyACyxGAA10HTTPMethodO_SSypSgSSSgS2bAA05RetryO0OSgtcfc">init(method:path:parameters:modelKeyPath:useCache:cacheResponse:retryPolicy:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Build a new request, where the generic type <code>ModelType</code> is that of the expected response model object</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">method</span><span class="p">:</span> <span class="kt"><a href="../Enums/HTTPMethod.html">HTTPMethod</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">get</span><span class="p">,</span>
+            <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+            <span class="nv">parameters</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">modelKeyPath</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">useCache</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nv">cacheResponse</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nv">retryPolicy</span><span class="p">:</span> <span class="kt"><a href="../Enums/RetryPolicy.html">RetryPolicy</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>method</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the HTTP method (e.g. <code>.GET</code>, <code>.POST</code>), defaults to <code>.GET</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>path</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>url path for this request</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>additional parameters for this request</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>modelKeyPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optionally query a nested JSON key path for the response model object to be returned, defaults to <code>nil</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cacheFetchPolicy</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>describes how this request should query for cached responses, defaults to <code>.CacheThenNetwork</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>shouldCacheResponse</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>whether the response should be stored in cache, defaults to <code>true</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>retryPolicy</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>describes how the request should handle retrying after failure, defaults to <code>.SingleAttempt</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an initialized <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV3URISSvp"></a>
+                    <a name="//apple_ref/swift/Property/URI" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV3URISSvp">URI</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a fully-formed URI comprised of the path plus a query string of any parameters</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">URI</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking12EndpointTypeP7headersSDyS2SGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/headers" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking12EndpointTypeP7headersSDyS2SGSgvp">headers</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:15VimeoNetworking11HTTPHeadersa">HTTPHeaders</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV12asURLRequest10Foundation0E0VyKF"></a>
+                    <a name="//apple_ref/swift/Method/asURLRequest()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV12asURLRequest10Foundation0E0VyKF">asURLRequest()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">asURLRequest</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">URLRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV05albumC03forACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/albumRequest(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV05albumC03forACyxGSS_tFZ">albumRequest(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a new request to fetch a specific album.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">albumRequest</span><span class="p">(</span><span class="k">for</span> <span class="nv">uri</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uri</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The album&rsquo;s URI.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Returns a new <code>Request</code> for an individual album.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV011createAlbumC07userURI4name11description7privacy8passwordACyxGSS_S2SSgSSAKtFZ"></a>
+                    <a name="//apple_ref/swift/Method/createAlbumRequest(userURI:name:description:privacy:password:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV011createAlbumC07userURI4name11description7privacy8passwordACyxGSS_S2SSgSSAKtFZ">createAlbumRequest(userURI:name:description:privacy:password:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a new request for creating an album.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">createAlbumRequest</span><span class="p">(</span>
+    <span class="nv">userURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">privacy</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="kt">VIMPrivacy_Public</span><span class="p">,</span>
+    <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The URI for the current user, and owner of the album being created.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the album being created.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>description</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional description for the album.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>privacy</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The privacy parameter as a String. If none is specified it defaults to <q>anyone</q>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>password</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional password parameter, only required when privacy is set to <q>password</q>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV011updateAlbumC08albumURI4name11description7privacy8passwordACyxGSS_S2SSgA2KtFZ"></a>
+                    <a name="//apple_ref/swift/Method/updateAlbumRequest(albumURI:name:description:privacy:password:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV011updateAlbumC08albumURI4name11description7privacy8passwordACyxGSS_S2SSgA2KtFZ">updateAlbumRequest(albumURI:name:description:privacy:password:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a new request for updating an exising album.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">updateAlbumRequest</span><span class="p">(</span>
+    <span class="nv">albumURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="nv">privacy</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+    <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>albumURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The URI for the album that will be updated.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the album.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>description</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional description for the album.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>privacy</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The privacy parameter as a String.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>password</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional password parameter, only required when the privacy is set to <q>password</q>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV011deleteAlbumC03forACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/deleteAlbumRequest(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV011deleteAlbumC03forACyxGSS_tFZ">deleteAlbumRequest(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a new request to delete the album for the given URI.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">deleteAlbumRequest</span><span class="p">(</span><span class="k">for</span> <span class="nv">albumURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>albumURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The album&rsquo;s URI.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestVAASo10VIMAccountCRbzrlE015logInWithGoogleC09withToken6scopesACyxGSS_SayAA5ScopeOGtFZ"></a>
+                    <a name="//apple_ref/swift/Method/logInWithGoogleRequest(withToken:scopes:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestVAASo10VIMAccountCRbzrlE015logInWithGoogleC09withToken6scopesACyxGSS_SayAA5ScopeOGtFZ">logInWithGoogleRequest(withToken:scopes:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Constructs a <code>Request</code> for logging in with Google. For internal use only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">logInWithGoogleRequest</span><span class="p">(</span><span class="n">withToken</span> <span class="nv">googleToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">scopes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums/Scope.html">Scope</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>googleToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>idToken</code> returned by the GoogleSignIn SDK</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>scopes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>array of <code><a href="../Enums/Scope.html">Scope</a></code> values representing permissions for app requests</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestVAASo10VIMAccountCRbzrlE014joinWithGoogleC09withToken14marketingOptIn6scopesACyxGSS_SbSayAA5ScopeOGtFZ"></a>
+                    <a name="//apple_ref/swift/Method/joinWithGoogleRequest(withToken:marketingOptIn:scopes:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestVAASo10VIMAccountCRbzrlE014joinWithGoogleC09withToken14marketingOptIn6scopesACyxGSS_SbSayAA5ScopeOGtFZ">joinWithGoogleRequest(withToken:marketingOptIn:scopes:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Constructs a <code>Request</code> for joining with Google. For internal use only.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">joinWithGoogleRequest</span><span class="p">(</span><span class="n">withToken</span> <span class="nv">googleToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">marketingOptIn</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">scopes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums/Scope.html">Scope</a></span><span class="p">])</span>
+    <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>googleToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>idToken</code> returned by the GoogleSignIn SDK</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>marketingOptIn</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>bool indicating whether a user has opted-in to receive marketing material</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>scopes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>array of <code><a href="../Enums/Scope.html">Scope</a></code> values representing permissions for app requests</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestVA2A15VIMNullResponseCRbzrlE012deleteTokensC0ACyxGyFZ"></a>
+                    <a name="//apple_ref/swift/Method/deleteTokensRequest()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestVA2A15VIMNullResponseCRbzrlE012deleteTokensC0ACyxGyFZ">deleteTokensRequest()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Construct a <code>Request</code> for deleting the current token</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">deleteTokensRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestVA2A15VIMNullResponseCRbzrlE013resetPasswordC09withEmailACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/resetPasswordRequest(withEmail:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestVA2A15VIMNullResponseCRbzrlE013resetPasswordC09withEmailACyxGSS_tFZ">resetPasswordRequest(withEmail:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Construct a <code>Request</code> for resetting the user&rsquo;s password</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">resetPasswordRequest</span><span class="p">(</span><span class="n">withEmail</span> <span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>email</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the user&rsquo;s email</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV8cacheKeySSvp"></a>
+                    <a name="//apple_ref/swift/Property/cacheKey" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV8cacheKeySSvp">cacheKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generates a unique cache key for a request, taking into account endpoint and parameters</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">cacheKey</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV011getCategoryC003forE3URIACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/getCategoryRequest(forCategoryURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV011getCategoryC003forE3URIACyxGSS_tFZ">getCategoryRequest(forCategoryURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request that gets a specific category</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getCategoryRequest</span><span class="p">(</span><span class="n">forCategoryURI</span> <span class="nv">categoryURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>categoryURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the category URI</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV013getCategoriesC0ACyxGyFZ"></a>
+                    <a name="//apple_ref/swift/Method/getCategoriesRequest()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV013getCategoriesC0ACyxGyFZ">getCategoriesRequest()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request that returns a list of all categories</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getCategoriesRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV010getChannelC003forE3URIACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/getChannelRequest(forChannelURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV010getChannelC003forE3URIACyxGSS_tFZ">getChannelRequest(forChannelURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a new request to get a specific channel</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getChannelRequest</span><span class="p">(</span><span class="n">forChannelURI</span> <span class="nv">channelURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>channelURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the channel&rsquo;s URI</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV13queryChannels9withQuery11refinementsACyxGSS_SDySSypGSgtFZ"></a>
+                    <a name="//apple_ref/swift/Method/queryChannels(withQuery:refinements:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV13queryChannels9withQuery11refinementsACyxGSS_SDySSypGSgtFZ">queryChannels(withQuery:refinements:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request to search for a channel</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">queryChannels</span><span class="p">(</span><span class="n">withQuery</span> <span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">refinements</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoClient.html">VimeoClient</a></span><span class="o">.</span><span class="kt">RequestParametersDictionary</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the string query to use for the search</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>refinements</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optionally, any search refinement parameters to add to the query</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV011postCommentC06forURI4textACyxGSS_SStFZ"></a>
+                    <a name="//apple_ref/swift/Method/postCommentRequest(forURI:text:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV011postCommentC06forURI4textACyxGSS_SStFZ">postCommentRequest(forURI:text:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request that posts a comment on a video or a reply on a comment</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">postCommentRequest</span><span class="p">(</span><span class="n">forURI</span> <span class="nv">uri</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uri</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the comments or replies URI</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV07configsC09fromCacheACyxGSb_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/configsRequest(fromCache:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV07configsC09fromCacheACyxGSb_tFZ">configsRequest(fromCache:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code>Request</code> to get the app configs</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">configsRequest</span><span class="p">(</span><span class="n">fromCache</span> <span class="nv">cache</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fromCache</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>request the configs from the local cache</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Notifications%20API"></a>
+                <a name="//apple_ref/swift/Section/Notifications API" class="dashAnchor"></a>
+                <a href="#/Notifications%20API">
+                  <h3 class="section-name">Notifications API</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV39setDeviceAsActiveToReceiveNotifications03forJ3URI11deviceTokenACyxGSS_SStFZ"></a>
+                    <a name="//apple_ref/swift/Method/setDeviceAsActiveToReceiveNotifications(forNotificationsURI:deviceToken:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV39setDeviceAsActiveToReceiveNotifications03forJ3URI11deviceTokenACyxGSS_SStFZ">setDeviceAsActiveToReceiveNotifications(forNotificationsURI:deviceToken:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Handle Mutliple Devices: Create a request that set the device as active to receive Notifications. This request should be made only once: When the app first launch. The purpose of the request is to notify the server side, this device should receive push notifications.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">setDeviceAsActiveToReceiveNotifications</span><span class="p">(</span><span class="n">forNotificationsURI</span> <span class="nv">notificationsURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>deviceToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The token that is stored in <code>SMKNotificationsCenter</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV027getNotificationSubscriptionC019forNotificationsURI11deviceTokenACyxGSS_SStFZ"></a>
+                    <a name="//apple_ref/swift/Method/getNotificationSubscriptionRequest(forNotificationsURI:deviceToken:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV027getNotificationSubscriptionC019forNotificationsURI11deviceTokenACyxGSS_SStFZ">getNotificationSubscriptionRequest(forNotificationsURI:deviceToken:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieve the notification subscriptions.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getNotificationSubscriptionRequest</span><span class="p">(</span><span class="n">forNotificationsURI</span> <span class="nv">notificationsURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>subscriptionCollection</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV031updateNotificationSubscriptionsC016withSubscription16notificationsURI11deviceTokenACyxGSDySSypG_S2StFZ"></a>
+                    <a name="//apple_ref/swift/Method/updateNotificationSubscriptionsRequest(withSubscription:notificationsURI:deviceToken:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV031updateNotificationSubscriptionsC016withSubscription16notificationsURI11deviceTokenACyxGSDySSypG_S2StFZ">updateNotificationSubscriptionsRequest(withSubscription:notificationsURI:deviceToken:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request that updates the push notification subscriptions</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">updateNotificationSubscriptionsRequest</span><span class="p">(</span><span class="n">withSubscription</span> <span class="nv">subscription</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoClient.html">VimeoClient</a></span><span class="o">.</span><span class="kt">RequestParametersDictionary</span><span class="p">,</span> <span class="nv">notificationsURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>subscription</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The subscription dictionary contains the boolean values for each of those: comment, credit, like, reply, follow, video_available that defines what the user is subscripted to.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The result of the .PATCH is a SubscriptionCollection</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Helper"></a>
+                <a name="//apple_ref/swift/Section/Helper" class="dashAnchor"></a>
+                <a href="#/Helper">
+                  <h3 class="section-name">Helper</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV024markNotificationAsNotNewC003forE016notificationsURIACyxGSo15VIMNotificationC_SStFZ"></a>
+                    <a name="//apple_ref/swift/Method/markNotificationAsNotNewRequest(forNotification:notificationsURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV024markNotificationAsNotNewC003forE016notificationsURIACyxGSo15VIMNotificationC_SStFZ">markNotificationAsNotNewRequest(forNotification:notificationsURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">markNotificationAsNotNewRequest</span><span class="p">(</span><span class="n">forNotification</span> <span class="nv">notification</span><span class="p">:</span> <span class="kt">VIMNotification</span><span class="p">,</span> <span class="nv">notificationsURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV023markNotificationsAsSeenC003forE016notificationsURIACyxGSaySo15VIMNotificationCG_SStFZ"></a>
+                    <a name="//apple_ref/swift/Method/markNotificationsAsSeenRequest(forNotifications:notificationsURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV023markNotificationsAsSeenC003forE016notificationsURIACyxGSaySo15VIMNotificationCG_SStFZ">markNotificationsAsSeenRequest(forNotifications:notificationsURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">markNotificationsAsSeenRequest</span><span class="p">(</span><span class="n">forNotifications</span> <span class="nv">notifications</span><span class="p">:</span> <span class="p">[</span><span class="kt">VIMNotification</span><span class="p">],</span> <span class="nv">notificationsURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV017passwordProtectedC03for0D0ACyxGSS_SStFZ"></a>
+                    <a name="//apple_ref/swift/Method/passwordProtectedRequest(for:password:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV017passwordProtectedC03for0D0ACyxGSS_SStFZ">passwordProtectedRequest(for:password:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a new request for a password-protected item, such as a video or an album.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">passwordProtectedRequest</span><span class="p">(</span><span class="k">for</span> <span class="nv">uri</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uri</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The URI for the item.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>password</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The password for the item that will be sent to the server.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Returns a <code>Request</code> for a password-protected item.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV07PictureC0a"></a>
+                    <a name="//apple_ref/swift/Alias/PictureRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV07PictureC0a">PictureRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>Request</code> that returns a single <code>VIMPicture</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">PictureRequest</span> <span class="o">=</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">VIMPicture</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV013createPictureC010forUserURIACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/createPictureRequest(forUserURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV013createPictureC010forUserURIACyxGSS_tFZ">createPictureRequest(forUserURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code>Request</code> to create a picture for a user</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">createPictureRequest</span><span class="p">(</span><span class="n">forUserURI</span> <span class="nv">userURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the URI of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV013deletePictureC003forE3URIACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/deletePictureRequest(forPictureURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV013deletePictureC003forE3URIACyxGSS_tFZ">deletePictureRequest(forPictureURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code>Request</code> to delete a picture</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">deletePictureRequest</span><span class="p">(</span><span class="n">forPictureURI</span> <span class="nv">pictureURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pictureURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the URI of the picture</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV015activatePictureC003forE3URIACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/activatePictureRequest(forPictureURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV015activatePictureC003forE3URIACyxGSS_tFZ">activatePictureRequest(forPictureURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code>Request</code> to activate a picture</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">activatePictureRequest</span><span class="p">(</span><span class="n">forPictureURI</span> <span class="nv">pictureURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pictureURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the URI of the picture</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV017getTermsOfServiceC0ACyxGyFZ"></a>
+                    <a name="//apple_ref/swift/Method/getTermsOfServiceRequest()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV017getTermsOfServiceC0ACyxGyFZ">getTermsOfServiceRequest()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request to get the Terms of Service document</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getTermsOfServiceRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV010getPrivacyC0ACyxGyFZ"></a>
+                    <a name="//apple_ref/swift/Method/getPrivacyRequest()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV010getPrivacyC0ACyxGyFZ">getPrivacyRequest()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request to get the Privacy document</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getPrivacyRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV016getCinemaContentC0ACyxGyFZ"></a>
+                    <a name="//apple_ref/swift/Method/getCinemaContentRequest()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV016getCinemaContentC0ACyxGyFZ">getCinemaContentRequest()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code>Request</code> to get the content for the Cinema</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getCinemaContentRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV017getSoundtrackListC0ACyxGyFZ"></a>
+                    <a name="//apple_ref/swift/Method/getSoundtrackListRequest()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV017getSoundtrackListC0ACyxGyFZ">getSoundtrackListRequest()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>GET request to retrieve the root list of soundtracks</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getSoundtrackListRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a constructed <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV017getSoundtrackListC017forSoundtracksURIACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/getSoundtrackListRequest(forSoundtracksURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV017getSoundtrackListC017forSoundtracksURIACyxGSS_tFZ">getSoundtrackListRequest(forSoundtracksURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>GET request to request a list of soundtracks</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getSoundtrackListRequest</span><span class="p">(</span><span class="n">forSoundtracksURI</span> <span class="nv">soundtracksURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>soundtracksURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the URI of the soundtracks list</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a constructed <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV6toggle6forURI8newValueACyxGSS_SbtFZ"></a>
+                    <a name="//apple_ref/swift/Method/toggle(forURI:newValue:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV6toggle6forURI8newValueACyxGSS_SbtFZ">toggle(forURI:newValue:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request to toggle a given uri (like, watchlater, follow, etc.)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">toggle</span><span class="p">(</span><span class="n">forURI</span> <span class="nv">uri</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">newValue</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>URI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the toggleable URI</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>newValue</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>new value to set the toggle to</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV05getMeC0ACyxGyFZ"></a>
+                    <a name="//apple_ref/swift/Method/getMeRequest()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV05getMeC0ACyxGyFZ">getMeRequest()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request to get the current user</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getMeRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV014getMeFollowingC0ACyxGyFZ"></a>
+                    <a name="//apple_ref/swift/Method/getMeFollowingRequest()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV014getMeFollowingC0ACyxGyFZ">getMeFollowingRequest()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request to get the current user&rsquo;s following list</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getMeFollowingRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV014getMeFollowersC0ACyxGyFZ"></a>
+                    <a name="//apple_ref/swift/Method/getMeFollowersRequest()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV014getMeFollowersC0ACyxGyFZ">getMeFollowersRequest()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request to get the current user&rsquo;s followers list</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getMeFollowersRequest</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV07getUserC07userURIACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/getUserRequest(userURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV07getUserC07userURIACyxGSS_tFZ">getUserRequest(userURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request to get a specific user</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getUserRequest</span><span class="p">(</span><span class="nv">userURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the specific user&rsquo;s URI</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV016getUserFollowingC003forE3URIACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/getUserFollowingRequest(forUserURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV016getUserFollowingC003forE3URIACyxGSS_tFZ">getUserFollowingRequest(forUserURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request to get a specific user&rsquo;s following list</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getUserFollowingRequest</span><span class="p">(</span><span class="n">forUserURI</span> <span class="nv">userURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the specific user&rsquo;s URI</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV016getUserFollowersC003forE3URIACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/getUserFollowersRequest(forUserURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV016getUserFollowersC003forE3URIACyxGSS_tFZ">getUserFollowersRequest(forUserURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request to get a specific user&rsquo;s followers list</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">getUserFollowersRequest</span><span class="p">(</span><span class="n">forUserURI</span> <span class="nv">userURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the specific user&rsquo;s URI</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Search"></a>
+                <a name="//apple_ref/swift/Section/Search" class="dashAnchor"></a>
+                <a href="#/Search">
+                  <h3 class="section-name">Search</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV10queryUsers9withQuery11refinementsACyxGSS_SDySSypGSgtFZ"></a>
+                    <a name="//apple_ref/swift/Method/queryUsers(withQuery:refinements:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV10queryUsers9withQuery11refinementsACyxGSS_SDySSypGSgtFZ">queryUsers(withQuery:refinements:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request to search for users</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">queryUsers</span><span class="p">(</span><span class="n">withQuery</span> <span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">refinements</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoClient.html">VimeoClient</a></span><span class="o">.</span><span class="kt">RequestParametersDictionary</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the string query to use for the search</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>refinements</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optionally, search refinement parameters to add to the query</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Edit%20User"></a>
+                <a name="//apple_ref/swift/Section/Edit User" class="dashAnchor"></a>
+                <a href="#/Edit%20User">
+                  <h3 class="section-name">Edit User</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV9patchUser04withE3URI10parametersACyxGSS_SDySSypGtFZ"></a>
+                    <a name="//apple_ref/swift/Method/patchUser(withUserURI:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV9patchUser04withE3URI10parametersACyxGSS_SDySSypGtFZ">patchUser(withUserURI:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a request to edit a user&rsquo;s metadata</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">patchUser</span><span class="p">(</span><span class="n">withUserURI</span> <span class="nv">userURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoClient.html">VimeoClient</a></span><span class="o">.</span><span class="kt">RequestParametersDictionary</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the URI of the user to edit</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the updated parameters</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV05videoC011forVideoURIACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/videoRequest(forVideoURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV05videoC011forVideoURIACyxGSS_tFZ">videoRequest(forVideoURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code>Request</code> to get a specific video</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">videoRequest</span><span class="p">(</span><span class="n">forVideoURI</span> <span class="nv">videoURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>videoURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the video&rsquo;s URI</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV08vodVideoC014forVODVideoURIACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/vodVideoRequest(forVODVideoURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV08vodVideoC014forVODVideoURIACyxGSS_tFZ">vodVideoRequest(forVODVideoURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code>Request</code> to get a specific VOD video</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">vodVideoRequest</span><span class="p">(</span><span class="n">forVODVideoURI</span> <span class="nv">vodVideoURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>vodVideoURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the VOD video&rsquo;s URI</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV013selectedUsersC011forVideoURIACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/selectedUsersRequest(forVideoURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV013selectedUsersC011forVideoURIACyxGSS_tFZ">selectedUsersRequest(forVideoURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code>Request</code> to get the selected users for the vieo</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">selectedUsersRequest</span><span class="p">(</span><span class="n">forVideoURI</span> <span class="nv">videoURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>videoURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the URI of the video</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Search2"></a>
+                <a name="//apple_ref/swift/Section/Search" class="dashAnchor"></a>
+                <a href="#/Search2">
+                  <h3 class="section-name">Search</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV11queryVideos9withQuery11refinementsACyxGSS_SDySSypGSgtFZ"></a>
+                    <a name="//apple_ref/swift/Method/queryVideos(withQuery:refinements:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV11queryVideos9withQuery11refinementsACyxGSS_SDySSypGSgtFZ">queryVideos(withQuery:refinements:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code>Request</code> to search for videos</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">queryVideos</span><span class="p">(</span><span class="n">withQuery</span> <span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">refinements</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoClient.html">VimeoClient</a></span><span class="o">.</span><span class="kt">RequestParametersDictionary</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>query</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the string query to use for the search</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>refinements</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>optionally, refinement parameters to add to the search</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Edit%20Video"></a>
+                <a name="//apple_ref/swift/Section/Edit Video" class="dashAnchor"></a>
+                <a href="#/Edit%20Video">
+                  <h3 class="section-name">Edit Video</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV010patchVideoC004withE3URI10parametersACyxGSS_SDySSypGtFZ"></a>
+                    <a name="//apple_ref/swift/Method/patchVideoRequest(withVideoURI:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV010patchVideoC004withE3URI10parametersACyxGSS_SDySSypGtFZ">patchVideoRequest(withVideoURI:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code>Request</code> to update a video&rsquo;s metadata</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">patchVideoRequest</span><span class="p">(</span><span class="n">withVideoURI</span> <span class="nv">videoURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoClient.html">VimeoClient</a></span><span class="o">.</span><span class="kt">RequestParametersDictionary</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>videoURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the URI of the video to update</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the updated parameters</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV011deleteVideoC003forE3URIACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/deleteVideoRequest(forVideoURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV011deleteVideoC003forE3URIACyxGSS_tFZ">deleteVideoRequest(forVideoURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code>Request</code> to delete a video</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">deleteVideoRequest</span><span class="p">(</span><span class="n">forVideoURI</span> <span class="nv">videoURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>videoURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the URI of the video to update</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV07TriggerC0a"></a>
+                    <a name="//apple_ref/swift/Alias/TriggerRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV07TriggerC0a">TriggerRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>Request</code> that returns a single <code>VIMTrigger</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">TriggerRequest</span> <span class="o">=</span> <span class="kt">Request</span><span class="o">&lt;</span><span class="kt">VIMTrigger</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV34registerDeviceForPushNotifications04withE5Token10parametersACyxGSS_SDySSypGtFZ"></a>
+                    <a name="//apple_ref/swift/Method/registerDeviceForPushNotifications(withDeviceToken:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV34registerDeviceForPushNotifications04withE5Token10parametersACyxGSS_SDySSypGtFZ">registerDeviceForPushNotifications(withDeviceToken:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only, will not work for third-party applications)</strong>
+Create a <code>Request</code> to register a device for push notifications</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">registerDeviceForPushNotifications</span><span class="p">(</span><span class="n">withDeviceToken</span> <span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoClient.html">VimeoClient</a></span><span class="o">.</span><span class="kt">RequestParametersDictionary</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the URI of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the registration parameters</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV36unregisterDeviceForPushNotifications04withE5Token10parametersACyxGSS_SDySSypGtFZ"></a>
+                    <a name="//apple_ref/swift/Method/unregisterDeviceForPushNotifications(withDeviceToken:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV36unregisterDeviceForPushNotifications04withE5Token10parametersACyxGSS_SDySSypGtFZ">unregisterDeviceForPushNotifications(withDeviceToken:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only, will not work for third-party applications)</strong>
+Create a <code>Request</code> to register a device for push notifications</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">unregisterDeviceForPushNotifications</span><span class="p">(</span><span class="n">withDeviceToken</span> <span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoClient.html">VimeoClient</a></span><span class="o">.</span><span class="kt">RequestParametersDictionary</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userURI</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the URI of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the registration parameters</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV26addPushNotificationTrigger14withParametersACyxGSDySSypG_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/addPushNotificationTrigger(withParameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV26addPushNotificationTrigger14withParametersACyxGSDySSypG_tFZ">addPushNotificationTrigger(withParameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only, will not work for third-party applications)</strong>
+Create a <code>Request</code> to add a push notification trigger</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">addPushNotificationTrigger</span><span class="p">(</span><span class="n">withParameters</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoClient.html">VimeoClient</a></span><span class="o">.</span><span class="kt">RequestParametersDictionary</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the trigger parameters</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV29removePushNotificationTrigger03forG3URIACyxGSS_tFZ"></a>
+                    <a name="//apple_ref/swift/Method/removePushNotificationTrigger(forTriggerURI:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV29removePushNotificationTrigger03forG3URIACyxGSS_tFZ">removePushNotificationTrigger(forTriggerURI:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only, will not work for third-party applications)</strong>
+Create a <code>Request</code> to remove a push notification trigger</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">removePushNotificationTrigger</span><span class="p">(</span><span class="n">forTriggerURI</span> <span class="nv">triggerURI</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the trigger parameters</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking7RequestV24pushNotificationTriggers14forDeviceToken10parametersACyxGSS_SayypGtFZ"></a>
+                    <a name="//apple_ref/swift/Method/pushNotificationTriggers(forDeviceToken:parameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking7RequestV24pushNotificationTriggers14forDeviceToken10parametersACyxGSS_SayypGtFZ">pushNotificationTriggers(forDeviceToken:parameters:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only, will not work for third-party applications)</strong>
+Create a <code>Request</code> to retrieve the push notification triggers for the device</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">pushNotificationTriggers</span><span class="p">(</span><span class="n">forDeviceToken</span> <span class="nv">deviceToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">parameters</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoClient.html">VimeoClient</a></span><span class="o">.</span><span class="kt">RequestParametersArray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the trigger parameters</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a new <code>Request</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright 2019 Vimeo</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

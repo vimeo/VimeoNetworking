@@ -1,0 +1,1937 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/AppConfiguration.swift",
+      "line": 29,
+      "symbol": "AppConfiguration.clientIdentifier",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/AppConfiguration.swift",
+      "line": 30,
+      "symbol": "AppConfiguration.clientSecret",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/AppConfiguration.swift",
+      "line": 31,
+      "symbol": "AppConfiguration.scopes",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/AppConfiguration.swift",
+      "line": 32,
+      "symbol": "AppConfiguration.apiVersion",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/AppConfiguration.swift",
+      "line": 33,
+      "symbol": "AppConfiguration.baseUrl",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/AuthenticationController.swift",
+      "line": 92,
+      "symbol": "AuthenticationController.loadClientCredentialsAccount()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/AuthenticationController.swift",
+      "line": 96,
+      "symbol": "AuthenticationController.loadUserAccount()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/AuthenticationController.swift",
+      "line": 108,
+      "symbol": "AuthenticationController.loadSavedAccount()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/AuthenticationController.swift",
+      "line": 124,
+      "symbol": "AuthenticationController.saveAccount(account:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/EndpointType.swift",
+      "line": 12,
+      "symbol": "HTTPHeaders",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/Request+EndpointType.swift",
+      "line": 21,
+      "symbol": "Request.asURLRequest()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/SessionManaging.swift",
+      "line": 11,
+      "symbol": "SessionManagingResult",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/SessionManaging.swift",
+      "line": 12,
+      "symbol": "SessionManagingResult.request",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/SessionManaging.swift",
+      "line": 13,
+      "symbol": "SessionManagingResult.response",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/SessionManaging.swift",
+      "line": 14,
+      "symbol": "SessionManagingResult.result",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/SessionManaging.swift",
+      "line": 37,
+      "symbol": "SessionManaging.request(_:parameters:then:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/SessionManaging.swift",
+      "line": 44,
+      "symbol": "SessionManaging.request(_:parameters:then:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/SessionManaging.swift",
+      "line": 51,
+      "symbol": "SessionManaging.request(_:parameters:then:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/SessionManaging.swift",
+      "line": 58,
+      "symbol": "SessionManaging.download(_:destinationURL:then:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/SessionManaging.swift",
+      "line": 65,
+      "symbol": "SessionManaging.upload(_:sourceFile:then:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/Task.swift",
+      "line": 13,
+      "symbol": "Task.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/Task.swift",
+      "line": 14,
+      "symbol": "Task.cancel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/Task.swift",
+      "line": 15,
+      "symbol": "Task.resume()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/Task.swift",
+      "line": 19,
+      "symbol": "URLSessionTask.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/URLRequestConvertible.swift",
+      "line": 13,
+      "symbol": "URLRequestConvertible.asURLRequest()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/URLRequestConvertible.swift",
+      "line": 17,
+      "symbol": "URLRequestConvertible.urlRequest",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/URLRequestConvertible.swift",
+      "line": 21,
+      "symbol": "URLRequest.asURLRequest()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/URLRequestConvertible.swift",
+      "line": 27,
+      "symbol": "URL.asURLRequest()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/VimeoNetworkingError.swift",
+      "line": 11,
+      "symbol": "VimeoNetworkingError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/VimeoNetworkingError.swift",
+      "line": 12,
+      "symbol": "VimeoNetworkingError.encodingFailed(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/VimeoNetworkingError.swift",
+      "line": 13,
+      "symbol": "VimeoNetworkingError.invalidURL",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/VimeoNetworkingError.swift",
+      "line": 14,
+      "symbol": "VimeoNetworkingError.requestError(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/VimeoNetworkingError.swift",
+      "line": 15,
+      "symbol": "VimeoNetworkingError.serializingError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/VimeoNetworkingError.swift",
+      "line": 16,
+      "symbol": "VimeoNetworkingError.unknownError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/VimeoNetworkingError.swift",
+      "line": 18,
+      "symbol": "VimeoNetworkingError.EncodingFailedReason",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/VimeoNetworkingError.swift",
+      "line": 19,
+      "symbol": "VimeoNetworkingError.EncodingFailedReason.invalidParameters",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/VimeoNetworkingError.swift",
+      "line": 20,
+      "symbol": "VimeoNetworkingError.EncodingFailedReason.missingURL",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/VimeoNetworkingError.swift",
+      "line": 21,
+      "symbol": "VimeoNetworkingError.EncodingFailedReason.missingHTTPMethod",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Core/VimeoNetworkingError.swift",
+      "line": 22,
+      "symbol": "VimeoNetworkingError.EncodingFailedReason.jsonEncoding(error:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Dictionary+Extension.swift",
+      "line": 29,
+      "symbol": "Dictionary.append(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 32,
+      "symbol": "VimeoErrorCode.uploadStorageQuotaExceeded",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 33,
+      "symbol": "VimeoErrorCode.uploadDailyQuotaExceeded",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 34,
+      "symbol": "VimeoErrorCode.uploadQuotaSizeExceededCap",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 36,
+      "symbol": "VimeoErrorCode.invalidRequestInput",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 39,
+      "symbol": "VimeoErrorCode.videoPasswordIncorrect",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 40,
+      "symbol": "VimeoErrorCode.noVideoPasswordProvided",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 43,
+      "symbol": "VimeoErrorCode.emailTooLong",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 44,
+      "symbol": "VimeoErrorCode.passwordTooShort",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 45,
+      "symbol": "VimeoErrorCode.passwordTooSimple",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 46,
+      "symbol": "VimeoErrorCode.nameInPassword",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 47,
+      "symbol": "VimeoErrorCode.emailNotRecognized",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 48,
+      "symbol": "VimeoErrorCode.passwordEmailMismatch",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 49,
+      "symbol": "VimeoErrorCode.noPasswordProvided",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 50,
+      "symbol": "VimeoErrorCode.noEmailProvided",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 51,
+      "symbol": "VimeoErrorCode.invalidEmail",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 52,
+      "symbol": "VimeoErrorCode.noNameProvided",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 53,
+      "symbol": "VimeoErrorCode.nameTooLong",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 54,
+      "symbol": "VimeoErrorCode.facebookJoinInvalidToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 55,
+      "symbol": "VimeoErrorCode.facebookJoinNoToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 56,
+      "symbol": "VimeoErrorCode.facebookJoinMissingProperty",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 57,
+      "symbol": "VimeoErrorCode.facebookJoinMalformedToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 58,
+      "symbol": "VimeoErrorCode.facebookJoinDecryptFail",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 59,
+      "symbol": "VimeoErrorCode.facebookJoinTokenTooLong",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 60,
+      "symbol": "VimeoErrorCode.facebookLoginNoToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 61,
+      "symbol": "VimeoErrorCode.facebookLoginMissingProperty",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 62,
+      "symbol": "VimeoErrorCode.facebookLoginMalformedToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 63,
+      "symbol": "VimeoErrorCode.facebookLoginDecryptFail",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 64,
+      "symbol": "VimeoErrorCode.facebookLoginTokenTooLong",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 65,
+      "symbol": "VimeoErrorCode.facebookInvalidInputGrantType",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 66,
+      "symbol": "VimeoErrorCode.facebookJoinValidateTokenFail",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 67,
+      "symbol": "VimeoErrorCode.facebookInvalidNoInput",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 68,
+      "symbol": "VimeoErrorCode.facebookInvalidToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 69,
+      "symbol": "VimeoErrorCode.facebookMissingProperty",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 70,
+      "symbol": "VimeoErrorCode.facebookMalformedToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 71,
+      "symbol": "VimeoErrorCode.googleUnableToCreateUserMissingEmail",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 72,
+      "symbol": "VimeoErrorCode.googleUnableToCreateUserTokenTooLong",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 73,
+      "symbol": "VimeoErrorCode.googleUnableToLoginNoToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 74,
+      "symbol": "VimeoErrorCode.googleUnableToLoginNonExistentProperty",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 75,
+      "symbol": "VimeoErrorCode.googleUnableToLoginEmailNotFoundViaToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 76,
+      "symbol": "VimeoErrorCode.googleUnableToCreateUserInsufficientPermissions",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 77,
+      "symbol": "VimeoErrorCode.googleUnableToCreateUserCannotValidateToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 78,
+      "symbol": "VimeoErrorCode.googleUnableToCreateUserDailyLimit",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 79,
+      "symbol": "VimeoErrorCode.googleUnableToLoginInsufficientPermissions",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 80,
+      "symbol": "VimeoErrorCode.googleUnableToLoginCannotValidateToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 81,
+      "symbol": "VimeoErrorCode.googleUnableToLoginDailyLimit",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 82,
+      "symbol": "VimeoErrorCode.googleUnableToLoginCouldNotVerifyToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 83,
+      "symbol": "VimeoErrorCode.googleUnableToCreateUserCouldNotVerifyToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 84,
+      "symbol": "VimeoErrorCode.emailAlreadyRegistered",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 85,
+      "symbol": "VimeoErrorCode.emailBlocked",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 86,
+      "symbol": "VimeoErrorCode.emailSpammer",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 87,
+      "symbol": "VimeoErrorCode.emailPurgatory",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 88,
+      "symbol": "VimeoErrorCode.urlUnavailable",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 89,
+      "symbol": "VimeoErrorCode.timeout",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 90,
+      "symbol": "VimeoErrorCode.tokenNotGenerated",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 91,
+      "symbol": "VimeoErrorCode.drmStreamLimitHit",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 92,
+      "symbol": "VimeoErrorCode.drmDeviceLimitHit",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 93,
+      "symbol": "VimeoErrorCode.unverifiedUser",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 96,
+      "symbol": "VimeoErrorCode.batchUserDoesNotExist",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 97,
+      "symbol": "VimeoErrorCode.batchFollowUserRequestExceeded",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 98,
+      "symbol": "VimeoErrorCode.batchSubscribeChannelRequestExceeded",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 99,
+      "symbol": "VimeoErrorCode.batchChannelDoesNotExist",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 100,
+      "symbol": "VimeoErrorCode.userNotAllowedToFollowUsers",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 101,
+      "symbol": "VimeoErrorCode.userNotAllowedToFollowChannels",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 102,
+      "symbol": "VimeoErrorCode.batchFollowUserRequestFailed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 103,
+      "symbol": "VimeoErrorCode.batchSubscribeChannelRequestFailed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 106,
+      "symbol": "VimeoErrorCode.userNotAllowedToLiveStream",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 107,
+      "symbol": "VimeoErrorCode.userHitSimultaneousLiveStreamingLimit",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 108,
+      "symbol": "VimeoErrorCode.userHitMonthlyLiveStreamingMinutesQuota",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 113,
+      "symbol": "HTTPStatusCode.serviceUnavailable",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 114,
+      "symbol": "HTTPStatusCode.badRequest",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 115,
+      "symbol": "HTTPStatusCode.unauthorized",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 116,
+      "symbol": "HTTPStatusCode.forbidden",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ErrorCode.swift",
+      "line": 117,
+      "symbol": "HTTPStatusCode.notFound",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/ExceptionCatcher+Swift.swift",
+      "line": 29,
+      "symbol": "ExceptionCatcher",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 29,
+      "symbol": "AlbumEmbed",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 30,
+      "symbol": "AlbumEmbed.html",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 33,
+      "symbol": "Album",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 44,
+      "symbol": "Album",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 75,
+      "symbol": "Album.albumName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 76,
+      "symbol": "Album.albumDescription",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 77,
+      "symbol": "Album.albumLogo",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 78,
+      "symbol": "Album.createdTimeString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 79,
+      "symbol": "Album.createdTime",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 80,
+      "symbol": "Album.modifiedTimeString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 81,
+      "symbol": "Album.modifiedTime",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 82,
+      "symbol": "Album.privacy",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 83,
+      "symbol": "Album.duration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 84,
+      "symbol": "Album.uri",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 85,
+      "symbol": "Album.link",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 86,
+      "symbol": "Album.embed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 87,
+      "symbol": "Album.videoThumbnails",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 88,
+      "symbol": "Album.user",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 89,
+      "symbol": "Album.theme",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 94,
+      "symbol": "Album.getObjectMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 105,
+      "symbol": "Album.getClassForObjectKey(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 122,
+      "symbol": "Album.getClassForCollectionKey(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 131,
+      "symbol": "Album.didFinishMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 138,
+      "symbol": "Album.connection(named:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 142,
+      "symbol": "Album.interaction(named:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Album.swift",
+      "line": 148,
+      "symbol": "Album.isPasswordProtected()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/FileTransfer.swift",
+      "line": 36,
+      "symbol": "FileTransfer.didFinishMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/GCS.swift",
+      "line": 27,
+      "symbol": "GCS",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/GCS.swift",
+      "line": 28,
+      "symbol": "GCS.Connection",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/GCS.swift",
+      "line": 29,
+      "symbol": "GCS.Connection.uploadAttempt",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/GCS.swift",
+      "line": 32,
+      "symbol": "GCS.startByte",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/GCS.swift",
+      "line": 33,
+      "symbol": "GCS.endByte",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/GCS.swift",
+      "line": 34,
+      "symbol": "GCS.uploadLink",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/GCS.swift",
+      "line": 37,
+      "symbol": "GCS.connections",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/GCS.swift",
+      "line": 39,
+      "symbol": "GCS.didFinishMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/PinCodeInfo.swift",
+      "line": 29,
+      "symbol": "PinCodeInfo",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/PinCodeInfo.swift",
+      "line": 30,
+      "symbol": "PinCodeInfo.deviceCode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/PinCodeInfo.swift",
+      "line": 31,
+      "symbol": "PinCodeInfo.userCode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/PinCodeInfo.swift",
+      "line": 32,
+      "symbol": "PinCodeInfo.authorizeLink",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/PinCodeInfo.swift",
+      "line": 33,
+      "symbol": "PinCodeInfo.activateLink",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/PinCodeInfo.swift",
+      "line": 38,
+      "symbol": "PinCodeInfo.expiresIn",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/PinCodeInfo.swift",
+      "line": 39,
+      "symbol": "PinCodeInfo.interval",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Spatial.swift",
+      "line": 29,
+      "symbol": "Spatial.StereoFormatMono",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Spatial.swift",
+      "line": 30,
+      "symbol": "Spatial.StereoFormatLeftRight",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Spatial.swift",
+      "line": 31,
+      "symbol": "Spatial.StereoFormatTopBottom",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Spatial.swift",
+      "line": 41,
+      "symbol": "Spatial.getObjectMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/Subscription.swift",
+      "line": 85,
+      "symbol": "Subscription.getObjectMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/SubscriptionCollection.swift",
+      "line": 42,
+      "symbol": "SubscriptionCollection.getObjectMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/SubscriptionCollection.swift",
+      "line": 46,
+      "symbol": "SubscriptionCollection.getClassForObjectKey(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/UserMembership.swift",
+      "line": 44,
+      "symbol": "UserMembership.getClassForObjectKey(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/UserSubscription.swift",
+      "line": 36,
+      "symbol": "UserSubscription.getClassForObjectKey(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/UserSubscriptionRenewal.swift",
+      "line": 38,
+      "symbol": "UserSubscriptionRenewal.didFinishMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMBadge.swift",
+      "line": 31,
+      "symbol": "VIMBadge.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMBadge.swift",
+      "line": 32,
+      "symbol": "VIMBadge.festival",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMBadge.swift",
+      "line": 33,
+      "symbol": "VIMBadge.link",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMBadge.swift",
+      "line": 34,
+      "symbol": "VIMBadge.text",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMBadge.swift",
+      "line": 35,
+      "symbol": "VIMBadge.pictures",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMBadge.swift",
+      "line": 37,
+      "symbol": "VIMBadge.getClassForObjectKey(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLive.swift",
+      "line": 41,
+      "symbol": "LiveStreamingStatus.unavailable",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLive.swift",
+      "line": 42,
+      "symbol": "LiveStreamingStatus.pending",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLive.swift",
+      "line": 43,
+      "symbol": "LiveStreamingStatus.ready",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLive.swift",
+      "line": 44,
+      "symbol": "LiveStreamingStatus.streamingPreview",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLive.swift",
+      "line": 45,
+      "symbol": "LiveStreamingStatus.streaming",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLive.swift",
+      "line": 46,
+      "symbol": "LiveStreamingStatus.streamingError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLive.swift",
+      "line": 47,
+      "symbol": "LiveStreamingStatus.archiving",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLive.swift",
+      "line": 48,
+      "symbol": "LiveStreamingStatus.archiveError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLive.swift",
+      "line": 49,
+      "symbol": "LiveStreamingStatus.done",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLive.swift",
+      "line": 128,
+      "symbol": "VIMLive.getClassForObjectKey(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLiveChat.swift",
+      "line": 43,
+      "symbol": "VIMLiveChat.getClassForObjectKey(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLiveChatUser.swift",
+      "line": 67,
+      "symbol": "VIMLiveChatUser.getClassForObjectKey(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLiveHeartbeat.swift",
+      "line": 38,
+      "symbol": "VIMLiveHeartbeat.getObjectMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLiveQuota.swift",
+      "line": 29,
+      "symbol": "LiveQuotaStatus",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLiveQuota.swift",
+      "line": 30,
+      "symbol": "LiveQuotaStatus.available",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLiveQuota.swift",
+      "line": 31,
+      "symbol": "LiveQuotaStatus.privateMode",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLiveQuota.swift",
+      "line": 32,
+      "symbol": "LiveQuotaStatus.streamLimit",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLiveQuota.swift",
+      "line": 33,
+      "symbol": "LiveQuotaStatus.timeLimit",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLiveQuota.swift",
+      "line": 64,
+      "symbol": "VIMLiveQuota.getClassForObjectKey(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLiveStreams.swift",
+      "line": 38,
+      "symbol": "VIMLiveStreams.getObjectMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMLiveTime.swift",
+      "line": 41,
+      "symbol": "VIMLiveTime.getObjectMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMModelObject.h",
+      "line": 53,
+      "symbol": "VIMModelObject",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMPeriodic.swift",
+      "line": 28,
+      "symbol": "VIMPeriodic",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMPeriodic.swift",
+      "line": 34,
+      "symbol": "VIMPeriodic.getObjectMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMProgrammedContent.swift",
+      "line": 29,
+      "symbol": "VIMProgrammedContent",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMProgrammedContent.swift",
+      "line": 30,
+      "symbol": "VIMProgrammedContent.uri",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMProgrammedContent.swift",
+      "line": 31,
+      "symbol": "VIMProgrammedContent.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMProgrammedContent.swift",
+      "line": 32,
+      "symbol": "VIMProgrammedContent.type",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMProgrammedContent.swift",
+      "line": 33,
+      "symbol": "VIMProgrammedContent.content",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMProgrammedContent.swift",
+      "line": 46,
+      "symbol": "VIMProgrammedContent.connectionWithName(connectionName:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMProgrammedContent.swift",
+      "line": 51,
+      "symbol": "VIMProgrammedContent.getClassForCollectionKey(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMProgrammedContent.swift",
+      "line": 60,
+      "symbol": "VIMProgrammedContent.getClassForObjectKey(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMProgrammedContent.swift",
+      "line": 71,
+      "symbol": "VIMProgrammedContent.didFinishMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMReviewPage.swift",
+      "line": 16,
+      "symbol": "VIMReviewPage.getObjectMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMSizeQuota.swift",
+      "line": 28,
+      "symbol": "VIMSizeQuota",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMSpace.swift",
+      "line": 28,
+      "symbol": "VIMSpace",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMSpace.swift",
+      "line": 34,
+      "symbol": "VIMSpace.getObjectMapping()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUpload.swift",
+      "line": 45,
+      "symbol": "VIMUpload.UploadApproach.Streaming",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUpload.swift",
+      "line": 46,
+      "symbol": "VIMUpload.UploadApproach.Post",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUpload.swift",
+      "line": 47,
+      "symbol": "VIMUpload.UploadApproach.Pull",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUpload.swift",
+      "line": 48,
+      "symbol": "VIMUpload.UploadApproach.Tus",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUpload.swift",
+      "line": 57,
+      "symbol": "VIMUpload.UploadStatus.complete",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUpload.swift",
+      "line": 58,
+      "symbol": "VIMUpload.UploadStatus.error",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUpload.swift",
+      "line": 59,
+      "symbol": "VIMUpload.UploadStatus.inProgress",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUpload.swift",
+      "line": 92,
+      "symbol": "VIMUpload.gcs",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUploadQuota.swift",
+      "line": 30,
+      "symbol": "VIMUploadQuota",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUploadQuota.swift",
+      "line": 40,
+      "symbol": "VIMUploadQuota.getClassForObjectKey(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 11,
+      "symbol": "VIMUserAccountType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 13,
+      "symbol": "VIMUserAccountType.basic",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 14,
+      "symbol": "VIMUserAccountType.pro",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 15,
+      "symbol": "VIMUserAccountType.plus",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 16,
+      "symbol": "VIMUserAccountType.business",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 17,
+      "symbol": "VIMUserAccountType.livePro",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 18,
+      "symbol": "VIMUserAccountType.liveBusiness",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 19,
+      "symbol": "VIMUserAccountType.livePremium",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 20,
+      "symbol": "VIMUserAccountType.proUnlimited",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 21,
+      "symbol": "VIMUserAccountType.producer",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 22,
+      "symbol": "VIMUserAccountType.enterprise",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 52,
+      "symbol": "VIMUserAccountType",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 95,
+      "symbol": "VIMUserAccountTypeBridge",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 99,
+      "symbol": "VIMUserAccountTypeBridge.account(fromString:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMUserAccountType.swift",
+      "line": 103,
+      "symbol": "VIMUserAccountTypeBridge.string(from:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Models/VIMVideo.h",
+      "line": 50,
+      "symbol": "VIMVideo",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/NSError+Extensions.swift",
+      "line": 31,
+      "symbol": "VimeoErrorKey.VimeoErrorCode",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/NSError+Extensions.swift",
+      "line": 32,
+      "symbol": "VimeoErrorKey.VimeoErrorDomain",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/NetworkingNotification.swift",
+      "line": 49,
+      "symbol": "UserInfoKey",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/NetworkingNotification.swift",
+      "line": 50,
+      "symbol": "UserInfoKey.previousAccount",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Reachability/NetworkReachabilityManager.swift",
+      "line": 13,
+      "symbol": "ReachabilityManaging.isReachable",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Reachability/NetworkReachabilityManager.swift",
+      "line": 14,
+      "symbol": "ReachabilityManaging.isReachableOnCellular",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Reachability/NetworkReachabilityManager.swift",
+      "line": 15,
+      "symbol": "ReachabilityManaging.isReachableOnEthernetOrWiFi",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Reachability/VimeoReachabilityProvider.swift",
+      "line": 10,
+      "symbol": "VimeoReachabilityProvider",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Reachability/VimeoReachabilityProvider.swift",
+      "line": 31,
+      "symbol": "VimeoReachabilityProvider",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Request+Authentication.swift",
+      "line": 29,
+      "symbol": "AuthenticationRequest",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Request+Notifications.swift",
+      "line": 52,
+      "symbol": "Request.markNotificationAsNotNewRequest(forNotification:notificationsURI:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Request+Notifications.swift",
+      "line": 65,
+      "symbol": "Request.markNotificationsAsSeenRequest(forNotifications:notificationsURI:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Result.swift",
+      "line": 29,
+      "symbol": "ResultCompletion",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Result.swift",
+      "line": 30,
+      "symbol": "ResultCompletion.T",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Scope.swift",
+      "line": 49,
+      "symbol": "Scope.Create",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Scope.swift",
+      "line": 50,
+      "symbol": "Scope.Delete",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Scope.swift",
+      "line": 51,
+      "symbol": "Scope.Edit",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Scope.swift",
+      "line": 52,
+      "symbol": "Scope.Email",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Scope.swift",
+      "line": 53,
+      "symbol": "Scope.Interact",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Scope.swift",
+      "line": 54,
+      "symbol": "Scope.Private",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Scope.swift",
+      "line": 55,
+      "symbol": "Scope.PromoCodes",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Scope.swift",
+      "line": 56,
+      "symbol": "Scope.Public",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Scope.swift",
+      "line": 57,
+      "symbol": "Scope.Purchased",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Scope.swift",
+      "line": 58,
+      "symbol": "Scope.Stats",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Scope.swift",
+      "line": 59,
+      "symbol": "Scope.Upload",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/Scope.swift",
+      "line": 60,
+      "symbol": "Scope.VideoFiles",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoClient.swift",
+      "line": 98,
+      "symbol": "VimeoClient.init(appConfiguration:reachabilityManager:sessionManager:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoRequestSerializer.swift",
+      "line": 34,
+      "symbol": "VimeoRequestSerializer.AccessTokenProvider",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoRequestSerializer.swift",
+      "line": 82,
+      "symbol": "VimeoRequestSerializer.request(withMethod:urlString:parameters:error:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoRequestSerializer.swift",
+      "line": 99,
+      "symbol": "VimeoRequestSerializer.request(bySerializingRequest:withParameters:error:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoSessionManager.swift",
+      "line": 93,
+      "symbol": "VimeoSessionManager.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoSessionManager.swift",
+      "line": 359,
+      "symbol": "VimeoSessionManager.task(forIdentifier:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoSessionManager.swift",
+      "line": 364,
+      "symbol": "VimeoSessionManager.downloadTask(forIdentifier:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoSessionManager.swift",
+      "line": 369,
+      "symbol": "VimeoSessionManager.downloadProgress(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoSessionManager.swift",
+      "line": 373,
+      "symbol": "VimeoSessionManager.uploadTask(forIdentifier:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoSessionManager.swift",
+      "line": 378,
+      "symbol": "VimeoSessionManager.uploadProgress(for:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoSessionManager.swift",
+      "line": 382,
+      "symbol": "VimeoSessionManager.configureDidBecomeInvalidClosure(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoSessionManager.swift",
+      "line": 386,
+      "symbol": "VimeoSessionManager.configureDownloadTaskDidFinishDownloadingClosure(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoSessionManager.swift",
+      "line": 392,
+      "symbol": "VimeoSessionManager.configureTaskDidCompleteClosure(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoSessionManager.swift",
+      "line": 398,
+      "symbol": "VimeoSessionManager.configureDidFinishEventsForBackgroundURLSessionClosure(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking/Sources/Shared/VimeoSessionManager.swift",
+      "line": 404,
+      "symbol": "VimeoSessionManager.sessionIdentifier",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/rogerioassis/Dev/Vimeo/iOS/VimeoNetworking"
+}

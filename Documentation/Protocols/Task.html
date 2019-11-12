@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Task Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/Task" class="dashAnchor"></a>
+    <a title="Task Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">VimeoNetworking Docs</a> (60% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">VimeoNetworking Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Task Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Album.html">Album</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AlbumEmbed.html">AlbumEmbed</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AuthenticationController.html">AuthenticationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ExceptionCatcher.html">ExceptionCatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileTransfer.html">FileTransfer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GCS.html">GCS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GCS/Connection.html">– Connection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ObservationToken.html">ObservationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PinCodeInfo.html">PinCodeInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PlayProgress.html">PlayProgress</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:15VimeoNetworking13ResponseCacheC">ResponseCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Spatial.html">Spatial</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Subscription.html">Subscription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SubscriptionCollection.html">SubscriptionCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserMembership.html">UserMembership</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSubscription.html">UserSubscription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSubscriptionRenewal.html">UserSubscriptionRenewal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSubscriptionTrial.html">UserSubscriptionTrial</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMBadge.html">VIMBadge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLive.html">VIMLive</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveChat.html">VIMLiveChat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveChatUser.html">VIMLiveChatUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveHeartbeat.html">VIMLiveHeartbeat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveQuota.html">VIMLiveQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveStreams.html">VIMLiveStreams</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveTime.html">VIMLiveTime</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMNullResponse.html">VIMNullResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMPeriodic.html">VIMPeriodic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMProgrammedContent.html">VIMProgrammedContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMReviewPage.html">VIMReviewPage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMSizeQuota.html">VIMSizeQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMSpace.html">VIMSpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUpload.html">VIMUpload</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUpload/UploadApproach.html">– UploadApproach</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUpload/UploadStatus.html">– UploadStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUploadQuota.html">VIMUploadQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUserAccountTypeBridge.html">VIMUserAccountTypeBridge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoClient.html">VimeoClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoClient/RequestToken.html">– RequestToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoRequestSerializer.html">VimeoRequestSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoResponseSerializer.html">VimeoResponseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoSessionManager.html">VimeoSessionManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global%20Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:15VimeoNetworking0A7BaseURL10Foundation0D0Vvp">VimeoBaseURL</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPStatusCode.html">HTTPStatusCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LiveQuotaStatus.html">LiveQuotaStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LiveStreamingStatus.html">LiveStreamingStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LocalErrorCode.html">LocalErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkReachabilityStatus.html">NetworkReachabilityStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkReachabilityStatus/ConnectionType.html">– ConnectionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkingNotification.html">NetworkingNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ResultCompletion.html">ResultCompletion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RetryPolicy.html">RetryPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Scope.html">Scope</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TrialStatus.html">TrialStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UserInfoKey.html">UserInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VIMUserAccountType.html">VIMUserAccountType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoErrorCode.html">VimeoErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoErrorKey.html">VimeoErrorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoNetworkingError.html">VimeoNetworkingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoNetworkingError/EncodingFailedReason.html">– EncodingFailedReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoReachabilityProvider.html">VimeoReachabilityProvider</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSError.html">NSError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIImageView.html">UIImageView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URL.html">URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URLRequest.html">URLRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URLSessionTask.html">URLSessionTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/VIMModelObject.html">VIMModelObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/VIMVideo.html">VIMVideo</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AuthenticationListener.html">AuthenticationListener</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BatchOperable.html">BatchOperable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EndpointType.html">EndpointType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MappableResponse.html">MappableResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ReachabilityManaging.html">ReachabilityManaging</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SessionManaging.html">SessionManaging</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Task.html">Task</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AppConfiguration.html">AppConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Response.html">Response</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SessionManagingResult.html">SessionManagingResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking21AuthenticationRequesta">AuthenticationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking19CategoryListRequesta">CategoryListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking15CategoryRequesta">CategoryRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking18ChannelListRequesta">ChannelListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking14ChannelRequesta">ChannelRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking20CinemaContentRequesta">CinemaContentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking28ConfigureSessionManagerBlocka">ConfigureSessionManagerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking11HTTPHeadersa">HTTPHeaders</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking4JSONa">JSON</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking10Parametersa">Parameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking21PolicyDocumentRequesta">PolicyDocumentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking20ReachabilityListenera">ReachabilityListener</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking14SSLPinningModea">SSLPinningMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking14SecurityPolicya">SecurityPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking21SoundtrackListRequesta">SoundtrackListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking13ToggleRequesta">ToggleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking15UserListRequesta">UserListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking11UserRequesta">UserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking16VideoListRequesta">VideoListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking12VideoRequesta">VideoRequest</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Task</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Task</span></code></pre>
+
+                </div>
+              </div>
+            <p>A protocol representing an asynchronous task that can be resumed and cancelled</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking4TaskP2idSivp"></a>
+                    <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking4TaskP2idSivp">id</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking4TaskP6cancelyyF"></a>
+                    <a name="//apple_ref/swift/Method/cancel()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking4TaskP6cancelyyF">cancel()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">cancel</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking4TaskP6resumeyyF"></a>
+                    <a name="//apple_ref/swift/Method/resume()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking4TaskP6resumeyyF">resume()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resume</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright 2019 Vimeo</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

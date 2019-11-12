@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AuthenticationController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/AuthenticationController" class="dashAnchor"></a>
+    <a title="AuthenticationController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">VimeoNetworking Docs</a> (60% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">VimeoNetworking Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AuthenticationController Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Album.html">Album</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AlbumEmbed.html">AlbumEmbed</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AuthenticationController.html">AuthenticationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ExceptionCatcher.html">ExceptionCatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileTransfer.html">FileTransfer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GCS.html">GCS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GCS/Connection.html">– Connection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ObservationToken.html">ObservationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PinCodeInfo.html">PinCodeInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PlayProgress.html">PlayProgress</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:15VimeoNetworking13ResponseCacheC">ResponseCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Spatial.html">Spatial</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Subscription.html">Subscription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SubscriptionCollection.html">SubscriptionCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserMembership.html">UserMembership</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSubscription.html">UserSubscription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSubscriptionRenewal.html">UserSubscriptionRenewal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSubscriptionTrial.html">UserSubscriptionTrial</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMBadge.html">VIMBadge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLive.html">VIMLive</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveChat.html">VIMLiveChat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveChatUser.html">VIMLiveChatUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveHeartbeat.html">VIMLiveHeartbeat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveQuota.html">VIMLiveQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveStreams.html">VIMLiveStreams</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveTime.html">VIMLiveTime</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMNullResponse.html">VIMNullResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMPeriodic.html">VIMPeriodic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMProgrammedContent.html">VIMProgrammedContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMReviewPage.html">VIMReviewPage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMSizeQuota.html">VIMSizeQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMSpace.html">VIMSpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUpload.html">VIMUpload</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUpload/UploadApproach.html">– UploadApproach</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUpload/UploadStatus.html">– UploadStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUploadQuota.html">VIMUploadQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUserAccountTypeBridge.html">VIMUserAccountTypeBridge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoClient.html">VimeoClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoClient/RequestToken.html">– RequestToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoRequestSerializer.html">VimeoRequestSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoResponseSerializer.html">VimeoResponseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoSessionManager.html">VimeoSessionManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global%20Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:15VimeoNetworking0A7BaseURL10Foundation0D0Vvp">VimeoBaseURL</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPStatusCode.html">HTTPStatusCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LiveQuotaStatus.html">LiveQuotaStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LiveStreamingStatus.html">LiveStreamingStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LocalErrorCode.html">LocalErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkReachabilityStatus.html">NetworkReachabilityStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkReachabilityStatus/ConnectionType.html">– ConnectionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkingNotification.html">NetworkingNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ResultCompletion.html">ResultCompletion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RetryPolicy.html">RetryPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Scope.html">Scope</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TrialStatus.html">TrialStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UserInfoKey.html">UserInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VIMUserAccountType.html">VIMUserAccountType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoErrorCode.html">VimeoErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoErrorKey.html">VimeoErrorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoNetworkingError.html">VimeoNetworkingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoNetworkingError/EncodingFailedReason.html">– EncodingFailedReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoReachabilityProvider.html">VimeoReachabilityProvider</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSError.html">NSError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIImageView.html">UIImageView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URL.html">URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URLRequest.html">URLRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URLSessionTask.html">URLSessionTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/VIMModelObject.html">VIMModelObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/VIMVideo.html">VIMVideo</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AuthenticationListener.html">AuthenticationListener</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BatchOperable.html">BatchOperable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EndpointType.html">EndpointType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MappableResponse.html">MappableResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ReachabilityManaging.html">ReachabilityManaging</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SessionManaging.html">SessionManaging</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Task.html">Task</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AppConfiguration.html">AppConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Response.html">Response</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SessionManagingResult.html">SessionManagingResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking21AuthenticationRequesta">AuthenticationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking19CategoryListRequesta">CategoryListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking15CategoryRequesta">CategoryRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking18ChannelListRequesta">ChannelListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking14ChannelRequesta">ChannelRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking20CinemaContentRequesta">CinemaContentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking28ConfigureSessionManagerBlocka">ConfigureSessionManagerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking11HTTPHeadersa">HTTPHeaders</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking4JSONa">JSON</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking10Parametersa">Parameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking21PolicyDocumentRequesta">PolicyDocumentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking20ReachabilityListenera">ReachabilityListener</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking14SSLPinningModea">SSLPinningMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking14SecurityPolicya">SecurityPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking21SoundtrackListRequesta">SoundtrackListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking13ToggleRequesta">ToggleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking15UserListRequesta">UserListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking11UserRequesta">UserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking16VideoListRequesta">VideoListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking12VideoRequesta">VideoRequest</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AuthenticationController</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">AuthenticationController</span></code></pre>
+
+                </div>
+              </div>
+            <p><code>AuthenticationController</code> is used to authenticate a <code><a href="../Classes/VimeoClient.html">VimeoClient</a></code> instance, either by loading an account stored in the system keychain, or by interacting with the Vimeo API to authenticate a new account.  The two publicly accessible authentication methods are client credentials grant and code grant.</p>
+
+<p>Client credentials grant is a public authentication method with no logged in user, which allows your application to access anything a logged out user could see on Vimeo (public content).</p>
+
+<p>Code grant is a way of logging in with a user account, which can give your application access to that user&rsquo;s private content and permission to interact with Vimeo on their behalf.  This is achieved by first opening a generated URL in Safari which presents a user log in page.  When the user authenticates successfully, control is returned to your app through a redirect link, and you then make a final request to retrieve the authenticated account.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This class contains implementation details of private Vimeo-internal authentication methods in addition to the public authentication methods mentioned above.  However, only client credentials grant and code grant authentication are supported for 3rd-party applications interacting with Vimeo.  None of the other authentication endpoints are enabled for non-official applications, nor will they ever be, so please don&rsquo;t attempt to use them.  Perhaps you&rsquo;re thinking, <q>Why are they here at all, then?</q>  Well, Vimeo&rsquo;s official applications use this very same library to interact with the Vimeo API, and this, more than anything, is what keeps <code>VimeoNetworking</code> healthy and well-maintained :).
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona"></a>
+                    <a name="//apple_ref/swift/Alias/AuthenticationCompletion" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona">AuthenticationCompletion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Completion closure type for authentication requests</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">AuthenticationCompletion</span> <span class="o">=</span> <span class="kt"><a href="../Enums/ResultCompletion.html">ResultCompletion</a></span><span class="o">&lt;</span><span class="kt">VIMAccount</span><span class="p">,</span> <span class="kt">NSError</span><span class="o">&gt;.</span><span class="kt">T</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC6client16appConfiguration28configureSessionManagerBlockAcA0A6ClientC_AA03AppG0VAA0aiJ0CALcSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(client:appConfiguration:configureSessionManagerBlock:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC6client16appConfiguration28configureSessionManagerBlockAcA0A6ClientC_AA03AppG0VAA0aiJ0CALcSgtcfc">init(client:appConfiguration:configureSessionManagerBlock:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a new <code>AuthenticationController</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">client</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoClient.html">VimeoClient</a></span><span class="p">,</span> <span class="nv">appConfiguration</span><span class="p">:</span> <span class="kt"><a href="../Structs/AppConfiguration.html">AppConfiguration</a></span><span class="p">,</span> <span class="nv">configureSessionManagerBlock</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:15VimeoNetworking28ConfigureSessionManagerBlocka">ConfigureSessionManagerBlock</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>client</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a client to authenticate</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>appConfiguration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a configuration</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configureSessionManagerBlock</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a block to configure the session manager</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20Saved%20Accounts"></a>
+                <a name="//apple_ref/swift/Section/Public Saved Accounts" class="dashAnchor"></a>
+                <a href="#/Public%20Saved%20Accounts">
+                  <h3 class="section-name">Public Saved Accounts</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC28loadClientCredentialsAccountSo10VIMAccountCSgyKF"></a>
+                    <a name="//apple_ref/swift/Method/loadClientCredentialsAccount()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC28loadClientCredentialsAccountSo10VIMAccountCSgyKF">loadClientCredentialsAccount()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">loadClientCredentialsAccount</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">VIMAccount</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC15loadUserAccountSo10VIMAccountCSgyKF"></a>
+                    <a name="//apple_ref/swift/Method/loadUserAccount()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC15loadUserAccountSo10VIMAccountCSgyKF">loadUserAccount()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">loadUserAccount</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">VIMAccount</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC16loadSavedAccountSo10VIMAccountCSgyKF"></a>
+                    <a name="//apple_ref/swift/Method/loadSavedAccount()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC16loadSavedAccountSo10VIMAccountCSgyKF">loadSavedAccount()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">loadSavedAccount</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">VIMAccount</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC11saveAccount7accountySo10VIMAccountC_tKF"></a>
+                    <a name="//apple_ref/swift/Method/saveAccount(account:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC11saveAccount7accountySo10VIMAccountC_tKF">saveAccount(account:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">saveAccount</span><span class="p">(</span><span class="nv">account</span><span class="p">:</span> <span class="kt">VIMAccount</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20Authentication"></a>
+                <a name="//apple_ref/swift/Section/Public Authentication" class="dashAnchor"></a>
+                <a href="#/Public%20Authentication">
+                  <h3 class="section-name">Public Authentication</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC22clientCredentialsGrant10completionyys6ResultOySo10VIMAccountCSo7NSErrorCGc_tF"></a>
+                    <a name="//apple_ref/swift/Method/clientCredentialsGrant(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC22clientCredentialsGrant10completionyys6ResultOySo10VIMAccountCSo7NSErrorCGc_tF">clientCredentialsGrant(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Execute a client credentials grant request.  This type of authentication allows access to public content on Vimeo.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clientCredentialsGrant</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/AuthenticationController.html#/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona">AuthenticationCompletion</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>handles authentication success or failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC20codeGrantRedirectURISSvp"></a>
+                    <a name="//apple_ref/swift/Property/codeGrantRedirectURI" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC20codeGrantRedirectURISSvp">codeGrantRedirectURI</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the redirect URI used to launch this application after code grant authorization</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">codeGrantRedirectURI</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC25codeGrantAuthorizationURL10Foundation0H0VyF"></a>
+                    <a name="//apple_ref/swift/Method/codeGrantAuthorizationURL()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC25codeGrantAuthorizationURL10Foundation0H0VyF">codeGrantAuthorizationURL()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generate a URL to open the Vimeo code grant authorization page.  When opened in Safari, this page allows users to log into your application.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">codeGrantAuthorizationURL</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">URL</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the code grant authorization page URL</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC9codeGrant11responseURL10completiony10Foundation0H0V_ys6ResultOySo10VIMAccountCSo7NSErrorCGctF"></a>
+                    <a name="//apple_ref/swift/Method/codeGrant(responseURL:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC9codeGrant11responseURL10completiony10Foundation0H0V_ys6ResultOySo10VIMAccountCSo7NSErrorCGctF">codeGrant(responseURL:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Finish code grant authentication.  This function initiates the final step of the code grant process.  After your application is relaunched with the redirect URL, make this request with the response URL to retrieve the authenticated account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">codeGrant</span><span class="p">(</span><span class="nv">responseURL</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/AuthenticationController.html#/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona">AuthenticationCompletion</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>responseURL</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the URL that was used to relaunch your application</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>handler for authentication success or failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC11accessToken5token10completionySS_ys6ResultOySo10VIMAccountCSo7NSErrorCGctF"></a>
+                    <a name="//apple_ref/swift/Method/accessToken(token:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC11accessToken5token10completionySS_ys6ResultOySo10VIMAccountCSo7NSErrorCGctF">accessToken(token:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Execute a constant token grant request. This type of authentication allows access to public and personnal content on Vimeo. Constant token are usually generated for API apps see <a href="https://developer.vimeo.com/apps">https://developer.vimeo.com/apps</a></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">accessToken</span><span class="p">(</span><span class="nv">token</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/AuthenticationController.html#/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona">AuthenticationCompletion</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>token</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a constant token generated for your api&rsquo;s app</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>handles authentication success or failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Private%20Authentication"></a>
+                <a name="//apple_ref/swift/Section/Private Authentication" class="dashAnchor"></a>
+                <a href="#/Private%20Authentication">
+                  <h3 class="section-name">Private Authentication</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC5logIn9withEmail8password10completionySS_SSys6ResultOySo10VIMAccountCSo7NSErrorCGctF"></a>
+                    <a name="//apple_ref/swift/Method/logIn(withEmail:password:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC5logIn9withEmail8password10completionySS_SSys6ResultOySo10VIMAccountCSo7NSErrorCGctF">logIn(withEmail:password:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only, will not work for third-party applications)</strong>
+Log in with an email and password</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">logIn</span><span class="p">(</span><span class="n">withEmail</span> <span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/AuthenticationController.html#/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona">AuthenticationCompletion</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>email</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a user&rsquo;s email</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>password</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a user&rsquo;s password</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>handler for authentication success or failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC4join8withName5email8password14marketingOptIn10completionySS_S2SSbys6ResultOySo10VIMAccountCSo7NSErrorCGctF"></a>
+                    <a name="//apple_ref/swift/Method/join(withName:email:password:marketingOptIn:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC4join8withName5email8password14marketingOptIn10completionySS_S2SSbys6ResultOySo10VIMAccountCSo7NSErrorCGctF">join(withName:email:password:marketingOptIn:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only, will not work for third-party applications)</strong>
+Join with a username, email, and password</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">join</span><span class="p">(</span><span class="n">withName</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">email</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">marketingOptIn</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/AuthenticationController.html#/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona">AuthenticationCompletion</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new user&rsquo;s name</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>email</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new user&rsquo;s email</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>password</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new user&rsquo;s password</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>marketingOptIn</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a bool indicating whether a user has opted-in to receive marketing material</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>handler for authentication success or failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC13facebookLogIn9withToken10completionySS_ys6ResultOySo10VIMAccountCSo7NSErrorCGctF"></a>
+                    <a name="//apple_ref/swift/Method/facebookLogIn(withToken:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC13facebookLogIn9withToken10completionySS_ys6ResultOySo10VIMAccountCSo7NSErrorCGctF">facebookLogIn(withToken:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only, will not work for third-party applications)</strong>
+Log in with a Facebook token</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">facebookLogIn</span><span class="p">(</span><span class="n">withToken</span> <span class="nv">facebookToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/AuthenticationController.html#/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona">AuthenticationCompletion</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>facebookToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>token from facebook SDK</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>handler for authentication success or failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC12facebookJoin9withToken14marketingOptIn10completionySS_Sbys6ResultOySo10VIMAccountCSo7NSErrorCGctF"></a>
+                    <a name="//apple_ref/swift/Method/facebookJoin(withToken:marketingOptIn:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC12facebookJoin9withToken14marketingOptIn10completionySS_Sbys6ResultOySo10VIMAccountCSo7NSErrorCGctF">facebookJoin(withToken:marketingOptIn:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only, will not work for third-party applications)</strong>
+Join with a Facebook token</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">facebookJoin</span><span class="p">(</span><span class="n">withToken</span> <span class="nv">facebookToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">marketingOptIn</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/AuthenticationController.html#/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona">AuthenticationCompletion</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>facebookToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>token from facebook SDK</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>marketingOptIn</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a bool indicating whether a user has opted-in to receive marketing material</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>handler for authentication success or failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC11googleLogIn9withToken6scopes10completionySS_SayAA5ScopeOGys6ResultOySo10VIMAccountCSo7NSErrorCGctF"></a>
+                    <a name="//apple_ref/swift/Method/googleLogIn(withToken:scopes:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC11googleLogIn9withToken6scopes10completionySS_SayAA5ScopeOGys6ResultOySo10VIMAccountCSo7NSErrorCGctF">googleLogIn(withToken:scopes:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only, will not work for third-party applications)</strong>
+Log in with a Google token</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">googleLogIn</span><span class="p">(</span><span class="n">withToken</span> <span class="nv">googleToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">scopes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums/Scope.html">Scope</a></span><span class="p">],</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/AuthenticationController.html#/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona">AuthenticationCompletion</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>googleToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>idToken</code> returned by the GoogleSignIn SDK</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>scopes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an array of <code><a href="../Enums/Scope.html">Scope</a></code> values representing permissions the app requests</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>handler for authentication success or failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC10googleJoin9withToken14marketingOptIn6scopes10completionySS_SbSayAA5ScopeOGys6ResultOySo10VIMAccountCSo7NSErrorCGctF"></a>
+                    <a name="//apple_ref/swift/Method/googleJoin(withToken:marketingOptIn:scopes:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC10googleJoin9withToken14marketingOptIn6scopes10completionySS_SbSayAA5ScopeOGys6ResultOySo10VIMAccountCSo7NSErrorCGctF">googleJoin(withToken:marketingOptIn:scopes:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only, will not work for third-party applications)</strong>
+Join with a Google token</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">googleJoin</span><span class="p">(</span>
+    <span class="n">withToken</span> <span class="nv">googleToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+    <span class="nv">marketingOptIn</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span>
+    <span class="nv">scopes</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums/Scope.html">Scope</a></span><span class="p">],</span>
+    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/AuthenticationController.html#/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona">AuthenticationCompletion</a></span>
+    <span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>googleToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>idToken</code> returned by the GoogleSignIn SDK</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>marketingOptIn</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>bool indicating whether a user has opted in to receive marketing material</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>scopes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an array of <code><a href="../Enums/Scope.html">Scope</a></code> values representing permissions the app requests</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>handler for authentication success or failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC12authenticate12withResponse10completionySDySSypG_ys6ResultOySo10VIMAccountCSo7NSErrorCGXEtF"></a>
+                    <a name="//apple_ref/swift/Method/authenticate(withResponse:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC12authenticate12withResponse10completionySDySSypG_ys6ResultOySo10VIMAccountCSo7NSErrorCGXEtF">authenticate(withResponse:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only)</strong>
+Log in with an account response dictionary</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">authenticate</span><span class="p">(</span><span class="n">withResponse</span> <span class="nv">accountResponseDictionary</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoClient.html">VimeoClient</a></span><span class="o">.</span><span class="kt">ResponseDictionary</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kt"><a href="../Classes/AuthenticationController.html#/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona">AuthenticationCompletion</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accountResponseDictionary</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>account response dictionary</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>handler for authentication success or failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC16appTokenExchange06accessF010completionySS_ys6ResultOySo10VIMAccountCSo7NSErrorCGctF"></a>
+                    <a name="//apple_ref/swift/Method/appTokenExchange(accessToken:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC16appTokenExchange06accessF010completionySS_ys6ResultOySo10VIMAccountCSo7NSErrorCGctF">appTokenExchange(accessToken:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only, will not work for third-party applications)</strong>
+Exchange a saved access token granted to another application for a new token granted to the calling application.  This method will allow an application to re-use credentials from another Vimeo application.  Client credentials must be granted before using this method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">appTokenExchange</span><span class="p">(</span><span class="nv">accessToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/AuthenticationController.html#/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona">AuthenticationCompletion</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>access token granted to the other application</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>handler for authentication success or failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC17PinCodeInfoHandera"></a>
+                    <a name="//apple_ref/swift/Alias/PinCodeInfoHander" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC17PinCodeInfoHandera">PinCodeInfoHander</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>(PRIVATE: Vimeo Use Only)** Handles the initial information to present to the user for pin code auth</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">PinCodeInfoHander</span> <span class="o">=</span> <span class="p">(</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC7pinCode11infoHandler10completionyySS_SStc_ys6ResultOySo10VIMAccountCSo7NSErrorCGctF"></a>
+                    <a name="//apple_ref/swift/Method/pinCode(infoHandler:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC7pinCode11infoHandler10completionyySS_SStc_ys6ResultOySo10VIMAccountCSo7NSErrorCGctF">pinCode(infoHandler:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only, will not work for third-party applications)</strong>
+Pin code authentication, for connected but keyboardless devices like Apple TV.  This is a long and highly asynchronous process where the user is initially presented a pin code, which they then enter into a special page on Vimeo.com on a different device.  Back on the original device, the app is polling the api to check whether the pin code has been authenticated.  The <code>infoHandler</code> will be called after an initial request to retrieve the pin code and activate link.  <code>AuthenticationController</code> will handle polling the api to check if the code has been activated, and it will ultimately call the completion handler when that happens.  If the pin code expires while we&rsquo;re waiting, completion will be called with an error</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">pinCode</span><span class="p">(</span><span class="nv">infoHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/AuthenticationController.html#/s:15VimeoNetworking24AuthenticationControllerC17PinCodeInfoHandera">PinCodeInfoHander</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/AuthenticationController.html#/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona">AuthenticationCompletion</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>infoHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>handler for initial information presentation</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>handler for authentication success or failure</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC13cancelPinCodeyyF"></a>
+                    <a name="//apple_ref/swift/Method/cancelPinCode()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC13cancelPinCodeyyF">cancelPinCode()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><strong>(PRIVATE: Vimeo Use Only, will not work for third-party applications)</strong>
+Cancels an ongoing pin code authentication process</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancelPinCode</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Log%20out"></a>
+                <a name="//apple_ref/swift/Section/Log out" class="dashAnchor"></a>
+                <a href="#/Log%20out">
+                  <h3 class="section-name">Log out</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC6logOut21loadClientCredentialsySb_tKF"></a>
+                    <a name="//apple_ref/swift/Method/logOut(loadClientCredentials:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC6logOut21loadClientCredentialsySb_tKF">logOut(loadClientCredentials:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Log out the account of the client</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>an error if the account could not be deleted from the keychain</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">logOut</span><span class="p">(</span><span class="nv">loadClientCredentials</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>loadClientCredentials</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>if true, tries to load a client credentials account from the keychain after logging out</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking24AuthenticationControllerC12authenticate4with10completionyAA7RequestVySo10VIMAccountCG_ys6ResultOyAJSo7NSErrorCGctF"></a>
+                    <a name="//apple_ref/swift/Method/authenticate(with:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking24AuthenticationControllerC12authenticate4with10completionyAA7RequestVySo10VIMAccountCG_ys6ResultOyAJSo7NSErrorCGctF">authenticate(with:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Executes the specified authentication request, then the specified completion.</p>
+
+<ul>
+<li>request: A request to fetch a VIMAccount.</li>
+<li>completion: A closure to handle the VIMAccount or error received.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">authenticate</span><span class="p">(</span><span class="n">with</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:15VimeoNetworking21AuthenticationRequesta">AuthenticationRequest</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/AuthenticationController.html#/s:15VimeoNetworking24AuthenticationControllerC0C10Completiona">AuthenticationCompletion</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright 2019 Vimeo</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

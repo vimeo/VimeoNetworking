@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VimeoSessionManager Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/VimeoSessionManager" class="dashAnchor"></a>
+    <a title="VimeoSessionManager Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">VimeoNetworking Docs</a> (60% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">VimeoNetworking Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        VimeoSessionManager Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Album.html">Album</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AlbumEmbed.html">AlbumEmbed</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AuthenticationController.html">AuthenticationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ExceptionCatcher.html">ExceptionCatcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileTransfer.html">FileTransfer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GCS.html">GCS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/GCS/Connection.html">– Connection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ObservationToken.html">ObservationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PinCodeInfo.html">PinCodeInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PlayProgress.html">PlayProgress</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:15VimeoNetworking13ResponseCacheC">ResponseCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Spatial.html">Spatial</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Subscription.html">Subscription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SubscriptionCollection.html">SubscriptionCollection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserMembership.html">UserMembership</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSubscription.html">UserSubscription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSubscriptionRenewal.html">UserSubscriptionRenewal</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserSubscriptionTrial.html">UserSubscriptionTrial</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMBadge.html">VIMBadge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLive.html">VIMLive</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveChat.html">VIMLiveChat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveChatUser.html">VIMLiveChatUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveHeartbeat.html">VIMLiveHeartbeat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveQuota.html">VIMLiveQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveStreams.html">VIMLiveStreams</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMLiveTime.html">VIMLiveTime</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMNullResponse.html">VIMNullResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMPeriodic.html">VIMPeriodic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMProgrammedContent.html">VIMProgrammedContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMReviewPage.html">VIMReviewPage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMSizeQuota.html">VIMSizeQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMSpace.html">VIMSpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUpload.html">VIMUpload</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUpload/UploadApproach.html">– UploadApproach</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUpload/UploadStatus.html">– UploadStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUploadQuota.html">VIMUploadQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VIMUserAccountTypeBridge.html">VIMUserAccountTypeBridge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoClient.html">VimeoClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoClient/RequestToken.html">– RequestToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoRequestSerializer.html">VimeoRequestSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoResponseSerializer.html">VimeoResponseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/VimeoSessionManager.html">VimeoSessionManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global%20Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:15VimeoNetworking0A7BaseURL10Foundation0D0Vvp">VimeoBaseURL</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPStatusCode.html">HTTPStatusCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LiveQuotaStatus.html">LiveQuotaStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LiveStreamingStatus.html">LiveStreamingStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/LocalErrorCode.html">LocalErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkReachabilityStatus.html">NetworkReachabilityStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkReachabilityStatus/ConnectionType.html">– ConnectionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/NetworkingNotification.html">NetworkingNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ResultCompletion.html">ResultCompletion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RetryPolicy.html">RetryPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Scope.html">Scope</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TrialStatus.html">TrialStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UserInfoKey.html">UserInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VIMUserAccountType.html">VIMUserAccountType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoErrorCode.html">VimeoErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoErrorKey.html">VimeoErrorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoNetworkingError.html">VimeoNetworkingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoNetworkingError/EncodingFailedReason.html">– EncodingFailedReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/VimeoReachabilityProvider.html">VimeoReachabilityProvider</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSError.html">NSError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIImageView.html">UIImageView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URL.html">URL</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URLRequest.html">URLRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/URLSessionTask.html">URLSessionTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/VIMModelObject.html">VIMModelObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/VIMVideo.html">VIMVideo</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AuthenticationListener.html">AuthenticationListener</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/BatchOperable.html">BatchOperable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/EndpointType.html">EndpointType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MappableResponse.html">MappableResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ReachabilityManaging.html">ReachabilityManaging</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/SessionManaging.html">SessionManaging</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Task.html">Task</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/AppConfiguration.html">AppConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Request.html">Request</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Response.html">Response</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SessionManagingResult.html">SessionManagingResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking21AuthenticationRequesta">AuthenticationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking19CategoryListRequesta">CategoryListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking15CategoryRequesta">CategoryRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking18ChannelListRequesta">ChannelListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking14ChannelRequesta">ChannelRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking20CinemaContentRequesta">CinemaContentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking28ConfigureSessionManagerBlocka">ConfigureSessionManagerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking11HTTPHeadersa">HTTPHeaders</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking4JSONa">JSON</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking10Parametersa">Parameters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking21PolicyDocumentRequesta">PolicyDocumentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking20ReachabilityListenera">ReachabilityListener</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking14SSLPinningModea">SSLPinningMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking14SecurityPolicya">SecurityPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking21SoundtrackListRequesta">SoundtrackListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking13ToggleRequesta">ToggleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking15UserListRequesta">UserListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking11UserRequesta">UserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking16VideoListRequesta">VideoListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15VimeoNetworking12VideoRequesta">VideoRequest</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>VimeoSessionManager</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">VimeoSessionManager</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/SessionManaging.html">SessionManaging</a></span></code></pre>
+
+                </div>
+              </div>
+            <p><code>VimeoSessionManager</code> handles networking and serialization for raw HTTP requests.
+ Internally, it uses  an <code>AFHTTPSessionManager</code> instance to handle requests.
+ This class was designed to be used internally by <code><a href="../Classes/VimeoClient.html">VimeoClient</a></code>. For the majority of purposes,
+ it would be better to use<code><a href="../Classes/VimeoClient.html">VimeoClient</a></code> and a <code><a href="../Structs/Request.html">Request</a></code> object to better encapsulate this logic,
+ since the latter provides richer functionality overall.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public"></a>
+                <a name="//apple_ref/swift/Section/Public" class="dashAnchor"></a>
+                <a href="#/Public">
+                  <h3 class="section-name">Public</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VimeoNetworking@objc(cs)VimeoSessionManager(py)securityPolicy"></a>
+                    <a name="//apple_ref/swift/Property/securityPolicy" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VimeoNetworking@objc(cs)VimeoSessionManager(py)securityPolicy">securityPolicy</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Getter and setter for the securityPolicy property on AFHTTPSessionManager</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">securityPolicy</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:15VimeoNetworking14SecurityPolicya">SecurityPolicy</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@VimeoNetworking@objc(cs)VimeoSessionManager(py)acceptableContentTypes"></a>
+                    <a name="//apple_ref/swift/Property/acceptableContentTypes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@VimeoNetworking@objc(cs)VimeoSessionManager(py)acceptableContentTypes">acceptableContentTypes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Getter and setter for acceptableContentTypes property on the Vimeo/JSON response serializer</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">acceptableContentTypes</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC21jsonRequestSerializerAA0afG0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/jsonRequestSerializer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC21jsonRequestSerializerAA0afG0Cvp">jsonRequestSerializer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The custom Vimeo request serializer that is used for serializing Data requests into JSON</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">jsonRequestSerializer</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoRequestSerializer.html">VimeoRequestSerializer</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC22jsonResponseSerializerAA0afG0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/jsonResponseSerializer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC22jsonResponseSerializerAA0afG0Cvp">jsonResponseSerializer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The custom Vimeo response serializer that is used for serializing Data responses into JSON</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">lazy</span> <span class="k">var</span> <span class="nv">jsonResponseSerializer</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoResponseSerializer.html">VimeoResponseSerializer</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initialization"></a>
+                <a name="//apple_ref/swift/Section/Initialization" class="dashAnchor"></a>
+                <a href="#/Initialization">
+                  <h3 class="section-name">Initialization</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC7baseUrl20sessionConfiguration17requestSerializerAC10Foundation3URLV_So012NSURLSessionH0CAA0a7RequestJ0Ctcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(baseUrl:sessionConfiguration:requestSerializer:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC7baseUrl20sessionConfiguration17requestSerializerAC10Foundation3URLV_So012NSURLSessionH0CAA0a7RequestJ0Ctcfc">init(baseUrl:sessionConfiguration:requestSerializer:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new session manager</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">required</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span>
+    <span class="nv">baseUrl</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span>
+    <span class="nv">sessionConfiguration</span><span class="p">:</span> <span class="kt">URLSessionConfiguration</span><span class="p">,</span>
+    <span class="nv">requestSerializer</span><span class="p">:</span> <span class="kt"><a href="../Classes/VimeoRequestSerializer.html">VimeoRequestSerializer</a></span>
+<span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>baseUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The base URL for the HTTP client</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sessionConfiguration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Object describing the URL session policies for this session manager</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestSerializer</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Serializer to use for all requests handled by this session manager</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an initialized <code>VimeoSessionManager</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC5coderACSgSo7NSCoderC_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC5coderACSgSo7NSCoderC_tcfc">init(coder:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">required</span> <span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="n">coder</span> <span class="nv">aDecoder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC10invalidate21cancelingPendingTasksySb_tF"></a>
+                    <a name="//apple_ref/swift/Method/invalidate(cancelingPendingTasks:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC10invalidate21cancelingPendingTasksySb_tF">invalidate(cancelingPendingTasks:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Invalidates the managed session, optionally canceling pending tasks.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">invalidate</span><span class="p">(</span><span class="n">cancelingPendingTasks</span> <span class="nv">cancelPendingTasks</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cancelPendingTasks</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Whether or not to cancel pending tasks.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Default%20Session%20Initialization"></a>
+                <a name="//apple_ref/swift/Section/Default Session Initialization" class="dashAnchor"></a>
+                <a href="#/Default%20Session%20Initialization">
+                  <h3 class="section-name">Default Session Initialization</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC07defaultcD07baseUrl11accessToken10apiVersionAC10Foundation3URLV_S2StFZ"></a>
+                    <a name="//apple_ref/swift/Method/defaultSessionManager(baseUrl:accessToken:apiVersion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC07defaultcD07baseUrl11accessToken10apiVersionAC10Foundation3URLV_S2StFZ">defaultSessionManager(baseUrl:accessToken:apiVersion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an authenticated session manager with a static access token</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">defaultSessionManager</span><span class="p">(</span><span class="nv">baseUrl</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">accessToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">apiVersion</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">VimeoSessionManager</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>baseUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the base URL for the HTTP client.  This value should usually be set to <code><a href="../Global%20Variables.html#/s:15VimeoNetworking0A7BaseURL10Foundation0D0Vvp">VimeoBaseURL</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the static access token to use for request serialization</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an initialized <code>VimeoSessionManager</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC07defaultcD07baseUrl19accessTokenProvider10apiVersionAC10Foundation3URLV_SSSgycSStFZ"></a>
+                    <a name="//apple_ref/swift/Method/defaultSessionManager(baseUrl:accessTokenProvider:apiVersion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC07defaultcD07baseUrl19accessTokenProvider10apiVersionAC10Foundation3URLV_SSSgycSStFZ">defaultSessionManager(baseUrl:accessTokenProvider:apiVersion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a session manager with a block that provides an access token.  Note that if no access token is returned by the provider block, no Authorization header will be serialized with new requests, whereas a Basic Authorization header is required at minimum for all api endpoints.  For unauthenticated requests, use a constructor that accepts an <code><a href="../Structs/AppConfiguration.html">AppConfiguration</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">defaultSessionManager</span><span class="p">(</span><span class="nv">baseUrl</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">accessTokenProvider</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/VimeoRequestSerializer.html">VimeoRequestSerializer</a></span><span class="o">.</span><span class="kt">AccessTokenProvider</span><span class="p">,</span> <span class="nv">apiVersion</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">VimeoSessionManager</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>baseUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the base URL for the HTTP client.  This value should usually be set to <code><a href="../Global%20Variables.html#/s:15VimeoNetworking0A7BaseURL10Foundation0D0Vvp">VimeoBaseURL</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessTokenProvider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a block that provides an access token dynamically, called on each request serialization</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an initialized <code>VimeoSessionManager</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC07defaultcD016appConfiguration09configurecD5BlockAcA03AppG0V_A2CcSgtFZ"></a>
+                    <a name="//apple_ref/swift/Method/defaultSessionManager(appConfiguration:configureSessionManagerBlock:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC07defaultcD016appConfiguration09configurecD5BlockAcA03AppG0V_A2CcSgtFZ">defaultSessionManager(appConfiguration:configureSessionManagerBlock:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an unauthenticated session manager with a static application configuration</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">defaultSessionManager</span><span class="p">(</span><span class="nv">appConfiguration</span><span class="p">:</span> <span class="kt"><a href="../Structs/AppConfiguration.html">AppConfiguration</a></span><span class="p">,</span> <span class="nv">configureSessionManagerBlock</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:15VimeoNetworking28ConfigureSessionManagerBlocka">ConfigureSessionManagerBlock</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">VimeoSessionManager</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>appConfiguration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>configuration used to generate the basic authentication header</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configureSessionManagerBlock</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a block to configure the session manager</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an initialized <code>VimeoSessionManager</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Background%20Session%20Initialization"></a>
+                <a name="//apple_ref/swift/Section/Background Session Initialization" class="dashAnchor"></a>
+                <a href="#/Background%20Session%20Initialization">
+                  <h3 class="section-name">Background Session Initialization</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC010backgroundcD010identifier7baseUrl11accessToken10apiVersionACSS_10Foundation3URLVS2StFZ"></a>
+                    <a name="//apple_ref/swift/Method/backgroundSessionManager(identifier:baseUrl:accessToken:apiVersion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC010backgroundcD010identifier7baseUrl11accessToken10apiVersionACSS_10Foundation3URLVS2StFZ">backgroundSessionManager(identifier:baseUrl:accessToken:apiVersion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an authenticated background session manager with a static access token</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">backgroundSessionManager</span><span class="p">(</span><span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">baseUrl</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">accessToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">apiVersion</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">VimeoSessionManager</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the background session identifier</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>baseUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the base URL for the HTTP client.  This value should usually be set to <code><a href="../Global%20Variables.html#/s:15VimeoNetworking0A7BaseURL10Foundation0D0Vvp">VimeoBaseURL</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessToken</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the static access token to use for request serialization</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an initialized <code>VimeoSessionManager</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC010backgroundcD010identifier7baseUrl19accessTokenProvider10apiVersionACSS_10Foundation3URLVSSSgycSStFZ"></a>
+                    <a name="//apple_ref/swift/Method/backgroundSessionManager(identifier:baseUrl:accessTokenProvider:apiVersion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC010backgroundcD010identifier7baseUrl19accessTokenProvider10apiVersionACSS_10Foundation3URLVSSSgycSStFZ">backgroundSessionManager(identifier:baseUrl:accessTokenProvider:apiVersion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a background session manager with a block that provides an access token.  Note that if no access token is returned by the provider block, no Authorization header will be serialized with new requests, whereas a Basic Authorization header is required at minimum for all api endpoints.  For unauthenticated requests, use a constructor that accepts an <code><a href="../Structs/AppConfiguration.html">AppConfiguration</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">backgroundSessionManager</span><span class="p">(</span><span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">baseUrl</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">accessTokenProvider</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/VimeoRequestSerializer.html">VimeoRequestSerializer</a></span><span class="o">.</span><span class="kt">AccessTokenProvider</span><span class="p">,</span> <span class="nv">apiVersion</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">VimeoSessionManager</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the background session identifier</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>baseUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the base URL for the HTTP client.  This value should usually be set to <code><a href="../Global%20Variables.html#/s:15VimeoNetworking0A7BaseURL10Foundation0D0Vvp">VimeoBaseURL</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessTokenProvider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a block that provides an access token dynamically, called on each request serialization</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an initialized <code>VimeoSessionManager</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC010backgroundcD010identifier7baseUrl25sharedContainerIdentifier19accessTokenProvider10apiVersionACSS_10Foundation3URLVS2SSgycSStFZ"></a>
+                    <a name="//apple_ref/swift/Method/backgroundSessionManager(identifier:baseUrl:sharedContainerIdentifier:accessTokenProvider:apiVersion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC010backgroundcD010identifier7baseUrl25sharedContainerIdentifier19accessTokenProvider10apiVersionACSS_10Foundation3URLVS2SSgycSStFZ">backgroundSessionManager(identifier:baseUrl:sharedContainerIdentifier:accessTokenProvider:apiVersion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a background session manager suitable for share extension to
+use.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">backgroundSessionManager</span><span class="p">(</span><span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">baseUrl</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">sharedContainerIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">accessTokenProvider</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Classes/VimeoRequestSerializer.html">VimeoRequestSerializer</a></span><span class="o">.</span><span class="kt">AccessTokenProvider</span><span class="p">,</span> <span class="nv">apiVersion</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">VimeoSessionManager</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The background session identifier.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>baseUrl</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The base URL for the HTTP client. This value should
+usually be set to <code><a href="../Global%20Variables.html#/s:15VimeoNetworking0A7BaseURL10Foundation0D0Vvp">VimeoBaseURL</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sharedContainerIdentifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the shared container
+between the main app and the share extension.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessTokenProvider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block that provides an access token
+dynamically, called on each request serialization.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>apiVersion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The API version to use.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an initialized <code>VimeoSessionManager</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC010backgroundcD010identifier16appConfigurationACSS_AA03AppH0VtFZ"></a>
+                    <a name="//apple_ref/swift/Method/backgroundSessionManager(identifier:appConfiguration:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC010backgroundcD010identifier16appConfigurationACSS_AA03AppH0VtFZ">backgroundSessionManager(identifier:appConfiguration:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an unauthenticated background session manager with a static application configuration</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">backgroundSessionManager</span><span class="p">(</span><span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">appConfiguration</span><span class="p">:</span> <span class="kt"><a href="../Structs/AppConfiguration.html">AppConfiguration</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">VimeoSessionManager</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the background session identifier</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>appConfiguration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>configuration used to generate the basic authentication header</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>an initialized <code>VimeoSessionManager</code></p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Data%20Request"></a>
+                <a name="//apple_ref/swift/Section/Data Request" class="dashAnchor"></a>
+                <a href="#/Data%20Request">
+                  <h3 class="section-name">Data Request</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC7request_10parameters4thenAA4Task_pSgAA21URLRequestConvertible_p_ypSgyAA0C14ManagingResultVy10Foundation4DataVGctF"></a>
+                    <a name="//apple_ref/swift/Method/request(_:parameters:then:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC7request_10parameters4thenAA4Task_pSgAA21URLRequestConvertible_p_ypSgyAA0C14ManagingResultVy10Foundation4DataVGctF">request(_:parameters:then:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a data request from a <code><a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a></code> and a set of parameters, if any</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">request</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">requestConvertible</span><span class="p">:</span> <span class="kt"><a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a></span><span class="p">,</span>
+    <span class="nv">parameters</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="n">then</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SessionManagingResult.html">SessionManagingResult</a></span><span class="o">&lt;</span><span class="kt">Data</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/Task.html">Task</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestConvertible</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a></code> the value used to create the <code>URLRequest</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>Any?</code> parameters to be serialized and sent with to the <code>URLRequest</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be executed once the request completes. The closure takes a single
+SessionManagingResult<Data> argument that wraps the <code>URLRequest</code>, <code>URLResponse</code> and <code>Result</code>
+of the request operation.
+Note that this API makes no guarantees as to which queue the callback will be executed on.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the <code><a href="../Protocols/Task.html">Task</a></code> object related to the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/JSON%20Request"></a>
+                <a name="//apple_ref/swift/Section/JSON Request" class="dashAnchor"></a>
+                <a href="#/JSON%20Request">
+                  <h3 class="section-name">JSON Request</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC7request_10parameters4thenAA4Task_pSgAA21URLRequestConvertible_p_ypSgyAA0C14ManagingResultVyypGctF"></a>
+                    <a name="//apple_ref/swift/Method/request(_:parameters:then:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC7request_10parameters4thenAA4Task_pSgAA21URLRequestConvertible_p_ypSgyAA0C14ManagingResultVyypGctF">request(_:parameters:then:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a data request from a <code><a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a></code> and a set of parameters, if any</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">request</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">requestConvertible</span><span class="p">:</span> <span class="kt"><a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a></span><span class="p">,</span>
+    <span class="nv">parameters</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="n">then</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SessionManagingResult.html">SessionManagingResult</a></span><span class="o">&lt;</span><span class="kt"><a href="../Typealiases.html#/s:15VimeoNetworking4JSONa">JSON</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/Task.html">Task</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestConvertible</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the value used to create the <code>URLRequest</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>Any?</code> parameters to be serialized and sent with to the <code>URLRequest</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be executed once the request completes. The closure takes a single
+SessionManagingResult<JSON> argument that wraps the <code>URLRequest</code>, <code>URLResponse</code> and <code>Result</code>
+of the request operation.
+Note that this API makes no guarantees as to which queue the callback will be executed on.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the <code><a href="../Protocols/Task.html">Task</a></code> object related to the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Decodable%20Request"></a>
+                <a name="//apple_ref/swift/Section/Decodable Request" class="dashAnchor"></a>
+                <a href="#/Decodable%20Request">
+                  <h3 class="section-name">Decodable Request</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC7request_10parameters4thenAA4Task_pSgAA21URLRequestConvertible_p_ypSgyAA0C14ManagingResultVyxGctSeRzlF"></a>
+                    <a name="//apple_ref/swift/Method/request(_:parameters:then:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC7request_10parameters4thenAA4Task_pSgAA21URLRequestConvertible_p_ypSgyAA0C14ManagingResultVyxGctSeRzlF">request(_:parameters:then:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a data request from a <code><a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a></code> and a set of parameters, if any</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">request</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Decodable</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">requestConvertible</span><span class="p">:</span> <span class="kt"><a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a></span><span class="p">,</span>
+    <span class="nv">parameters</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="n">then</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SessionManagingResult.html">SessionManagingResult</a></span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/Task.html">Task</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestConvertible</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the value used to create the <code>URLRequest</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>parameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>Any?</code> parameters to be serialized and sent with to the <code>URLRequest</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be executed once the request completes. The closure takes a single
+SessionManagingResult<T: Decodable> argument that wraps the <code>URLRequest</code>, <code>URLResponse</code> and <code>Result</code>
+of the request operation.
+Note that this API makes no guarantees as to which queue the callback will be executed on.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the <code><a href="../Protocols/Task.html">Task</a></code> object related to the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC6upload_10sourceFile4thenAA4Task_pSgAA21URLRequestConvertible_p_10Foundation3URLVyAA0C14ManagingResultVyypGctF"></a>
+                    <a name="//apple_ref/swift/Method/upload(_:sourceFile:then:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC6upload_10sourceFile4thenAA4Task_pSgAA21URLRequestConvertible_p_10Foundation3URLVyAA0C14ManagingResultVyypGctF">upload(_:sourceFile:then:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an upload request for the file at the given <code>sourceFile</code> URL,
+using the <code><a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a></code> value to create the <code>URLRequest</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">upload</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">requestConvertible</span><span class="p">:</span> <span class="kt"><a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a></span><span class="p">,</span>
+    <span class="nv">sourceFile</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span>
+    <span class="n">then</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SessionManagingResult.html">SessionManagingResult</a></span><span class="o">&lt;</span><span class="kt"><a href="../Typealiases.html#/s:15VimeoNetworking4JSONa">JSON</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/Task.html">Task</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestConvertible</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the value used to create the <code>URLRequest</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>sourceFile</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>URL</code> of the file to be uploaded.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be executed once the request completes. The closure takes a single
+SessionManagingResult<JSON> argument that wraps the <code>URLRequest</code>, <code>URLResponse</code> and <code>Result</code>
+of the request operation.
+Note that this API makes no guarantees as to which queue the callback will be executed on.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the <code><a href="../Protocols/Task.html">Task</a></code> object related to the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC8download_14destinationURL4thenAA4Task_pSgAA21URLRequestConvertible_p_10Foundation0G0VSgyAA0C14ManagingResultVyALGctF"></a>
+                    <a name="//apple_ref/swift/Method/download(_:destinationURL:then:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC8download_14destinationURL4thenAA4Task_pSgAA21URLRequestConvertible_p_10Foundation0G0VSgyAA0C14ManagingResultVyALGctF">download(_:destinationURL:then:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a download request for the file and saves it at the give <code>destinationURL</code>,
+using the <code><a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a></code> value to create the <code>URLRequest</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">download</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">requestConvertible</span><span class="p">:</span> <span class="kt"><a href="../Protocols/URLRequestConvertible.html">URLRequestConvertible</a></span><span class="p">,</span>
+    <span class="nv">destinationURL</span><span class="p">:</span> <span class="kt">URL</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+    <span class="n">then</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/SessionManagingResult.html">SessionManagingResult</a></span><span class="o">&lt;</span><span class="kt">URL</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/Task.html">Task</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>requestConvertible</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the value used to create the <code>URLRequest</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>destinationURL</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>URL</code> where the file should be downloaded to. If a URL is not specified the
+file will be downloaded to a temporary location.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The closure to be executed once the request completes. The closure takes a single
+SessionManagingResult<URL> argument that wraps the <code>URLRequest</code>, <code>URLResponse</code> and <code>Result</code>
+of the request operation.
+Note that this API makes no guarantees as to which queue the callback will be executed on.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>the <code><a href="../Protocols/Task.html">Task</a></code> object related to the request.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Private%20request%20method%20helpers"></a>
+                <a name="//apple_ref/swift/Section/Private request method helpers" class="dashAnchor"></a>
+                <a href="#/Private%20request%20method%20helpers">
+                  <h3 class="section-name">Private request method helpers</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC4task13forIdentifierSo16NSURLSessionTaskCSgSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/task(forIdentifier:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC4task13forIdentifierSo16NSURLSessionTaskCSgSi_tF">task(forIdentifier:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">task</span><span class="p">(</span><span class="n">forIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">URLSessionTask</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC12downloadTask13forIdentifierSo020NSURLSessionDownloadF0CSgSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/downloadTask(forIdentifier:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC12downloadTask13forIdentifierSo020NSURLSessionDownloadF0CSgSi_tF">downloadTask(forIdentifier:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">downloadTask</span><span class="p">(</span><span class="n">forIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">URLSessionDownloadTask</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC16downloadProgress3forSo10NSProgressCSgSo16NSURLSessionTaskC_tF"></a>
+                    <a name="//apple_ref/swift/Method/downloadProgress(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC16downloadProgress3forSo10NSProgressCSgSo16NSURLSessionTaskC_tF">downloadProgress(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">downloadProgress</span><span class="p">(</span><span class="k">for</span> <span class="nv">task</span><span class="p">:</span> <span class="kt">URLSessionTask</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Progress</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC10uploadTask13forIdentifierSo018NSURLSessionUploadF0CSgSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/uploadTask(forIdentifier:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC10uploadTask13forIdentifierSo018NSURLSessionUploadF0CSgSi_tF">uploadTask(forIdentifier:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">uploadTask</span><span class="p">(</span><span class="n">forIdentifier</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">URLSessionUploadTask</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC14uploadProgress3forSo10NSProgressCSgSo16NSURLSessionTaskC_tF"></a>
+                    <a name="//apple_ref/swift/Method/uploadProgress(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC14uploadProgress3forSo10NSProgressCSgSo16NSURLSessionTaskC_tF">uploadProgress(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">uploadProgress</span><span class="p">(</span><span class="k">for</span> <span class="nv">task</span><span class="p">:</span> <span class="kt">URLSessionTask</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Progress</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC32configureDidBecomeInvalidClosureyyySo12NSURLSessionC_s5Error_ptcF"></a>
+                    <a name="//apple_ref/swift/Method/configureDidBecomeInvalidClosure(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC32configureDidBecomeInvalidClosureyyySo12NSURLSessionC_s5Error_ptcF">configureDidBecomeInvalidClosure(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">configureDidBecomeInvalidClosure</span><span class="p">(</span><span class="n">_</span> <span class="nv">closure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">URLSession</span><span class="p">,</span> <span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC48configureDownloadTaskDidFinishDownloadingClosureyy10Foundation3URLVSgSo12NSURLSessionC_So0nfG0CAGtcF"></a>
+                    <a name="//apple_ref/swift/Method/configureDownloadTaskDidFinishDownloadingClosure(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC48configureDownloadTaskDidFinishDownloadingClosureyy10Foundation3URLVSgSo12NSURLSessionC_So0nfG0CAGtcF">configureDownloadTaskDidFinishDownloadingClosure(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">configureDownloadTaskDidFinishDownloadingClosure</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">closure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">URLSession</span><span class="p">,</span> <span class="kt">URLSessionDownloadTask</span><span class="p">,</span> <span class="kt">URL</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">URL</span><span class="p">?</span>
+<span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC31configureTaskDidCompleteClosureyyySo12NSURLSessionC_So0jF0Cs5Error_pSgtcF"></a>
+                    <a name="//apple_ref/swift/Method/configureTaskDidCompleteClosure(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC31configureTaskDidCompleteClosureyyySo12NSURLSessionC_So0jF0Cs5Error_pSgtcF">configureTaskDidCompleteClosure(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">configureTaskDidCompleteClosure</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">closure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">URLSession</span><span class="p">,</span> <span class="kt">URLSessionTask</span><span class="p">,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+<span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC54configureDidFinishEventsForBackgroundURLSessionClosureyyySo12NSURLSessionCcF"></a>
+                    <a name="//apple_ref/swift/Method/configureDidFinishEventsForBackgroundURLSessionClosure(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC54configureDidFinishEventsForBackgroundURLSessionClosureyyySo12NSURLSessionCcF">configureDidFinishEventsForBackgroundURLSessionClosure(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">configureDidFinishEventsForBackgroundURLSessionClosure</span><span class="p">(</span>
+    <span class="n">_</span> <span class="nv">closure</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">URLSession</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+<span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC17sessionIdentifierSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/sessionIdentifier" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC17sessionIdentifierSSSgvp">sessionIdentifier</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">sessionIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Authentication"></a>
+                <a name="//apple_ref/swift/Section/Authentication" class="dashAnchor"></a>
+                <a href="#/Authentication">
+                  <h3 class="section-name">Authentication</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC21clientDidAuthenticate4withySo10VIMAccountC_tF"></a>
+                    <a name="//apple_ref/swift/Method/clientDidAuthenticate(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC21clientDidAuthenticate4withySo10VIMAccountC_tF">clientDidAuthenticate(with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when authentication completes successfully to update the session manager with the new access token</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clientDidAuthenticate</span><span class="p">(</span><span class="n">with</span> <span class="nv">account</span><span class="p">:</span> <span class="kt">VIMAccount</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>account</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new account</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15VimeoNetworking0A14SessionManagerC21clientDidClearAccountyyF"></a>
+                    <a name="//apple_ref/swift/Method/clientDidClearAccount()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15VimeoNetworking0A14SessionManagerC21clientDidClearAccountyyF">clientDidClearAccount()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when a client is logged out and the current account should be cleared from the session manager</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clientDidClearAccount</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright 2019 Vimeo</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,7 @@
+# VimeoTestsSupport document generator jazzy settings
+
+copyright: Copyright 2019 Vimeo
+author: Rogerio de Paula Assis
+xcodebuild_arguments: [-target, VimeoNetworking-iOS]
+clean: true
+output: ./Documentation
