@@ -8,12 +8,6 @@
 
 import Foundation
 
-/// Constants
-private extension String {
-    static let contentTypeHeaderField                   = "Content-Type"
-    static let contentTypeFormUrlEncodedHeaderValue     = "application/x-www-form-urlencoded; charset=utf-8"
-}
-
 /// The dictionary of parameters for a given `URLRequest`.
 public typealias Parameters = [String: Any]
 
@@ -23,7 +17,7 @@ public typealias Parameters = [String: Any]
 ///
 /// Collection types are encoded using the convention of appending `[]` to the key for array values (`foo[]=1&foo[]=2`).
 /// For dictionary values, the key surrounded by square brackets is used (`foo[bar]=baz`).
-struct URLEncoding: ParameterEncoding {
+public struct URLEncoding: ParameterEncoding {
     
     /// Returns a default `URLEncoding` instance.
     static var `default`: URLEncoding { return URLEncoding() }
@@ -36,7 +30,7 @@ struct URLEncoding: ParameterEncoding {
     ///
     /// - Returns: the encoded URLRequest instance
     /// - Throws: an error if the encoding process fails.
-    func encode(_ requestConvertible: URLRequestConvertible, with parameters: Any?) throws -> URLRequest {
+    public func encode(_ requestConvertible: URLRequestConvertible, with parameters: Any?) throws -> URLRequest {
         var urlRequest = try requestConvertible.asURLRequest()
         
         guard let unwrappedParameters = parameters as? Parameters else {
@@ -141,4 +135,10 @@ private extension String {
         
         return addingPercentEncoding(withAllowedCharacters: allowedCharacterSet) ?? self
     }
+}
+
+/// Constants
+private extension String {
+    static let contentTypeHeaderField                   = "Content-Type"
+    static let contentTypeFormUrlEncodedHeaderValue     = "application/x-www-form-urlencoded; charset=utf-8"
 }

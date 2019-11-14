@@ -9,6 +9,6 @@
 import Foundation
 
 /// The type that describes how parameters are used in a `URLRequest`.
-protocol ParameterEncoding {
+public protocol ParameterEncoding {
     func encode(_ requestConvertible: URLRequestConvertible, with parameters: Any?) throws -> URLRequest
 }
