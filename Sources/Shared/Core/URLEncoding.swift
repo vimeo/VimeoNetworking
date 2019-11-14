@@ -20,7 +20,7 @@ public typealias Parameters = [String: Any]
 public struct URLEncoding: ParameterEncoding {
     
     /// Returns a default `URLEncoding` instance.
-    static var `default`: URLEncoding { return URLEncoding() }
+    public static var `default`: URLEncoding { return URLEncoding() }
     
     /// Creates a URL request by encoding parameters and adding them to an existing request.
     ///

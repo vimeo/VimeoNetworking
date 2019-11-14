@@ -20,7 +20,7 @@ private extension String {
 public struct JSONEncoding: ParameterEncoding {
     
     /// Returns a default `JSONEncoding` instance.
-    static let `default` = JSONEncoding()
+    public static let `default` = JSONEncoding()
     
     /// The writing options to be used by the JSON serializer
     private let options: JSONSerialization.WritingOptions
