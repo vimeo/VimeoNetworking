@@ -13,8 +13,9 @@ extension VimeoSessionManager {
 
     /// Returns a publisher that wraps a data request for a given URLConvertible type.
     /// - Parameter request: the request convertible for which to create a data request.
-    ///
-    /// The publisher publishes data when the request completes, or terminates if the request fails with an error.
+    //
+    /// The publisher publishes data when the request completes and immediately
+    /// sends a completion event. If the request fails, it terminates with an error.
     @available(iOS 13, tvOS 13, macOS 10.15, *)
     func publisher(for request: URLRequestConvertible) -> AnyPublisher<Data, Error> {
         let passthroughSubject = PassthroughSubject<Data, Error>()
@@ -37,7 +38,7 @@ extension VimeoSessionManager {
     /// - Parameter request: the request convertible for which to create a decodable request.
     ///
     /// The publisher publishes the specified decodable type when the request completes and immediately
-    /// send a completion event. If the request fails, it terminates with an error.
+    /// sends a completion event. If the request fails, it terminates with an error.
     @available(iOS 13, tvOS 13, macOS 10.15, *)
     func publisher<D: Decodable>(for request: URLRequestConvertible) -> AnyPublisher<D, Error> {
         let passthroughSubject = PassthroughSubject<D, Error>()
