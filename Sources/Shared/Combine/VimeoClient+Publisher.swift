@@ -15,7 +15,7 @@ extension VimeoClient {
     /// - Parameter request: the request convertible for which to create a decodable request.
     ///
     /// The publisher publishes the specified decodable type when the request completes and immediately
-    /// send a completion event. If the request fails, it terminates with an error.
+    /// sends a completion event. If the request fails, it terminates with an error.
     @available(iOS 13, tvOS 13, macOS 10.15, *)
     func publisher<D: Decodable>(for endpoint: EndpointType) -> AnyPublisher<D, Error> {
         let passthroughSubject = PassthroughSubject<D, Error>()
