@@ -29,6 +29,8 @@ extension VimeoSessionManager {
             }
         }
 
+        task?.resume()
+        
         return passthroughSubject
             .handleEvents(receiveCancel: { task?.cancel() })
             .eraseToAnyPublisher()
@@ -40,20 +42,9 @@ extension VimeoSessionManager {
     /// The publisher publishes the specified decodable type when the request completes and immediately
     /// sends a completion event. If the request fails, it terminates with an error.
     @available(iOS 13, tvOS 13, macOS 10.15, *)
-    func publisher<D: Decodable>(for request: URLRequestConvertible) -> AnyPublisher<D, Error> {
-        let passthroughSubject = PassthroughSubject<D, Error>()
-        let task = self.request(request) { (sessionManagingResult: SessionManagingResult<D>) in
-            switch sessionManagingResult.result {
-            case .success(let decodable):
-                passthroughSubject.send(decodable)
-                passthroughSubject.send(completion: .finished)
-            case .failure(let error):
-                passthroughSubject.send(completion: .failure(error))
-            }
-        }
-
-        return passthroughSubject
-            .handleEvents(receiveCancel: { task?.cancel() })
+    func publisher<Model: Decodable>(for request: URLRequestConvertible) -> AnyPublisher<Model, Error> {
+        return publisher(for: request)
+            .decode(type: Model.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
 }
