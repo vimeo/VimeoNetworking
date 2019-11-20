@@ -6,21 +6,21 @@ jobs:
       BUNDLE_PATH: vendor/bundle
       FL_OUTPUT_DIR: output
     macos:
-      xcode: "10.2.1"
+      xcode: "11.2.1"
     working_directory: ~/VimeoNetworking
     shell: /bin/bash --login -o pipefail
-    
+
     steps:
       - checkout
-      
+
       - restore_cache:
           key: v1-gems-{{ checksum "Gemfile.lock" }}
 
-      - run: 
+      - run:
           name: Set Ruby version
           command: echo "ruby-2.4" > ~/.ruby-version
 
-      - run: 
+      - run:
           name: Install bundler dependencies
           command: bundle install --path vendor/bundle
 
@@ -36,7 +36,7 @@ jobs:
           paths:
             - vendor/bundle
           key: v1-gems-{{ checksum "Gemfile.lock" }}
-          
+
       - store_artifacts:
           path: output
 
@@ -48,4 +48,3 @@ workflows:
   build:
     jobs:
       - build-and-test
-      

@@ -17,7 +17,7 @@ default_platform :ios
 
 platform :ios do
   before_all do
-    xcode_version = ENV["XCODE_VERSION"] || "10.2.1"
+    xcode_version = ENV["XCODE_VERSION"] || "11.2.1"
     ensure_xcode_version(version: xcode_version)
   end
 
@@ -36,22 +36,22 @@ platform :ios do
     pretty_junit(file_pattern: "fastlane/test_output/report.junit")
 
     # Fork PRs cannot use danger because CircleCI (rightly) doesn't expose sensitive environment vars which danger makes use of to comment on PRs.
-    # So we opt out of danger for fork PRs by checking the `CIRCLE_BRANCH` environment var and matching it against pull/XXXX where XXXX == numeric chars    
+    # So we opt out of danger for fork PRs by checking the `CIRCLE_BRANCH` environment var and matching it against pull/XXXX where XXXX == numeric chars
     is_fork_pr = (ENV["CIRCLE_BRANCH"] =~ /pull\/[0-9]+/) != nil
     if is_ci? && !is_fork_pr
       danger(use_bundle_exec: false)
-    else 
+    else
       UI.message "Skipping danger: is_ci? #{is_ci?}, is_fork_pr? #{is_fork_pr}"
     end
   end
 
   desc "bumps the project and podspec version"
-  lane :version_bump do |options|    
+  lane :version_bump do |options|
 
     bump_type = options[:bump_type]
     version_number = options[:version_number]
     if bump_type.nil? && version_number.nil?
-      UI.user_error!("version_bump requires you to provide a bump_type [patch|minor|major] or specific version_number. Please try again.") 
+      UI.user_error!("version_bump requires you to provide a bump_type [patch|minor|major] or specific version_number. Please try again.")
     end
 
     increment_version_number(
@@ -68,11 +68,11 @@ platform :ios do
 
 
   after_all do |lane|
-    
+
   end
 
   error do |lane, exception|
-    
+
   end
 end
 
