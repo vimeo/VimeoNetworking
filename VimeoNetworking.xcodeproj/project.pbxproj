@@ -775,6 +775,7 @@
 		5BF72ACB2316F64800A0D2C8 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF72AC92316F64800A0D2C8 /* NetworkReachabilityManager.swift */; };
 		5BF72ACC2316F64800A0D2C8 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF72AC92316F64800A0D2C8 /* NetworkReachabilityManager.swift */; };
 		7E388B7DAAA730F67222354D /* Pods_VimeoNetworking_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25EE618A23DD07A19E67F5 /* Pods_VimeoNetworking_iOS.framework */; };
+		872D17282385999E00B5ABC7 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF7122B441A3005C66BE /* Typealiases.swift */; };
 		9E6913F9D6917E929DA785FE /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48683A775227828528A4492B /* Pods_Example.framework */; };
 		C1E13A752650AE7CE4523125 /* Pods_VimeoNetworking_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D711BBD962E1ACC44FB5766 /* Pods_VimeoNetworking_macOS.framework */; };
 		E41C0F44230461AE000EAB25 /* ConnectionsProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF888F22FE0D1100A8F646 /* ConnectionsProviding.swift */; };
@@ -2577,6 +2578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				872D17282385999E00B5ABC7 /* Typealiases.swift in Sources */,
 				5B5EF0C322B441A4005C66BE /* VIMSpace.swift in Sources */,
 				5B5EF07E22B441A3005C66BE /* VIMVideo+VOD.m in Sources */,
 				5B5EF0CC22B441A4005C66BE /* VIMVODConnection.m in Sources */,
