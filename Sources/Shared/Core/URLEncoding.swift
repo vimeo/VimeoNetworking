@@ -18,10 +18,28 @@ public typealias Parameters = [String: Any]
 /// Collection types are encoded using the convention of appending `[]` to the key for array values (`foo[]=1&foo[]=2`).
 /// For dictionary values, the key surrounded by square brackets is used (`foo[bar]=baz`).
 public struct URLEncoding: ParameterEncoding {
-    
+
+    public enum Destination {
+        case methodDependent
+        case URL
+        case body
+    }
+
     /// Returns a default `URLEncoding` instance.
     public static var `default`: URLEncoding { return URLEncoding() }
-    
+
+    /// MARK: - Private
+
+    /// The destination to which parameters will be encoded to
+    private let destination: Destination
+
+
+    /// The URLEncoding type public initializer
+    /// - Parameter destination: the destination to which parameters will be encoded to. Defaults to `methodDependent`
+    public init(destination: Destination = .methodDependent) {
+        self.destination = destination
+    }
+
     /// Creates a URL request by encoding parameters and adding them to an existing request.
     ///
     /// - Parameters:
@@ -52,12 +70,11 @@ public struct URLEncoding: ParameterEncoding {
             throw VimeoNetworkingError.encodingFailed(.missingHTTPMethod)
         }
         
-        switch httpMethod {
-        // These methods take their encoded parameters directly in the URL
-        case .get, .head, .delete:
+        switch (self.destination, httpMethod) {
+        // .get, .head and .delete methods take their encoded parameters directly in the URL unless otherwise specified
+        case (.methodDependent, .get), (.methodDependent, .head), (.methodDependent, .delete), (.URL, _):
             return try inURLEncode(unwrappedParameters, for: &urlRequest)
-        // For all other cases, assume body encoding
-        default:
+        case (.methodDependent, _), (.body, _):
             return try bodyEncode(unwrappedParameters, for: &urlRequest)
         }
     }
