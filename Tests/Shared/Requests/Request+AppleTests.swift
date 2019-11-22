@@ -11,10 +11,11 @@ import VimeoNetworking
 
 class Request_AppleTests: XCTestCase {
 
+    let identifier = "USER_IDENTIFIER"
+    let token = "APPLE_TOKEN"
+    let scopes = [Scope.Create, .Delete]
+
     func testJoinRequest() throws {
-        let identifier = "USER_IDENTIFIER"
-        let token = "APPLE_TOKEN"
-        let scopes = [Scope.Create, .Delete]
         let request = AuthenticationRequest.joinWithApple(
             usingIdentifier: identifier,
             token: token,
@@ -34,9 +35,6 @@ class Request_AppleTests: XCTestCase {
     }
 
     func testLoginRequest() throws {
-        let identifier = "USER_IDENTIFIER"
-        let token = "APPLE_TOKEN"
-        let scopes = [Scope.Create, .Delete]
         let request = AuthenticationRequest.logInWithApple(
             usingIdentifier: identifier,
             token: token,
