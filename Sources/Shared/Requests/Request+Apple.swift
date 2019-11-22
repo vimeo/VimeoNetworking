@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Request where ModelType: VIMAccount {
+extension AuthenticationRequest {
 
     /// Constructs a `Request` for Signing in with Apple. For internal use only.
     ///
@@ -60,8 +60,8 @@ extension Request where ModelType: VIMAccount {
 private extension String {
     static let appleUserIdentifier = "apple_user_identifier"
     static let appleToken = "apple_jwt"
-    static let authenticationPathAppleToken = "oauth/authorize/apple"
-    static let authenticationPathUsers = "users"
+    static let authenticationPathAppleToken = "/oauth/authorize/apple"
+    static let authenticationPathUsers = "/users"
     static let grantTypeKey = "grant_type"
     static let grantTypeValue = "apple"
     static let scopeKey = "scope"
