@@ -49,5 +49,6 @@ class Request_AppleTests: XCTestCase {
         XCTAssertEqual(parameters["scope"] as? String, "create delete")
         XCTAssertEqual(parameters["apple_jwt"] as? String, token)
         XCTAssertEqual(parameters["apple_user_identifier"] as? String, identifier)
+        XCTAssertEqual(parameters["grant_type"] as? String, "apple")
     }
 }
