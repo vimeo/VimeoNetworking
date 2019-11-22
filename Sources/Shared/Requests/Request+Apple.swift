@@ -16,7 +16,7 @@ extension AuthenticationRequest {
     ///   - userIdentifier: the `user` stable identifier returned by `ASAuthorizationAppleIDCredential`
     ///   - token: the short-lived `authorizationCode` used to validate the authentication request
     ///   - scopes: array of `Scope` values representing permissions for app requests
-    /// - Returns: new `Request`
+    /// - Returns: new `VIMAccount` specialized `Request`
     public static func logInWithApple(
         usingIdentifier userIdentifier: String,
         token: String,
@@ -38,14 +38,13 @@ extension AuthenticationRequest {
     ///   - token: the short-lived `authorizationCode` used to validate the authentication request
     ///   - marketingOptIn: bool indicating whether a user has opted-in to receive marketing material
     ///   - scopes: array of `Scope` values representing permissions for app requests
-    /// - Returns: new `Request`
+    /// - Returns: new `VIMAccount` specialized `Request`
     public static func joinWithApple(
         usingIdentifier userIdentifier: String,
         token: String,
         marketingOptIn: Bool,
         scopes: [Scope]
-    )
-        -> Request {
+    ) -> Request {
         let parameters: [String: Any] = [
             .scopeKey: Scope.combine(scopes),
             .appleUserIdentifier: userIdentifier,

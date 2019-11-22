@@ -16,16 +16,20 @@ class Request_AppleTests: XCTestCase {
     let scopes = [Scope.Create, .Delete]
 
     func testJoinRequest() throws {
+        // Given, when
         let request = AuthenticationRequest.joinWithApple(
             usingIdentifier: identifier,
             token: token,
             marketingOptIn: true,
             scopes: scopes
         )
+
+        // Then
         guard let parameters = request.parameters as? [String: Any] else {
             XCTFail("Unexpected parameters type encountered.")
             return
         }
+
         XCTAssertEqual(request.path, "/users")
         XCTAssertEqual(request.method, .post)
         XCTAssertEqual(parameters["scope"] as? String, "create delete")
@@ -35,15 +39,19 @@ class Request_AppleTests: XCTestCase {
     }
 
     func testLoginRequest() throws {
+        // Given, when
         let request = AuthenticationRequest.logInWithApple(
             usingIdentifier: identifier,
             token: token,
             scopes: scopes
         )
+
+        // Then
         guard let parameters = request.parameters as? [String: Any] else {
             XCTFail("Unexpected parameters type encountered.")
             return
         }
+        
         XCTAssertEqual(request.path, "/oauth/authorize/apple")
         XCTAssertEqual(request.method, .post)
         XCTAssertEqual(parameters["scope"] as? String, "create delete")
