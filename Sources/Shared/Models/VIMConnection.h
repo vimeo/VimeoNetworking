@@ -49,6 +49,7 @@ extern NSString *const __nonnull VIMConnectionNameGroups;
 extern NSString *const __nonnull VIMConnectionNameLikes;
 extern NSString *const __nonnull VIMConnectionNamePictures;
 extern NSString *const __nonnull VIMConnectionNamePortfolios;
+extern NSString *const __nonnull VIMConnectionNameProjects;
 extern NSString *const __nonnull VIMConnectionNameShared;
 extern NSString *const __nonnull VIMConnectionNameVideos;
 extern NSString *const __nonnull VIMConnectionNameWatchlater;

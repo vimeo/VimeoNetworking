@@ -49,6 +49,7 @@ NSString *const VIMConnectionNameGroups = @"groups";
 NSString *const VIMConnectionNameLikes = @"likes";
 NSString *const VIMConnectionNamePictures = @"pictures";
 NSString *const VIMConnectionNamePortfolios = @"portfolios";
+NSString *const VIMConnectionNameProjects = @"projects";
 NSString *const VIMConnectionNameShared = @"shared";
 NSString *const VIMConnectionNameVideos = @"videos";
 NSString *const VIMConnectionNameWatchlater = @"watchlater";
