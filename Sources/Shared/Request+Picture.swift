@@ -22,6 +22,30 @@ public extension Request {
         
         return Request(method: .post, path: uri)
     }
+
+    /**
+     Create a `Request` to create a picture for a video. Note that if `time` is not specified then `active` will have
+     no effect.
+
+     - parameter videoURI: the URI of the video
+     - parameter time: the timestamp (in seconds) of the point in the video that the thumbnail should reflect
+     - parameter active: whether the newly created thumbnail should be activated
+
+     - returns: a new `Request`
+     */
+    static func createPictureRequest(
+        forVideoURI videoURI: String,
+        time: TimeInterval? = nil,
+        active: Bool? = nil) -> Request {
+        let uri = "\(videoURI)/pictures"
+
+        
+        var parameters: VimeoClient.RequestParametersDictionary = [:]
+        parameters[.timeKey] = time
+        parameters[.activeKey] = active
+
+        return Request(method: .post, path: uri, parameters: parameters)
+    }
     
     /**
      Create a `Request` to delete a picture
@@ -46,4 +70,10 @@ public extension Request {
         
         return Request(method: .patch, path: pictureURI, parameters: parameters)
     }
+}
+
+private extension String {
+    // Request & response keys
+    static let timeKey = "time"
+    static let activeKey = "active"
 }
