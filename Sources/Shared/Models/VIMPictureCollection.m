@@ -29,7 +29,7 @@
 
 @interface VIMPictureCollection ()
 
-@property (retain, nonatomic) NSNumber *active;
+@property (strong, nonatomic) NSNumber *active;
 
 @end
 
