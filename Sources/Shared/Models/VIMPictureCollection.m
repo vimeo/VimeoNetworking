@@ -27,6 +27,12 @@
 #import "VIMPictureCollection.h"
 #import "VIMPicture.h"
 
+@interface VIMPictureCollection ()
+
+@property (retain, nonatomic) NSNumber *active;
+
+@end
+
 @implementation VIMPictureCollection
 
 - (VIMPicture *)pictureForWidth:(float)width
@@ -90,6 +96,14 @@
     }
     
     return nil;
+}
+
+- (void)didFinishMapping
+{
+    if (self.active && [self.active isKindOfClass:[NSNumber class]])
+    {
+        self.isActive = [self.active boolValue];
+    }
 }
 
 @end
