@@ -30,6 +30,7 @@
 @interface VIMPictureCollection ()
 
 @property (strong, nonatomic) NSNumber *active;
+@property (nonatomic, readwrite) BOOL isActive;
 
 @end
 

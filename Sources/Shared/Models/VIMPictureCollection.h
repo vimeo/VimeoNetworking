@@ -32,7 +32,7 @@
 
 @property (strong, nonatomic, nullable) NSString *uri;
 @property (strong, nonatomic, nullable) NSArray *pictures;
-@property (nonatomic, assign) BOOL isActive;
+@property (nonatomic, readonly) BOOL isActive;
 
 - (nullable VIMPicture *)pictureForHeight:(float)height;
 - (nullable VIMPicture *)pictureForWidth:(float)width;
