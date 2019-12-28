@@ -13,12 +13,18 @@ class Request_AppleTests: XCTestCase {
 
     let identifier = "USER_IDENTIFIER"
     let token = "APPLE_TOKEN"
+    let firstName = "FIRST"
+    let lastName = "LAST"
+    let email = "TEST@EMAIL.COM"
     let scopes = [Scope.Create, .Delete]
 
     func testJoinRequest() throws {
         // Given, when
         let request = AuthenticationRequest.joinWithApple(
             usingIdentifier: identifier,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
             token: token,
             marketingOptIn: true,
             scopes: scopes
@@ -33,6 +39,9 @@ class Request_AppleTests: XCTestCase {
         XCTAssertEqual(request.path, "/users")
         XCTAssertEqual(request.method, .post)
         XCTAssertEqual(parameters["scope"] as? String, "create delete")
+        XCTAssertEqual(parameters["first_name"] as? String, firstName)
+        XCTAssertEqual(parameters["last_name"] as? String, lastName)
+        XCTAssertEqual(parameters["email"] as? String, email)
         XCTAssertEqual(parameters["marketing_opt_in"] as? Bool, true)
         XCTAssertEqual(parameters["apple_jwt"] as? String, token)
         XCTAssertEqual(parameters["apple_user_identifier"] as? String, identifier)

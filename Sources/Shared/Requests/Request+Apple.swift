@@ -41,16 +41,22 @@ extension AuthenticationRequest {
     /// - Returns: new `VIMAccount` specialized `Request`
     public static func joinWithApple(
         usingIdentifier userIdentifier: String,
+        firstName: String? = nil,
+        lastName: String? = nil,
+        email: String,
         token: String,
         marketingOptIn: Bool,
         scopes: [Scope]
     ) -> Request {
-        let parameters: [String: Any] = [
+        var parameters: [String: Any] = [
             .scopeKey: Scope.combine(scopes),
             .appleUserIdentifier: userIdentifier,
             .appleToken: token,
+            .emailKey: email,
             .marketingOptIn: marketingOptIn
         ]
+        parameters[.firstNameKey] = firstName
+        parameters[.lastNameKey] = lastName
         return Request(method: .post, path: .authenticationPathUsers, parameters: parameters)
     }
 
@@ -61,8 +67,11 @@ private extension String {
     static let appleToken = "apple_jwt"
     static let authenticationPathAppleToken = "/oauth/authorize/apple"
     static let authenticationPathUsers = "/users"
+    static let emailKey = "email"
+    static let firstNameKey = "first_name"
     static let grantTypeKey = "grant_type"
     static let grantTypeValue = "apple"
+    static let lastNameKey = "last_name"
     static let scopeKey = "scope"
     static let marketingOptIn = "marketing_opt_in"
 }
