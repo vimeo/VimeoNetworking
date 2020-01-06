@@ -30,13 +30,13 @@ import Foundation
 public struct VideoTranscodeStatus: Decodable {
     
     /// Current state of transcoding
-    var state: TranscodeState
+    public var state: TranscodeState
     
     /// Percentage of transcoding completed
-    var progress: Int
+    public var progress: Int
     
     /// Time in seconds remaining until completion
-    var timeLeft: TimeInterval
+    public var timeLeft: TimeInterval
     
     /// Current state of the transcoding process
     ///

@@ -266,9 +266,9 @@
 		5B5EF04E22B441A3005C66BE /* SubscriptionCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF8322B441A3005C66BE /* SubscriptionCollection.swift */; };
 		5B5EF04F22B441A3005C66BE /* SubscriptionCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF8322B441A3005C66BE /* SubscriptionCollection.swift */; };
 		5B5EF05022B441A3005C66BE /* SubscriptionCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEF8322B441A3005C66BE /* SubscriptionCollection.swift */; };
-		5B5EF05122B441A3005C66BE /* VIMVideoDRMFiles.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEF8422B441A3005C66BE /* VIMVideoDRMFiles.h */; };
-		5B5EF05222B441A3005C66BE /* VIMVideoDRMFiles.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEF8422B441A3005C66BE /* VIMVideoDRMFiles.h */; };
-		5B5EF05322B441A3005C66BE /* VIMVideoDRMFiles.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEF8422B441A3005C66BE /* VIMVideoDRMFiles.h */; };
+		5B5EF05122B441A3005C66BE /* VIMVideoDRMFiles.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEF8422B441A3005C66BE /* VIMVideoDRMFiles.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B5EF05222B441A3005C66BE /* VIMVideoDRMFiles.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEF8422B441A3005C66BE /* VIMVideoDRMFiles.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B5EF05322B441A3005C66BE /* VIMVideoDRMFiles.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEF8422B441A3005C66BE /* VIMVideoDRMFiles.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B5EF05422B441A3005C66BE /* VIMChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEF8522B441A3005C66BE /* VIMChannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B5EF05522B441A3005C66BE /* VIMChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEF8522B441A3005C66BE /* VIMChannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B5EF05622B441A3005C66BE /* VIMChannel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEF8522B441A3005C66BE /* VIMChannel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -398,9 +398,9 @@
 		5B5EF0D222B441A4005C66BE /* VIMVideoHLSFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFAF22B441A3005C66BE /* VIMVideoHLSFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B5EF0D322B441A4005C66BE /* VIMVideoHLSFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFAF22B441A3005C66BE /* VIMVideoHLSFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B5EF0D422B441A4005C66BE /* VIMVideoHLSFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFAF22B441A3005C66BE /* VIMVideoHLSFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5B5EF0D522B441A4005C66BE /* VIMVideoFairPlayFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFB022B441A3005C66BE /* VIMVideoFairPlayFile.h */; };
-		5B5EF0D622B441A4005C66BE /* VIMVideoFairPlayFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFB022B441A3005C66BE /* VIMVideoFairPlayFile.h */; };
-		5B5EF0D722B441A4005C66BE /* VIMVideoFairPlayFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFB022B441A3005C66BE /* VIMVideoFairPlayFile.h */; };
+		5B5EF0D522B441A4005C66BE /* VIMVideoFairPlayFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFB022B441A3005C66BE /* VIMVideoFairPlayFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B5EF0D622B441A4005C66BE /* VIMVideoFairPlayFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFB022B441A3005C66BE /* VIMVideoFairPlayFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B5EF0D722B441A4005C66BE /* VIMVideoFairPlayFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFB022B441A3005C66BE /* VIMVideoFairPlayFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B5EF0D822B441A4005C66BE /* VIMVODItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEFB122B441A3005C66BE /* VIMVODItem.m */; };
 		5B5EF0D922B441A4005C66BE /* VIMVODItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEFB122B441A3005C66BE /* VIMVODItem.m */; };
 		5B5EF0DA22B441A4005C66BE /* VIMVODItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5EEFB122B441A3005C66BE /* VIMVODItem.m */; };
@@ -458,9 +458,9 @@
 		5B5EF10E22B441A4005C66BE /* VIMPictureCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFC322B441A3005C66BE /* VIMPictureCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B5EF10F22B441A4005C66BE /* VIMPictureCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFC322B441A3005C66BE /* VIMPictureCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B5EF11022B441A4005C66BE /* VIMPictureCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFC322B441A3005C66BE /* VIMPictureCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5B5EF11122B441A4005C66BE /* VIMVideoProgressiveFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFC422B441A3005C66BE /* VIMVideoProgressiveFile.h */; };
-		5B5EF11222B441A4005C66BE /* VIMVideoProgressiveFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFC422B441A3005C66BE /* VIMVideoProgressiveFile.h */; };
-		5B5EF11322B441A4005C66BE /* VIMVideoProgressiveFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFC422B441A3005C66BE /* VIMVideoProgressiveFile.h */; };
+		5B5EF11122B441A4005C66BE /* VIMVideoProgressiveFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFC422B441A3005C66BE /* VIMVideoProgressiveFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B5EF11222B441A4005C66BE /* VIMVideoProgressiveFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFC422B441A3005C66BE /* VIMVideoProgressiveFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B5EF11322B441A4005C66BE /* VIMVideoProgressiveFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFC422B441A3005C66BE /* VIMVideoProgressiveFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B5EF11422B441A4005C66BE /* VIMConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFC522B441A3005C66BE /* VIMConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B5EF11522B441A4005C66BE /* VIMConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFC522B441A3005C66BE /* VIMConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B5EF11622B441A4005C66BE /* VIMConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B5EEFC522B441A3005C66BE /* VIMConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1862,8 +1862,6 @@
 				5B5EF09C22B441A4005C66BE /* VIMComment.h in Headers */,
 				5B5EF08422B441A3005C66BE /* VIMVideoPlayFile.h in Headers */,
 				5B5EF0D222B441A4005C66BE /* VIMVideoHLSFile.h in Headers */,
-				5B5EF0D522B441A4005C66BE /* VIMVideoFairPlayFile.h in Headers */,
-				5B5EF05122B441A3005C66BE /* VIMVideoDRMFiles.h in Headers */,
 				5B5EF18322B441A4005C66BE /* VIMVODItem.h in Headers */,
 				5B5EF07222B441A3005C66BE /* VIMPolicyDocument.h in Headers */,
 				5B5EF0EA22B441A4005C66BE /* VIMModelObject.h in Headers */,
@@ -1882,15 +1880,17 @@
 				5B5EF12922B441A4005C66BE /* VIMVideo.h in Headers */,
 				5B5EF06622B441A3005C66BE /* VIMSoundtrack.h in Headers */,
 				5B5EF11722B441A4005C66BE /* VIMVideoFile.h in Headers */,
-				5B5EF11122B441A4005C66BE /* VIMVideoProgressiveFile.h in Headers */,
 				5BD765D0234D35A900821AF7 /* AFNetworkReachabilityManager.h in Headers */,
 				5B5EF18022B441A4005C66BE /* VIMActivity.h in Headers */,
 				5B5EF08722B441A3005C66BE /* VIMThumbnailUploadTicket.h in Headers */,
 				5BD765CD234D35A900821AF7 /* AFSecurityPolicy.h in Headers */,
 				5B5EF12C22B441A4005C66BE /* VIMVideo+VOD.h in Headers */,
 				5B5EF15922B441A4005C66BE /* VIMUser.h in Headers */,
+				5B5EF05122B441A3005C66BE /* VIMVideoDRMFiles.h in Headers */,
+				5B5EF11122B441A4005C66BE /* VIMVideoProgressiveFile.h in Headers */,
 				5B5EF14A22B441A4005C66BE /* VIMCredit.h in Headers */,
 				5B5EF19E22B441A4005C66BE /* VIMVideoPlayRepresentation.h in Headers */,
+				5B5EF0D522B441A4005C66BE /* VIMVideoFairPlayFile.h in Headers */,
 				5B5EF0B122B441A4005C66BE /* VIMVideoDASHFile.h in Headers */,
 				5B5EF15622B441A4005C66BE /* VIMQuantityQuota.h in Headers */,
 				5BD765BE234D35A900821AF7 /* AFAutoPurgingImageCache.h in Headers */,
@@ -1925,8 +1925,6 @@
 				5B5EF09D22B441A4005C66BE /* VIMComment.h in Headers */,
 				5B5EF08522B441A3005C66BE /* VIMVideoPlayFile.h in Headers */,
 				5B5EF0D322B441A4005C66BE /* VIMVideoHLSFile.h in Headers */,
-				5B5EF0D622B441A4005C66BE /* VIMVideoFairPlayFile.h in Headers */,
-				5B5EF05222B441A3005C66BE /* VIMVideoDRMFiles.h in Headers */,
 				5B5EF18422B441A4005C66BE /* VIMVODItem.h in Headers */,
 				5B5EF07322B441A3005C66BE /* VIMPolicyDocument.h in Headers */,
 				5B5EF0EB22B441A4005C66BE /* VIMModelObject.h in Headers */,
@@ -1945,13 +1943,15 @@
 				5B5EF12A22B441A4005C66BE /* VIMVideo.h in Headers */,
 				5B5EF06722B441A3005C66BE /* VIMSoundtrack.h in Headers */,
 				5B5EF11822B441A4005C66BE /* VIMVideoFile.h in Headers */,
-				5B5EF11222B441A4005C66BE /* VIMVideoProgressiveFile.h in Headers */,
 				5BD765D1234D35A900821AF7 /* AFNetworkReachabilityManager.h in Headers */,
 				5B5EF18122B441A4005C66BE /* VIMActivity.h in Headers */,
 				5B5EF08822B441A3005C66BE /* VIMThumbnailUploadTicket.h in Headers */,
 				5BD765CE234D35A900821AF7 /* AFSecurityPolicy.h in Headers */,
 				5B5EF12D22B441A4005C66BE /* VIMVideo+VOD.h in Headers */,
 				5B5EF15A22B441A4005C66BE /* VIMUser.h in Headers */,
+				5B5EF0D622B441A4005C66BE /* VIMVideoFairPlayFile.h in Headers */,
+				5B5EF05222B441A3005C66BE /* VIMVideoDRMFiles.h in Headers */,
+				5B5EF11222B441A4005C66BE /* VIMVideoProgressiveFile.h in Headers */,
 				5B5EF14B22B441A4005C66BE /* VIMCredit.h in Headers */,
 				5B5EF19F22B441A4005C66BE /* VIMVideoPlayRepresentation.h in Headers */,
 				5B5EF0B222B441A4005C66BE /* VIMVideoDASHFile.h in Headers */,
@@ -1988,8 +1988,6 @@
 				5B5EF09E22B441A4005C66BE /* VIMComment.h in Headers */,
 				5B5EF08622B441A3005C66BE /* VIMVideoPlayFile.h in Headers */,
 				5B5EF0D422B441A4005C66BE /* VIMVideoHLSFile.h in Headers */,
-				5B5EF0D722B441A4005C66BE /* VIMVideoFairPlayFile.h in Headers */,
-				5B5EF05322B441A3005C66BE /* VIMVideoDRMFiles.h in Headers */,
 				5B5EF18522B441A4005C66BE /* VIMVODItem.h in Headers */,
 				5B5EF07422B441A3005C66BE /* VIMPolicyDocument.h in Headers */,
 				5B5EF0EC22B441A4005C66BE /* VIMModelObject.h in Headers */,
@@ -2008,12 +2006,14 @@
 				5B5EF12B22B441A4005C66BE /* VIMVideo.h in Headers */,
 				5B5EF06822B441A3005C66BE /* VIMSoundtrack.h in Headers */,
 				5B5EF11922B441A4005C66BE /* VIMVideoFile.h in Headers */,
-				5B5EF11322B441A4005C66BE /* VIMVideoProgressiveFile.h in Headers */,
 				5BD765D2234D35A900821AF7 /* AFNetworkReachabilityManager.h in Headers */,
 				5B5EF18222B441A4005C66BE /* VIMActivity.h in Headers */,
 				5B5EF08922B441A3005C66BE /* VIMThumbnailUploadTicket.h in Headers */,
 				5BD765CF234D35A900821AF7 /* AFSecurityPolicy.h in Headers */,
 				5B5EF12E22B441A4005C66BE /* VIMVideo+VOD.h in Headers */,
+				5B5EF0D722B441A4005C66BE /* VIMVideoFairPlayFile.h in Headers */,
+				5B5EF05322B441A3005C66BE /* VIMVideoDRMFiles.h in Headers */,
+				5B5EF11322B441A4005C66BE /* VIMVideoProgressiveFile.h in Headers */,
 				5B5EF15B22B441A4005C66BE /* VIMUser.h in Headers */,
 				5B5EF14C22B441A4005C66BE /* VIMCredit.h in Headers */,
 				5B5EF1A022B441A4005C66BE /* VIMVideoPlayRepresentation.h in Headers */,
