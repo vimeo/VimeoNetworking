@@ -6,7 +6,7 @@
     ],
     "publish_blockers": {
         "facebook": ["size", "duration", "fb_no_pages"],
-        "youtube": null,
+        "youtube": ["yt_no_channel"],
         "linkedin": ["size", "duration", "li_no_organizations"],
         "twitter": null
     },
