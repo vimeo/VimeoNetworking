@@ -76,8 +76,8 @@ public class PublishJobBlockers: VIMModelObject {
     }()
 
     /// Current blockers that will prevent posting to YouTube. If `nil`, publishing is not blocked for this platform.
-    public lazy var youtube: PublishBlockers? = {
-        return PublishBlockers(blockers: self.youtubeBlockers)
+    public lazy var youtube: YouTubeBlockers? = {
+        return YouTubeBlockers(blockers: self.youtubeBlockers)
     }()
 
     public override func getObjectMapping() -> Any! {
@@ -201,6 +201,13 @@ public class LinkedInBockers: PublishBlockers {
     }()
 }
 
+/// Reasons for which a video cannot be published, specific to YouTube.
+public class YouTubeBlockers: PublishBlockers {
+    public lazy var noChannels: Bool = {
+        return self.blockers?.contains(.youTubeNoChannels) ?? false
+    }()
+}
+
 /// Parameters describing maximum values for a video post on a social media platform.
 @objcMembers
 public class PublishConstraints: VIMModelObject {
@@ -217,6 +224,7 @@ private extension String {
     static let duration = "duration"
     static let facebookNoPages = "fb_no_pages"
     static let linkedInNoOrganizations = "li_no_organizations"
+    static let youTubeNoChannels = "yt_no_channel"
     static let publishBlockers = "publish_blockers"
     static let publishConstraints = "publish_constraints"
     static let publishDestinations = "publish_destinations"
