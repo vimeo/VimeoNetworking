@@ -55,6 +55,7 @@ class PublishJobConnectionTests: XCTestCase {
 
         XCTAssertFalse(try XCTUnwrap(connection.publishBlockers?.youtube?.size))
         XCTAssertFalse(try XCTUnwrap(connection.publishBlockers?.youtube?.duration))
+        XCTAssertTrue(try XCTUnwrap(connection.publishBlockers?.youtube?.noChannels))
     }
 
     func test_publishConstraints_areParsedAsExpected() throws {
