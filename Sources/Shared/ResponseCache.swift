@@ -148,8 +148,7 @@ final public class ResponseCache {
         
         func setResponseDictionary(_ responseDictionary: VimeoClient.ResponseDictionary, forKey key: String) {
             self.queue.async(flags: .barrier, execute: {
-                
-                let data = NSKeyedArchiver.archivedData(withRootObject: responseDictionary)
+
                 let fileManager = FileManager()
                 let directoryPath = self.cachesDirectoryURL().path
                 
@@ -159,6 +158,17 @@ final public class ResponseCache {
                 }
                 
                 do {
+                    let data: Data
+
+                    if #available(iOS 12.0, *) {
+                        data = try NSKeyedArchiver.archivedData(
+                            withRootObject: responseDictionary,
+                            requiringSecureCoding: false
+                        )
+                    } else {
+                        data = NSKeyedArchiver.archivedData(withRootObject: responseDictionary)
+                    }
+
                     if !fileManager.fileExists(atPath: directoryPath) {
                         try fileManager.createDirectory(atPath: directoryPath, withIntermediateDirectories: true, attributes: nil)
                     }
@@ -196,7 +206,15 @@ final public class ResponseCache {
                 
                 do {
                     try ExceptionCatcher.doUnsafe {
-                        responseDictionary = NSKeyedUnarchiver.unarchiveObject(with: data) as? VimeoClient.ResponseDictionary
+                        if #available(iOS 12.0, *) {
+                            responseDictionary = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(
+                                data
+                            ) as? VimeoClient.ResponseDictionary
+                        } else {
+                            responseDictionary = NSKeyedUnarchiver.unarchiveObject(
+                                with: data
+                            ) as? VimeoClient.ResponseDictionary
+                        }
                     }
                 }
                 catch let error {
