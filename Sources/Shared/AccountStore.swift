@@ -83,11 +83,20 @@ final class AccountStore {
      - throws: an error if the data could not be saved
      */
     func save(_ account: VIMAccount, ofType type: AccountType) throws {
-        let data = NSMutableData()
-        let archiver = NSKeyedArchiver(forWritingWith: data)
-        archiver.encode(account)
-        archiver.finishEncoding()
-        
+        let data: NSData
+
+        if #available(iOS 12.0, *) {
+            let archiver = NSKeyedArchiver(requiringSecureCoding: false)
+            archiver.encode(account)
+            data = archiver.encodedData as NSData
+        } else {
+            let mutableData = NSMutableData()
+            let archiver = NSKeyedArchiver(forWritingWith: mutableData)
+            archiver.encode(account)
+            archiver.finishEncoding()
+            data = mutableData
+        }
+
         try self.keychainStore.set(data: data, forKey: type.keychainKey())
     }
     
@@ -106,8 +115,15 @@ final class AccountStore {
             else {
                 return nil
             }
-            
-            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+
+            let unarchiver: NSKeyedUnarchiver
+
+            if #available(iOS 12.0, *) {
+                unarchiver = try NSKeyedUnarchiver(forReadingFrom: data)
+            } else {
+                unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            }
+
             var decodedAccount: VIMAccount? = nil
             try ExceptionCatcher.doUnsafe {
                 decodedAccount = unarchiver.decodeObject() as? VIMAccount
