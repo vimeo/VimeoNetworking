@@ -36,7 +36,7 @@ public extension Request {
         hasAccessOnly: Bool? = nil,
         filterString: String? = nil
     ) -> Request {
-        let hasAccessOnlyPair = hasAccessOnly.map { "\(String.hasAccessOnly)=\($0)" }
+        let hasAccessOnlyPair = hasAccessOnly.map { "\(String.hasAccessOnlyKey)=\($0)" }
         let filterStringPair = filterString.map { "\(String.fieldsKey)=\($0)" }
         let parametersString = [
             hasAccessOnlyPair,
@@ -56,6 +56,6 @@ public extension Request {
 // MARK: - Constants
 
 private extension String {
-    static let hasAccessOnly = "has_access_only"
+    static let hasAccessOnlyKey = "has_access_only"
     static let fieldsKey = "fields"
 }
