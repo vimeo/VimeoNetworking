@@ -86,7 +86,7 @@ NSString *const VIMConnectionNamePublishToSocial = @"publish_to_social";
 - (void)didFinishMapping
 {
     if (self.total != nil && [self.total isKindOfClass: [NSNumber class]] == NO) {
-        NSAssert(false, @"Error: Detected instance where `commentsConnection.total` is unexpectedly not an `NSNumber`.");
+        NSAssert(false, @"Error: Detected instance where `connection.total` is unexpectedly not an `NSNumber`.");
         self.total = @0;
     }
 }
