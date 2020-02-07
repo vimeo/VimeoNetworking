@@ -20,6 +20,8 @@
 
 - (void)didFinishMapping
 {
+    [super didFinishMapping];
+
     self.extraVideosCount = self.extra_total;
     self.mainVideosCount = self.main_total;
     self.viewableVideosCount = self.viewable_total;
