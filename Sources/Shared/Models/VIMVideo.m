@@ -550,7 +550,7 @@ NSString *VIMContentRating_Safe = @"safe";
         }
         else
         {
-            NSAssert(false, @"Error: Detected instance where `NSNumber` is not `NSNumber`.");
+            NSAssert(false, @"Error: Detected instance where `commentsConnection.total` is unexpectedly not an `NSNumber`.");
 
             return 0;
         }
