@@ -542,21 +542,17 @@ NSString *VIMContentRating_Safe = @"safe";
 {
     VIMConnection *commentsConnection = [self connectionWithName:VIMConnectionNameComments];
 
-    if (self.canViewComments)
-    {
-        if ([commentsConnection.total respondsToSelector:@selector(intValue)])
-        {
-            return commentsConnection.total.intValue;
-        }
-        else
-        {
-            NSAssert(false, @"Error: Detected instance where `commentsConnection.total` is unexpectedly not an `NSNumber`.");
+    if (self.canViewComments == NO)
+        return 0;
 
-            return 0;
-        }
+    if ([commentsConnection.total respondsToSelector:@selector(intValue)])
+    {
+        return commentsConnection.total.intValue;
     }
     else
     {
+        NSAssert(false, @"Error: Detected instance where `commentsConnection.total` is unexpectedly not an `NSNumber`.");
+
         return 0;
     }
 }
