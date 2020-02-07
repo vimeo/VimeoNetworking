@@ -541,8 +541,24 @@ NSString *VIMContentRating_Safe = @"safe";
 - (NSInteger)commentsCount
 {
     VIMConnection *commentsConnection = [self connectionWithName:VIMConnectionNameComments];
-    
-    return (self.canViewComments ? commentsConnection.total.intValue : 0);
+
+    if (self.canViewComments)
+    {
+        if ([commentsConnection.total respondsToSelector:@selector(intValue)])
+        {
+            return commentsConnection.total.intValue;
+        }
+        else
+        {
+            NSAssert(false, @"Error: Detected instance where `NSNumber` is not `NSNumber`.");
+
+            return 0;
+        }
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 - (BOOL)is360
