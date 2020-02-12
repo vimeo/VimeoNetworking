@@ -27,10 +27,10 @@
 public struct PublishToFacebookPost {
 
     /// The title of the post as it will appear on Facebook.
-    public let title: String
+    public let title: String?
 
     /// The description of the post as it will appear on Facebook.
-    public let description: String
+    public let description: String?
 
     /// The identifier of the Facebook page being posted to.
     public let destination: Int
@@ -51,8 +51,8 @@ public struct PublishToFacebookPost {
     public let allowSocialActions: Bool
 
     public init(
-        title: String,
-        description: String,
+        title: String? = nil,
+        description: String? = nil,
         destination: Int,
         categoryID: String? = nil,
         allowEmbedding: Bool,
