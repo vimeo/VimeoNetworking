@@ -129,14 +129,14 @@ public struct PublishToYouTubePost {
     public let privacy: Privacy
 
     /// The YouTube category identifier which this video falls into.
-    public let categoryID: String
+    public let categoryID: String?
 
     public init(
         title: String,
         description: String? = nil,
         tags: [String]? = nil,
         privacy: Privacy,
-        categoryID: String
+        categoryID: String? = nil
     ) {
         self.title = title
         self.description = description
