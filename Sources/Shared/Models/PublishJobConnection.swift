@@ -37,7 +37,7 @@ public class PublishJobConnection: VIMConnection {
 
     /// Whether or not a post has been published, split by platform.
     public private(set) var publishDestinations: PublishJobDestinations?
-    
+
     public override func getClassForObjectKey(_ key: String?) -> AnyClass? {
         switch key {
         case String.publishBlockers:
@@ -169,7 +169,7 @@ public class PublishBlockers: VIMModelObject {
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        nil
     }
 
     /// The file size of the video is too large for the platform.
