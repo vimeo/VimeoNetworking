@@ -853,6 +853,9 @@
 		7FDACABA23A01170000C12B3 /* TranscodeStatusEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDACAB923A01170000C12B3 /* TranscodeStatusEndpointTests.swift */; };
 		7FDACABC23A0135C000C12B3 /* VideoTranscodeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDACABB23A0135C000C12B3 /* VideoTranscodeStatus.swift */; };
 		9E6913F9D6917E929DA785FE /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48683A775227828528A4492B /* Pods_Example.framework */; };
+		B92E337323FF261C00422248 /* publish-to-social-connection-malformed-response.json in Resources */ = {isa = PBXBuildFile; fileRef = B92E337223FF261C00422248 /* publish-to-social-connection-malformed-response.json */; };
+		B92E337423FF261C00422248 /* publish-to-social-connection-malformed-response.json in Resources */ = {isa = PBXBuildFile; fileRef = B92E337223FF261C00422248 /* publish-to-social-connection-malformed-response.json */; };
+		B92E337523FF261C00422248 /* publish-to-social-connection-malformed-response.json in Resources */ = {isa = PBXBuildFile; fileRef = B92E337223FF261C00422248 /* publish-to-social-connection-malformed-response.json */; };
 		C1E13A752650AE7CE4523125 /* Pods_VimeoNetworking_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D711BBD962E1ACC44FB5766 /* Pods_VimeoNetworking_macOS.framework */; };
 		E41C0F44230461AE000EAB25 /* ConnectionsProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF888F22FE0D1100A8F646 /* ConnectionsProviding.swift */; };
 		E41C0F45230461AE000EAB25 /* ConnectionsProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF888F22FE0D1100A8F646 /* ConnectionsProviding.swift */; };
@@ -1247,6 +1250,7 @@
 		A3438E0F44DD71015EE99A4B /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		AAF4B182ABDE6458EC73CBED /* Pods-VimeoNetworking-tvOS-VimeoNetworking-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworking-tvOS-VimeoNetworking-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-VimeoNetworking-tvOS-VimeoNetworking-tvOSTests/Pods-VimeoNetworking-tvOS-VimeoNetworking-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		AE25EE618A23DD07A19E67F5 /* Pods_VimeoNetworking_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VimeoNetworking_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B92E337223FF261C00422248 /* publish-to-social-connection-malformed-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "publish-to-social-connection-malformed-response.json"; sourceTree = "<group>"; };
 		CBC04BE3592F68A83D5FE390 /* Pods-VimeoNetworking-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworking-macOS.release.xcconfig"; path = "Target Support Files/Pods-VimeoNetworking-macOS/Pods-VimeoNetworking-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		D6E44B6596C579E904293430 /* Pods-VimeoNetworking-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworking-macOS.debug.xcconfig"; path = "Target Support Files/Pods-VimeoNetworking-macOS/Pods-VimeoNetworking-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		DD31923433419940A369ACD6 /* Pods-VimeoNetworking-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VimeoNetworking-tvOS.release.xcconfig"; path = "Target Support Files/Pods-VimeoNetworking-tvOS/Pods-VimeoNetworking-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -1465,6 +1469,7 @@
 				5B1DF2C622B41C90007F2416 /* programmed_cinema.json */,
 				0C37EFE423CD0A0900A631D8 /* publish-to-social-connection.json */,
 				0C37EFE823CD1E6100A631D8 /* publish-to-social-response.json */,
+				B92E337223FF261C00422248 /* publish-to-social-connection-malformed-response.json */,
 				5B1DF2C722B41C90007F2416 /* upload_gcs.json */,
 				0C10EA3523CE27F00040ECAC /* video-with-publish-to-social-connection.json */,
 			);
@@ -2370,6 +2375,7 @@
 				0C10EA3623CE27F00040ECAC /* video-with-publish-to-social-connection.json in Resources */,
 				5B1DF37A22B41C90007F2416 /* categories-animation-response.json in Resources */,
 				5B1DF36522B41C90007F2416 /* user_plus.json in Resources */,
+				B92E337323FF261C00422248 /* publish-to-social-connection-malformed-response.json in Resources */,
 				5B1DF34D22B41C90007F2416 /* user_live_business.json in Resources */,
 				0CE4CE1023A7EC9C000C03C5 /* connected-app-youtube.json in Resources */,
 				5B1DF35C22B41C90007F2416 /* user_basic.json in Resources */,
@@ -2406,6 +2412,7 @@
 				0C10EA3723CE27F00040ECAC /* video-with-publish-to-social-connection.json in Resources */,
 				5B1DF37B22B41C90007F2416 /* categories-animation-response.json in Resources */,
 				5B1DF36622B41C90007F2416 /* user_plus.json in Resources */,
+				B92E337423FF261C00422248 /* publish-to-social-connection-malformed-response.json in Resources */,
 				5B1DF34E22B41C90007F2416 /* user_live_business.json in Resources */,
 				0CE4CE1123A7EC9C000C03C5 /* connected-app-youtube.json in Resources */,
 				5B1DF35D22B41C90007F2416 /* user_basic.json in Resources */,
@@ -2442,6 +2449,7 @@
 				0C10EA3823CE27F00040ECAC /* video-with-publish-to-social-connection.json in Resources */,
 				5B1DF37C22B41C90007F2416 /* categories-animation-response.json in Resources */,
 				5B1DF36722B41C90007F2416 /* user_plus.json in Resources */,
+				B92E337523FF261C00422248 /* publish-to-social-connection-malformed-response.json in Resources */,
 				5B1DF34F22B41C90007F2416 /* user_live_business.json in Resources */,
 				0CE4CE1223A7EC9C000C03C5 /* connected-app-youtube.json in Resources */,
 				5B1DF35E22B41C90007F2416 /* user_basic.json in Resources */,

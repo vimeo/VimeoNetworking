@@ -1,0 +1,33 @@
+{
+    "uri": "/videos/277485394/publish_to_social",
+    "options": [
+        "GET",
+        "PUT"
+    ],
+    "publish_blockers": {
+        "facebook": ["size", "duration", "fb_no_pages"]
+    },
+    "publish_constraints": {
+        "youtube": {
+            "duration": 43200,
+            "size": 137438953472
+        },
+        "facebook": {
+            "duration": 14400,
+            "size": 10737418240
+        },
+        "twitter": {
+            "duration": 140,
+            "size": 536870912
+        },
+        "linkedin": {
+            "duration": 600,
+            "size": 5368709120
+        }
+    },
+    "publish_destinations": {
+        "facebook": false,
+        "youtube": true,
+        "linkedin": "published",
+    }
+}
