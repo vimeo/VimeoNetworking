@@ -39,6 +39,24 @@ class PublishJobConnectionTests: XCTestCase {
         return json
     }
 
+    func test_publishJobConnection_isParsedAsExpected_fromVideoObject() throws {
+        guard let json = ResponseUtilities.loadResponse(
+            from: "video-with-publish-to-social-connection.json"
+        ) else {
+            XCTFail()
+            return
+        }
+
+        let video = try VIMObjectMapper.mapObject(responseDictionary: json) as VIMVideo
+        let publishConnection = video.publishJobConnection
+
+        XCTAssertNotNil(publishConnection)
+        XCTAssertTrue(type(of: publishConnection) == PublishJobConnection?.self)
+        XCTAssertEqual(publishConnection?.uri, "/videos/277485394/publish_to_social")
+        XCTAssertEqual(publishConnection?.publishConstraints?.facebook?.duration, 14400)
+        XCTAssertEqual(publishConnection?.publishConstraints?.facebook?.size, 10737418240)
+    }
+
     func test_publishBlockers_areParsedAsExpected() throws {
         let connection = try VIMObjectMapper.mapObject(responseDictionary: json) as PublishJobConnection
 
@@ -84,35 +102,63 @@ class PublishJobConnectionTests: XCTestCase {
     }
 
     func test_publishedDestinations_handleBadOrMissingValues() throws {
-        let json: [String: Any] = [
-            "facebook": false,
-            "linkedin": true,
-            "youtube": "published"
-        ]
-
-        let destinations = try VIMObjectMapper.mapObject(responseDictionary: json) as PublishJobDestinations
-
-        XCTAssertFalse(destinations.facebook)
-        XCTAssertTrue(destinations.linkedin)
-        XCTAssertFalse(destinations.youtube)
-        XCTAssertFalse(destinations.twitter)
-    }
-
-    func test_publishJobConnection_isParsesAsExpected_fromVideoObject() throws {
         guard let json = ResponseUtilities.loadResponse(
-            from: "video-with-publish-to-social-connection.json"
+            from: "publish-to-social-connection-malformed-response.json"
         ) else {
             XCTFail()
             return
         }
 
-        let video = try VIMObjectMapper.mapObject(responseDictionary: json) as VIMVideo
-        let publishConnection = video.publishJobConnection
+        let publishConnection = try VIMObjectMapper.mapObject(responseDictionary: json) as PublishJobConnection
+        let destinations = try XCTUnwrap(publishConnection.publishDestinations)
+
+        XCTAssert(destinations.isKind(of: PublishJobDestinations.self))
+        XCTAssertFalse(destinations.facebook)
+        XCTAssertFalse(destinations.linkedin)
+        XCTAssertTrue(destinations.youtube)
+        XCTAssertFalse(destinations.twitter)
+    }
+
+    @available(iOS 11.0, *)
+    func test_publishBlockers_doesNotThrow_whenDecodedWithKeyedUnarchiver() throws {
+        guard let json = ResponseUtilities.loadResponse(
+            from: "publish-to-social-connection-malformed-response.json"
+        ) else {
+            XCTFail()
+            return
+        }
+
+        let publishConnection = try VIMObjectMapper.mapObject(responseDictionary: json) as PublishJobConnection
 
         XCTAssertNotNil(publishConnection)
-        XCTAssertTrue(type(of: publishConnection) == PublishJobConnection?.self)
-        XCTAssertEqual(publishConnection?.uri, "/videos/277485394/publish_to_social")
-        XCTAssertEqual(publishConnection?.publishConstraints?.facebook?.duration, 14400)
-        XCTAssertEqual(publishConnection?.publishConstraints?.facebook?.size, 10737418240)
+        XCTAssertNotNil(publishConnection.publishBlockers)
+        XCTAssertNotNil(publishConnection.publishBlockers?.facebook)
+        XCTAssertTrue(try XCTUnwrap(publishConnection.publishBlockers?.facebook).size)
+        XCTAssertTrue(try XCTUnwrap(publishConnection.publishBlockers?.facebook).duration)
+        XCTAssertTrue(try XCTUnwrap(publishConnection.publishBlockers?.facebook).noPages)
+
+        // Missing blocker data is assumed to be false
+        XCTAssertNotNil(publishConnection.publishBlockers?.twitter)
+        XCTAssertFalse(try XCTUnwrap(publishConnection.publishBlockers?.twitter).size)
+        XCTAssertFalse(try XCTUnwrap(publishConnection.publishBlockers?.twitter).duration)
+
+        XCTAssertNotNil(publishConnection.isKind(of: PublishJobConnection.self))
+
+        let data = try NSKeyedArchiver.archivedData(
+            withRootObject: publishConnection,
+            requiringSecureCoding: false
+        )
+        let decodedConnection = try XCTUnwrap(
+            NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? PublishJobConnection
+        )
+
+        XCTAssertNotNil(decodedConnection)
+        XCTAssertNotNil(decodedConnection.publishBlockers)
+        XCTAssertNotNil(decodedConnection.publishBlockers?.facebook)
+        XCTAssertTrue(try XCTUnwrap(decodedConnection.publishBlockers?.facebook).size)
+        XCTAssertTrue(try XCTUnwrap(decodedConnection.publishBlockers?.facebook).duration)
+        XCTAssertTrue(try XCTUnwrap(decodedConnection.publishBlockers?.facebook).noPages)
+        XCTAssertFalse(try XCTUnwrap(decodedConnection.publishBlockers?.twitter).size)
+        XCTAssertFalse(try XCTUnwrap(decodedConnection.publishBlockers?.twitter).duration)
     }
 }
