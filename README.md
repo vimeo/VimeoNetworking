@@ -29,6 +29,7 @@ Add the following to your Cartfile:
 
 ```
 github "vimeo/VimeoNetworking"
+github "AFNetworking/AFNetworking" == 3.1.0
 ```
 
 You can optionally specify a version number, or point directly to our `develop` branch. Note that breaking changes may be introduced into `develop` at any time, but those changes will always be behind a major or minor release version number.
