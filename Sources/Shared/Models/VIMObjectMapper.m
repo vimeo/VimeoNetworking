@@ -26,6 +26,16 @@
 
 #import "VIMObjectMapper.h"
 #import "VIMMappable.h"
+#import <objc/runtime.h>
+
+enum VimeoPropertyType {
+    kVimeoPropertyTypeNSString,
+    kVimeoPropertyTypeNSDictionary
+};
+
+typedef enum VimeoPropertyType VimeoPropertyType;
+
+static bool isClassPropertyOfType(Class class, NSString *property_name, VimeoPropertyType type);
 
 @interface VIMObjectMapper ()
 {
@@ -137,12 +147,12 @@
                     }];
                 }
                 
-                if (keyFound == NO)
+                if (keyFound == NO && isClassPropertyOfType(newObject.class, objectKey, kVimeoPropertyTypeNSDictionary))
                 {
                     [newObject setValue:jsonValue forKey:objectKey];
                 }
 			}
-            else
+            else if (isClassPropertyOfType(newObject.class, objectKey, kVimeoPropertyTypeNSDictionary))
             {
                 [newObject setValue:jsonValue forKey:objectKey];
             }
@@ -353,3 +363,37 @@
 }
 
 @end
+
+static bool isClassPropertyOfType(Class class, NSString *property_name, VimeoPropertyType type) {
+
+    bool result = false;
+
+    do {
+        if (property_name == nil) break;
+
+        const char * property_name_c = [property_name UTF8String];
+        if (property_name_c == NULL) break;
+
+        objc_property_t property = class_getProperty(class, property_name_c);
+        if (property == NULL) break;
+
+        char * copied_name_attribute = property_copyAttributeValue(property, "T");
+        if (copied_name_attribute == NULL) break;
+
+        switch (type) {
+            case kVimeoPropertyTypeNSString:
+                result = strcmp(copied_name_attribute, "@\"NSString\"") == 0;
+                break;
+            case kVimeoPropertyTypeNSDictionary:
+                result = strcmp(copied_name_attribute, "@\"NSDictionary\"") == 0;
+                break;
+            default:
+                break;
+        }
+
+        free(copied_name_attribute);
+
+    } while (false);
+
+    return result;
+}
